@@ -2782,7 +2782,7 @@ $gender
 .?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCNavBreadthFirstSearchLattice@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
 .?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCNavSearchHexLattice@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
 .?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCNonDamagingScan@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
-.?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCollectAcceptableAreasFunctor@?A0x6790e643@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
+.?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCollectAcceptableAreasFunctor@?A0x4f58f46e@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
 .?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCollectArriveFirstSpotsFunctor@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
 .?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCollectHidingSpotsFunctor@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
 .?AV?$_Func_impl_no_alloc@V?$reference_wrapper@VCollectRetreatSpotsFunctor@@@std@@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBUNavSearchAreaInfo_t@@@std@@
@@ -2812,7 +2812,7 @@ $gender
 .?AV?$reference_wrapper@VCNavBreadthFirstSearchLattice@@@std@@
 .?AV?$reference_wrapper@VCNavSearchHexLattice@@@std@@
 .?AV?$reference_wrapper@VCNonDamagingScan@@@std@@
-.?AV?$reference_wrapper@VCollectAcceptableAreasFunctor@?A0x6790e643@@@std@@
+.?AV?$reference_wrapper@VCollectAcceptableAreasFunctor@?A0x4f58f46e@@@std@@
 .?AV?$reference_wrapper@VCollectArriveFirstSpotsFunctor@@@std@@
 .?AV?$reference_wrapper@VCollectHidingSpotsFunctor@@@std@@
 .?AV?$reference_wrapper@VCollectRetreatSpotsFunctor@@@std@@
@@ -22472,7 +22472,6 @@ cu_dualberretta_dragons
 cu_elites_beware
 cu_elites_urbanstorm
 cu_falchion_lore
-cu_famas_holo_ocean
 cu_famas_lenta
 cu_famas_nuke_tension
 cu_famas_owl_orange
@@ -22515,7 +22514,6 @@ cu_glock_hero
 cu_glock_indigo
 cu_glock_moon_rabbit
 cu_glock_noir
-cu_glock_ramzes
 cu_glock_snackattack
 cu_glock_wasteland_rebel
 cu_green_leather_ak47
@@ -22536,7 +22534,6 @@ cu_luggage_sg553
 cu_luggage_usp-s
 cu_m249_deep_relief
 cu_m249_downvote
-cu_m249_scarab
 cu_m249_sektor
 cu_m249_spectre
 cu_m4_asimov
@@ -22577,7 +22574,6 @@ cu_mac10_portable
 cu_mac10_propaganda
 cu_mac10_redhot
 cu_mac10_sakkaku
-cu_mac10_scarab
 cu_mac10_toybox
 cu_mag7_heaven
 cu_mag7_insomnia
@@ -22644,7 +22640,6 @@ cu_p90_grimm
 cu_p90_mastery
 cu_p90_nostalgia
 cu_p90_offworld
-cu_p90_scarab_of_wisdom
 cu_p90_scorpius
 cu_p90_shapewood
 cu_p90_trigon
@@ -22702,7 +22697,6 @@ cu_tec9_bamboo
 cu_tec9_cracked_opal
 cu_tec9_flash
 cu_tec9_freedom
-cu_tec9_mummy
 cu_tec9_sandstorm
 cu_tec9_snake
 cu_titanstorm
@@ -22740,7 +22734,6 @@ cu_xm1014_caritas
 cu_xm1014_heaven_guard
 cu_xm1014_incinerator
 cu_xm1014_oxide_blaze
-cu_xm1014_pharaoh
 cu_xm1014_spectrum
 cu_xray_m4
 cu_xray_p250
@@ -24670,7 +24663,6 @@ gs_ak47_empress
 gs_ak47_gold_arabesque
 gs_ak47_nibbler
 gs_ak47_professional
-gs_ak47_strone
 gs_ak47_supercharged
 gs_ak_colony01_red
 gs_aug_aristocrat
@@ -24686,7 +24678,6 @@ gs_awp_gungnir
 gs_awp_hydra
 gs_awp_limbo_snake
 gs_awp_phobos
-gs_awp_strone
 gs_bayonet_autotronic
 gs_bizon_flasher
 gs_bizon_hellraider
@@ -24750,14 +24741,12 @@ gs_m4a1_mecha_industries
 gs_m4a1_shatter
 gs_m4a1_vertigo
 gs_m4a1s_insomnia
-gs_m4a1s_milspec
 gs_m4a1s_operator
 gs_m4a1s_snakebite_gold
 gs_m4a4_chopper_ghost
 gs_m4a4_coalition
 gs_m4a4_emperor
 gs_m4a4_pioneer
-gs_m4a4_ra
 gs_m4a4_royal_squire
 gs_m4a4_sector
 gs_m9_bay_autotronic
@@ -24769,7 +24758,6 @@ gs_mac10_snake
 gs_mac10_stalker
 gs_mag7_bismuth
 gs_mag7_glass
-gs_mag7_goold
 gs_mag7_justice
 gs_mag7_popdog
 gs_mag7_praetorian
@@ -24783,16 +24771,13 @@ gs_mp5_neon_flektarn
 gs_mp5sd_astromatic
 gs_mp5sd_wasteland_legacy
 gs_mp7_bloodsport
-gs_mp7_strone
 gs_mp9_colony01
 gs_mp9_starlight
 gs_negev_thor
 gs_nova_anchorite
 gs_nova_hunter_brute
-gs_nova_sobek
 gs_p2000-sport
 gs_p2000_imperial_dragon
-gs_p250_apep
 gs_p250_checker
 gs_p250_cybershell
 gs_p250_inferno
@@ -24813,7 +24798,6 @@ gs_r8_leviathan
 gs_r8_llamacannon
 gs_r8_memento
 gs_r8_rustking
-gs_revolver_acanthus_bronze
 gs_revolver_purple_elite
 gs_revolver_tread
 gs_sawedoff_fubar
@@ -24828,7 +24812,6 @@ gs_sg553_over_heated
 gs_sg553_phantom
 gs_sg553_rusty
 gs_sg553_tiger_moth
-gs_ssg08_anubis
 gs_ssg08_armacore
 gs_ssg08_checker
 gs_tec9_decimator
@@ -24843,7 +24826,6 @@ gs_ump_gold_bismuth
 gs_ump_roadblock
 gs_usp_voltage
 gs_usps_hangedman
-gs_usps_tactical_camo
 gs_xm1014_watchdog
 guardian_%s
 guardian_defaultmap
@@ -25122,7 +25104,6 @@ hy_ducts_blue
 hy_ducts_green
 hy_ducts_grey
 hy_ducts_yellow
-hy_dune_trap
 hy_feathers_aug
 hy_flowers
 hy_flowers_stmarc

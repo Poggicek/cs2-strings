@@ -1,0 +1,1870 @@
+
+	%s
+	%s:
+	...
+	You must construct it with ORDERED_CONSTRUCT macro in the dependency resolution function.
+	[builtin#%d]:
+	no field package.preload['%s']
+	no file '%s'
+	no module '%s' in file '%s'
+ %s
+ %s: 
+ %s="%d"
+ %s="%s"
+ <null>
+ Base Class Array'
+ Base Class Descriptor at (
+ Class Hierarchy Descriptor'
+ Complete Object Locator'
+ HTTP/1.1
+ Type Descriptor'
+ at %p
+ delete
+ delete[]
+ in function '%s'
+ in function <%s:%d>
+ in main chunk
+ new[]
+ of PCRE is not compiled with PCRE_UCP support
+!
+%016llx
+%12.6f
+%d %d %d
+%d %d %d %d
+%f %f
+%f %f %f
+%f %f %f %f
+%g %g
+%g %g %g
+%g %g %g %g
+%s
+%s %p [%f %f %f]
+%s - %s(%d)
+%s <null>
+%s at line %d
+%s called with %d arguments - expected %d
+%s called with %d arguments - expected %d-%d
+%s connection attempt timed out
+%s expected, got %s
+%s has no instance glue - are you doing objectName.%s instead of objectName:%s?
+%s near '%s'
+%s parameter %d: expected %s but got %s.
+%s.dll
+%s: %s
+%s:%d: %s
+%s:%u
+%s|%d
+%u nesting levels not completed
+%u-%s
+'%s' cannot be indexed
+'%s' cannot be indexed with '%s'
+'%s' expected
+'%s' expected (to close '%s' at line %d)
+'%s' has no '%s' metamethod
+'%s' has no member named '%s'
+'%s' is not callable
+'=' or 'in' expected
+'for' initial value must be a number
+'for' limit must be a number
+'for' step must be a number
+'module' not called from a Lua function
+'package.%s' must be a string
+'package.loaders' must be a table
+'package.preload' must be a table
+'setfenv' cannot change environment of given object
+'tostring' must return a string to 'print'
+(%s) %s:%d
+(*MARK) must have an argument
+(*VERB) not recognized
+(*temporary)
+(*vararg)
+(?R or (?[+-]digits must be followed by )
+(binary)
+(error object is not a string)
+(for control)
+(for generator)
+(for index)
+(for limit)
+(for state)
+(for step)
+(null)
+-
+-luadbg_inspector
+-luajit
+-sse2
+-sse3
+-sse4
+-vscriptdebug_script
+... Waiting for an incoming Inspector connection, %llus so far, timeout in %llus
+.?AV?$CBaseAppSystem@VIScriptManager@@@@
+.?AV?$CTier0AppSystem@VIScriptManager@@$0A@@@
+.?AV?$CTier1AppSystem@VIScriptManager@@$0A@@@
+.?AV?$CTier2AppSystem@VIScriptManager@@$0A@@@
+.?AVCLuaDBGp@@
+.?AVCLuaDbg@@
+.?AVCLuaDbgInspector@@
+.?AVCLuaVM@@
+.?AVCNopVM@@
+.?AVCPostConnectCallback@@
+.?AVCSHA1@@
+.?AVCSchemaInstallCallback@@
+.?AVCScriptManager@@
+.?AVCStack_Lua_VM_Segment_Marker@@
+.?AVIAppSystem@@
+.?AVILuaDbgConnection@@
+.?AVIScriptDebugger@@
+.?AVIScriptManager@@
+.?AVIScriptVM@@
+.?AVIStack_VM_Segment_Marker@@
+.?AVbad_alloc@stdext@@
+.?AVbad_array_new_length@stdext@@
+.?AVbad_exception@std@@
+.?AVexception@std@@
+.?AVexception@stdext@@
+.?AVlength_error@std@@
+.?AVlogic_error@std@@
+.?AVtype_info@@
+.\?.dll;!\?.dll;!\loadall.dll
+.\?.lua;!\lua\?.lua;!\lua\?\init.lua;
+.local
+.steam
+//# sourceURL=
+/json
+/json/list
+/json/version
+/process/%u
+/process/%u/%s
+0 0 0
+0 0 0 0
+0 0 0 255
+0123456789ABCDEF
+0123456789ABCDEFPX
+0123456789abcdef
+0123456789abcdefpx
+1#IND
+1#INF
+1#QNAN
+1#SNAN
+1.2.5
+10B99CC24B46CCF94E0E371687C756DB
+127.0.0.1
+1434713789_main
+258EAFA5-E914-47DA-95CA-C5AB0DC85B11
+;
+</%s>
+<?xml version="1.0" encoding="UTF-8"?>
+<Global scope>
+<Global>
+<See locals>
+<array: %u elements>
+<binary blob: %u bytes>
+<eof>
+<goto %s> jumps into the scope of local '%s'
+<identifier>
+<integer>
+<name>
+<name> or '...' expected
+<no failure reason set>
+<null>
+<number>
+<pointer>
+<string>
+<table: %u members>
+<undefined>
+<unknown KV3 basic type '%s' (%d)>
+<unknown value type %d>
+<unknown>
+=(debug command)
+=(load)
+=stdin
+><![CDATA[%s]]>
+?
+??0CUtlBuffer@@QEAA@HHH@Z
+??0CUtlSymbolTable@@QEAA@HH_N@Z
+??0CVirtualMachineCallStackTranslationEncoder@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBD@Z
+??1CUtlSymbolTable@@QEAA@XZ
+??1CVirtualMachineCallStackTranslationEncoder@@QEAA@XZ
+??2KeyValues@@SAPEAX_K@Z
+??3KeyValues@@SAXPEAX@Z
+??YCUtlString@@QEAAAEAV0@D@Z
+??YCUtlString@@QEAAAEAV0@PEBD@Z
+?Acquire@CUtlString@@QEAAXPEAVCBufferString@@_N@Z
+?AddKey@KeyValues@@QEAAPEAV1@PEBD@Z
+?AddNullTermination@CUtlBuffer@@IEAAXXZ
+?AddString@CUtlSymbolTable@@QEAA?AVCUtlSymbol@@PEBDPEA_N@Z
+?AppendFormat@CBufferString@@QEAAHPEBDZZ
+?AppendFormatV@CBufferString@@QEAAHPEBDPEAD@Z
+?Assert_ConditionFailed@@YA_NAEBU_AssertCompileTimeConstantStruct_t@@PEBDZZ
+?CheckPut@CUtlBuffer@@IEAA_NH@Z
+?Concat@CBufferString@@QEAAPEBDPEBD0ZZ
+?DevMsg@@YAXPEBDZZ
+?EncodeAsNativePointer@CVirtualMachineCallStackTranslationEncoder@@QEAAPEAXPEBD0I@Z
+?EnsureCapacity@CBufferString@@QEAAHHPEAPEAD_N1@Z
+?Final@CSHA1@@QEAAXXZ
+?Find@CUtlSymbolTable@@QEBA?AVCUtlSymbol@@PEBD@Z
+?FixSlashes@CBufferString@@QEAAPEBDD@Z
+?Format@CBufferString@@QEAAHPEBDZZ
+?Format@CUtlString@@QEAAHPEBDZZ
+?Free@CRawAllocator@@SAXW4RawAllocatorType_t@@PEAX_K@Z
+?FreeInts@CVariableBitStringBase@@AEAAXXZ
+?FreeMemoryBlock@CUtlString@@AEAAXXZ
+?Insert@CBufferString@@QEAAPEBDHPEBDH_N@Z
+?Internal_SetString@CKeyValues_Data@@IEAAXPEBD@Z
+?IsEqual_CaseSensitive@CUtlString@@QEBA_NPEBD@Z
+?IsEqual_FastCaseInsensitive@CUtlString@@QEBA_NPEBD@Z
+?LoadKV3FromJSON@@YA_NPEAVKeyValues3@@PEAVCUtlString@@PEBD2@Z
+?Lock@CThreadSpinMutex@@AECAXPEBDHII@Z
+?LoggingSystem_Log@@YA?AW4LoggingResponse_t@@HW4LoggingSeverity_t@@AEBULeafCodeInfo_t@@PEBDZZ
+?LoggingSystem_Log@@YA?AW4LoggingResponse_t@@HW4LoggingSeverity_t@@VColor@@PEBDZZ
+?Printf@CUtlBuffer@@QEAAXPEBDZZ
+?Purge@CBufferString@@QEAAXH@Z
+?Purge@CUtlString@@QEAAXXZ
+?Put@CUtlBuffer@@QEAAXPEBXH@Z
+?PutFileContent@CUtlBuffer@@QEAA_NPEBD@Z
+?PutString@CUtlBuffer@@QEAAXPEBD@Z
+?RemoveAll@CUtlSymbolTable@@QEAAXXZ
+?RemoveAt@CBufferString@@QEAAPEBDHH@Z
+?Reset@CSHA1@@QEAAXXZ
+?Resize@CVariableBitStringBase@@QEAAXH@Z
+?Set@CUtlString@@QEAAXPEBD@Z
+?SetColor@KeyValues@@QEAAXPEBDVColor@@@Z
+?SetDirect@CUtlString@@QEAAXPEBDH@Z
+?SetFloat@KeyValues@@QEAAXPEBDM@Z
+?SetFromString@netadr_t@@QEAA_NPEBD_N@Z
+?SetIP@netadr_t@@QEAAXI@Z
+?SetInt@KeyValues@@QEAAXPEBDH@Z
+?SetPort@netadr_t@@QEAAXG@Z
+?SetPtr@CBufferString@@QEAAXPEADHH_N1@Z
+?SetPtr@KeyValues@@QEAAXPEBDPEAX@Z
+?SetType@netadr_t@@QEAAXW4netadrtype_t@@@Z
+?SetUint64@KeyValues@@QEAAXPEBD_K@Z
+?StartsWith@CBufferString@@QEBA_NPEBD@Z
+?ToLowerFast@CBufferString@@QEAAXH@Z
+?ToSockadr@netadr_t@@QEBAXPEAUsockaddr@@@Z
+?ToString@netadr_t@@QEBAXPEADI_N@Z
+?Update@CSHA1@@QEAAXPEBXI@Z
+?V_stristr_fast@@YAPEBDPEBD0@Z
+ANYCRLF)
+APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!
+AlignedByteArray not properly aligned
+AnimGraphEditorUtils001
+AnimationSystemUtils_001
+AnimationSystem_001
+AppPolicyGetProcessTerminationMethod
+April
+AreFileApisANSI
+Arg list too long
+AssetBrowserSystem_001
+AssetPreviewSystem_001
+AssetRenameSystem_001
+AssetSystem001
+AssetSystemTest001
+Attempted to ConvertToCopiedData for unsupported type (%d)
+Audits.
+August
+BSR_ANYCRLF)
+BSR_UNICODE)
+Bad address
+Bad file descriptor
+BakedLODBuilderMgr001
+BenchmarkService001
+BinaryProperties_GetValue
+BitwiseAnd
+BitwiseNot
+BitwiseOr
+BitwiseXor
+Breakpoint type (%s) not supported.
+Broken pipe
+Browser.
+C type
+C++ exception
+C:\buildworker\csgo_rel_win64\build\_build_\vscript\_vpc_vscript\default\win64\_msvc_\Retail\vscript.pdb
+C:\buildworker\csgo_rel_win64\build\src\mathlib\mathlib.cpp
+C:\buildworker\csgo_rel_win64\build\src\tier0_perproject\singletons.cpp
+C:\buildworker\csgo_rel_win64\build\src\vscript\languages\lua\vlua\vlua.cpp
+CDesc
+CLuaVM::HandleError
+CLuaVM::Lua_AtPanic
+CMemAllocSystemInitialize
+COMSPEC
+CRC64_ProcessBuffer
+CRLF)
+Can't call %s:%s on an object of type %s
+Cannot recover from failed socket shutdown. (error %d)
+ClearBit
+Close
+CloseHandle
+CommandLine
+CompareStringEx
+CompareStringW
+Compressed message sent without compression enabled
+Conditional breakpoints are not supported
+ConnectInterfaceSingletons
+Connection
+Connection: Upgrade
+Connection:Close
+Constructor called without a class constructor - internal error?
+Content-Length:%u
+Content-Type:application/json; charset=UTF-8
+CorExitProcess
+Couldn't find GET URL
+Couldn't find HTTP version after GET
+CreateEventW
+CreateFileW
+CreateInterface
+CreatePipe
+CreateProcessW
+Cross
+DEFINE
+DEFINE group contains more than one branch
+DOMDebugger.
+Debugger
+Debugger connected, break-in requested when %s runs
+Debugger.
+Debugger.breakpointResolved
+Debugger.paused
+Debugger.resumed
+Debugger.scriptParsed
+DebuggerBreak
+Debugging stopped
+December
+Deflate data does not end with required tail
+DeflateInit2 failed
+DeleteCriticalSection
+DemoUpconverterVersion001
+Directory not empty
+Domain error
+DuplicateHandle
+DynASM 1.5.0
+EDesc
+ERROR: Debugger.getScriptSource: invalid scriptId '%s' requested
+ERROR: Debugger.getScriptSource: no scriptId given
+EXPORTSYSTEM_INTERFACE_VERSION_001
+EconItemToolModel_001
+Emulation.
+EncodePointer
+EngineServiceMgr001
+EnterCriticalSection
+Error text not found (please report)
+Error: Duplicate command handler registered (%s)!
+Exec format error
+ExitProcess
+FATAL ERROR: unable to register all schema data: %s
+FDesc
+FILE*
+Failed to accept an incoming %s connection
+Failed to find %s
+Failed to read %s
+February
+File exists
+File too large
+Filename too long
+FindClose
+FindFirstFileExW
+FindNextFileW
+FlattenedSerializersVersion001
+FlsAlloc
+FlsFree
+FlsGetValue
+FlsSetValue
+FlushFileBuffers
+FontManager_001
+FormatMessageA
+Forward
+FreeEnvironmentStringsW
+FreeLibrary
+Friday
+Function not implemented
+GET /
+GameResourceServiceClientV001
+GameResourceServiceServerV001
+GameUIService_001
+Generate a random floating point number within a range, inclusive
+Generate a random integer within a range, inclusive
+GetACP
+GetCPInfo
+GetCPUInformation
+GetCommandLineA
+GetCommandLineW
+GetConsoleMode
+GetConsoleOutputCP
+GetCurrentProcess
+GetCurrentProcessId
+GetCurrentThreadId
+GetDefaultMiniDumpTypeFlags
+GetEnvironmentStringsW
+GetExitCodeProcess
+GetFileAttributesExW
+GetFileSizeEx
+GetFileType
+GetLastError
+GetModuleFileNameA
+GetModuleFileNameW
+GetModuleHandleA
+GetModuleHandleExA
+GetModuleHandleExW
+GetModuleHandleW
+GetOEMCP
+GetProcAddress
+GetProcessHeap
+GetResourceManifestCount
+GetResourceManifests
+GetStartupInfoW
+GetStdHandle
+GetStringTypeW
+GetSystemTimeAsFileTime
+GetTempPathW
+Global
+Globals
+HH:mm:ss
+HTTP/1.1 101 Switching Protocols
+HTTP/1.1 200 OK
+HTTP/WebSocket
+HammerMapLoader001
+HelpSystem_001
+HostStateMgr001
+IGNORING Event '%s'
+IGNORING Result for %llu
+IGNORING Runtime.getProperties for '%s'
+INSPECTOR ERROR: %s
+Illegal byte sequence
+Improper link
+Inappropriate I/O control operation
+Incoming Inspector message: %s
+InflateInit2 failed
+InitializeCriticalSectionAndSpinCount
+InitializeCriticalSectionEx
+InitializeSListHead
+Input/output error
+InputService_001
+InputStackSystemVersion001
+InputSystemVersion001
+Inspector WebSocket
+Inspector client connected on port %u
+Inspector message does not have a method or result
+Inspector message result is not a table
+Inspector.
+InstallSchemaBindings
+Int64
+Intentionally vague touch behavior for %p
+InterlockedFlushSList
+Interrupted function call
+Invalid WS leader 0x%02x
+Invalid WebSocket message received
+Invalid argument
+Invalid connection type.
+Invalid context (id=%d)
+Invalid continueToLocation message
+Invalid evaluate message
+Invalid evaluateOnCallFrame message
+Invalid getProperties message
+Invalid removeBreakpoint message
+Invalid seek
+Invalid setBreakpoint message
+Invalid setBreakpointByUrl message
+Invalid setInstrumentationBreakpoint message
+Invalid setVariableValue message
+Invalid stack level (%d)
+InvokeMiniDumpHandler
+Is a directory
+IsBitSet
+IsDebuggerPresent
+IsNull
+IsNull called without an object - did you call obj.IsNull() instead of obj:IsNull()?
+IsProcessorFeaturePresent
+IsValidCodePage
+JIT compiler disabled
+January
+JsVersion
+KERNEL32.dll
+KeyValueCache001
+LCMapStringEx
+LCMapStringW
+LOADLIB: %s
+LOG_GENERAL
+LUA Memory usage warning: The VM has hit a new high usage of %s bytes.
+LUA Memory usage: The VM has a usage of %s bytes.
+LUA_CPATH
+LUA_NOENV
+LUA_PATH
+LeaveCriticalSection
+Length
+Length2D
+LoadAndCompileScriptFile: Failed to compile script file "%s"
+LoadAndCompileScriptFile: No filesystem found
+LoadAndCompileScriptFile: Script file "%s" type does not match VM type
+LoadLibraryExA
+LoadLibraryExW
+Local
+LocaleNameToLCID
+Localize_001
+Log.entryAdded
+LoggingSystem_IsChannelEnabled
+LoggingSystem_Log
+LoggingSystem_RegisterLoggingChannel
+Lua 5.1
+Lua DBGp
+Lua function expected
+Lua scripting panic: %s
+LuaDBGp: --> 
+LuaDBGp: <-- %s
+LuaDBGp: Failed to connect to %s:%d
+LuaDBGp: Retrying to connect to %s:%d in 1s (%d/%d)
+LuaDBGp: Succeeded to connect to %s:%d
+LuaDBGp: Trying to connect to %s:%d
+LuaDBGp: Unknown command received from the IDE - "%s"
+LuaDbg
+LuaDbg - Debugging started for %s
+LuaDbg - Debugging stopped
+LuaDbgFakeModule
+LuaTable
+MATCHFRAMEWORK_001
+MM/dd/yy
+MODEL_PROCESSING_SCRIPT_INTERFACE_001
+MODEL_PROCESSING_SERVICES_INTERFACE_001
+Malformed VMDbg Runtime.getProperties for '%s'
+MapListService_001
+March
+MaterialUtils_001
+MathLib_Init
+MemAlloc_AllocFunc
+MemAlloc_FreeFunc
+MemAlloc_StrDupFunc
+MeshSystem001
+MeshUtils001
+Message count limit of %d hit. Subsequent duplicate messages will be squelched.
+Missing breakpoint data ( breakpoint with ID %s. )
+Missing breakpoint with given ID %s.
+ModelDocUtils001
+Monday
+MultiByteToWideChar
+Multiple locals named '%s'
+NAN(IND)
+NAN(SNAN)
+NO_START_OPT)
+NYI: cannot call this C function (yet)
+NYI: packed bit fields
+NavSystem001
+Network.
+NetworkClientService_001
+NetworkMessagesVersion001
+NetworkP2PService_001
+NetworkServerService_001
+NetworkService_001
+NetworkSystemVersion001
+No child processes
+No conversion from %s to int now
+No conversion from %s to string at the moment!
+No conversion from %s to uint now
+No error
+No free conversion of %s variant to %s right now
+No function binding found!
+No local named '%s'
+No locks available
+No space left on device
+No such device
+No such device or address
+No such file or directory
+No such process
+NodeWorker.
+Normalized
+Not a directory
+Not enough space
+November
+October
+Operation not permitted
+Ordered constructor wrapped type has no default constructor.
+Overlay.
+PANIC: unprotected error in call to Lua API (
+PCRE does not support \L, \l, \N{name}, \U, or \u
+POSIX collating elements are not supported
+POSIX named classes are supported only within a class
+PRNG state must be an array with up to 8 integers or an integer
+Page.
+PanoramaTextServices001
+PanoramaUIClient001
+PanoramaUIEngine001
+Parameter type mismatch
+ParticleSystemMgr003
+Permission denied
+PhysicsBuilderMgr001
+Plat_DebugPrint
+Plat_ExitProcess
+Plat_FatalErrorFunc
+Plat_IsFile
+Plat_IsInDebugSession
+Plat_MSTime
+Plat_MSTime64
+Plat_NonFatalErrorFunc
+Plat_RegisterModule
+Plat_RelativeTicks
+Plat_ShouldCollectMiniDumpsForFatalErrors
+Plat_TickDiffSec
+Plat_TicksAfterMilliSecs
+Plat_VirtualAlloc
+Plat_VirtualFree
+PostProcessingSystem_001
+Print a message
+Print a warning
+Profiler.
+PropertyEditorSystem_001
+QAngle
+Quaternion
+QueryPerformanceCounter
+RaiseException
+RandomFloat
+RandomInt
+Read-only file system
+ReadConsoleW
+ReadFile
+Receive buffer overflow for %s
+Received request doesn't look like an HTTP GET
+RegisterConCommand: Unknown error registering con command "%s"!
+RegisterConVar: Unknown error registering convar "%s"!
+RegisterStringToken
+Release
+RenderDevice003
+RenderDeviceMgr001
+RenderHardwareConfig002
+RenderService_001
+RenderUtils_001
+ResetEvent
+Resource deadlock avoided
+Resource device
+Resource temporarily unavailable
+ResourceCompilerSystem001
+ResourceHandleUtils001
+ResourceManifestRegistry001
+ResourceSystem013
+Result too large
+RtlCaptureContext
+RtlLookupFunctionEntry
+RtlPcToFileHeader
+RtlRestoreContext
+RtlUnwind
+RtlUnwindEx
+RtlVirtualUnwind
+Runtime.
+Runtime.executionContextCreated
+SSE and SSE2 are required.
+Saturday
+SceneSystem_002
+SceneUtils_001
+SchemaSystem_001
+SchemaTestExternal_One_001
+SchemaTestExternal_Two_001
+Script Runtime Error: %s
+Script load error for script
+Script load error for script:
+Script_Msg
+Script_Warning
+Sec-WebSocket-Accept: %s
+Sec-WebSocket-Extensions
+Sec-WebSocket-Extensions: permessage-deflate
+Sec-WebSocket-Key
+Sec-WebSocket-Version
+Sec-WebSocket-Version: 13
+Sending text WebSocket message: %s
+September
+SerializedEntitiesVersion001
+ServerResourceCompilerInfo_001
+ServiceWorker.
+SetBit
+SetEndOfFile
+SetEnvironmentVariableW
+SetEvent
+SetFilePointerEx
+SetHandleInformation
+SetLastError
+SetStdHandle
+SetUnhandledExceptionFilter
+SleepConditionVariableCS
+Socket error: %d
+SoundOpSystem001
+SoundOpSystemEdit001
+SoundService_001
+SoundSystem001
+Source2Client002
+Source2ClientPrediction001
+Source2ClientUI001
+Source2EngineToClient001
+Source2EngineToClientStringTable001
+Source2EngineToServer001
+Source2EngineToServerStringTable001
+Source2GameClients001
+Source2GameEntities001
+Source2Host001
+Source2Server001
+Source2V8System001
+StatsService_001
+SteamAudio001
+Sunday
+SystemFunction036
+Target.
+Target.attachedToTarget
+Target.targetCreated
+TerminateProcess
+TestScriptMgr001
+TextLayout_001
+The function %s requires too many parameters.
+This convar is being accessed prior to ConVar_Register being called
+This object has been deleted from C++ and no longer exists. (Use :IsNull() to detect this.)
+ThreadGetCurrentProcessId
+ThreadSleep
+Thursday
+TlsAlloc
+TlsFree
+TlsGetValue
+TlsSetValue
+ToHexString
+ToggleBit
+Too many links
+Too many open files
+Too many open files in system
+ToolFramework2_002
+ToolSceneNodeFactory_001
+ToolService_001
+Trying to set a breakpoint with missing file/line. Ensure the file is part of the Eclipse project (refresh project is necessary) and reopen the file in Eclipse.
+Tuesday
+UInt64
+UNHANDLED Audits Inspector sub-method '%s'
+UNHANDLED Browser Inspector sub-method '%s'
+UNHANDLED CSS Inspector sub-method '%s'
+UNHANDLED DOM Inspector sub-method '%s'
+UNHANDLED DOMDebugger Inspector sub-method '%s'
+UNHANDLED Debugger Inspector sub-method '%s'
+UNHANDLED Inspector Inspector sub-method '%s'
+UNHANDLED Inspector method '%s'
+UNHANDLED Log Inspector sub-method '%s'
+UNHANDLED Network Inspector sub-method '%s'
+UNHANDLED NodeWorker Inspector sub-method '%s'
+UNHANDLED Overlay Inspector sub-method '%s'
+UNHANDLED Page Inspector sub-method '%s'
+UNHANDLED Profiler Inspector sub-method '%s'
+UNHANDLED Runtime Inspector sub-method '%s'
+UNHANDLED ServiceWorker Inspector sub-method '%s'
+UNHANDLED Target Inspector sub-method '%s'
+UNHANDLED WS payload size %llu
+UNHANDLED non-text WS content type %u
+UTF-16LEUNICODE
+UTF-8
+UTF8)
+UUUUUUĄ?
+Unable to connect to debugger
+Unable to convert Inspector JSON to KV3, '%s'
+Unable to convert setVariableValue value
+Unable to create environment
+Unable to set URL breakpoint at %s:%u
+Unable to set breakpoint at %s:%u
+Unable to set instrumentation breakpoint
+Unable to set temporary breakpoint at %s:%u
+Unable to set value of '%s'
+Unable to update line number for the breakpoint with ID %s
+Unexpected HTTP GET URL '%s'
+UnhandledExceptionFilter
+Unknown error
+Unknown exception
+Unknown protocol.
+Upgrade
+Upgrade: WebSocket
+Upvalue
+UtlMemory_Alloc
+UtlMemory_CalcNewAllocationCount
+UtlMemory_FailedAllocation
+VApplication001
+VAsyncFileSystem2_001
+VAvi001
+VBik001
+VConComm001
+VEngineCvar007
+VFileSystem017
+VM Capture Disabled Stub
+VM handler failed: 
+VMaterialSystem2_001
+VMediaFoundation001
+VP4003
+VPhysics2_Handle_Interface_001
+VPhysics2_Interface_001
+VProcessUtils002
+VProfService_001
+VRenderDeviceSetupV001
+VScript
+VScript Lua: Unhandled variant type %s.
+VScriptDbg
+VScriptManager010
+VStringTokenSystem001
+V_FixSlashes
+V_IsAbsolutePath
+V_PrettifyNum
+V_StringToBool
+V_StringToColor
+V_StringToFloat32
+V_StringToFloat64
+V_StringToInt16
+V_StringToInt32
+V_StringToInt64
+V_StringToQAngle
+V_StringToUint16
+V_StringToUint32
+V_StringToUint64
+V_StringToVector
+V_StringToVector2D
+V_StringToVector4D
+V_UnqualifiedFileName
+V_atoi
+V_qsort_s
+V_sincosf
+V_snprintf
+V_stricmp_fast
+V_vsnprintf
+Vector
+Vector2D
+Vector4D
+VirtualAlloc
+VirtualFree
+VirtualProtect
+VirtualQuery
+VisBuilder_001
+Visual C++ CRT: Not enough memory to complete call to strerror.
+WAITING FOR VSCRIPT DEBUGGER CONNECTION for script '%s' -- '-vscriptdebug_script' was provided on the command line.
+WARNING: Lua allocation of %llu failed
+WARNING: Lua breakpoint regex '%s' did not compile
+WARNING: Lua unable to create VM
+WARNING: Lua unmap unable to decommit all pages
+WARNING: Lua unmap unable to find %llu pages
+WARNING: Unable to compile regex '%s', %s
+WS2_32.dll
+WaitForSingleObject
+WaitForSingleObjectEx
+Waiting for Inspector client to connect on port %u
+Waiting for debugger connection...
+WakeAllConditionVariable
+Warning
+WebSocket
+Wednesday
+WideCharToMultiByte
+Windows
+WorldRendererMgr001
+WriteConsoleW
+WriteFile
+Xbox VDP is not supported on this platform.
+[ { "description" : "Lua VM Debugging", "devtoolsFrontendUrl" : "/devtools/inspector.html?ws=localhost:41000/process/%u/%s", "id" : "%s", "title" : "%s", "url" : "http://vscript/lua/%s", "type" : "page", "webSocketDebuggerUrl" : "ws://localhost:41000/process/%u/%s" } ]
+[%02d]
+[builtin:
+[none]
+[string "
+\
+\ at end of pattern
+\9	ůforeachi
+\C not allowed in lookbehind assertion
+\P{Ll}
+\P{Lu}
+\P{L}
+\P{Nd}
+\P{Xan}
+\P{Xps}
+\P{Xsp}
+\P{Xwd}
+\c at end of pattern
+\c must be followed by an ASCII character
+\g is not followed by a braced, angle-bracketed, or quoted name/number or by a plain number
+\p{Ll}
+\p{Lu}
+\p{L}
+\p{Nd}
+\p{Xan}
+\p{Xps}
+\p{Xsp}
+\p{Xwd}
+\u%04x
+] is an invalid data character in JavaScript compatibility mode
+^$*+?.([%-
+_%x%llx_%s
+_Bool
+_Complex
+_LOADED
+_LOADLIB
+_NAME
+_PACKAGE
+_PRELOAD
+_VMEVENTS
+_V_StringAfterPrefix
+_V_StringAfterPrefixCaseSensitive
+_V_strncmp
+_V_strncpy
+__add
+__alignof
+__alignof__
+__asm
+__asm__
+__attribute
+__attribute__
+__based(
+__builtin_va_list
+__call
+__cdecl
+__clrcall
+__complex
+__complex__
+__const
+__const__
+__declspec
+__div
+__eabi
+__extension__
+__fastcall
+__gnuc_va_list
+__index
+__index__newindex__gc__mode__eq__len__lt__le__concat__call__add__sub__mul__div__mod__pow__unm__metatable__tostring__new__pairs__ipairs
+__inline
+__inline__
+__int16
+__int32
+__int64
+__int8
+__len
+__mode
+__mul
+__newindex
+__pascal
+__ptr32
+__ptr64
+__restrict
+__restrict__
+__self
+__signed
+__signed__
+__sourceid
+__stdcall
+__sub
+__swift_1
+__swift_2
+__swprintf_l
+__thiscall
+__tostring
+__unaligned
+__unm
+__userdata_metatable
+__vectorcall
+__volatile
+__volatile__
+__vswprintf_l
+_cabs
+_fprintf_l
+_fprintf_p
+_fprintf_p_l
+_fprintf_s_l
+_fscanf_l
+_fscanf_s_l
+_fwprintf_l
+_fwprintf_p
+_fwprintf_p_l
+_fwprintf_s_l
+_fwscanf_l
+_fwscanf_s_l
+_hypot
+_logb
+_nextafter
+_printf_l
+_printf_p
+_printf_p_l
+_printf_s_l
+_scanf_l
+_scanf_s_l
+_scprintf
+_scprintf_l
+_scprintf_p
+_scprintf_p_l
+_scwprintf
+_scwprintf_l
+_scwprintf_p
+_scwprintf_p_l
+_snprintf
+_snprintf_c
+_snprintf_c_l
+_snprintf_l
+_snprintf_s
+_snprintf_s_l
+_snscanf
+_snscanf_l
+_snscanf_s
+_snscanf_s_l
+_snwprintf
+_snwprintf_l
+_snwprintf_s
+_snwprintf_s_l
+_snwscanf
+_snwscanf_l
+_snwscanf_s
+_snwscanf_s_l
+_sprintf_l
+_sprintf_p
+_sprintf_p_l
+_sprintf_s_l
+_sscanf_l
+_sscanf_s_l
+_swprintf
+_swprintf_c
+_swprintf_c_l
+_swprintf_l
+_swprintf_p
+_swprintf_p_l
+_swprintf_s_l
+_swscanf_l
+_swscanf_s_l
+_vfprintf_l
+_vfprintf_p
+_vfprintf_p_l
+_vfprintf_s_l
+_vfscanf_l
+_vfscanf_s_l
+_vfwprintf_l
+_vfwprintf_p
+_vfwprintf_p_l
+_vfwprintf_s_l
+_vfwscanf_l
+_vfwscanf_s_l
+_vprintf_l
+_vprintf_p
+_vprintf_p_l
+_vprintf_s_l
+_vscanf_l
+_vscanf_s_l
+_vscprintf
+_vscprintf_l
+_vscprintf_p
+_vscprintf_p_l
+_vscwprintf
+_vscwprintf_l
+_vscwprintf_p
+_vscwprintf_p_l
+_vsnprintf
+_vsnprintf_c
+_vsnprintf_c_l
+_vsnprintf_l
+_vsnprintf_s
+_vsnprintf_s_l
+_vsnwprintf
+_vsnwprintf_l
+_vsnwprintf_s
+_vsnwprintf_s_l
+_vsnwscanf_l
+_vsnwscanf_s_l
+_vsprintf_l
+_vsprintf_p
+_vsprintf_p_l
+_vsprintf_s_l
+_vsscanf_l
+_vsscanf_s_l
+_vswprintf
+_vswprintf_c
+_vswprintf_c_l
+_vswprintf_l
+_vswprintf_p
+_vswprintf_p_l
+_vswprintf_s_l
+_vswscanf_l
+_vswscanf_s_l
+_vwprintf_l
+_vwprintf_p
+_vwprintf_p_l
+_vwprintf_s_l
+_vwscanf_l
+_vwscanf_s_l
+_wprintf_l
+_wprintf_p
+_wprintf_p_l
+_wprintf_s_l
+_wscanf_l
+_wscanf_s_l
+`RTTI
+`anonymous namespace'
+`copy constructor closure'
+`default constructor closure'
+`dynamic atexit destructor for '
+`dynamic initializer for '
+`eh vector constructor iterator'
+`eh vector copy constructor iterator'
+`eh vector destructor iterator'
+`eh vector vbase constructor iterator'
+`eh vector vbase copy constructor iterator'
+`local static guard'
+`local static thread guard'
+`local vftable constructor closure'
+`local vftable'
+`managed vector constructor iterator'
+`managed vector copy constructor iterator'
+`managed vector destructor iterator'
+`omni callsig'
+`placement delete closure'
+`placement delete[] closure'
+`scalar deleting destructor'
+`string'
+`typeof'
+`udt returning'
+`vbase destructor'
+`vbtable'
+`vcall'
+`vector constructor iterator'
+`vector copy constructor iterator'
+`vector deleting destructor'
+`vector destructor iterator'
+`vector vbase constructor iterator'
+`vector vbase copy constructor iterator'
+`vftable'
+`virtual displacement map'
+a numbered reference must not be zero
+abort
+accessorPropertiesOnly
+active
+activelines
+actualLocation
+address family not supported
+address in use
+address not available
+advapi32.dll
+alnum
+alpha
+already connected
+ambiguous syntax (function call x new statement)
+an argument is not allowed for (*ACCEPT), (*FAIL), or (*COMMIT)
+appid
+architecture
+argument is not a compiled regular expression
+array
+ascii
+assertion expected after (?(
+assertion failed!
+atan2
+attachToBrowserTarget
+attachToTarget
+attached
+attempt to %s %s '%s' (a %s value)
+attempt to %s a %s value
+attempt to call a %s value
+attempt to compare %s with %s
+attempt to compare '%s' with '%s'
+attempt to compare two %s values
+attempt to concatenate '%s' and '%s'
+attempt to get length of '%s'
+attempt to load chunk with wrong mode
+attempt to perform arithmetic on '%s' and '%s'
+attempt to redefine '%s'
+attempt to use a closed file
+attempt to write to constant location
+attempt to yield across C-call boundary
+bad FPU precision (use D3DCREATE_FPU_PRESERVE with DirectX)
+bad action while in __gc metamethod
+bad argument #%d to '%s' (%s)
+bad array new length
+bad callback
+bad exception
+bad light userdata pointer
+bad message
+bad options table
+bad storage class
+base out of range
+base64_decode
+base64_encode
+beforeScriptExecution
+beforeScriptWithSourceMapExecution
+binary_blob
+blank
+boolean
+boolean or proxy expected
+break
+break_
+breakpoint
+breakpointId
+breakpoint_get
+breakpoint_remove
+breakpoint_set
+breakpoint_update
+buffer
+buffer error
+bytecode instructions
+callFrameId
+callFrames
+callFunctionOn
+calling '%s' on bad self (%s)
+canAccessOpener
+cannot change a protected metatable
+cannot close standard file
+cannot convert '%s' to '%s'
+cannot deserialize dictionary index %d
+cannot deserialize tag 0x%02x
+cannot load incompatible bytecode
+cannot load malformed bytecode
+cannot load module '%s': %s
+cannot open %s: %s
+cannot put buffer into itself
+cannot read %s: %s
+cannot resolve symbol '%s': %s
+cannot resume dead coroutine
+cannot resume non-suspended coroutine
+cannot resume running coroutine
+cannot serialize '%s'
+cannot use '...' outside a vararg function
+ccode:/
+cdata
+cdata<%s>: %d
+cdata<%s>: %p
+char(%d)
+character
+character value in \x{...} sequence is too large
+children
+chunk has more than %d local variables
+chunk has too many lines
+chunk has too many syntax levels
+className
+clear
+clearAcceptedEncodingsOverride
+clone
+closed file
+closing ) for (?C expected
+cmd.exe
+cntrl
+color
+columnNumber
+command
+complex
+concatenate
+condition
+conditional group contains more than two branches
+config
+configurable
+connection aborted
+connection already in progress
+connection refused
+connection reset
+const
+constants
+cont
+context
+context_get
+context_names
+continueToLocation
+control structure too long
+coroutine
+coroutine expected
+coroutine_list
+count
+cpath
+cstring
+ctype<%s>
+currentline
+data error
+dddd, MMMM dd, yyyy
+debug
+debugCommand
+debuggerId
+declaration specifier expected
+deflate failed, result %d
+description
+destination address required
+detachFromTarget
+different names for subpatterns of the same number are not allowed
+digit
+digit expected after (?+
+disable
+disabled
+dofile
+double
+duplicate label '%s'
+duplicate table key
+e+000
+ehandle
+elseif
+enable
+enabled
+encoding
+endColumn
+endLine
+entry
+enumerable
+erroffset passed as NULL
+error
+error in error handling
+error loading module '%s' from file '%s':
+evaluate
+evaluate ignored
+evaluateOnCallFrame
+exception
+exceptionDetails
+exceptionId
+exdata
+exdata2
+executionContextId
+expression
+extern
+external hook
+failed to get memory
+false
+feature
+feature_get
+feature_name
+feature_set
+ffi module not loaded (yet)
+field
+field '%s' missing in date table
+file (%p)
+file (closed)
+file error
+file://
+file:///
+file:///e:/work/valve/source2/main/game/core/scripts/vscripts/animationsystem/animationsysteminit.lua
+filename
+fileuri
+flnSu
+float
+float32
+float64
+floor
+flush
+fprintf
+fprintf_s
+frexp
+fscanf
+fscanf_s
+fullname
+function
+function arguments expected
+function at line %d has more than %d %s
+function or expression too complex
+function or level expected
+function too long for return fixup
+functionName
+fwprintf
+fwprintf_s
+fwscanf
+fwscanf_s
+g_bUpdateStringTokenDatabase
+g_pMemAlloc
+gdi32.dll
+get length of
+getDocument
+getIsolateId
+getNavigationHistory
+getPossibleBreakpoints
+getProperties
+getResourceTree
+getScriptSource
+getVersion
+gfind
+global
+globalThis.__jsDebugIsReady = true; 
+gmatch
+graph
+handle
+handle_lightbinding
+header crc mismatch
+hideHighlight
+hitBreakpoints
+hit_condition
+hit_count
+hit_value
+host unreachable
+hscript
+hscript_lightbinding
+http://vscript/lua/%s
+idekey
+identifier removed
+incompatible version
+inconsistent NEWLINE options
+incorrect data check
+incorrect header check
+incorrect length check
+index
+index out of range
+inflate failed, result %d
+inline
+instrumentation
+insufficient memory
+int16
+int16_t
+int32
+int32_t
+int64
+int64_t
+int8_t
+integer
+internal error: code overflow
+internal error: overran compiling workspace
+internal error: previously-checked referenced subpattern not found
+internal error: unexpected repeat
+intptr_t
+invalid
+invalid C type
+invalid UTF-8 string
+invalid bit length repeat
+invalid block type
+invalid capture index
+invalid code -- missing end-of-block
+invalid code lengths set
+invalid condition (?(0)
+invalid distance code
+invalid distance too far back
+invalid distances set
+invalid escape sequence
+invalid escape sequence in character class
+invalid format
+invalid key to 'next'
+invalid level
+invalid literal/length code
+invalid literal/lengths set
+invalid long string delimiter
+invalid option
+invalid option '%s'
+invalid option '%s' to 'format'
+invalid order function for sorting
+invalid pattern capture
+invalid replacement value (a %s)
+invalid stored block lengths
+invalid value
+invalid value (%s) at index %d in table for 'concat'
+invalid window size
+invalid_parameter
+isOwn
+isarray
+isempty
+isvararg
+js_array
+js_object
+js_raw_args
+js_value
+kernel32.dll
+language
+lastlinedefined
+ldexp
+left-over data in buffer
+level
+level out of range
+lineNumber
+linedefined
+lineno
+loaded
+loaders
+loadfile
+loadfile requires a filename argument.
+loadlib
+local
+local variables
+location
+locations
+log10
+lookbehind assertion is not fixed length
+loop in gettable
+loop in settable
+loop or previous error loading module '%s'
+lower
+luaJIT_BC_%s
+lua_assert_on_error
+lua_debug> 
+lua_report_memory
+lua_shipping_assert_on_error
+luaopen_%s
+l|%d|%s
+main function has more than %d %s
+malformed \P or \p sequence
+malformed number
+malformed number or name after (?(
+malformed pattern (ends with '%')
+malformed pattern (missing ']')
+max_children
+max_data
+max_depth
+message
+message size
+metamethod
+metatable
+method
+missing '[' after '%f' in pattern
+missing )
+missing ) after comment
+missing declaration for symbol '%s'
+missing terminating ] for character class
+module
+module '%s' not found:%s
+name conflict for module '%s'
+namewhat
+nan(ind)
+nan(snan)
+need dictionary
+network down
+network reset
+network unreachable
+newValue
+nil or table expected
+nkeys
+no buffer space
+no calling environment
+no error
+no link
+no loop to break
+no message
+no message available
+no protocol option
+no stream resources
+no value
+nodeVersion
+normal
+not a socket
+not a stream
+not connected
+not enough memory
+not supported
+nothing to repeat
+nparams
+number
+number after (?C is > 255
+number is too big
+number out of range
+number too big in {} quantifier
+numbers out of order in {} quantifier
+numchildren
+object
+objectId
+octal value is greater than \377 (not in UTF-8 mode)
+operand of unlimited repeat could match the empty string
+operation canceled
+operation in progress
+operation not supported
+operation would block
+operator
+operator "" 
+operator co_await
+operator<=>
+origin
+owner dead
+package
+pagesize
+pairs
+params
+parent
+parentheses nested too deeply
+path too long
+pattern too complex
+pause
+perform arithmetic on
+permessage-deflate
+preload
+print
+printf
+printf_s
+printstack
+processId
+product
+property
+property_get
+property_set
+proto
+protocol error
+protocol not supported
+protocolVersion
+protocol_version
+ptrdiff_t
+punct
+purecall
+qangle
+quaternion
+range out of order in character class
+reader function must return a string
+reason
+recursive call could loop indefinitely
+reference to non-existent subpattern
+register
+regular expression is too large
+releaseObjectGroup
+removeBreakpoint
+repeat
+repeated subpattern is too long
+repeating a DEFINE group is not allowed
+require
+require('module').builtinModules
+resourcehandle
+response
+restartFrame
+restartFrame is not supported
+restrict
+restrict(
+result
+resume
+return
+return %s
+returnType
+revision
+runIfWaitingForDebugger
+running
+runtime code generation failed, restricted kernel?
+scanf
+scanf_s
+schemasystem
+scopeChain
+scopeNumber
+script
+scriptId
+scriptSource
+script_
+scripts\vscripts\%s
+searchpath
+seeall
+session
+sessionId
+setAdBlockingEnabled
+setAsyncCallStackDepth
+setAttachDebugStack
+setAutoAttach
+setAutoDarkModeOverride
+setBlackboxPatterns
+setBreakOnCSPViolation
+setBreakpoint
+setBreakpointByUrl
+setBreakpointsActive
+setCacheDisabled
+setDiscoverTargets
+setEmitTouchEventsForMouse
+setEmulatedMedia
+setEmulatedVisionDeficiency
+setFocusEmulationEnabled
+setForceUpdateOnPageLoad
+setInstrumentationBreakpoint
+setPauseOnExceptions
+setPausedInDebuggerMessage
+setRemoteLocations
+setReturnValue
+setReturnValue is not supported
+setShowViewportSizeOnResize
+setTouchEmulationEnabled
+setVariableValue
+short
+short_src
+signed
+size of C type is unknown or too large
+size_t
+sizeof
+snprintf
+source
+space
+spare error
+sprintf
+sprintf_s
+sscanf
+sscanf_s
+ssize_t
+stack
+stack overflow
+stack overflow (%s)
+stack traceback:
+stack_
+stack_get
+standard file is closed
+start
+startColumn
+startLine
+startScreencast
+startViolationsReport
+starting
+state
+state not recoverable
+static
+status
+stderr
+stdin
+stdout
+stepInto
+stepOut
+stepOver
+step_into
+step_out
+step_over
+stopScreencast
+stopViolationsReport
+stopped
+stopping
+stream
+stream end
+stream error
+stream timeout
+string
+string length overflow
+string slice too long
+string too long
+string.buffer
+string/function/table expected
+string/number/__tostring
+string_t
+struct
+subpattern name expected
+subpattern name is too long (maximum 32 characters)
+subtype
+success
+support for \P, \p, and \X has not been compiled
+supported
+suspended
+swprintf
+swprintf_s
+swscanf
+swscanf_s
+syntax error
+syntax error in subpattern name (missing terminator)
+system error %d
+table
+table index is NaN
+table index is nil
+table overflow
+table.clear
+table.clone
+table.isarray
+table.isempty
+table.new
+table.nkeys
+tail return
+takeComputedStyleUpdates
+targetId
+targetInfo
+text file busy
+this version of PCRE is not compiled with PCRE_UTF8 support
+thread
+thread.exdata
+thread.exdata2
+tier0.dll
+timed out
+timestamp
+too deep to serialize
+too many arguments
+too many callbacks
+too many captures
+too many initializers for '%s'
+too many length or distance symbols
+too many named subpatterns (maximum 10000)
+too many nested functions
+too many results to unpack
+too many symbolic link levels
+too many upvalues
+tostring
+trace
+traceback
+trackComputedStyleUpdates
+transaction_id
+two named subpatterns have the same name
+type parameter
+typedef
+typeof process === 'undefined' || process.pid === undefined ? 'process not defined' : ({ processId: process.pid, nodeVersion: process.version, architecture: process.arch }
+typeof process === 'undefined' || process.pid === undefined ? 'process not defined' : Object.assign(process.env,
+uint16
+uint16_t
+uint32
+uint32_t
+uint64
+uint64_t
+uint8
+uint8_t
+uintptr_t
+unable to dump given function
+unable to generate a unique filename
+unable to get ModuleFileName
+unbalanced pattern
+uncaught
+undeclared or implicit tag '%s'
+undefined label '%s'
+unexpected end of buffer
+unexpected symbol
+unfinished capture
+unfinished long comment
+unfinished long string
+unfinished string
+union
+uniqueId
+unknown
+unknown POSIX class name
+unknown compression method
+unknown error
+unknown exception
+unknown header flags set
+unknown option bit(s) set
+unknown or incorrect option bit(s) set
+unknown or malformed optimization flag '%s'
+unknown property name after \P or \p
+unknown_variant_type
+unmatched parentheses
+unrecognized character after (? or (?-
+unrecognized character after (?<
+unrecognized character after (?P
+unrecognized character follows \
+unserializableValue
+unsigned
+until
+upper
+upval
+upvalue
+upvalues
+urlRegex
+urn:debugger_protocol_v1
+user32.dll
+userAgent
+userdata
+userdata length overflow
+utlstringtoken
+u|%d|%s
+v15.0.0
+va_list
+value
+value expected
+value too large
+variable names
+variableName
+variant
+vector
+vector2
+vector2d
+vector3
+vector4
+vector4d
+vfprintf
+vfprintf_s
+vfscanf
+vfscanf_s
+vfwprintf
+vfwprintf_s
+vfwscanf
+vfwscanf_s
+volatile
+vprintf
+vprintf_s
+vscanf
+vscanf_s
+vscript
+vscript.LuaDbg
+vscript.dll
+vsnprintf
+vsnprintf_s
+vsprintf
+vsprintf_s
+vsscanf
+vsscanf_s
+vswprintf
+vswprintf_s
+vswscanf
+vswscanf_s
+vwprintf
+vwprintf_s
+vwscanf
+vwscanf_s
+waitForDebugger
+waitingForDebugger
+wchar_t
+while
+wprintf
+wprintf_s
+writable
+wrong number of arguments for function call
+wrong number of arguments to 'insert'
+wrong number of type parameters
+wrong protocol type
+wscanf
+wscanf_s
+x86_64
+xdigit
+xmlns
+{ "Browser" : " INSPECTOR_BROWSER_NAME ", "Protocol-Version" : " INSPECTOR_PROTOCOL_VERSION ", "User-Agent" : " INSPECTOR_USER_AGENT ", "webSocketDebuggerUrl" : "ws://localhost:41000/process/%u" }
