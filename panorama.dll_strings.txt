@@ -96,6 +96,7 @@
  - Incorrect file extension for script file. Use %s instead.
  ... }
  ;{}:
+ ;{};{}
  = { <proto text format> }". To set fields within it, use syntax like "
  @ %s
  Average %s commands per frame: %u, %u bytes
@@ -155,6 +156,7 @@
  with 
  { ... };
  } from:
+ Ű
 !
 ! Description
 ! Event
@@ -288,6 +290,8 @@
 #Valve_SelectLanguage_Ukrainian
 #Valve_SelectLanguage_Vietnamese
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$.CreatePanelWithProperties is deprecated. Please use $.CreatePanel instead.
+$.LocalizePlural is deprecated. Please use $.Localize instead.
 $.Schedule() - run JS func
 $0  extend .$1 {
 $0  extensions $1 to $2;
@@ -511,6 +515,7 @@ $0option $1;
 -sse2
 -sse3
 -sse4
+-tools
 -use_panel_id_in_rt_name
 ....................
 ...<truncated>...
@@ -519,10 +524,10 @@ $0option $1;
 .?AUKeyValue@ExtensionSet@internal@protobuf@google@@
 .?AU_Crt_new_delete@std@@
 .?AUctype_base@std@@
-.?AV<lambda_9f36fa9e5a70fa19512d465c1d96a539>@@
-.?AV<lambda_a26249003e6e5ad184923460df65c2b5>@@
-.?AV<lambda_dbb5f4550f8dcbd5280d289ad695866a>@@
-.?AV<lambda_f0b45197a7ee9988a07a696057986a30>@@
+.?AV<lambda_1>@?1???R0?1??ResolveEachReference@CLayoutContentParsed@@UEAAXAEBV?$function@$$A6AXPEBDAEBV?$function@$$A6AXPEBD@Z@std@@AEBV?$function@$$A6AXPEBD_N@Z@2@@Z@std@@@Z@QEBA@PEAU?$CContentASTNode@W4ELayoutNodeType@@@panorama@@@Z@
+.?AV<lambda_1>@?1??LoadFileIntoBufferAsync@CSource2UIFileSystem@panorama@@UEAA?AV?$shared_ptr@VIAsyncReadRequest2@@@std@@PEBDAEAVCUtlBuffer@@_NV?$CUtlDelegate@$$A6AXPEBDAEAVCUtlBuffer@@_N@Z@@@Z@
+.?AV<lambda_2>@?1???R<lambda_1>@?1??ResolveEachReference@CLayoutContentParsed@@UEAAXAEBV?$function@$$A6AXPEBDAEBV?$function@$$A6AXPEBD@Z@std@@AEBV?$function@$$A6AXPEBD_N@Z@2@@Z@std@@@Z@QEBA@PEAU?$CContentASTNode@W4ELayoutNodeType@@@panorama@@@Z@
+.?AV<lambda_2>@?1??LoadFromResourceFile@ILayoutContent@panorama@@SAPEAV23@PEBUResourceBindingBase_t@@PEBUResourceFileHeader_t@@PEAXH@Z@
 .?AV?$CBaseAppSystem@VIPanoramaUIEngine@@@@
 .?AV?$CBaseSymbol@$00@panorama@@
 .?AV?$CMultipleCallResults@VCLoadFileURLTask@panorama@@UHTTPRequestCompleted_t@@@@
@@ -613,10 +618,10 @@ $0option $1;
 .?AV?$_Func_base@XPEBD@std@@
 .?AV?$_Func_base@XPEBDAEBV?$function@$$A6AXPEBD@Z@std@@AEBV?$function@$$A6AXPEBD_N@Z@2@@std@@
 .?AV?$_Func_base@XPEBD_N@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_9f36fa9e5a70fa19512d465c1d96a539>@@XPEBDAEBV?$function@$$A6AXPEBD@Z@std@@AEBV?$function@$$A6AXPEBD_N@Z@3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_a26249003e6e5ad184923460df65c2b5>@@XPEBD@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_dbb5f4550f8dcbd5280d289ad695866a>@@XPEAVIAsyncReadRequest2@@W4AsyncRequestStatus_t@@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_f0b45197a7ee9988a07a696057986a30>@@XPEBD_N@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???R1?1??ResolveEachReference@CLayoutContentParsed@@UEAAXAEBV?$function@$$A6AXPEBDAEBV?$function@$$A6AXPEBD@Z@std@@AEBV?$function@$$A6AXPEBD_N@Z@2@@Z@std@@@Z@QEBA@PEAU?$CContentASTNode@W4ELayoutNodeType@@@panorama@@@Z@XPEBD@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??LoadFileIntoBufferAsync@CSource2UIFileSystem@panorama@@UEAA?AV?$shared_ptr@VIAsyncReadRequest2@@@std@@PEBDAEAVCUtlBuffer@@_NV?$CUtlDelegate@$$A6AXPEBDAEAVCUtlBuffer@@_N@Z@@@Z@XPEAVIAsyncReadRequest2@@W4AsyncRequestStatus_t@@@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_2>@?1???R<lambda_1>@?1??ResolveEachReference@CLayoutContentParsed@@UEAAXAEBV?$function@$$A6AXPEBDAEBV?$function@$$A6AXPEBD@Z@std@@AEBV?$function@$$A6AXPEBD_N@Z@2@@Z@std@@@Z@QEBA@PEAU?$CContentASTNode@W4ELayoutNodeType@@@panorama@@@Z@XPEBD_N@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_2>@?1??LoadFromResourceFile@ILayoutContent@panorama@@SAPEAV34@PEBUResourceBindingBase_t@@PEBUResourceFileHeader_t@@PEAXH@Z@XPEBDAEBV?$function@$$A6AXPEBD@Z@std@@AEBV?$function@$$A6AXPEBD_N@Z@8@@std@@
 .?AV?$_Iosb@H@std@@
 .?AV?$basic_ios@DU?$char_traits@D@std@@@std@@
 .?AV?$basic_iostream@DU?$char_traits@D@std@@@std@@
@@ -920,10 +925,8 @@ $0option $1;
 .?AVpcharNode@@
 .?AVruntime_error@std@@
 .?AVstl_condition_variable_interface@details@Concurrency@@
-.?AVstl_condition_variable_vista@details@Concurrency@@
 .?AVstl_condition_variable_win7@details@Concurrency@@
 .?AVstl_critical_section_interface@details@Concurrency@@
-.?AVstl_critical_section_vista@details@Concurrency@@
 .?AVstl_critical_section_win7@details@Concurrency@@
 .?AVsystem_error@std@@
 .?AVtype_info@@
@@ -1227,6 +1230,7 @@ $0option $1;
 0123456789
 0123456789ABCDEF
 0123456789abcdef
+0123456789abcdefghijklmnopqrstuvwxyz
 1#IND
 1#INF
 1#QNAN
@@ -1262,6 +1266,7 @@ $0option $1;
 <b>%s</b> (from %s)<br /><br />
 <binary blob: %u bytes>
 <ellipsis>
+<empty member name>
 <invalid>
 <no failure reason set>
 <pointer>
@@ -1318,9 +1323,9 @@ $0option $1;
 ?AddNullTermination@CUtlBuffer@@IEAAXXZ
 ?AddString@CUtlSymbolTable@@QEAA?AVCUtlSymbol@@PEBDPEA_N@Z
 ?Alloc@CRawAllocator@@SAPEAXW4RawAllocatorType_t@@_KPEA_K@Z
+?Alloc@CUtlMemoryBlockAllocator@@QEAAII@Z
 ?Alloc@CUtlMemoryPoolBase@@QEAAPEAXXZ
 ?AllocAligned@CUtlScratchMemoryPool@@QEAAPEAXHH@Z
-?AllocAndCopy@CUtlMemoryBlockAllocator@@QEAAIPEBDI@Z
 ?AllocSize@CUtlScratchMemoryPool@@QEBA_KXZ
 ?Append@CUtlString@@QEAAXPEBD@Z
 ?AppendFormat@CBufferString@@QEAAHPEBDZZ
@@ -1380,6 +1385,7 @@ $0option $1;
 ?Get@Object@v8@@QEAA?AV?$MaybeLocal@VValue@v8@@@2@V?$Local@VContext@v8@@@2@V?$Local@VValue@v8@@@2@@Z
 ?GetChangedFile@CDirWatcher@@QEAA_NPEAVCBufferString@@@Z
 ?GetCurrentContext@Isolate@v8@@QEAA?AV?$Local@VContext@v8@@@2@XZ
+?GetEnteredOrMicrotaskContext@Isolate@v8@@QEAA?AV?$Local@VContext@v8@@@2@XZ
 ?GetForModify@CUtlString@@QEAAPEADXZ
 ?GetFrame@StackTrace@v8@@QEBA?AV?$Local@VStackFrame@v8@@@2@PEAVIsolate@2@I@Z
 ?GetFrameCount@StackTrace@v8@@QEBAHXZ
@@ -1405,6 +1411,7 @@ $0option $1;
 ?IdleNotificationDeadline@Isolate@v8@@QEAA_NN@Z
 ?Init@CThread@@MEAA_NXZ
 ?Insert@CBufferString@@QEAAPEBDHPEBDH_N@Z
+?Int32Value@Value@v8@@QEBA?AV?$Maybe@H@2@V?$Local@VContext@v8@@@2@@Z
 ?IntegerValue@Value@v8@@QEBA?AV?$Maybe@_J@2@V?$Local@VContext@v8@@@2@@Z
 ?InternalFieldCount@Object@v8@@QEBAHXZ
 ?IsArray@Value@v8@@QEBA_NXZ
@@ -1412,11 +1419,9 @@ $0option $1;
 ?IsEqual_CaseSensitive@CUtlString@@QEBA_NPEBD@Z
 ?IsEqual_FastCaseInsensitive@CUtlString@@QEBA_NPEBD@Z
 ?IsFunction@Value@v8@@QEBA_NXZ
-?IsInt32@Value@v8@@QEBA_NXZ
 ?IsNumber@Value@v8@@QEBA_NXZ
 ?IsObject@Value@v8@@QEBA_NXZ
 ?IsThreadRunning@CThread@@MEAA_NXZ
-?IsUint32@Value@v8@@QEBA_NXZ
 ?IsolateFromNeverReadOnlySpaceObject@internal@v8@@YAPEAVIsolate@12@_K@Z
 ?Join@CThread@@QEAA_NI@Z
 ?Length@Array@v8@@QEBAIXZ
@@ -1439,6 +1444,7 @@ $0option $1;
 ?NewFromUnsigned@Integer@v8@@SA?AV?$Local@VInteger@v8@@@2@PEAVIsolate@2@I@Z
 ?NewFromUtf8@String@v8@@SA?AV?$MaybeLocal@VString@v8@@@2@PEAVIsolate@2@PEBDW4NewStringType@2@H@Z
 ?NewInstance@ObjectTemplate@v8@@QEAA?AV?$MaybeLocal@VObject@v8@@@2@V?$Local@VContext@v8@@@2@@Z
+?NumberValue@Value@v8@@QEBA?AV?$Maybe@N@2@V?$Local@VContext@v8@@@2@@Z
 ?OnExit@CThread@@MEAAXXZ
 ?PeekGet@CUtlBuffer@@QEAAPEBXHH@Z
 ?Purge@CBufferString@@QEAAXH@Z
@@ -1541,6 +1547,9 @@ $0option $1;
 @panorama_command_reordering
 @panorama_comp_layer_lru_lifetime
 @panorama_composition_atlas
+@panorama_dash_border_base_width
+@panorama_dash_gap_len
+@panorama_dash_len
 @panorama_debug_dead_pad
 @panorama_debug_overlay_opacity
 @panorama_debug_overlay_opacity_max
@@ -2352,7 +2361,6 @@ CTSListBase: Misaligned list
 CTSQueue corruption
 CTSQueue: Misaligned queue
 CTSQueue<class CRefCounted<class CRefCountServiceBase<class CRefMT> > *,0>::Push
-CTSQueue<struct panorama::CGamepadController::RemoteGamepadInput_t,0>::Push
 CTSQueue<struct panorama::CUIEngine::QueuedEvent_t,0>::Push
 CTopLevelWindow - ApplyStyles
 CTopLevelWindow - PaintEmptyFrame
@@ -2399,6 +2407,7 @@ CUIPanel::SetInputFocusToFirstOrLastChildInFocusOrder
 CUIPanel::Shutdown
 CUIPanel::Shutdown - events
 CUIPanel::Shutdown - notify
+CUIPanel::TriggerClass - apply old styles with traverse between RemoveClass/AddClass
 CUIRenderEngine::BeginFrame
 CUIRenderEngine::EndFrame
 CUIWindowInput::ProcessMouseTrackingResults
@@ -2458,9 +2467,6 @@ Close the group automatically when the associated parent process exits (good for
 CloseDebuggerWindow
 CloseHandle
 CloseModalDialog
-CloseThreadpoolTimer
-CloseThreadpoolWait
-CloseThreadpoolWork
 CloseToolhelp32Snapshot
 Closed temporary file %s
 Closing joystick %i
@@ -2507,9 +2513,7 @@ Could not load file
 Couldn't parse default value "
 Create a logging channel
 Create a new panel
-Create a new panel supplying a JS object as a fourth parameter containing properties to be applied to the panel
 CreateDebuggerWindow
-CreateEventExW
 CreateEventW
 CreateFileW
 CreateInterface
@@ -2525,24 +2529,8 @@ CreatePanel second param (parent) must be a panel object
 CreatePanel second param (parent) was not a valid panel object
 CreatePanel third param (id) must be string or undefined
 CreatePanelWithProperties
-CreatePanelWithProperties - Failed to parse panel event, event=%s: %s
-CreatePanelWithProperties - Properties: property names must be convertible to strings
-CreatePanelWithProperties - Properties: property values must be convertible to strings (except panel events which can be functions).
-CreatePanelWithProperties - failed to create panel type %s
-CreatePanelWithProperties first param must be valid panel type with factory, %s is not valid or not registered to allow factory construction
-CreatePanelWithProperties fourth param (properties) must be an object e.g. { class:"MyClass", text:"Button", onactivate:"$.Msg('Button Pressed')"
-CreatePanelWithProperties requires 4 params (type,parent,id,properties)
-CreatePanelWithProperties second param (parent) must be a panel object
-CreatePanelWithProperties second param (parent) was not a valid panel object
-CreatePanelWithProperties third param (id) must be string or undefined
 CreatePanoramaUIEngineInternal
-CreateSemaphoreExW
-CreateSemaphoreW
 CreateSimpleThread
-CreateSymbolicLinkW
-CreateThreadpoolTimer
-CreateThreadpoolWait
-CreateThreadpoolWork
 CreateToolhelp32Snapshot
 CreateVideoPlayer
 Critical
@@ -2580,6 +2568,8 @@ DEF_LOAD_BIO
 DEF_SERIAL_CB
 DEF_TIME_CB
 DEK-Info: 
+DEPRECATED: Use $.CreatePanel which has the same signature and supports properties.
+DEPRECATED: Use $.Localize which has the same signature and supports pluralization.
 DES(40)
 DES(56)
 DES-CBC
@@ -3289,7 +3279,6 @@ FlsGetValue
 FlsSetValue
 FlushConsoleInputBuffer
 FlushFileBuffers
-FlushProcessWriteBuffers
 Follow user preference
 FontManager_001
 Force style invalidation of the entire panel subtree when adding / removing classes.
@@ -3304,9 +3293,9 @@ Found no selectors: %s
 Found root panel with 'id' attribute, which is not permitted.
 Found unsupported CSS at-rule: %s
 Fractional sampling not implemented yet
+FrameTime
 FreeEnvironmentStringsW
 FreeLibrary
-FreeLibraryWhenCallbackReturns
 Freed EMS handle %u
 Freed XMS handle %u
 French
@@ -3393,7 +3382,6 @@ GetCurrentDirectoryW
 GetCurrentPackageId
 GetCurrentProcess
 GetCurrentProcessId
-GetCurrentProcessorNumber
 GetCurrentThreadId
 GetCursorInfo
 GetDateFormatEx
@@ -3403,7 +3391,6 @@ GetDriveTypeW
 GetEnumValue
 GetEnvironmentStringsW
 GetFileInformationByHandle
-GetFileInformationByHandleEx
 GetFileSizeEx
 GetFileType
 GetFloat
@@ -3448,8 +3435,8 @@ GetStringTypeW
 GetSystemTime
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
+GetTempPath2W
 GetTickCount
-GetTickCount64
 GetTimeFormatEx
 GetTimeZoneInformation
 GetUInt32
@@ -3458,6 +3445,7 @@ GetUserDefaultLCID
 GetUserDefaultLocaleName
 GetUserObjectInformationW
 GetWidth
+Gets the time this frame started, in seconds since panorama was initialized
 GlobalMemoryStatus
 GoOffline
 GoOnline
@@ -3528,6 +3516,7 @@ IPSec End System
 IPSec Tunnel
 IPSec User
 IPanelImageSource
+IPulseSystem_001
 ISO Member Body
 ISO US Member Body
 ISO-US
@@ -3560,7 +3549,6 @@ Inherit all
 Inhibit Policy Mapping
 InitOnceBeginInitialize
 InitOnceComplete
-InitOnceExecuteOnce
 InitializeConditionVariable
 InitializeCriticalSectionAndSpinCount
 InitializeCriticalSectionEx
@@ -3720,18 +3708,12 @@ LocalKeySet
 LocaleNameToLCID
 LocalizationChanged
 Localize
-Localize a plural string
-Localize a string
-Localize() got invalid optional panel value as second argument
-Localize() has an optional second panel argument as context for localize, but if set must be a panel object
+Localize a string. Optionally accepts Quantity, Precision, and Panel arguments.
+Localize() got invalid optional panel value
+Localize() has an optional panel argument as context for localize, but if set must be a panel object
 Localize() requires a string as it's first argument
 Localize() requires at least one argument
 LocalizePlural
-LocalizePlural() got invalid optional panel value as third argument
-LocalizePlural() has an optional third panel argument as context for localize, but if set must be a panel object
-LocalizePlural() requires a string as it's first argument
-LocalizePlural() requires at least two arguments
-LocalizePlural() requires the second argument to be a number
 Localize_001
 Log a message
 Log a warning message to specified channel
@@ -4284,8 +4266,9 @@ PanoramaUI
 PanoramaUIClient001
 PanoramaUIEngine001
 PanoramaVideoPlayer
-Panorama_ScissorRect
-Panorama_ViewportRect
+Panorama_OutputColor
+Panorama_OutputDepth
+Panorama_OutputIntermediate
 Parameters
 ParseTokenFromCharString
 Parsing attempt:  
@@ -4365,7 +4348,6 @@ Proxy Certificate Information
 Public Key
 Public-Key
 Public-Key: (%d bit)
-Pş$
 Q:   
 QuadCoords_t CUtlMemoryPoolMT
 Quantization table 0x%02x was not defined
@@ -4623,17 +4605,26 @@ S2I_ASN1_SKEY_ID
 S2I_SKEY_ID
 SCRIPTS
 SCRIPT_BODY
-SDL2.dll
+SDL3.dll
 SDL_AddEventWatch
+SDL_CloseGamepad
+SDL_CloseJoystick
 SDL_DelEventWatch
-SDL_GameControllerClose
-SDL_GameControllerGetAxis
-SDL_GameControllerGetButton
-SDL_GameControllerGetJoystick
-SDL_GameControllerMapping
-SDL_GameControllerName
-SDL_GameControllerOpen
 SDL_GetClipboardText
+SDL_GetGamepadAxis
+SDL_GetGamepadButton
+SDL_GetGamepadJoystick
+SDL_GetGamepadMapping
+SDL_GetGamepadName
+SDL_GetJoystickAxis
+SDL_GetJoystickButton
+SDL_GetJoystickGUIDString
+SDL_GetJoystickInstanceGUID
+SDL_GetJoystickName
+SDL_GetJoystickPowerLevel
+SDL_GetJoysticks
+SDL_GetNumJoystickAxes
+SDL_GetNumJoystickButtons
 SDL_HapticClose
 SDL_HapticOpenFromJoystick
 SDL_HapticRumbleInit
@@ -4643,24 +4634,14 @@ SDL_HapticRumbleSupported
 SDL_HasClipboardText
 SDL_InitSubSystem
 SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS
-SDL_JoystickClose
-SDL_JoystickCurrentPowerLevel
-SDL_JoystickGetAxis
-SDL_JoystickGetButton
-SDL_JoystickGetDeviceGUID
-SDL_JoystickGetGUIDString
-SDL_JoystickInstanceID
-SDL_JoystickName
-SDL_JoystickNumAxes
-SDL_JoystickNumButtons
-SDL_JoystickOpen
-SDL_JoystickUpdate
-SDL_NumJoysticks
+SDL_OpenGamepad
+SDL_OpenJoystick
 SDL_QuitSubSystem
 SDL_SetClipboardText
 SDL_SetHint
 SDL_ShowMessageBox
 SDL_ShowSimpleMessageBox
+SDL_UpdateJoysticks
 SDL_free
 SECG curve over a 112 bit prime field
 SECG curve over a 113 bit binary field
@@ -4909,7 +4890,6 @@ SetEnum
 SetEnumValue
 SetEnvironmentVariableW
 SetEvent
-SetFileInformationByHandle
 SetFilePointerEx
 SetFloat
 SetFocus
@@ -4926,8 +4906,6 @@ SetPanelEvent's second argument must be a function or JS script
 SetPanelSelected
 SetStdHandle
 SetString
-SetThreadpoolTimer
-SetThreadpoolWait
 SetUInt32
 SetUInt64
 SetUnhandledExceptionFilter
@@ -4961,11 +4939,11 @@ Sets the x, y, z position for a panel. Must not be in a flowing layout.<br><br><
 Sets the z-index for a panel, panels will be sorted and painted in order within a parent panel.  The sorting first sorts by the z-pos computed from position and transforms, then if panels have matching zpos zindex is used. z-index is different than z-pos in that it doesn't affect rendering perspective, just paint/hit-test ordering. The default z-index value is 0, and any floating point value is accepted.<br><br><b>Example:</b><pre>z-index: 1;</pre>
 Sets whether the given panel is enabled
 SettingsPanelShown
-Shorthand for setting panel border. Specify width, style, and color.  Supported styles are: solid, none.<br><br><b>Examples:</b><pre>border: 2px solid #111111FF;</pre>
-Shorthand for setting the bottom panel border. Specify width, style, and color.  Supported styles are: solid, none.<br><br><b>Examples:</b><pre>border-bottom: 2px solid #111111FF;</pre>
-Shorthand for setting the left panel border. Specify width, style, and color.  Supported styles are: solid, none.<br><br><b>Examples:</b><pre>border-left: 2px solid #111111FF;</pre>
-Shorthand for setting the right panel border. Specify width, style, and color.  Supported styles are: solid, none.<br><br><b>Examples:</b><pre>border-right: 2px solid #111111FF;</pre>
-Shorthand for setting the top panel border. Specify width, style, and color.  Supported styles are: solid, none.<br><br><b>Examples:</b><pre>border-top: 2px solid #111111FF;</pre>
+Shorthand for setting panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border: 2px solid #111111FF;</pre>
+Shorthand for setting the bottom panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border-bottom: 2px solid #111111FF;</pre>
+Shorthand for setting the left panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border-left: 2px solid #111111FF;</pre>
+Shorthand for setting the right panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border-right: 2px solid #111111FF;</pre>
+Shorthand for setting the top panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border-top: 2px solid #111111FF;</pre>
 Shorthand to set border radius for all corners at once.  Border radius rounds off corners of the panel, adjusting the border to smoothly round and also clipping background image/color and contents to the specified elliptical or circular values.  In this shorthand version you may specify a single value for all raddi, or horizontal / vertical separated by the '/' character.  For both horizontal and vertical you may specify 1 to 4 values in pixels or %, they will be taken in order as top-left, top-right, bottom-right, bottom-left radii values.<br><br><b>Examples:</b><pre>// 2 px circular corners on all sides
 Should not pass empty string for FindChildInContext()/$()
 Should not reach here.
@@ -5013,7 +4991,7 @@ Specifies border color for the bottom edge of the panel. <br><br><b>Examples:</b
 Specifies border color for the left edge of the panel. <br><br><b>Examples:</b><pre>border-left-color: #111111FF;</pre>
 Specifies border color for the right edge of the panel. <br><br><b>Examples:</b><pre>border-right-color: #111111FF;</pre>
 Specifies border color for the top edge of the panel. <br><br><b>Examples:</b><pre>border-top-color: #111111FF;</pre>
-Specifies border style for panel.  If a single style value is set it applies to all sides, if 2 are set the first is top/bottom and the second is left/right, if all four are set then they are top, right, bottom, left in order.<br><br><b>Examples:</b><pre>border-style: solid;
+Specifies border style for panel.  If a single style value is set it applies to all sides, if 2 are set the first is top/bottom and the second is left/right, if all four are set then they are top, right, bottom, left in order.<br><br><b>Examples:</b><pre>border-style: dashed;
 Specifies border style for the bottom edge of the panel. <br><br><b>Examples:</b><pre>border-bottom-style: solid;</pre>
 Specifies border style for the left edge of the panel. <br><br><b>Examples:</b><pre>border-left-style: solid;</pre>
 Specifies border style for the right edge of the panel. <br><br><b>Examples:</b><pre>border-right-style: solid;</pre>
@@ -5078,7 +5056,7 @@ SteamMatchMaking009
 SteamMatchMakingServers002
 SteamNetworking006
 SteamUI
-SteamUser021
+SteamUser023
 SteamUtils010
 SteampadGuideButton
 SteampadGuideButtonUp
@@ -5092,7 +5070,6 @@ Strong Extranet ID
 StyleClassesChanged
 StyleFlagsChanged
 Subject Information Access
-SubmitThreadpoolWork
 Success
 Suggested field numbers for 
 Suite B: cannot sign P-384 with P-256
@@ -5241,7 +5218,6 @@ Trigger an assert
 TriggerStyle
 Trust Root
 TryAcquireSRWLockExclusive
-TryEnterCriticalSection
 TrySendVNotify - SendKV3 failed
 Trying to apply missing animation: %s
 Tuesday
@@ -5461,12 +5437,12 @@ V_isdigit_str
 V_isnand
 V_isstrlower_fast
 V_isvalidhex
+V_log2_uint
 V_modff
 V_powd
 V_powf
 V_qsort
 V_qsort_s
-V_roundf
 V_sincosf
 V_sinf
 V_snprintf
@@ -5511,6 +5487,7 @@ VideoPlayerRepeated
 Vietnamese
 Virtual array controller messed up
 VisBuilder_001
+Vrad3_001
 WARNING
 WARNING: Image '%s' size too large (%d x %d with limit %d x %d), image load failing
 WARNING: VNotify abandoned after too many attempts:
@@ -5539,7 +5516,6 @@ WTLS curve over a 160 bit prime field
 WTLS curvs over a 224 bit prime field
 WaitForSingleObject
 WaitForSingleObjectEx
-WaitForThreadpoolTimerCallbacks
 WakeAllConditionVariable
 WakeConditionVariable
 Warning
@@ -5754,6 +5730,7 @@ __restrict
 __stdcall
 __swift_1
 __swift_2
+__swift_3
 __thiscall
 __unaligned
 __vectorcall
@@ -5788,6 +5765,7 @@ _nextafter
 `managed vector destructor iterator'
 `non-type-template-parameter
 `omni callsig'
+`p$
 `placement delete closure'
 `placement delete[] closure'
 `scalar deleting destructor'
@@ -5798,7 +5776,6 @@ _nextafter
 `template-parameter-
 `template-type-parameter-
 `typeof'
-`u"
 `udt returning'
 `unknown ecsu'
 `vbase destructor'
@@ -8159,6 +8136,7 @@ krb5 server tkt expired
 krb5 server tkt not yet valid
 krb5 server tkt skew
 l <= sizeof(c->iv)
+lambda
 language
 last octet invalid
 lastModifiedBy
@@ -9498,7 +9476,6 @@ snippets
 snmpv2
 socket
 solid
-solid 
 sound
 sound-out
 sourceLineColumn
@@ -9733,6 +9710,7 @@ subjectUID
 subtreeMaximumQuality
 subtreeMinimumQuality
 subtype mismatch
+success
 superseded
 suppPubInfo
 supportedAlgorithms
@@ -9789,6 +9767,7 @@ the asn1 object identifier is not known for this md
 the global scope
 the meth_data stack is corrupt
 there must be one signer
+this 
 thisUpdate
 thistle
 thread=%lu, 
@@ -10226,6 +10205,7 @@ z-index
 zh_CN
 zh_TW
 zlib compression
+{0x%x}
 {LayoutRoot}
 {Self}
 {SnippetRoot}

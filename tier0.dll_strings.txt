@@ -451,7 +451,6 @@
 -noloaderlockprobe
 -nominidumps
 -norestart
--phased_window_create
 -profile
 -retail
 -spew_detailed_cpu_info
@@ -465,6 +464,7 @@
 -tools
 -uselmv
 -vminidump_exception_code
+.%x.%x.copy_tmp
 ............| 
 ...........| 
 ..........| 
@@ -567,12 +567,12 @@
 .?AVCVSymbolModule@@
 .?AVConCommand@@
 .?AVConCommandRef@@
-.?AVCpuidImpl@?A0xe0dfff50@@
+.?AVCpuidImpl@?A0x04b694f6@@
 .?AVDNameNode@@
 .?AVDNameStatusNode@@
-.?AVDefaultImpl@?A0xe0dfff50@@
-.?AVGlpiExImpl@?A0xe0dfff50@@
-.?AVGlpiImpl@?A0xe0dfff50@@
+.?AVDefaultImpl@?A0x04b694f6@@
+.?AVGlpiExImpl@?A0x04b694f6@@
+.?AVGlpiImpl@?A0x04b694f6@@
 .?AVIAppSystem@@
 .?AVIAsyncScheduledFunctions@@
 .?AVICommandCallback@@
@@ -625,16 +625,13 @@
 .?AVpcharNode@@
 .?AVruntime_error@std@@
 .?AVstl_condition_variable_interface@details@Concurrency@@
-.?AVstl_condition_variable_vista@details@Concurrency@@
 .?AVstl_condition_variable_win7@details@Concurrency@@
 .?AVstl_critical_section_interface@details@Concurrency@@
-.?AVstl_critical_section_vista@details@Concurrency@@
 .?AVstl_critical_section_win7@details@Concurrency@@
 .?AVsystem_error@std@@
 .?AVtype_info@@
 .\LocalSystem
 .build-id\
-.copy_tmp
 .dSYM
 .debug
 .eh_frame
@@ -642,6 +639,8 @@
 .gnu_debuglink doesn't have a filename
 .gnu_debuglink doesn't have string terminator
 .so.zip
+/debuginfo
+/executable
 /mnt/symbols_
 0 0 0
 0 0 0 0
@@ -660,6 +659,7 @@
 1#QNAN
 1#SNAN
 1) tag specifiers: +/-tag1 +/-tag2 ...      // Narrows down to channels with & without given tags.
+1.2.11
 127.0.0.1
 1DBlend
 2) channel names: name1 name2 ...           // Lists channels by name.
@@ -794,6 +794,7 @@
 ??0CThreadRWLock_FastRead@@QEAA@XZ
 ??0CThreadSemaphore@@QEAA@HHPEBD_N@Z
 ??0CThreadSwapContext_Base@@QEAA@PEAVCThreadSwapTarget@@PEAX_K@Z
+??0CThreadSwapJob@@QEAA@PEAVCThreadSwapTarget@@@Z
 ??0CThreadSwapTarget@@QEAA@XZ
 ??0CThreadSyncObject@@IEAA@XZ
 ??0CUtl3DAllocator2@@QEAA@XZ
@@ -1217,12 +1218,14 @@
 ?FioCopyFile@@YAHPEBD0_N@Z
 ?FioCreateFile@@YAHPEBDW4EFioAccessFlags@@W4EFioShareFlags@@W4EFioCreateMode@@IPEAPEAX@Z
 ?FioCreatePipe@@YAHPEAPEAX0H@Z
+?FioCreateSymbolicLink@@YAHPEBD0_N@Z
 ?FioDuplicate@@YAHPEAX_NPEAPEAX@Z
 ?FioFileTimeToTimeT@@YA_J_K@Z
 ?FioFindFileInDirCaseInsensitive@@YAPEBDPEBDPEAVCBufferString@@_N@Z
 ?FioFlush@@YAHPEAX@Z
 ?FioGetActualFilenameCase@@YA_NPEBDPEAVCBufferString@@_N@Z
 ?FioGetBaseFileInfo@@YAHPEBDPEAUFioBaseFileInfo_t@@I@Z
+?FioGetDiskInfo@@YAHPEBDPEAUFioDiskInfo_t@@@Z
 ?FioGetFileCRC32@@YAHPEBDPEAIH@Z
 ?FioGetFileCRC32Buffer@@YAHPEBDPEAIPEAEH@Z
 ?FioGetFileIdentity@@YAHPEAXPEA_K1@Z
@@ -1269,6 +1272,7 @@
 ?FormatTo@@YAXPEAVIFormatOutputStream@@VCFormatStringElement@@N@Z
 ?FormatTo@@YAXPEAVIFormatOutputStream@@VCFormatStringElement@@PEBD@Z
 ?FormatTo@@YAXPEAVIFormatOutputStream@@VCFormatStringElement@@PEBX@Z
+?FormatTo@@YAXPEAVIFormatOutputStream@@VCFormatStringElement@@PEB_W@Z
 ?FormatTo@@YAXPEAVIFormatOutputStream@@VCFormatStringElement@@_J@Z
 ?FormatTo@@YAXPEAVIFormatOutputStream@@VCFormatStringElement@@_K@Z
 ?FormatTo@@YAXPEAVIFormatOutputStream@@VCFormatStringElement@@_N@Z
@@ -1377,7 +1381,7 @@
 ?GetLineOffsetBitMask@CVirtualMachineCallStackTranslationEncoder@@QEAA_KXZ
 ?GetLineOffsetBitShift@CVirtualMachineCallStackTranslationEncoder@@QEAAIXZ
 ?GetLineOffsetPostShiftedSignBitMask@CVirtualMachineCallStackTranslationEncoder@@QEAA_KXZ
-?GetLines@CGridStringPrinter@@QEBAXAEAV?$CUtlVector@VCUtlString@@HV?$CUtlMemory@VCUtlString@@H@@@@@Z
+?GetLines@CGridStringPrinter@@QEBAXAEAV?$CUtlVector@VCUtlString@@HV?$CUtlMemory@VCUtlString@@H@@@@_N@Z
 ?GetListenerNames_Base@CEventDispatcher_Base@@IEAAXAEBV?$CUtlVector@UEventListenerInfo_t@CEventDispatcher_Base@@HV?$CUtlMemory@UEventListenerInfo_t@CEventDispatcher_Base@@H@@@@PEAV?$CUtlVector@VCUtlString@@HV?$CUtlMemory@VCUtlString@@H@@@@@Z
 ?GetMappingBaseAddress@CVirtualMachineCallStackTranslationEncoder@@QEAA_KXZ
 ?GetMappingSize@CVirtualMachineCallStackTranslationEncoder@@QEAAIXZ
@@ -1482,6 +1486,7 @@
 ?Insert@CStableSymbolTable@@QEAAXHPEBD@Z
 ?InsertSubKey@KeyValues@@QEAAXHPEAV1@@Z
 ?InternalClear@CUtlMemoryPoolBase@@IEAAXPEAVCBlob@1@PEAUFreeList_t@1@@Z
+?InternalRunJob@CThreadSwapJob@@AEAAXP6AXPEAX@Z0@Z
 ?InternalSetFiberJob@CFiber@@AEAAPEAXP6AXPEAX@Z0_K_N@Z
 ?Internal_ClearAll@CKeyValues_Data@@IEAAXXZ
 ?Internal_ClearData@CKeyValues_Data@@IEAAXXZ
@@ -1535,6 +1540,7 @@
 ?IsKV3Data@@YA_NPEBXHPEAUKV3ID_t@@PEADH@Z
 ?IsLocalThreadScope@CThreadLocalScope@@QEBA_NXZ
 ?IsLocalhost@netadr_t@@QEBA_NXZ
+?IsLocked@CThreadMutex@@QEBA_NXZ
 ?IsLoopback@netadr_t@@QEBA_NXZ
 ?IsMachoHeader@CModuleListSnapshot@@SA_NPEBX_K@Z
 ?IsNonFull@IFormatOutputStream@@QEBA_NXZ
@@ -1616,7 +1622,7 @@
 ?MakeAbsolutePath@CBufferString@@QEAAPEBDPEBD0@Z
 ?MakeCopy@KeyValues@@QEBAPEAV1@XZ
 ?MakeFixedAbsolutePath@CBufferString@@QEAAPEBDPEBD0D@Z
-?MakeRelativePath@CBufferString@@QEAAPEBDPEBD0@Z
+?MakeRelativePath@CBufferString@@QEAAPEBDPEBD0_N@Z
 ?MarkFrame@CVProfNode@@QEAAXXZ
 ?MarkFrame@CVProfile@@QEAAXXZ
 ?MatchesPattern@CUtlString@@QEBA_NAEBV1@H@Z
@@ -1626,6 +1632,8 @@
 ?MergeFrom@KeyValues@@QEAAXPEBV1@W4MergeKeyValuesOp_t@1@@Z
 ?MergeFromTemporary@KeyValues@@QEBAPEAVCTemporaryKeyValues@@PEBV1@W4MergeKeyValuesOp_t@1@@Z
 ?MoveFrom@CBufferString@@QEAAXAEAV1@@Z
+?Nearest@CVertexKDTree@@QEBAPEBMAEBV?$Vector3DBase@M@@@Z
+?NearestInternal@CVertexKDTree@@AEBAXAEBV?$Vector3DBase@M@@AEAMPEAPEBMH@Z
 ?NewLineAndIndent@IFormatOutputStream@@QEAAXXZ
 ?NewPathStringBuffer@CPathString@@SAPEAUBuffer_t@1@XZ
 ?Next@CStringRegistry@@QEBAGG@Z
@@ -2274,7 +2282,7 @@ Average %.2f fps, %.2f ms per frame
 Bad Shortcut
 Bad exponent in floating point number
 Bad expression operator: '%c%c', expected C style boolean expression operator.
-Bad expression token: %c
+Bad expression token: %c in expression "%s"
 Bad header (unrecognized encoding specifier)
 Bad header format (expected ':'
 Bad header format (expected '<!--'
@@ -2306,6 +2314,7 @@ BlendLayer
 BlendLayerBase
 BlendLayerPoseParam
 BlendList
+Block
 BodyGroup
 BodyGroupChoice
 Boundary_Radius
@@ -2366,20 +2375,253 @@ C:\buildworker\csgo_rel_win64\build\src\tier0\vprof.cpp
 C:\buildworker\csgo_rel_win64\build\src\tier0_perproject\singletons.cpp
 CAddAnimNode
 CAimMatrixAnimNode
+CAndCondition
+CAnimActionBase
+CAnimActionBaseConstPtr
+CAnimActionBasePtr
+CAnimClipData
+CAnimClipDataConstPtr
+CAnimClipDataManager
+CAnimClipDataPtr
+CAnimComponentBase
+CAnimComponentBaseConstPtr
+CAnimComponentBasePtr
 CAnimComponentManager
+CAnimComponentState
 CAnimComponentStateTransition
+CAnimDocBlend2DAnimNode
+CAnimDocBlend2DItemBase
+CAnimDocBlend2DItemBaseConstPtr
+CAnimDocBlend2DItemBasePtr
+CAnimDocMotionItem
+CAnimDocMotionItemConstPtr
+CAnimDocMotionItemGroup
+CAnimDocMotionItemGroupConstPtr
+CAnimDocMotionItemGroupPtr
+CAnimDocMotionItemPtr
+CAnimDocNodeBlend2DItem
+CAnimDocParamSpan
+CAnimDocParamSpanConstPtr
+CAnimDocParamSpanPtr
+CAnimDocParamSpanSample
+CAnimDocSequenceBlend2DItem
+CAnimDocTagSpan
+CAnimDocTagSpanConstPtr
+CAnimDocTagSpanPtr
+CAnimGraphDoc_Action
+CAnimGraphDoc_ActionConstPtr
+CAnimGraphDoc_ActionPtr
+CAnimGraphDoc_AddNode
+CAnimGraphDoc_AimMatrixNode
+CAnimGraphDoc_AndCondition
+CAnimGraphDoc_BindPoseNode
+CAnimGraphDoc_Blend2DItem
+CAnimGraphDoc_Blend2DItemConstPtr
+CAnimGraphDoc_Blend2DItemNode
+CAnimGraphDoc_Blend2DItemPtr
+CAnimGraphDoc_Blend2DItemSequence
+CAnimGraphDoc_Blend2DNode
+CAnimGraphDoc_BlendNode
+CAnimGraphDoc_BlockSelectionMetric
+CAnimGraphDoc_BoneMaskNode
+CAnimGraphDoc_BonePositionMetric
+CAnimGraphDoc_BoneVelocityMetric
+CAnimGraphDoc_ChoiceNode
+CAnimGraphDoc_ChoreoNode
+CAnimGraphDoc_ClipData
+CAnimGraphDoc_ClipDataConstPtr
+CAnimGraphDoc_ClipDataManager
+CAnimGraphDoc_ClipDataPtr
+CAnimGraphDoc_CommentNode
+CAnimGraphDoc_Component
+CAnimGraphDoc_ComponentConstPtr
+CAnimGraphDoc_ComponentManager
+CAnimGraphDoc_ComponentPtr
+CAnimGraphDoc_ComponentState
+CAnimGraphDoc_ComponentStateTransition
+CAnimGraphDoc_Condition
+CAnimGraphDoc_ConditionConstPtr
+CAnimGraphDoc_ConditionContainer
+CAnimGraphDoc_ConditionPtr
+CAnimGraphDoc_ContainerNodeBase
+CAnimGraphDoc_CurrentRotationVelocityMetric
+CAnimGraphDoc_CurrentVelocityMetric
+CAnimGraphDoc_CycleCondition
+CAnimGraphDoc_CycleControlClipNode
+CAnimGraphDoc_CycleControlNode
+CAnimGraphDoc_DampedPathMotor
+CAnimGraphDoc_DirectPlaybackNode
+CAnimGraphDoc_DirectionalBlendNode
+CAnimGraphDoc_DistanceRemainingMetric
+CAnimGraphDoc_EmitTagAction
+CAnimGraphDoc_ExpressionAction
+CAnimGraphDoc_FinishedCondition
+CAnimGraphDoc_FollowAttachmentNode
+CAnimGraphDoc_FollowPathNode
+CAnimGraphDoc_FootAdjustmentNode
+CAnimGraphDoc_FootCycleMetric
+CAnimGraphDoc_FootLockNode
+CAnimGraphDoc_FootPinningNode
+CAnimGraphDoc_FootPositionMetric
+CAnimGraphDoc_FootStepTriggerNode
+CAnimGraphDoc_FutureFacingMetric
+CAnimGraphDoc_FutureVelocityMetric
+CAnimGraphDoc_Graph
+CAnimGraphDoc_GraphMotionItem
+CAnimGraphDoc_GroupInputNode
+CAnimGraphDoc_GroupNode
+CAnimGraphDoc_GroupOutputNode
+CAnimGraphDoc_HitReactNode
+CAnimGraphDoc_InputStreamNode
+CAnimGraphDoc_JiggleBoneNode
+CAnimGraphDoc_JumpHelperNode
+CAnimGraphDoc_LeanMatrixNode
+CAnimGraphDoc_LookAtNode
+CAnimGraphDoc_MotionGraphPreviewNode
+CAnimGraphDoc_MotionItem
+CAnimGraphDoc_MotionItemConstPtr
+CAnimGraphDoc_MotionItemGroup
+CAnimGraphDoc_MotionItemGroupConstPtr
+CAnimGraphDoc_MotionItemGroupPtr
+CAnimGraphDoc_MotionItemPtr
+CAnimGraphDoc_MotionMatchingNode
+CAnimGraphDoc_MotionMetric
+CAnimGraphDoc_MotionMetricConstPtr
+CAnimGraphDoc_MotionMetricPtr
+CAnimGraphDoc_MotionNodeBuilder
+CAnimGraphDoc_MotionNodeManager
+CAnimGraphDoc_MotionParameter
+CAnimGraphDoc_MotionParameterConstPtr
+CAnimGraphDoc_MotionParameterManager
+CAnimGraphDoc_MotionParameterPtr
+CAnimGraphDoc_Motor
+CAnimGraphDoc_MotorConstPtr
+CAnimGraphDoc_MotorPtr
+CAnimGraphDoc_MoverNode
+CAnimGraphDoc_Node
+CAnimGraphDoc_NodeBlend2D
+CAnimGraphDoc_NodeBlend2DItem
+CAnimGraphDoc_NodeConnection
+CAnimGraphDoc_NodeConstPtr
+CAnimGraphDoc_NodeList
+CAnimGraphDoc_NodeListConstPtr
+CAnimGraphDoc_NodeListPtr
+CAnimGraphDoc_NodeManager
+CAnimGraphDoc_NodePtr
+CAnimGraphDoc_NodeState
+CAnimGraphDoc_NodeStateTransition
+CAnimGraphDoc_OrCondition
+CAnimGraphDoc_ParamSpan
+CAnimGraphDoc_ParamSpanConstPtr
+CAnimGraphDoc_ParamSpanPtr
+CAnimGraphDoc_ParamSpanSample
+CAnimGraphDoc_ParameterCondition
+CAnimGraphDoc_ParameterManager
+CAnimGraphDoc_ParameterManagerConstPtr
+CAnimGraphDoc_ParameterManagerPtr
+CAnimGraphDoc_PathHelperNode
+CAnimGraphDoc_PathMetric
+CAnimGraphDoc_PathMotor
+CAnimGraphDoc_PathMotorBase
+CAnimGraphDoc_PlayerInputMotor
+CAnimGraphDoc_ProxyNodeBase
+CAnimGraphDoc_RagdollNode
+CAnimGraphDoc_RigidBodyWeightList
+CAnimGraphDoc_RigidBodyWeightListConstPtr
+CAnimGraphDoc_RigidBodyWeightListPtr
+CAnimGraphDoc_RootNode
+CAnimGraphDoc_ScriptEditManager
+CAnimGraphDoc_ScriptEditManagerConstPtr
+CAnimGraphDoc_ScriptEditManagerPtr
+CAnimGraphDoc_SelectorNode
+CAnimGraphDoc_SequenceBlend2DItem
+CAnimGraphDoc_SequenceMotionItem
+CAnimGraphDoc_SequenceNode
+CAnimGraphDoc_SetFacingNode
+CAnimGraphDoc_SetParameterAction
+CAnimGraphDoc_SingleFrameNode
+CAnimGraphDoc_SkeletalInputNode
+CAnimGraphDoc_SlowDownOnSlopesNode
+CAnimGraphDoc_SolveIKChainNode
+CAnimGraphDoc_SpeedScaleNode
+CAnimGraphDoc_StanceOverrideNode
+CAnimGraphDoc_StanceScaleNode
+CAnimGraphDoc_State
+CAnimGraphDoc_StateConstPtr
+CAnimGraphDoc_StateList
+CAnimGraphDoc_StateListConstPtr
+CAnimGraphDoc_StateListPtr
+CAnimGraphDoc_StateMachine
+CAnimGraphDoc_StateMachineNode
+CAnimGraphDoc_StatePtr
+CAnimGraphDoc_StateStatusCondition
+CAnimGraphDoc_StateTransition
+CAnimGraphDoc_StateTransitionConstPtr
+CAnimGraphDoc_StateTransitionPtr
+CAnimGraphDoc_StepsRemainingMetric
+CAnimGraphDoc_StopAtGoalNode
+CAnimGraphDoc_SubGraph
+CAnimGraphDoc_SubGraphManager
+CAnimGraphDoc_SubGraphManagerConstPtr
+CAnimGraphDoc_SubGraphManagerPtr
+CAnimGraphDoc_SubGraphNode
+CAnimGraphDoc_SubtractNode
+CAnimGraphDoc_TagCondition
+CAnimGraphDoc_TagManager
+CAnimGraphDoc_TagManagerConstPtr
+CAnimGraphDoc_TagManagerPtr
+CAnimGraphDoc_TagSpan
+CAnimGraphDoc_TagSpanConstPtr
+CAnimGraphDoc_TagSpanPtr
+CAnimGraphDoc_TimeCondition
+CAnimGraphDoc_TimeRemainingMetric
+CAnimGraphDoc_ToggleComponentAction
+CAnimGraphDoc_TurnHelperNode
+CAnimGraphDoc_TwoBoneIKNode
+CAnimGraphDoc_WayPointHelperNode
+CAnimGraphDoc_ZeroPoseNode
 CAnimGraphGeneralSettings
 CAnimGraphSettingsManager
 CAnimInputDamping
+CAnimMotorBase
+CAnimMotorBaseConstPtr
+CAnimMotorBasePtr
 CAnimMotorList
 CAnimMovementManager
 CAnimMovementUpdater
+CAnimNodeBase
+CAnimNodeBaseConstPtr
+CAnimNodeBasePtr
 CAnimNodeConnection
+CAnimNodeList
+CAnimNodeListConstPtr
+CAnimNodeListPtr
 CAnimNodeManager
 CAnimNodeState
 CAnimNodeStateTransition
+CAnimParamSpan
+CAnimParamSpanConstPtr
+CAnimParamSpanPtr
+CAnimParamSpanSample
+CAnimParameterList
+CAnimParameterListConstPtr
+CAnimParameterListPtr
 CAnimState
+CAnimStateConstPtr
+CAnimStateList
+CAnimStateListConstPtr
+CAnimStateListPtr
+CAnimStateMachine
+CAnimStatePtr
 CAnimStateTransition
+CAnimStateTransitionConstPtr
+CAnimStateTransitionPtr
+CAnimTagManager
+CAnimTagManagerConstPtr
+CAnimTagManagerPtr
+CAnimTagSpan
+CAnimTagSpanConstPtr
+CAnimTagSpanPtr
 CAnimUpdateSharedData
 CAnimationGraph
 CAnimationSubGraph
@@ -2389,10 +2631,17 @@ CAsyncScheduledFunctionManager::Init
 CAsyncScheduledFunctionManager::m_callMutex
 CAuthPhysBody
 CAuthPhysJoint
+CBindPoseAnimNode
 CBlend2DAnimNode
 CBlend2DItem
+CBlend2DItemBase
+CBlend2DItemBaseConstPtr
+CBlend2DItemBasePtr
 CBlendAnimNode
+CBlockSelectionMetric
 CBoneMaskAnimNode
+CBonePositionMetric
+CBoneVelocityMetric
 CBoolAnimParameter
 CBufferString::%s: unsafe self pointer provided as a modification input
 CBufferString::AppendConcat
@@ -2415,30 +2664,52 @@ CBufferString::UnicodeCaseConvert
 CChoiceAnimNode
 CChoreoAnimNode
 CCommand::Tokenize: Encountered command which overflows the tokenizer buffer.. Skipping!
+CCommentAnimNode
+CConditionBase
+CConditionBaseConstPtr
+CConditionBasePtr
 CConditionContainer
+CContainerAnimNodeBase
 CControlValueCondition
 CCoroutine::RestoreStack
 CCoroutine::SaveStack
 CCoroutineMgr::PopCoroutineStack
+CCurrentRotationVelocityMetric
+CCurrentVelocityMetric
 CCvar
 CCycleCondition
 CCycleControlAnimNode
+CCycleControlClipAnimNode
+CDampedPathAnimMotor
 CDirTreeWatchManager::AddWatch called on '%s' which is contained in existing watch of '%s'
 CDirectPlaybackAnimNode
+CDirectionalBlendAnimNode
+CDistanceRemainingMetric
 CEmitTagAction
 CEnumAnimParameter
+CExpressionAction
 CFacingHeadingCondition
+CFinishedCondition
 CFloatAnimParameter
 CFloatAnimValue
 CFloatEncoderRegistry::GetQuantizedFloatEncoderByReg
 CFollowAttachmentAnimNode
 CFollowPathAnimNode
+CFootAdjustmentAnimNode
+CFootCycleMetric
 CFootLockAnimNode
+CFootPinningAnimNode
+CFootPositionMetric
 CFootStepTriggerAnimNode
 CForceFacingCondition
+CFutureFacingMetric
 CFutureVelocityMetric
+CGraphMotionItem
 CGroundCondition
 CGroundIKSolveAnimNode
+CGroupAnimNode
+CGroupInputAnimNode
+CGroupOutputAnimNode
 CHEAT
 CHitReactAnimNode
 CIE aug data missing LSDA encoding
@@ -2449,8 +2720,10 @@ CIE code alignment (%llu) too large
 CIE count overflow
 CIE data alignment (%lld) out of range
 CIE return register (%llu) too large
+CInputStreamAnimNode
 CIntAnimParameter
 CJiggleBoneAnimNode
+CJumpHelperAnimNode
 CKV3FormatManager::RegisterFormatConversion
 CKeyValues3Context::Root
 CKeyValuesSystem::GetSymbolForString
@@ -2458,6 +2731,7 @@ CKeyValuesSystem::GetSymbolForStringCaseSensitive
 CKeyValuesSystem::m_Strings
 CLIENTCMD_CAN_EXECUTE
 CLIENTDLL
+CLeanMatrixAnimNode
 CLoadKV3FromText::ReadLiteralValue
 CLoggingSystem::AllocTag
 CLoggingSystem::AllocTag overflowed!
@@ -2474,15 +2748,30 @@ CMotionBase
 CMotionClip
 CMotionClipBase
 CMotionClipGroup
+CMotionGraphPreviewNode
 CMotionGroup
 CMotionItem
+CMotionItemConstPtr
 CMotionItemGroup
+CMotionItemGroupConstPtr
+CMotionItemGroupPtr
+CMotionItemPtr
 CMotionMatchingAnimNode
+CMotionMetricBase
+CMotionMetricBaseConstPtr
+CMotionMetricBasePtr
+CMotionNodeBuilder
+CMotionNodeManager
+CMotionParameter
+CMotionParameterConstPtr
+CMotionParameterManager
+CMotionParameterPtr
 CMotionVariantBase
 CMotionVariantGroup
 CMovementComponent
 CMovementComponentUpdater
 CMoverAnimNode
+CNodeBlend2DItem
 COLLISION_MODE_INITIAL_TRACE_DOWN
 COLLISION_MODE_PER_FRAME_PLANESET
 COLLISION_MODE_PER_PARTICLE_TRACE
@@ -2492,30 +2781,50 @@ COMPARISONVALUETYPE_FIXEDVALUE
 COMPARISONVALUETYPE_PARAMETER
 COM_TimestampedLog
 CONTENT
+COrCondition
 CPU information: physical %u, logical %u (fake mode %u)
 CPageAllocator::AllocUnlocked
 CParameterAnimCondition
 CParameterCondition
 CParticleSystemDefinition
+CPathAnimMotor
+CPathAnimMotorBase
 CPathHelperAnimNode
+CPathMetric
 CPathStatusCondition
+CPlayerInputAnimMotor
+CProxyAnimNodeBase
+CPulseCell_
+CPulseCell_Inflow_Wait
+CPulseNode_
 CQuaternionAnimParameter
 CRC32_GetTableEntry
 CRC32_ProcessBuffer
 CRC64_ProcessBuffer
+CRagdollAnimNode
+CRigidBodyWeightList
+CRigidBodyWeightListConstPtr
+CRigidBodyWeightListPtr
 CRootAnimNode
 CSafeToLoadModulesTester::Test
 CSaveKV3AsKV1Text::TranslationForPath
+CScriptEditManager
+CScriptEditManagerConstPtr
+CScriptEditManagerPtr
 CSelectorAnimNode
 CSelectorUpdateNode
 CSemiAutoRWLockT<class CThreadRWLock_FastRead>::LockForWrite
 CSemiAutoRWLockT<class CThreadRWLock_FastRead>::Unlock
+CSequenceAnimNode
 CSequenceBlend2DItem
 CSequenceMotion
 CSequenceMotionClip
 CSequenceMotionItem
 CSequenceMotionVariant
 CSetFacingAnimNode
+CSetParameterAction
+CSingleFrameAnimNode
+CSkeletalInputAnimNode
 CSlopeComponent
 CSlopeComponentUpdater
 CSlopeSettings
@@ -2548,7 +2857,6 @@ CSmartPropOperation_SetAttributes
 CSmartPropOperation_SetTintColor
 CSmartPropOperation_SetVariable
 CSmartPropOperation_SetVariableBool
-CSmartPropOperation_SetVariableInt
 CSmartPropOperation_SetVariableString
 CSmartPropOperation_TraceInDirection
 CSmartPropOperation_TraceToSurface
@@ -2557,11 +2865,19 @@ CSmartPropSelectionCriteria_ChoiceWeight
 CSmartPropSelectionCriteria_LinearLength
 CSolveIKChainAnimNode
 CSpeedScaleAnimNode
+CStanceOverrideAnimNode
+CStanceScaleAnimNode
 CStateAction
+CStateMachineAnimNode
 CStateStatusCondition
 CStdMemAlloc<struct MemConfig<0,0,struct DefaultAdditionalProperties> >::NoteAlloc
 CStdMemAlloc<struct MemConfig<0,0,struct RuntimeAdditionalProperties> >::NoteAlloc
+CStepsRemainingMetric
 CStopAtGoalAnimNode
+CSubGraphAnimNode
+CSubGraphManager
+CSubGraphManagerConstPtr
+CSubGraphManagerPtr
 CSubtractAnimNode
 CTSList
 CTSListBase: Misaligned list
@@ -2601,9 +2917,11 @@ CThreadedJob
 CThreadedTraverseJob::CThreadedTraverseJob
 CThreadedTraverseJobSync::WaitForAllDone
 CTimeCondition
+CTimeRemainingMetric
 CTimestampedEventLog::AllocateEvent
 CTimestampedEventLog::FlushBuffer
 CTimestampedEventLog::SetListener
+CToggleComponentAction
 CToolsStallMonitorThread::M_BeginStallScope
 CToolsStallMonitorThread::M_EndStallScope
 CTurnHelperAnimNode
@@ -2632,6 +2950,7 @@ CUtlSymbolTableLargeBase
 CVAR_
 CVectorAnimParameter
 CWayPointHelperAnimNode
+CZeroPoseAnimNode
 C_INIT_AddVectorToVector
 C_INIT_AgeNoise
 C_INIT_CreateFromCPs
@@ -2657,6 +2976,7 @@ C_INIT_LifespanFromVelocity
 C_INIT_MakeShapes
 C_INIT_ModelCull
 C_INIT_MoveBetweenPoints
+C_INIT_NormalAlignToCP
 C_INIT_NormalOffset
 C_INIT_OffsetVectorToVector
 C_INIT_PositionOffset
@@ -2719,14 +3039,17 @@ C_OP_HSVShiftToCP
 C_OP_InheritFromParentParticles
 C_OP_InitSetSnapshotOnCP
 C_OP_InstantaneousEmitter
+C_OP_LockToBone
 C_OP_LockToSavedSequentialPath
 C_OP_MaintainEmitter
+C_OP_MoveToHitbox
 C_OP_MovementPlaceOnGround
 C_OP_MovementRotateParticleAroundAxis
 C_OP_NoiseEmitter
 C_OP_PercentageBetweenCPLerpCPs
 C_OP_PercentageBetweenCPs
 C_OP_PercentageBetweenCPsVector
+C_OP_PinParticleToCP
 C_OP_PositionLock
 C_OP_RampCPLinearRandom
 C_OP_RemapAverageScalarValuetoCP
@@ -2810,9 +3133,6 @@ Client VScript
 Client_Animation
 ClipIndex
 CloseHandle
-CloseThreadpoolTimer
-CloseThreadpoolWait
-CloseThreadpoolWork
 ClothEffectAnimEvent
 ClothShapeCapsule
 ClothShapeList
@@ -2837,11 +3157,14 @@ Comp dir attr without string value
 CompareStringEx
 CompareStringW
 Compilation units ran off the end of .debug_info
+Compression unsupported for format %u
 ConDMsg
 ConVar
 Conditional Error: %s
 ConfigAttachedModel
 ConnectInterfaceSingletons
+Connection_Inparam
+Connection_Outflow
 Console
 Constructor/destructor index ('%c%c') out of range
 Constructor/destructor name extraction failed
@@ -2910,7 +3233,6 @@ CreateCompatibleDC
 CreateDIBSection
 CreateDirectoryW
 CreateEventA
-CreateEventExW
 CreateEventW
 CreateFileMappingA
 CreateFileW
@@ -2923,16 +3245,11 @@ CreatePipe
 CreateProcessA
 CreateProcessW
 CreateSemaphoreA
-CreateSemaphoreExW
-CreateSemaphoreW
 CreateSimpleProcess
 CreateSimpleThread
 CreateSolidBrush
 CreateSymbolicLinkW
 CreateThread
-CreateThreadpoolTimer
-CreateThreadpoolWait
-CreateThreadpoolWork
 CreateUniqueId
 CreateWindowExA
 CurrentBuild
@@ -2957,22 +3274,28 @@ DWARF:   can't read header from %s
 DWARF:   found matching build ID in %s
 DWARF:   no files match prefix %s
 DWARF: %s does not have debug info, ignoring
+DWARF: '%s' is already in cache as '%s' but cache lookup failed?
 DWARF: Attempt %d to find debug info for %s:
+DWARF: Attempting to retrieve debug server file '%s', caching as '%s'
 DWARF: Copying '%s' into cache as '%s'
 DWARF: FAILURE: debug info could not be found for %s, result %d
 DWARF: a matching primary %s was found for %s, using for extra info
 DWARF: a matching primary could not be found for %s, result %d
+DWARF: cache required to query '%s', ignoring
 DWARF: found matching debug info in %s
 DWARF: separate debug info file is stripped, try and find the primary file
 DWARF: starting prefix match for %s
 DWARF: trying file %s
-DWARF: unable to find debug info for %s, attempting to fall back to the primary file
-DWARF: unable to find matching separate debug info for %s, try the primary file
+DWARF: unable to find debug info for %s, attempting to fall back to the primary file regardless of debug info
+DWARF: unable to find matching separate debug info for %s, check the primary file for debug info
+Debug server download process failed with exit code %d
+Debug server download running more than %u seconds, aborted
 Debug test scripts.
 DebugPrintBitStringBits
 December
 DeclareCurrentThreadIsMainThread
 DecodePointer
+Decompression failed, %d
 Decompression failure
 DefWindowProcA
 Default
@@ -2999,6 +3322,7 @@ DispatchMessageA
 DoAssertDialog: invalid Assert response returned from dialog/vxconsole - breaking to debugger
 DoWaitForMultipleObjects
 Double-register of KV3 conversion (from '%s' to '%s')
+Download process succeeded but didn't write a local file
 DrawTextA
 Dumps information about all logging channels.
 Duplicate abbrev code 0x%x at 0x%x
@@ -3100,6 +3424,7 @@ Expected '{'
 Expected ( <count> )
 Expected <member name> after type
 Expected []
+Expected closing parenthesis ')' in expression "%s"
 Expected hex byte (eg. 00-FF)
 Expected member name or '}'
 Expected object member name to be a string literal.
@@ -3176,18 +3501,17 @@ Finger_Splay_ThumbIndex
 FioGetFileType
 First character of flag specifier must be + or -.
 Flags
-FlashWindow
 FlattenedSerializersVersion001
 Float array has extra '%s' after values
 Float array only parsed %u value(s) when expecting %u
 Float value %f above maximum %f
 Float value %f below minimum %f
+Flow_Generic
 FlsAlloc
 FlsFree
 FlsGetValue
 FlsSetValue
 FlushFileBuffers
-FlushProcessWriteBuffers
 FontManager_001
 FormatMessageA
 Found Application AutoArgs file '%s'
@@ -3200,7 +3524,6 @@ FreeCommandLine
 FreeEnvironmentStringsW
 FreeLibrary
 FreeLibraryAndExitThread
-FreeLibraryWhenCallbackReturns
 FreeSid
 Friday
 GAMECONSOLE
@@ -3241,12 +3564,14 @@ GetCurrentProcessId
 GetCurrentProcessorNumber
 GetCurrentThread
 GetCurrentThreadId
+GetCurrentThreadStackLimits
 GetDateFormatEx
 GetDefaultMiniDumpHandler
 GetDefaultMiniDumpTypeFlags
 GetDesktopWindow
 GetDisableFocusBasedPriorityBoost
 GetDiskFreeSpaceA
+GetDiskFreeSpaceExW
 GetDlgItem
 GetDlgItemInt
 GetDlgItemTextA
@@ -3260,7 +3585,6 @@ GetFileAndLineFromAddress
 GetFileAttributesExW
 GetFileAttributesW
 GetFileInformationByHandle
-GetFileInformationByHandleEx
 GetFileSizeEx
 GetFileType
 GetForegroundWindow
@@ -3310,13 +3634,13 @@ GetSystemInfo
 GetSystemMetrics
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
+GetTempPath2W
 GetTempPathW
 GetThreadDescription
 GetThreadInformationBlock
 GetThreadPriority
 GetThreadedLoadLibraryFunc
 GetTickCount
-GetTickCount64
 GetTimeFormatEx
 GetTimeZoneInformation
 GetTopWindow
@@ -3335,6 +3659,7 @@ GlobalMemoryStatusEx
 Global\UtlStringTokenSystemDataBaseWriteMutex
 Goal_Distance
 Got symsrv indices
+Group
 HEAP WARNING: memory block at %p appears to be corrupt
 HEAP WARNING: memory block at %p is unexpectedly allocated
 HEAP WARNING: memory block at %p is unexpectedly free
@@ -3360,12 +3685,111 @@ High PC attr without addr value (form %u)
 Hit end of input before closing quote (%c)
 Hit end of line before closing quote (%c)
 HostStateMgr001
+IAnimAction
+IAnimClipData
+IAnimClipDataManager
+IAnimComponent
+IAnimComponentManager
+IAnimCondition
+IAnimDocBlend2DAnimNode
+IAnimDocBlend2DItem
+IAnimDocMotionItem
+IAnimDocMotionItemGroup
+IAnimDocNodeBlend2DItem
+IAnimDocParamSpan
+IAnimDocParamSpanContainer
+IAnimDocSequenceBlend2DItem
+IAnimDocTagSpan
+IAnimDocTagSpanContainer
+IAnimGraphDoc_Action
+IAnimGraphDoc_AnimScriptComponent
+IAnimGraphDoc_Blend2DItem
+IAnimGraphDoc_Blend2DItemNode
+IAnimGraphDoc_Blend2DItemSequence
+IAnimGraphDoc_Blend2DNode
+IAnimGraphDoc_BlendedStateTransition
+IAnimGraphDoc_CPPScriptComponent
+IAnimGraphDoc_ClipData
+IAnimGraphDoc_ClipDataManager
+IAnimGraphDoc_CommentNode
+IAnimGraphDoc_Component
+IAnimGraphDoc_ComponentManager
+IAnimGraphDoc_Condition
+IAnimGraphDoc_ConditionContainer
+IAnimGraphDoc_ContainerNode
+IAnimGraphDoc_Graph
+IAnimGraphDoc_GraphMotionItem
+IAnimGraphDoc_JumpHelperNode
+IAnimGraphDoc_LookComponent
+IAnimGraphDoc_MotionGraphPreviewNode
+IAnimGraphDoc_MotionItem
+IAnimGraphDoc_MotionItemGroup
+IAnimGraphDoc_MotionMatchingNode
+IAnimGraphDoc_MotionMetric
+IAnimGraphDoc_MotionParameter
+IAnimGraphDoc_MotionParameterManager
+IAnimGraphDoc_Motor
+IAnimGraphDoc_MovementComponent
+IAnimGraphDoc_Node
+IAnimGraphDoc_NodeBlend2D
+IAnimGraphDoc_NodeBlend2DItem
+IAnimGraphDoc_NodeManager
+IAnimGraphDoc_ParamSpan
+IAnimGraphDoc_ParamSpanContainer
+IAnimGraphDoc_ParameterManager
+IAnimGraphDoc_ParameterProvider
+IAnimGraphDoc_ProxyNode
+IAnimGraphDoc_RigidBodyWeightList
+IAnimGraphDoc_RootNode
+IAnimGraphDoc_ScriptEditManager
+IAnimGraphDoc_SelectorNode
+IAnimGraphDoc_SequenceBlend2DItem
+IAnimGraphDoc_SequenceMotionItem
+IAnimGraphDoc_SequenceNode
+IAnimGraphDoc_SequencePreviewSource
+IAnimGraphDoc_SequenceUser
+IAnimGraphDoc_SingleFrameNode
+IAnimGraphDoc_SlopeComponent
+IAnimGraphDoc_SolveIKChainNode
+IAnimGraphDoc_State
+IAnimGraphDoc_StateMachine
+IAnimGraphDoc_StateTransition
+IAnimGraphDoc_SubGraph
+IAnimGraphDoc_SubGraphManager
+IAnimGraphDoc_SubGraphNode
+IAnimGraphDoc_TagManager
+IAnimGraphDoc_TagSpan
+IAnimGraphDoc_TagSpanContainer
+IAnimMotor
+IAnimNode
+IAnimNodeManager
+IAnimParamSpan
+IAnimParamSpanContainer
+IAnimParameterList
+IAnimScriptComponent
+IAnimState
+IAnimStateMachine
+IAnimStateTransition
+IAnimTagManager
+IAnimTagSpan
+IAnimTagSpanContainer
+IAnimationGraph
+IAnimationSubGraph
 IAssertionFailureListener::AssertionFailure()
+IBlend2DAnimNode
+IBlend2DItem
+IBlendedAnimStateTransition
+ICPPScriptComponent
+ICommentAnimNode
+IConditionContainer
+IContainerAnimNode
 IEEE 754r decimal floating point (128 bits)
 IEEE 754r decimal floating point (32 bits)
 IEEE 754r decimal floating point (64 bits)
 IEEE 754r half-precision floating point (16 bits)
+IGraphMotionItem
 IIDFromString
+IJumpHelperAnimNode
 IKChain
 IKChainOld
 IKData
@@ -3377,12 +3801,39 @@ IKRigSimple
 IKRuleDebug
 IKRuleFollowAnimation
 IKRuleGround
+ILookComponent
 IMemAlloc::DumpStats: could not open output file %s
 IMobileEventListener::OnEnterHibernationState()
 IMobileEventListener::OnExitHibernationState()
 IMobileEventListener::OnLowMemoryNotification()
+IMotionGraphPreviewNode
+IMotionItem
+IMotionItemGroup
+IMotionMatchingAnimNode
+IMotionMetric
+IMotionParameter
+IMotionParameterManager
+IMovementComponent
 INHERITABLE_BOOL_INHERIT
 INHERITABLE_BOOL_TRUE
+INodeBlend2DItem
+IParameterProvider
+IProxyAnimNode
+IPulseSystem_001
+IRigidBodyWeightList
+IRootAnimNode
+IScriptEditManager
+ISelectorAnimNode
+ISequenceAnimNode
+ISequenceBlend2DItem
+ISequenceMotionItem
+ISequencePreviewSource
+ISequenceUser
+ISingleFrameAnimNode
+ISlopeComponent
+ISolveIKChainAnimNode
+ISubGraphAnimNode
+ISubGraphManager
 ITALIAN
 Ignore
 Ignore All Asserts
@@ -3398,12 +3849,15 @@ ImageLoad
 ImageRvaToVa
 ImageUnload
 Import_GetICVarFactory
-Incomplete binary block: blob %i/%i, ret=%zu, input %u/%u
+InDefault
+Incomplete binary block: blob %i/%i, ret=%zx, input %u/%u
 Incomplete binary block: output %u/%u bytes, input %u/%u bytes
 Indicate to a test script that a checkpoint has been reached
 Indirect FDE pointer encoding is not supported
+Inflow_
+Inflow_Generic
+Inflow_Method
 InitMiniDumpReportOptions
-InitOnceExecuteOnce
 InitWin32ConsoleColorContext
 InitializeConditionVariable
 InitializeCriticalSection
@@ -3515,7 +3969,9 @@ KERNEL32.dll
 KOREAN
 KV Conditional Evaluation Error
 KV Conditional: Unknown symbol %s
+KV3 EHANDLEs cannot be serialized
 KV3 instances cannot be set to an unspecified specific type
+KV3 pointers cannot be serialized
 Kernel32.dll
 KeyValueCache001
 KeyValues Error: %s in file %s
@@ -3673,8 +4129,11 @@ MacOS 15
 Mach-O DWARF symbols
 Mach-O fallback symbols
 MagnitudeOnly
+MailMiniDump
 Main thread
 MainThrd
+MakeGlobalSymbol
+MakeGlobalSymbolCaseSensitive
 Malformed attribute list terminator
 MapListService_001
 March
@@ -3782,6 +4241,7 @@ Notes:
 November
 NtAllocateVirtualMemory
 NtDelayExecution
+NtQueryInformationThread
 NtQuerySystemInformation
 Number contains invalid character 0x%02x
 Number contains invalid character 0x%02x ('%c')
@@ -3811,6 +4271,12 @@ Out of range abbrev tag %llu
 Out of range compilation unit code %llu
 Out of thread ids. Decrease the number of threads or increase MAX_RECYCLEABLE_THREAD_IDS so we can recycle more
 Out-of-range conf value
+OutDefault
+Outflow_
+Outflow_Generic
+Outflow_If
+Outflow_IntSwitch
+Outflow_Simultaneous
 OutputDebugStringA
 PARTICLE_DEPTH_FEATHERING_OFF
 PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL
@@ -3833,6 +4299,8 @@ PARTICLE_OUTPUT_BLEND_MODE_ADD
 PARTICLE_OUTPUT_BLEND_MODE_ALPHA
 PARTICLE_OUTPUT_BLEND_MODE_LIGHTEN
 PARTICLE_OUTPUT_BLEND_MODE_MOD2X
+PARTICLE_SELECTION_FIRST
+PARTICLE_SELECTION_NUMBER
 PARTICLE_SET_ADD_TO_INITIAL_VALUE
 PARTICLE_SET_REPLACE_VALUE
 PARTICLE_SET_SCALE_CURRENT_VALUE
@@ -3873,8 +4341,11 @@ POSIX
 PROTECTED
 PT_TYPE_CONTROL_POINT
 PT_TYPE_CONTROL_POINT_RANGE
+PT_TYPE_INVALID
+PVEC_TYPE_CP_DELTA
 PVEC_TYPE_CP_VALUE
 PVEC_TYPE_FLOAT_COMPONENTS
+PVEC_TYPE_INVALID
 PVEC_TYPE_LITERAL
 PVEC_TYPE_LITERAL_COLOR
 PVEC_TYPE_RANDOM_UNIFORM
@@ -3977,6 +4448,7 @@ Plat_GetCurrentHibernationState
 Plat_GetCurrentPrivateBytes
 Plat_GetCurrentRSS
 Plat_GetDPI
+Plat_GetDebugMonitor
 Plat_GetDefaultMonitorIndex
 Plat_GetDesktopBounds
 Plat_GetDesktopResolution
@@ -3989,7 +4461,6 @@ Plat_GetGlobalListRegistry
 Plat_GetLastGameInstanceMutex
 Plat_GetLoadedModules
 Plat_GetLocalTime
-Plat_GetMainWindowSwapChainScale
 Plat_GetMasterMobileEventHandler
 Plat_GetMemPageSize
 Plat_GetMiniDumpErrorString
@@ -4004,7 +4475,6 @@ Plat_GetMonitorContentsScale
 Plat_GetMonitorCount
 Plat_GetMonitorIndexFromName
 Plat_GetMonitorName
-Plat_GetMonitorPPI
 Plat_GetMonitorResolution
 Plat_GetOSDescriptionString
 Plat_GetOSType
@@ -4031,7 +4501,6 @@ Plat_GetWindowClientSize
 Plat_GetWindowClientSizeOsSpecific
 Plat_GetWindowContentsScale
 Plat_GetWindowMonitorIndex
-Plat_GetWindowPhysicalSize
 Plat_GetWindowSafeAreaInsets
 Plat_GlobalMemoryStatus
 Plat_HasClipboardText
@@ -4134,7 +4603,6 @@ Plat_SetFullscreenMinimizeOnFocusLoss
 Plat_SetGameDirectories
 Plat_SetGlobalSafeAreaInsets
 Plat_SetIsConsoleApplication
-Plat_SetMainWindowSwapChainScale
 Plat_SetModuleFilename
 Plat_SetMouseCapture
 Plat_SetVirtualReserveFailLimit
@@ -4228,9 +4696,9 @@ RandomGaussianFloat
 RandomInt
 RandomSeed
 Range end value 0x%llx out of virtual bound 0x%x
+Range list entry without a default base address
 Range list outside of .debug_ranges
 Range list without .debug_ranges
-Range list without a default base address
 Range start value 0x%llx out of virtual bound 0x%x
 Ranges attr without a section offset
 Read off the end of a CIE
@@ -4338,64 +4806,77 @@ RunThreadPoolTests
 RunWithAlternateStack
 Running %s...
 SCHINESE
-SDL2.dll
-SDL_AudioStreamAvailable
-SDL_AudioStreamClear
-SDL_AudioStreamFlush
-SDL_AudioStreamGet
-SDL_AudioStreamPut
-SDL_BuildAudioCVT
+SDL3.dll
+SDL_BlitSurfaceScaled
+SDL_ClearAudioStream
 SDL_ClearQueuedAudio
 SDL_CloseAudioDevice
-SDL_ConvertAudio
+SDL_CloseJoystick
+SDL_CreateAudioStream
 SDL_CreateColorCursor
 SDL_CreateCursor
-SDL_CreateRGBSurface
+SDL_CreateSurface
 SDL_CreateSystemCursor
-SDL_CreateWindow
+SDL_CreateWindowWithPosition
+SDL_DestroyAudioStream
+SDL_DestroyCursor
+SDL_DestroySurface
 SDL_DestroyWindow
 SDL_DisableScreenSaver
 SDL_EnableScreenSaver
-SDL_FreeAudioStream
-SDL_FreeCursor
-SDL_FreeSurface
+SDL_FlashWindow
+SDL_FlushAudioStream
 SDL_GL_SetAttribute
 SDL_GetAudioDeviceName
 SDL_GetAudioDeviceStatus
+SDL_GetAudioStreamAvailable
+SDL_GetAudioStreamData
 SDL_GetClipboardText
+SDL_GetClosestFullscreenDisplayMode
 SDL_GetCurrentAudioDriver
 SDL_GetCurrentDisplayMode
 SDL_GetCursor
 SDL_GetDefaultCursor
 SDL_GetDesktopDisplayMode
 SDL_GetDisplayBounds
-SDL_GetDisplayDPI
-SDL_GetDisplayMode
+SDL_GetDisplayContentScale
+SDL_GetDisplayForWindow
 SDL_GetDisplayName
+SDL_GetDisplays
 SDL_GetError
+SDL_GetFullscreenDisplayModes
 SDL_GetGlobalMouseState
 SDL_GetGrabbedWindow
 SDL_GetHint
+SDL_GetJoystickAxis
+SDL_GetJoystickButton
+SDL_GetJoystickHat
+SDL_GetJoystickInstanceID
+SDL_GetJoystickInstanceName
+SDL_GetJoystickName
+SDL_GetJoysticks
 SDL_GetKeyFromScancode
 SDL_GetKeyName
 SDL_GetKeyboardFocus
 SDL_GetKeyboardState
 SDL_GetModState
 SDL_GetNumAudioDevices
-SDL_GetNumDisplayModes
-SDL_GetNumVideoDisplays
+SDL_GetNumJoystickAxes
+SDL_GetNumJoystickButtons
+SDL_GetNumJoystickHats
 SDL_GetPowerInfo
 SDL_GetQueuedAudioSize
 SDL_GetRelativeMouseMode
 SDL_GetScancodeFromKey
 SDL_GetScancodeName
-SDL_GetWindowDisplayIndex
-SDL_GetWindowDisplayMode
 SDL_GetWindowFlags
 SDL_GetWindowFromID
+SDL_GetWindowFullscreenMode
 SDL_GetWindowGrab
+SDL_GetWindowPixelDensity
 SDL_GetWindowPosition
 SDL_GetWindowSize
+SDL_GetWindowSizeInPixels
 SDL_GetWindowTitle
 SDL_GetWindowWMInfo
 SDL_HapticClose
@@ -4407,33 +4888,17 @@ SDL_HasScreenKeyboardSupport
 SDL_HideWindow
 SDL_Init
 SDL_InitSubSystem
-SDL_IsScreenKeyboardShown
-SDL_IsScreenSaverEnabled
-SDL_IsTextInputActive
-SDL_JoystickClose
-SDL_JoystickGetAxis
-SDL_JoystickGetBall
-SDL_JoystickGetButton
-SDL_JoystickGetHat
-SDL_JoystickInstanceID
-SDL_JoystickName
-SDL_JoystickNameForIndex
-SDL_JoystickNumAxes
-SDL_JoystickNumBalls
-SDL_JoystickNumButtons
-SDL_JoystickNumHats
-SDL_JoystickOpen
-SDL_JoystickUpdate
 SDL_LoadBMP_RW
 SDL_MOUSE_FOCUS_CLICKTHROUGH
 SDL_MinimizeWindow
-SDL_NewAudioStream
-SDL_NumJoysticks
 SDL_OpenAudioDevice
+SDL_OpenJoystick
 SDL_PauseAudioDevice
 SDL_PeepEvents
+SDL_PlayAudioDevice
 SDL_PollEvent
 SDL_PumpEvents
+SDL_PutAudioStreamData
 SDL_QueueAudio
 SDL_Quit
 SDL_QuitSubSystem
@@ -4441,6 +4906,8 @@ SDL_RWFromFile
 SDL_RaiseWindow
 SDL_ResetKeyboard
 SDL_RestoreWindow
+SDL_ScreenKeyboardShown
+SDL_ScreenSaverEnabled
 SDL_SetClipboardText
 SDL_SetClipboardText failed: %s
 SDL_SetCursor
@@ -4449,9 +4916,8 @@ SDL_SetRelativeMouseMode
 SDL_SetTextInputRect
 SDL_SetThreadPriority
 SDL_SetWindowBordered
-SDL_SetWindowDisplayMode
 SDL_SetWindowFullscreen
-SDL_SetWindowGammaRamp
+SDL_SetWindowFullscreenMode
 SDL_SetWindowGrab
 SDL_SetWindowIcon
 SDL_SetWindowPosition
@@ -4463,7 +4929,8 @@ SDL_ShowMessageBox
 SDL_ShowWindow
 SDL_StartTextInput
 SDL_StopTextInput
-SDL_UpperBlitScaled
+SDL_TextInputActive
+SDL_UpdateJoysticks
 SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS
 SDL_WaitEvent
 SDL_WaitEventTimeout
@@ -4473,6 +4940,8 @@ SDL_WasInit
 SDL_free
 SDL_getenv
 SDL_iconv_string
+SDL_modff
+SDL_roundf
 SDL_setenv
 SDL_wcslen
 SEQUENCE_COMBINE_MODE_ALPHA_FROM0_RGB_FROM_1
@@ -4557,7 +5026,6 @@ SetEnvironmentVariableW
 SetErrorMode
 SetEvent
 SetFileAttributesW
-SetFileInformationByHandle
 SetFilePointer
 SetFilePointerEx
 SetFileTime
@@ -4577,8 +5045,6 @@ SetThreadAffinityMask
 SetThreadDescription
 SetThreadPriority
 SetThreadedLoadLibraryFunc
-SetThreadpoolTimer
-SetThreadpoolWait
 SetTimer
 SetUnhandledExceptionFilter
 SetWin32ConsoleColor
@@ -4683,6 +5149,10 @@ Statement list without data4/sec_offset value
 StatsService_001
 Steam
 SteamAudio001
+Step_CallExternalMethod
+Step_CallMethod
+Step_CallMethod node %d referenced unknown method %d
+Step_Generic
 Stop has been called on %p
 StrReplaceChar
 StretchBlt
@@ -4694,7 +5164,6 @@ String value for Quaternion only had %u components
 String value for Vector only had %u components
 String value for Vector2D only had %u components
 String value for Vector4D only had %u components
-SubmitThreadpoolWork
 Substitution (%u) out of range (%u)
 Subtract
 SunMonTueWedThuFriSat
@@ -4745,6 +5214,7 @@ TCHINESE
 TESTSCRIPT: CheckPoint -> '%s'.
 TESTSCRIPT: waiting for checkpoint '%s'%s
 TSList cannot hold more that %d nodes
+Table has potentially invalid member names and cannot be persisted
 Tahoma
 TargetStateBlendWeight
 Target_Move_Speed
@@ -4925,7 +5395,7 @@ Unable to determine ELF default base address
 Unable to determine Mach-O default base address
 Unable to determine buffer encoding.
 Unable to load COM
-Unable to load SDL2
+Unable to load SDL
 Unable to load oleaut32
 Unable to parse unqualified name
 Unable to read .gnu_debuglink
@@ -4943,6 +5413,7 @@ Unable to read header
 Unable to read module header
 Unable to read module magic
 Unable to read module section at file offset 0x%x
+Unable to run '%s', error %u
 Unable to seek to .gnu_debuglink
 Unable to seek to ELF note
 Unable to seek to ELF phoff
@@ -4977,7 +5448,7 @@ Unknown CIE version %u
 Unknown KV3 specific type %u
 Unknown arange header version
 Unknown compilation unit abbrev code
-Unknown compilation unit header version
+Unknown compilation unit header version %u
 Unknown exception
 Unknown extended instruction 0x%x
 Unknown line header version
@@ -5001,6 +5472,7 @@ UnregisterAssertionFailureListener
 UnregisterMobileEventListener
 Unresolved object reference '%s'
 Unserialize
+Unsupported ELF compression type %u
 Unsupported ELF machine type %d
 Unsupported Mach-O machine type %d
 Unsupported binary encoding id.
@@ -5174,6 +5646,7 @@ V_StringToVector4D
 V_StripAndPreserveHTML
 V_StripAndPreserveHTMLCore
 V_StripFilename
+V_StripLeadingSlash
 V_StripLeadingWhitespace
 V_StripSurroundingQuotes
 V_StripSurroundingWhitespace
@@ -5181,6 +5654,7 @@ V_StripTrailingSlash
 V_StripTrailingWhitespace
 V_TokenWaiting
 V_TranslateLineFeedsToUnix
+V_TryAndMakeFriendlyNameFromCppName
 V_UChar32ToUTF16
 V_UChar32ToUTF8
 V_UInt16ToString_Unsafe
@@ -5426,6 +5900,7 @@ V_wcstoui64
 ValidateStringFormatSpecifiers
 Value
 Valve input provider initialized.
+VariableDefinition
 VariantClear
 VariantCopy
 VariantIndex
@@ -5445,13 +5920,19 @@ VirtualQueryEx
 VisBuilder_001
 VisibilityInputs
 VoidFnPtrLookup_Tier0
+Vrad3_001
 WARNING: Command buffer full... ignoring!
 WARNING: Command too long... ignoring!
 WARNING: Large alloc of %llu bytes of memory (limit %llu)
 WARNING: Large virtual reservation of %llu bytes of memory (limit %llu)
+WARNING: Path suffix '%s' cannot be prefixed with '%s'
+WARNING: Suffix '%s' is a current-drive-root path (has a leading slash), cannot be prefixed with '%s'. Is the leading slash intentional and necessary?
+WARNING: Suffix '%s' is a drive-relative path, cannot be prefixed with '%s'
+WARNING: Suffix '%s' is an absolute path, cannot be prefixed with '%s'
 WARNING: Unable to copy '%s' into symbol cache at '%s', error %u
 WARNING: Unable to initialize verifier allocator
-WARNING: Unable to rename temporary symbol cache file '%s' to final '%s', error %u
+WARNING: Unable to rename temporary symbol cache file '%s' to final '%s'
+WARNING: Unable to retrieve '%s' into symbol cache at '%s', download error: '%s'
 WARNING: there were errors during information capture, this report may be incomplete
 WARNING: total wall clock time was %.2f seconds, results may be invalid
 WARNING: unable to link multiple ConCommands named %s because both are not marked FCVAR_LINKED_CONCOMMAND
@@ -5468,7 +5949,6 @@ WaitForMultiple: %d exceeded maximum of %d
 WaitForMultipleObjects
 WaitForSingleObject
 WaitForSingleObjectEx
-WaitForThreadpoolTimerCallbacks
 WakeAllConditionVariable
 WakeConditionVariable
 Warning
@@ -5616,6 +6096,7 @@ __restrict
 __stdcall
 __swift_1
 __swift_2
+__swift_3
 __temp_unserialization_member__
 __thiscall
 __unaligned
@@ -5722,6 +6203,14 @@ animgraph17
 animgraph18
 animgraph19
 animgraph2
+animgraph20
+animgraph21
+animgraph22
+animgraph23
+animgraph24
+animgraph25
+animgraph26
+animgraph27
 animgraph3
 animgraph4
 animgraph5
@@ -5791,6 +6280,8 @@ binary_lz4
 binary_zstd
 blendamount
 blockLOS
+block_inflow_always
+block_outflow_always
 body_type
 bone_name
 bone_names
@@ -5806,6 +6297,7 @@ breakable_skin
 breakpoint
 broadcast
 broken pipe
+buildid/
 burst_randomize
 burst_scale
 c:\source2_minidump_log.txt
@@ -5872,6 +6364,7 @@ crash
 create
 create_particle
 cross device link
+curl --connect-timeout 5 --no-progress-meter --max-time %u -s -o "%s" %s
 curlextents
 curregs
 curslabs
@@ -5985,6 +6478,7 @@ explosion_type
 explosive_damage
 explosive_radius
 expression assumed to be operator but no matching operator found
+expression_value
 extent_avail
 extent_grow
 extent_hooks
@@ -6002,6 +6496,7 @@ file too large
 filename too long
 findflags
 findflags 
+flDurationSec
 flMaxDistance
 flMinDistance
 flag: <+/->DoNotEcho                        // Enable/disable a flag to turn off echoing to the console.
@@ -6072,7 +6567,10 @@ gravity
 guard after
 guard before
 guard both
+hEntity
+hTarget
 handindex
+header crc mismatch
 headtype
 health
 health_override
@@ -6108,6 +6606,9 @@ ikrig
 illegal byte sequence
 imagehlp.dll
 inappropriate io control operation
+incorrect data check
+incorrect header check
+incorrect length check
 initialized
 install
 int( %d = 0x%X )
@@ -6121,12 +6622,23 @@ interval
 intoverflow
 invalid
 invalid argument
+invalid bit length repeat
+invalid block type
+invalid code -- missing end-of-block
+invalid code lengths set
+invalid distance code
+invalid distance too far back
+invalid distances set
 invalid fill
 invalid fill character '{'
 invalid format specifier for char
 invalid format string
+invalid literal/length code
+invalid literal/lengths set
 invalid seek
+invalid stored block lengths
 invalid type specifier
+invalid window size
 invalid_parameter
 invert_orientation
 io error
@@ -6134,6 +6646,7 @@ is a directory
 is_debris
 jemalloc
 kernel32.dll
+lambda
 large
 last_sniff
 lazy_lock
@@ -6177,11 +6690,21 @@ loop_in_action
 loopback
 looping
 m_AllowedSurfaceProperties
+m_Arg0
+m_Arg0Name
+m_Arg0Type
+m_Arg1
+m_Arg1Name
+m_Arg1Type
+m_ArgList
+m_ArgName
+m_Args
 m_Attributes
 m_Bone
 m_ChainData
 m_Children
 m_Choices
+m_Class
 m_Color
 m_ColorChoices
 m_ColorScale
@@ -6191,23 +6714,38 @@ m_Curve
 m_DataType
 m_DefaultSolverSettings
 m_DefaultTargetSettings
+m_DefaultValue
+m_DestBlock
+m_DestFlowNodeID
+m_DestInflowName
 m_DirectionSpace
 m_DisallowedSurfaceProperties
 m_DisplayName
+m_EHandle
 m_Elements
 m_Emitters
 m_EndEffectorBone
 m_EndEffectorTargetBone
+m_Ent
+m_ExpectedArg0Name
+m_ExpectedArg0Type
+m_ExpectedArg1Name
+m_ExpectedArg1Type
+m_ExpectedArgs
 m_Expression
 m_FloatComponentX
 m_FloatComponentY
 m_FloatComponentZ
 m_ForceGenerators
+m_FullType
+m_GenericNodeType
+m_GenericPorts
 m_IKChains
 m_IkChain
 m_IkChains
 m_Initializers
 m_InputValue
+m_IsTrue
 m_JointConstraintData
 m_JointConstraintPairs
 m_JointName
@@ -6216,33 +6754,46 @@ m_LiteralColor
 m_LocalCoordinateSystemSpeedMax
 m_LocalCoordinateSystemSpeedMin
 m_LocalSpaceTransform
+m_Message
+m_MethodID
 m_Mode
 m_Modifiers
 m_MotorList
 m_Name
+m_NodeID
 m_Operators
+m_Param
 m_ParameterName
 m_Parameters
 m_PreEmissionOperators
 m_Renderers
 m_RequiredAttributes
+m_ReturnValue
 m_SelectionCriteria
 m_SolverSettingSource
 m_SolverType
 m_SourceName
+m_SourceOutflowName
+m_SourceOutparamName
+m_SwitchValue
+m_Target
 m_TargetName
 m_TargetSettingSource
 m_TargetSource
 m_TextureControls
+m_ThisInparamName
 m_TraceSpace
+m_TraceString
 m_TransformEnd
 m_TransformInput
 m_TransformStart
+m_Type
 m_Value
 m_VariableName
 m_VariableValue
 m_Variables
 m_VecCoroutineStack.Count() > 1
+m_WakeResume
 m_actions
 m_additiveChildID
 m_additiveInput
@@ -6302,6 +6853,7 @@ m_bSlopeEnabled
 m_bTrailBias
 m_bUseHighestEndCP
 m_bUseOrientation
+m_bUseWorldLocation
 m_bViewModelEffect
 m_baseChildID
 m_baseInput
@@ -6362,6 +6914,7 @@ m_flDegrees
 m_flDegreesMax
 m_flDegreesMin
 m_flDuration
+m_flDurationSec
 m_flEmissionDuration
 m_flEmissionScale
 m_flEmitRate
@@ -6376,6 +6929,7 @@ m_flFinalTextureUVRotation
 m_flFixedCycleValue
 m_flHitBoxScale
 m_flHitboxScale
+m_flIdealWidth
 m_flInitFromKilledParentParticles
 m_flInitialRadius
 m_flInitialSpeedMax
@@ -6454,6 +7008,7 @@ m_flZoomAmount1
 m_flZoomMax
 m_flZoomScale
 m_groups
+m_hAlyx
 m_hMotionVectorsTexture
 m_hNormalTexture
 m_hSnapshot
@@ -6484,9 +7039,12 @@ m_nClusterSizeMax
 m_nClusterSizeMin
 m_nCollisionMode
 m_nControlPoint
+m_nControlPointCompare
+m_nControlPointLocal
 m_nControlPointNumber
 m_nControlPointNumberMax
 m_nControlPointRangeMax
+m_nDeltaControlPoint
 m_nElementID
 m_nEndCP
 m_nFeatheringMode
@@ -6496,10 +7054,13 @@ m_nFieldOutput
 m_nFirstMultipleOverride_BackwardCompat
 m_nFogType
 m_nHand
+m_nHeadLocation
 m_nIncrement
 m_nLightType
 m_nLocalSpaceCP
 m_nMapType
+m_nMax
+m_nMin
 m_nMinParticlesToEmit
 m_nModelCP
 m_nNoHitResult
@@ -6514,6 +7075,8 @@ m_nOutputBlendMode
 m_nOutputField
 m_nOverrideCP
 m_nOverrideCP2
+m_nParticleNumber
+m_nParticleSelection
 m_nParticlesToEmit
 m_nRandomMode
 m_nScalarAttribute
@@ -6526,11 +7089,13 @@ m_nSequenceCombineMode
 m_nSetMethod
 m_nSortMethod
 m_nStartCP
+m_nSwitchValue
 m_nTextureChannels
 m_nTextureType
 m_nTraceMissBehavior
 m_nTranslations == 1
 m_nType
+m_nValue
 m_nVectorAttribute
 m_nVectorComponent
 m_nViewModelEffect
@@ -6569,11 +7134,13 @@ m_tag
 m_tagBehaviors
 m_tagID
 m_tags
+m_transformInput
 m_useCurl
 m_vCPValueScale
 m_vDomainMaxs
 m_vDomainMins
 m_vEndTrailTintFactor
+m_vIdealSize
 m_vLiteralValue
 m_vOffsetMax
 m_vOffsetMin
@@ -6597,6 +7164,7 @@ m_vecSamplePosition
 m_vecScale
 m_vecTailColorScale
 m_vecTexturesInput
+m_velocityInput
 macos
 malloc_conf
 map/set too long
@@ -6669,6 +7237,7 @@ muzzy_npurge
 muzzy_purged
 nr""\\
 nOffset < m_nAllocationSize
+nSwitchValue
 nTries < 10000000
 nactive_huge
 nactive_nonhuge
@@ -6728,6 +7297,7 @@ not a socket
 not a stream
 not connected
 not enough memory
+not found
 not supported
 not using
 notconnected
@@ -6832,8 +7402,14 @@ owner dead
 p4 add -t binary "%s"
 p4 edit -t binary "%s"
 p4.exe -p perforce.valvesoftware.com:1666 print -o "
+pClass
 pFrameBottom > m_pStackHigh || pFrameTop < m_pStackLow
+pMessage
+pName
+pParam
+pSwitchValue
 pTarget
+pTraceString
 pactive
 pactivep
 panorama
@@ -6932,6 +7508,7 @@ retain
 retain_grow_limit
 retained
 retained_bytes
+retval
 rootNode
 rotation
 rotation_vector
@@ -6976,6 +7553,8 @@ source_filename
 sourcemappings
 spawn_motion_disabled
 speed
+srv*http:
+srv*https:
 state not recoverable
 static 
 stats
@@ -7013,6 +7592,7 @@ strtab
 struct 
 subclass
 substitution doesn't start with 'S'
+success
 suppress
 surface_prop
 symbol
@@ -7041,6 +7621,7 @@ test_angles_relative
 testscript_debug
 text file busy
 texturescale
+this 
 thread
 thread_active_init
 tier0
@@ -7050,6 +7631,7 @@ timed out
 timestamped.log
 too many files open
 too many files open in system
+too many length or distance symbols
 too many links
 too many symbolic link levels
 tooltips_class32
@@ -7069,8 +7651,10 @@ uint8
 unable to get file indexes
 union 
 unknown
+unknown compression method
 unknown error
 unknown format specifier
+unknown header flags set
 unknown index type %u - 
 unknown module
 unmatched '}' in format string
@@ -7171,12 +7755,21 @@ vpcf52
 vpcf53
 vpcf54
 vpcf55
+vpcf56
+vpcf57
 vpcf6
 vpcf7
 vpcf8
 vpcf9
 vpulse
+vpulse1
+vpulse2
+vpulse3
+vpulse4
 vpulse5
+vpulse6
+vpulse7
+vpulse_c1
 vr_carry_type
 vrfcore
 vrfcore.dll

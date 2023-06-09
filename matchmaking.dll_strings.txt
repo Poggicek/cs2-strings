@@ -206,6 +206,7 @@ $0option $1;
 -sse2
 -sse3
 -sse4
+-tools
 -usebanlist
 ...<truncated>...
 .?AU?$Container@VUnknownFieldSet@protobuf@google@@@InternalMetadata@internal@protobuf@google@@
@@ -672,7 +673,6 @@ $0option $1;
 .?AVout_of_range@std@@
 .?AVruntime_error@std@@
 .?AVstl_critical_section_interface@details@Concurrency@@
-.?AVstl_critical_section_vista@details@Concurrency@@
 .?AVstl_critical_section_win7@details@Concurrency@@
 .?AVsystem_error@std@@
 .?AVtype_info@@
@@ -687,6 +687,7 @@ $0option $1;
 00000000
 00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899
 0123456789abcdef
+0123456789abcdefghijklmnopqrstuvwxyz
 1 = allow searches for dedicated servers
 1 = pretend like search is going, but abort after some time
 1#IND
@@ -823,6 +824,7 @@ $0option $1;
 ?TryLock@CThreadMutex@@QEAA_NPEBDH@Z
 ?UnlockRead@CThreadSpinRWLock@@QEAAXPEBDH@Z
 ?UnlockWrite@CThreadSpinRWLock@@QEAAXPEBDH@Z
+?V_stristr_fast@@YAPEBDPEBD0@Z
 ?Wait@CThreadSyncObject@@QEAA_NI@Z
 ?WaitForCreateComplete@CThread@@MEAA_NPEAVCThreadEvent@@@Z
 ?WriteAsBinary@KeyValues@@QEBA_NAEAVCUtlBuffer@@@Z
@@ -1038,9 +1040,6 @@ ClearField
 Client::CmdKeyValues
 Client::ResendGameDetailsRequest
 CloseHandle
-CloseThreadpoolTimer
-CloseThreadpoolWait
-CloseThreadpoolWork
 Comma delimited list of ip:port of servers used to search for dedicated servers instead of searching for public servers.
 Command::%s
 CommandLine
@@ -1059,17 +1058,10 @@ Coroutine_YieldToMain
 Could not create an instance of 
 Could not find or connect to a DS
 Couldn't parse default value "
-CreateEventExW
 CreateEventW
 CreateFileW
 CreateInterface
-CreateSemaphoreExW
-CreateSemaphoreW
 CreateSession: 
-CreateSymbolicLinkW
-CreateThreadpoolTimer
-CreateThreadpoolWait
-CreateThreadpoolWork
 Created CMatchSearcher:
 Created CMatchSessionOfflineCustom:
 Created CMatchSessionOnlineClient:
@@ -1163,7 +1155,6 @@ F-%u@-%u
 FATAL
 FATAL ERROR: unable to register all schema data: %s
 Failed to contact leaderboard server for '%s'
-Failed to create/update SO
 Failed to load %s
 Failed to start server map!
 Failed to update leaderboard score for '%s'
@@ -1229,12 +1220,10 @@ FlsFree
 FlsGetValue
 FlsSetValue
 FlushFileBuffers
-FlushProcessWriteBuffers
 FontManager_001
 Found invalid proto option data for: 
 FreeEnvironmentStringsW
 FreeLibrary
-FreeLibraryWhenCallbackReturns
 Friday
 Friend reqd to join lobby
 GAMEEVENTSMANAGER002
@@ -1306,14 +1295,12 @@ GetConsoleOutputCP
 GetCurrentPackageId
 GetCurrentProcess
 GetCurrentProcessId
-GetCurrentProcessorNumber
 GetCurrentThreadId
 GetDateFormatEx
 GetDefaultMiniDumpTypeFlags
 GetDouble
 GetEnumValue
 GetEnvironmentStringsW
-GetFileInformationByHandleEx
 GetFileSizeEx
 GetFileType
 GetFloat
@@ -1351,7 +1338,7 @@ GetStringReference
 GetStringTypeW
 GetSystemTimeAsFileTime
 GetSystemTimePreciseAsFileTime
-GetTickCount64
+GetTempPath2W
 GetTimeFormatEx
 GetUInt32
 GetUInt64
@@ -1369,11 +1356,11 @@ How long until a server is no longer returned by the master till we remove it.
 How many friend requests are displayed.
 How many servers can be pinged for server details in a batch.
 How often to refresh a listed server.
-IND)ind)
 INETSUPPORT_001
 INITY
 INVALID_CPPTYPE
 IP address of dedicated servers to consider available
+IPulseSystem_001
 If the server is behind NAT, you can specify `0.0.0.0|privateip:port` and if server port is in the list of `mm_server_search_lan_ports` its public address should be automatically detected.
 Ignoring extension "
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field: 
@@ -1385,8 +1372,6 @@ InetSearchServerDetails/pingxuid
 InetSearchServerDetails/timestamp
 InitOnceBeginInitialize
 InitOnceComplete
-InitOnceExecuteOnce
-InitializeConditionVariable
 InitializeCriticalSectionAndSpinCount
 InitializeCriticalSectionEx
 InitializeSListHead
@@ -1644,7 +1629,6 @@ Ports to scan during LAN games discovery. Also used to discover and correctly co
 PostProcessingSystem_001
 PredictionDiffManager001
 PrepareForSessionCreate: matchmaking version %d
-Probably failed to set object type (%d) on the server/client.
 PropertyEditorSystem_001
 Protobuf: %s(%d): %s
 Protocol Buffer map usage error:
@@ -1652,6 +1636,7 @@ Protocol Buffer reflection usage error:
 QueryPerformanceCounter
 QueueConnect
 RaiseException
+RandomFloat
 RandomInt
 Reached an unintended state: CPPTYPE_MESSAGE
 Reached impossible case in HasBit().
@@ -1684,6 +1669,7 @@ ResponseRulesCache001
 RtlCaptureContext
 RtlLookupFunctionEntry
 RtlPcToFileHeader
+RtlUnwind
 RtlUnwindEx
 RtlVirtualUnwind
 SNAN)
@@ -1738,7 +1724,6 @@ SetEnum
 SetEnumValue
 SetEvent
 SetEvent()
-SetFileInformationByHandle
 SetFilePointerEx
 SetFloat
 SetInt32
@@ -1746,8 +1731,6 @@ SetInt64
 SetLastError
 SetStdHandle
 SetString
-SetThreadpoolTimer
-SetThreadpoolWait
 SetUInt32
 SetUInt64
 SetUnhandledExceptionFilter
@@ -1764,7 +1747,6 @@ Skill%dCheck
 Skill%dFormula
 Skill%dRange
 SleepConditionVariableCS
-SleepConditionVariableSRW
 Sleeping
 Snooze
 Some options could not be correctly parsed using the proto descriptors compiled into this binary.
@@ -1811,12 +1793,11 @@ SteamMatchMaking009
 SteamMatchMakingServers002
 SteamNetworking006
 SteamServersDisconnected
-SteamUser021
+SteamUser023
 SteamUtils010
 Steam_OnServersConnected
 Steam_OnServersDisconnected
 String field
-SubmitThreadpoolWork
 Succeeded in starting server map!
 Successfully validated whitelist for %s...
 Suggested field numbers for 
@@ -1887,7 +1868,6 @@ ToolSceneNodeFactory_001
 ToolService_001
 Tried to merge messages of different types 
 TryAcquireSRWLockExclusive
-TryEnterCriticalSection
 Trying to send message type %d before GC connection established.  This is guaranteed to fail.
 Tuesday
 Type appears to be in generated pool but wasn't 
@@ -1920,7 +1900,6 @@ U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\text_fo
 U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\wire_format.cc
 U:\thirdpartycode\nonredist\protobuf\protobuf-3.21.8\src\google\protobuf\wire_format_lite.cc
 UNKNOWN_ENUM_VALUE_%s_%d
-Unable to create object of type %d
 Unexpected failure while serializing option submessage 
 Unhandled mmF->SysSessionUpdate!
 UnhandledExceptionFilter
@@ -2001,14 +1980,13 @@ Value out of range for int32 option "
 Value out of range for int64 option "
 Value out of range for uint32 option "
 VisBuilder_001
+Vrad3_001
 WARNING
 WINS_
 WOL: 0x%p (%s)
 WWWWWWWWWWWWWWW
 WaitForSingleObjectEx
-WaitForThreadpoolTimerCallbacks
 WakeAllConditionVariable
-WakeConditionVariable
 WakeDependentJobFinished
 Warning
 Warning parsing text-format 
@@ -2051,6 +2029,7 @@ __restrict
 __stdcall
 __swift_1
 __swift_2
+__swift_3
 __thiscall
 __unaligned
 __vectorcall
@@ -2270,6 +2249,7 @@ gamemode
 gamemodes
 gamemodes.txt
 gamemodes_server.txt
+gamemodes_tools.txt
 gametype
 gametypes
 gametypes/%s/gamemodes/%s/exec
@@ -2538,6 +2518,7 @@ player_connect
 player_death
 player_disconnect
 practicesettings_
+preview
 private
 progress
 proto2
@@ -2621,7 +2602,6 @@ settings/system/lock
 settingsptr
 sfixed32
 sfixed64
-sharedobj
 sint32
 sint64
 skirmish
@@ -2640,6 +2620,7 @@ string
 string too long
 strings::Substitute format string invalid: asked for "$
 subtype mismatch
+success
 suppressed
 survival
 sv_search_key
@@ -2727,3 +2708,4 @@ xuidReserve
 xuidsrc
 yielding
 youblocked
+°–

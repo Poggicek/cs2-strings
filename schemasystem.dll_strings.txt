@@ -60,6 +60,7 @@
 -sse2
 -sse3
 -sse4
+-tools
 .?AV?$CBaseAppSystem@VISchemaSystem@@@@
 .?AV?$CConCommandMemberAccessor@VCSchemaSystem@@@@
 .?AV?$CTier0AppSystem@VISchemaSystem@@$0A@@@
@@ -104,6 +105,7 @@
 <%s, cat %d>
 <No schema binary for binding>
 <No schemasystem>
+<empty member name>
 <invalid>
 <no failure reason set>
 <unknown: %d>
@@ -120,8 +122,8 @@
 ??YCUtlString@@QEAAAEAV0@PEBD@Z
 ?AddString@CUtlSymbolTable@@QEAA?AVCUtlSymbol@@PEBDPEA_N@Z
 ?Alloc@CRawAllocator@@SAPEAXW4RawAllocatorType_t@@_KPEA_K@Z
+?Alloc@CUtlMemoryBlockAllocator@@QEAAII@Z
 ?Alloc@CUtlMemoryPoolBase@@QEAAPEAXXZ
-?AllocAndCopy@CUtlMemoryBlockAllocator@@QEAAIPEBDI@Z
 ?AppendFormat@CBufferString@@QEAAHPEBDZZ
 ?AppendFormatV@CBufferString@@QEAAHPEBDPEAD@Z
 ?Clear@CUtlMemoryPoolBase@@QEAAXXZ
@@ -192,6 +194,8 @@ CExampleSchemaVData_Monomorphic
 CExampleSchemaVData_PolymorphicBase
 CExampleSchemaVData_PolymorphicDerivedA
 CExampleSchemaVData_PolymorphicDerivedB
+CGlobalSymbol
+CGlobalSymbolCaseSensitive
 CHandle
 CKeyValues3Context
 CKeyValues3Context::Root
@@ -404,6 +408,7 @@ Has Trivial Constructor: %s
 Has Trivial Destructor: %s
 HelpSystem_001
 HostStateMgr001
+IPulseSystem_001
 Ignorable Indirection
 InfoForResourceTypeCResourceManifestInternal
 InitializeSListHead
@@ -615,6 +620,7 @@ Vector2D
 Vector4D
 VectorAligned
 VisBuilder_001
+Vrad3_001
 WARNING: SchemaSystem tried to load schema data for module '%s' but InstallSchemaBindings returned false.
 WARNING: SchemaSystem tried to load schema data for module '%s' but failed to load the module.
 WARNING: SchemaSystem tried to load schema data for module '%s' but failed to locate InstallSchemaBindings.

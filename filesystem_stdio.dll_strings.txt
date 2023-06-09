@@ -39,6 +39,7 @@
 -log_opened_files
 -no_hierarchical_vpk_memory_mapping
 -recordPerfStats
+-tools
 -unbuffered_io
 .?AV?$CBaseAppSystem@VIAsyncFileSystem2@@@@
 .?AV?$CBaseAppSystem@VIFileSystem@@@@
@@ -144,7 +145,7 @@
 ?AddNullTermination@CUtlBuffer@@IEAAXXZ
 ?AddString@CUtlSymbolTable@@QEAA?AVCUtlSymbol@@PEBDPEA_N@Z
 ?Alloc@CRawAllocator@@SAPEAXW4RawAllocatorType_t@@_KPEA_K@Z
-?AllocAndCopy@CUtlMemoryBlockAllocator@@QEAAIPEBDI@Z
+?Alloc@CUtlMemoryBlockAllocator@@QEAAII@Z
 ?Append@CUtlString@@QEAAXPEBDH@Z
 ?AppendConcat@CBufferString@@QEAAPEBDHPEBQEBDPEBH_N@Z
 ?AppendFormat@CBufferString@@QEAAHPEBDZZ
@@ -336,6 +337,7 @@ CloseHandle
 CommandLine
 ConnectInterfaceSingletons
 Content being marked corrupt.  bMissingFilesOnly = %s, pFile specified as '%s', reason: '%s'
+Content file %s is corrupt (Chunk: %s). Verify integrity of game files.
 Content file %s is corrupt. Verify integrity of game files.
 CopyAFile: Cannot copy into a VPK or UGC file '%s'
 CopyAFile: Failed to copy file %s.
@@ -407,6 +409,7 @@ GetSystemTimeAsFileTime
 HammerMapLoader001
 HelpSystem_001
 HostStateMgr001
+IPulseSystem_001
 InitializeSListHead
 InputService_001
 InputStackSystemVersion001
@@ -646,6 +649,7 @@ V_tmpnam
 V_vsnprintf
 Version
 VisBuilder_001
+Vrad3_001
 WARNING: File might be corrupt or missing - '%s'
 WARNING: Local content might be corrupt or missing files
 WARNING: Local content might be corrupt or missing files. Not reporting to Steam due to disabled reporting.
@@ -682,6 +686,7 @@ compressionMethod
 console.log
 crc32
 deque<T> too long
+directory
 diskNumberStart
 error
 externalFileAttribs

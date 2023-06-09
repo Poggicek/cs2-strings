@@ -94,6 +94,7 @@
 -sse2
 -sse3
 -sse4
+-tools
 -vscriptdebug_script
 ... Waiting for an incoming Inspector connection, %llus so far, timeout in %llus
 .?AV?$CBaseAppSystem@VIScriptManager@@@@
@@ -428,6 +429,7 @@ IGNORING Event '%s'
 IGNORING Result for %llu
 IGNORING Runtime.getProperties for '%s'
 INSPECTOR ERROR: %s
+IPulseSystem_001
 Illegal byte sequence
 Improper link
 Inappropriate I/O control operation
@@ -827,6 +829,7 @@ VirtualProtect
 VirtualQuery
 VisBuilder_001
 Visual C++ CRT: Not enough memory to complete call to strerror.
+Vrad3_001
 WAITING FOR VSCRIPT DEBUGGER CONNECTION for script '%s' -- '-vscriptdebug_script' was provided on the command line.
 WARNING: Lua allocation of %llu failed
 WARNING: Lua breakpoint regex '%s' did not compile
@@ -940,6 +943,7 @@ __stdcall
 __sub
 __swift_1
 __swift_2
+__swift_3
 __swprintf_l
 __thiscall
 __tostring
