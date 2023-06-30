@@ -145,7 +145,6 @@
 %d %d %d
 %d %d %d %d
 %d frames sampled for %.2f seconds
-%d ranges given for subprogram
 %d total counted strings.
 %d.%d.%d.%d:%d
 %f %f
@@ -197,6 +196,7 @@
 %s():
 %s.exe
 %s/%d
+%s: Attempting to mail.
 %s: Invalid capacity %u
 %s: Invalid grow amount %d
 %s: Invalid lock state %d
@@ -239,6 +239,7 @@
 %u MB memory used assuming maximum PageHeap overhead.
 %u lifetime allocations (%u delta).
 %u outstanding allocations (%d delta).
+%u(%f):  
 %u_%u_%u
 &#%u;
 &AElig;
@@ -442,7 +443,6 @@
 -minidump_full
 -minidump_log_path
 -no_assert_dialog
--no_assert_dialog_default_action
 -noassert
 -noautoargs
 -nocustomermachine
@@ -932,7 +932,7 @@
 ??8CUtlString@@QEBA_NAEBV0@@Z
 ??8CUtlString@@QEBA_NAEBVCBufferString@@@Z
 ??ACUtlString@@QEBADH@Z
-??BCFormatStringElement@@QEAAPEBDXZ
+??BCFormatStringElement@@QEBAPEBDXZ
 ??BCThreadSyncObject@@QEAAPEAXXZ
 ??HCUtlString@@QEBA?AV0@AEBV0@@Z
 ??HCUtlString@@QEBA?AV0@H@Z
@@ -1211,8 +1211,8 @@
 ?FindScopeForThreadId@CThreadLocalScope@@SAPEAV1@I@Z
 ?FindString@CCountedStringPool@@QEBAPEBDPEBD@Z
 ?FindStringHandle@CCountedStringPool@@QEBAGPEBD@Z
-?FindVertsInBox@CVertexKDTree@@QEBAXAEAV?$CUtlVectorFixed@PEBM$0EA@H@@AEBV?$Vector3DBase@M@@1H@Z
-?FindVertsInBox@CVertexKDTree@@QEBAXAEAV?$CUtlVectorFixedGrowable@PEBM$0EA@H@@AEBV?$Vector3DBase@M@@1H@Z
+?FindVertsInBox@CVertexKDTree@@QEBAXAEAV?$CUtlVectorFixed@PEBM$0EA@H@@AEBV?$Vec3D@M@@1H@Z
+?FindVertsInBox@CVertexKDTree@@QEBAXAEAV?$CUtlVectorFixedGrowable@PEBM$0EA@H@@AEBV?$Vec3D@M@@1H@Z
 ?FioCancelIo@@YAHPEAX@Z
 ?FioClose@@YAHPEAX@Z
 ?FioCopyFile@@YAHPEBD0_N@Z
@@ -1255,8 +1255,8 @@
 ?FixupPathName@CUtlString@@QEAAXXZ
 ?Flush@CCircularBuffer@@QEAAXXZ
 ?FlushIfDesired@CStdIOFormatOutputStream@@QEAAXXZ
-?ForEachInBox@CVertexKDTree@@QEBAXAEBV?$Vector3DBase@M@@0AEBV?$function@$$A6AXPEBM@Z@std@@H@Z
-?ForEachInSphere@CVertexKDTree@@QEBAXAEBV?$Vector3DBase@M@@MAEBV?$function@$$A6AXPEBM@Z@std@@H@Z
+?ForEachInBox@CVertexKDTree@@QEBAXAEBV?$Vec3D@M@@0AEBV?$function@$$A6AXPEBM@Z@std@@H@Z
+?ForEachInSphere@CVertexKDTree@@QEBAXAEBV?$Vec3D@M@@MAEBV?$function@$$A6AXPEBM@Z@std@@H@Z
 ?Format@CBufferString@@QEAAHPEBDZZ
 ?Format@CUtlString@@QEAAHPEBDZZ
 ?FormatArgumentsToBuffer@@YAXPEAVIFormatOutputStream@@PEBDPEBVCTypeErasedFormattingWrapper@@H@Z
@@ -1361,7 +1361,7 @@
 ?GetGameInfoKey@@YAPEAVKeyValues@@PEBD@Z
 ?GetGameInfoString@@YAPEBDPEBD0PEAD_K@Z
 ?GetGameInfoUint64@@YA_KPEBD_K@Z
-?GetHandle@CThreadSyncObject@@QEBAQEAXXZ
+?GetHandle@CThreadSyncObject@@QEBAPEAXXZ
 ?GetHashHex@CSHA1@@QEAAXPEADH@Z
 ?GetHeader@CGridStringPrinter@@IEAAPEAUColumnHeader_t@1@H@Z
 ?GetHeader@CGridStringPrinter@@IEBAPEBUColumnHeader_t@1@H@Z
@@ -1431,7 +1431,7 @@
 ?GetSubNode@CVProfNode@@QEBAPEBV1@PEBDH0@Z
 ?GetSubNode@CVProfNode@@QEBAPEBV1@PEBDH0H@Z
 ?GetTargetThreadId@CVProfile@@QEAAIXZ
-?GetThreadHandle@CThread@@IEBAQEAUThreadHandle_t__@@XZ
+?GetThreadHandle@CThread@@IEBAPEAUThreadHandle_t__@@XZ
 ?GetThreadHandle@CThread@@QEAAPEAUThreadHandle_t__@@XZ
 ?GetThreadID@CThread@@QEBAIXZ
 ?GetTimeLastFrame@CVProfile@@QEBANXZ
@@ -1601,6 +1601,9 @@
 ?LockForWrite@CThreadRWLock@@QEAAXPEBDH@Z
 ?LockMutex@CDbgHelpFunctionsLoader@@QEAAXXZ
 ?LockSilent@CThreadMutex@@QEAAXPEBDH@Z
+?LoggingSystem_GetLogCapture@@YAXPEAV?$CUtlVector@VCUtlString@@HV?$CUtlMemory@VCUtlString@@H@@@@_N@Z
+?LoggingSystem_GetLogCapture@@YAXPEAVCMiniDumpComment@@_N@Z
+?LoggingSystem_GetLogCaptureForMiniDump@@YA_NPEAVCMiniDumpComment@@_NPEBD@Z
 ?LoggingSystem_IsChannelEnabled@@YA_NHW4LoggingVerbosity_t@@@Z
 ?LoggingSystem_Log@@YA?AW4LoggingResponse_t@@HW4LoggingSeverity_t@@AEBULeafCodeInfo_t@@PEBDZZ
 ?LoggingSystem_Log@@YA?AW4LoggingResponse_t@@HW4LoggingSeverity_t@@AEBULeafCodeInfo_t@@PEBULoggingMetaData_t@@PEBDZZ
@@ -1632,8 +1635,8 @@
 ?MergeFrom@KeyValues@@QEAAXPEBV1@W4MergeKeyValuesOp_t@1@@Z
 ?MergeFromTemporary@KeyValues@@QEBAPEAVCTemporaryKeyValues@@PEBV1@W4MergeKeyValuesOp_t@1@@Z
 ?MoveFrom@CBufferString@@QEAAXAEAV1@@Z
-?Nearest@CVertexKDTree@@QEBAPEBMAEBV?$Vector3DBase@M@@@Z
-?NearestInternal@CVertexKDTree@@AEBAXAEBV?$Vector3DBase@M@@AEAMPEAPEBMH@Z
+?Nearest@CVertexKDTree@@QEBAPEBMAEBV?$Vec3D@M@@@Z
+?NearestInternal@CVertexKDTree@@AEBAXAEBV?$Vec3D@M@@AEAMPEAPEBMH@Z
 ?NewLineAndIndent@IFormatOutputStream@@QEAAXXZ
 ?NewPathStringBuffer@CPathString@@SAPEAUBuffer_t@1@XZ
 ?Next@CStringRegistry@@QEBAGG@Z
@@ -2856,7 +2859,6 @@ CSmartPropOperation_Scale
 CSmartPropOperation_SetAttributes
 CSmartPropOperation_SetTintColor
 CSmartPropOperation_SetVariable
-CSmartPropOperation_SetVariableBool
 CSmartPropOperation_SetVariableString
 CSmartPropOperation_TraceInDirection
 CSmartPropOperation_TraceToSurface
@@ -3162,6 +3164,7 @@ ConDMsg
 ConVar
 Conditional Error: %s
 ConfigAttachedModel
+Conflicting range base values given for compile_unit
 ConnectInterfaceSingletons
 Connection_Inparam
 Connection_Outflow
@@ -3943,6 +3946,7 @@ Invalid vector-type length
 Invalid virtual table number
 InvalidateRect
 InvalidateUniqueId
+InvokeCrashDumpMailer
 InvokeMiniDump
 InvokeMiniDumpHandler
 IsDebuggerPresent
@@ -4037,10 +4041,16 @@ LocalFree
 LocaleNameToLCID
 Localize_001
 Log Function Help: 
+LoggingSystem_AddLogCapture
+LoggingSystem_AddLogCaptureString
+LoggingSystem_AddLogCaptureV
 LoggingSystem_AddTagToChannel
 LoggingSystem_ChangeChannelIndent
+LoggingSystem_ClearLogCapture
 LoggingSystem_CurrentStateIndex
 LoggingSystem_EnableBackdoorLoggingListeners
+LoggingSystem_EnableLogCapture
+LoggingSystem_EnableLogCaptureInMiniDumpComment
 LoggingSystem_EnsureChannelVerbosity
 LoggingSystem_FindChannel
 LoggingSystem_FirstTag
@@ -4052,6 +4062,7 @@ LoggingSystem_GetChannelFlags
 LoggingSystem_GetChannelVerbosity
 LoggingSystem_GetFirstChannelID
 LoggingSystem_GetLastChannelLineComplete
+LoggingSystem_GetMaxLogCaptureLines
 LoggingSystem_GetNextChannelID
 LoggingSystem_GetVerbosityForSeverity
 LoggingSystem_HasTag
@@ -4077,6 +4088,7 @@ LoggingSystem_SetChannelVerbosityByName
 LoggingSystem_SetChannelVerbosityByTag
 LoggingSystem_SetLastChannelLineComplete
 LoggingSystem_SetLoggingResponsePolicy
+LoggingSystem_SetMaxLogCaptureLines
 LoggingSystem_TagName
 LoggingSystem_UnregisterLoggingListener
 LookRelative_Move_Heading
@@ -4098,7 +4110,6 @@ MINIDUMP_WRAP_CODE: In __except block
 MINIDUMP_WRAP_CODE: Wrapped execution
 MM/dd/yy
 MOBILE
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 Mac OS
 MacOS 10.10
@@ -4969,7 +4980,6 @@ SSRVOPT_DWORDPTR match
 SSRVOPT_GUIDPTR match
 STMID_WINDOWS_PDB20_GUID
 STMID_WINDOWS_PDB70_GUID
-STRING
 STUB_GetStatStructName
 SUBPROCESS CRASH: exception 0x%08X at 0x%llx
 SYSTEM
@@ -5029,7 +5039,6 @@ SetFileAttributesW
 SetFilePointer
 SetFilePointerEx
 SetFileTime
-SetFocus
 SetForegroundWindow
 SetInformationJobObject
 SetLastError
@@ -5498,7 +5507,6 @@ UuidFromStringA
 UuidToStringA
 VALVE-MODULE-DEBUG-%08X
 VALVE_CLOCK_SPEED_CALCULATION
-VALVE_NO_ASSERT_DIALOG_DEFAULT_ACTION
 VALVE_TESTMODE
 VALVE_TEST_MONITOR_PROCESS
 VApplication001
@@ -6211,6 +6219,7 @@ animgraph24
 animgraph25
 animgraph26
 animgraph27
+animgraph28
 animgraph3
 animgraph4
 animgraph5

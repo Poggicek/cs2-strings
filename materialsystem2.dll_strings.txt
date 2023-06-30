@@ -142,7 +142,7 @@
 *** A dynamic combo in %s doesn't start with "D_"! Aborting shader compile!
 *** A feature in %s doesn't start with "F_"! Aborting shader compile!
 *** A static combo in %s doesn't start with "S_"! Aborting shader compile!
-*** CMaterial2::LoadShadersAndSetupModes(1408): Error! Trying to load material "%s" without any params!
+*** CMaterial2::LoadShadersAndSetupModes(1409): Error! Trying to load material "%s" without any params!
 *** CVfx::ParseCombosAndRulesFromFileHelper(6096): Error opening file "%s"!
 *** CVfx::ParseDescriptionFromFile(5992): Error opening file "%s"!
 *** CVfx::ParseDevBoolFromFile(5919): Error opening file "%s"!
@@ -533,14 +533,14 @@ ATI1N
 ATI2N
 Actually dude, we didn't seem to be expecting anything here, or at least
 AddFontMemResourceEx
-AddRenderStateValueLoadToCommandBuffer(1732): Invalid data type for render state variable %s in material "%s"!
-AddRenderStateValueLoadToCommandBuffer(1768): Invalid data type for render state variable %s in material "%s"!
-AddRenderStateValueLoadToCommandBuffer(1854): Invalid data type for render state variable %s in material "%s"!
-AddRenderStateValueLoadToCommandBuffer(1862): Invalid variable source type for render state variable %s in material "%s"!
-AddRenderStateVariableToCommandBuffer(1960): Unsupported render state type in material "%s"!
-AddRenderStateVariableToCommandBuffer(2111): Unsupported render state in material "%s"!
-AddSamplerStateVariableToCommandBuffer(2184): Unsupported sampler state type for "%s" in material "%s"!
-AddSamplerStateVariableToCommandBuffer(2206): Unsupported sampler state type for "%s" in material "%s"!
+AddRenderStateValueLoadToCommandBuffer(1729): Invalid data type for render state variable %s in material "%s"!
+AddRenderStateValueLoadToCommandBuffer(1765): Invalid data type for render state variable %s in material "%s"!
+AddRenderStateValueLoadToCommandBuffer(1851): Invalid data type for render state variable %s in material "%s"!
+AddRenderStateValueLoadToCommandBuffer(1859): Invalid variable source type for render state variable %s in material "%s"!
+AddRenderStateVariableToCommandBuffer(1957): Unsupported render state type in material "%s"!
+AddRenderStateVariableToCommandBuffer(2108): Unsupported render state in material "%s"!
+AddSamplerStateVariableToCommandBuffer(2181): Unsupported sampler state type for "%s" in material "%s"!
+AddSamplerStateVariableToCommandBuffer(2203): Unsupported sampler state type for "%s" in material "%s"!
 AlignedByteArray not properly aligned
 All Bad! Talk to Brian and Alex. g_pRenderHardwareConfig is NULL which means we won't load this material correctly: %s
 All static combo permutations currently loaded:
@@ -639,20 +639,20 @@ CMaterial2::GetMode(596): Material "%s" is requesting a bad mode "%s"!
 CMaterial2::GetVertexShaderInputSignature(711): Error! Material "%s" doesn't have any valid layers to get the CVsInputSignatureVector from!
 CMaterial2::GetVertexShaderInputSignature(743): Error! Material "%s" doesn't have a CVsInputSignatureVector!
 CMaterial2::GetVertexShaderInputSignature(761): Error! Material "%s" has invalid signature index %d!
-CMaterial2::LoadShadersAndSetupModes(1403): Error! Material "%s" is already loaded!
-CMaterial2::LoadShadersAndSetupModes(1437): Cannot find shader entry in material "%s"! Using error.vfx!
-CMaterial2::LoadShadersAndSetupModes(1476): Error creating shader %s for material %s!
-CMaterial2::LoadShadersAndSetupModes(1480): Error creating shader %s and cannot load error.vfx instead!
-CMaterial2::LoadShadersAndSetupModes(1520): Error creating fallback shader %s for %s for material %s! A fallback shader cannot fallback to a different shader!
-CMaterial2::LoadShadersAndSetupModes(1533): Error creating fallback shader %s for %s for material %s!
-CMaterial2::LoadShadersAndSetupModes(1537): Error creating fallback shader %s for %s and cannot load error.vfx instead!
-CMaterial2::LoadShadersAndSetupModes(1565): Error creating shader %s for material %s!
-CMaterial2::LoadShadersAndSetupModes(1570): Error creating shader %s and cannot load error.vfx instead!
-CMaterial2::LoadShadersAndSetupModes(1580): Error creating static combos for shader %s and error.vfx instead!
-CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode(2951): Failed call to FindOrLoadStaticComboData()!
-CMaterialLayer::CreateCommandBuffer(3894): Find a graphics programmer! Trying to bind a "%s" shader that doesn't exist! for %s
-CMaterialMode::ComputeRenderablePassesForContext(3254): All bad! The error material failed in dynamic shader compile!
-CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(987): ERROR!!! Shaders not freed before shader reload! (See spew above)
+CMaterial2::LoadShadersAndSetupModes(1404): Error! Material "%s" is already loaded!
+CMaterial2::LoadShadersAndSetupModes(1438): Cannot find shader entry in material "%s"! Using error.vfx!
+CMaterial2::LoadShadersAndSetupModes(1477): Error creating shader %s for material %s!
+CMaterial2::LoadShadersAndSetupModes(1481): Error creating shader %s and cannot load error.vfx instead!
+CMaterial2::LoadShadersAndSetupModes(1521): Error creating fallback shader %s for %s for material %s! A fallback shader cannot fallback to a different shader!
+CMaterial2::LoadShadersAndSetupModes(1534): Error creating fallback shader %s for %s for material %s!
+CMaterial2::LoadShadersAndSetupModes(1538): Error creating fallback shader %s for %s and cannot load error.vfx instead!
+CMaterial2::LoadShadersAndSetupModes(1566): Error creating shader %s for material %s!
+CMaterial2::LoadShadersAndSetupModes(1571): Error creating shader %s and cannot load error.vfx instead!
+CMaterial2::LoadShadersAndSetupModes(1581): Error creating static combos for shader %s and error.vfx instead!
+CMaterialLayer::ComputeWorkItemsToSetupStaticCombosForMode(2952): Failed call to FindOrLoadStaticComboData()!
+CMaterialLayer::CreateCommandBuffer(3895): Find a graphics programmer! Trying to bind a "%s" shader that doesn't exist! for %s
+CMaterialMode::ComputeRenderablePassesForContext(3255): All bad! The error material failed in dynamic shader compile!
+CMaterialSystem2::DynamicShaderCompile_UnloadAllMaterials(988): ERROR!!! Shaders not freed before shader reload! (See spew above)
 CMaterialSystem2::GetErrorMaterial(441): GetErrorMaterial() called when m_pMaterialTypeManager == NULL!
 CMaterialSystem2::Init
 CMaterialSystem2::Init(147): ERROR! Empty shader mode string found! Use "Default" instead!
@@ -714,7 +714,7 @@ CVfx::CreateFromVcs(7392): VCS %s Unserialize hit EOF
 CVfx::ValidateMD5FromVcs(7524): Error opening file %s
 CVfx::ValidateMD5FromVcs(7531): Error calling SkipAndValidateVCSHeader() for %s
 CVfxConstructor::Construct
-CVfxConstructor::Construct(2236): DxSupportLevel %d not supported!
+CVfxConstructor::Construct(2237): DxSupportLevel %d not supported!
 CVfxProgramData::CalcStaticComboIdFromValues
 CVfxProgramData::FindOrAddVsInputSignatureToArray
 CVfxProgramData::FindOrCreateStaticComboDataInCache(4047): Error! Ref count !=0 for static combo data cache entry!
@@ -732,9 +732,9 @@ Command Format: mat_set_shader_quality <value> (valid values are 0 or 1)
 CommandLine
 Compile Target Expression
 Compile Targets
-CompileComboAndGetVariables_DynamicShaderCompile(), C:\buildworker\csgo_rel_win64\build\src\materialsystem2\material2.cpp:2602
-CompileComboAndGetVariables_DynamicShaderCompile(2583): Dynamic Combos should be assumed to be unique for dynamic shader compile! %d != %d
-CompileComboAndGetVariables_DynamicShaderCompile(2662): Dynamic shader compile failed for %s in material "%s"!
+CompileComboAndGetVariables_DynamicShaderCompile(), C:\buildworker\csgo_rel_win64\build\src\materialsystem2\material2.cpp:2603
+CompileComboAndGetVariables_DynamicShaderCompile(2584): Dynamic Combos should be assumed to be unique for dynamic shader compile! %d != %d
+CompileComboAndGetVariables_DynamicShaderCompile(2663): Dynamic shader compile failed for %s in material "%s"!
 CompileShadersForFeatureCombo
 CompileTargets
 Compiled 
@@ -882,10 +882,10 @@ GetModuleHandleW
 GetOEMCP
 GetProcAddress
 GetProcessHeap
-GetRenderStateValue(1026): Invalid data type for render state variable %s in material "%s"!
-GetRenderStateValue(1074): Invalid data type for render state variable %s in material "%s"!
-GetRenderStateValue(1081): Error evaluating expression for render state variable %s in material "%s"!
-GetRenderStateValue(1087): Invalid variable source type for render state variable %s in material "%s"!
+GetRenderStateValue(1023): Invalid data type for render state variable %s in material "%s"!
+GetRenderStateValue(1071): Invalid data type for render state variable %s in material "%s"!
+GetRenderStateValue(1078): Error evaluating expression for render state variable %s in material "%s"!
+GetRenderStateValue(1084): Invalid variable source type for render state variable %s in material "%s"!
 GetResourceManifestCount
 GetResourceManifests
 GetStartupInfoW
@@ -897,8 +897,8 @@ GetValueFromDynamicMaterialParam(552): Trying to set VFX_VARIABLE_TYPE_MATRIX_* 
 GetValueFromDynamicMaterialParam(557): Bad VFX_VARIABlE type for VFX_VARIABLE_SOURCE_SET_BY_ARTIST %s in material "%s"!
 GetValueFromMaterialParam(470): Trying to set VFX_VARIABLE_TYPE_MATRIX_* but this isn't supported yet! In material "%s"
 GetValueFromMaterialParam(475): Bad VFX_VARIABlE type for VFX_VARIABLE_SOURCE_SET_BY_ARTIST %s in material "%s"!
-GetValueFromMaterialParamAsVector4D(1447): Trying to set VFX_VARIABLE_TYPE_MATRIX_* but this isn't supported yet! In material "%s"
-GetValueFromMaterialParamAsVector4D(1452): Bad VFX_VARIABlE type for VFX_VARIABLE_SOURCE_SET_BY_ARTIST %s in material "%s"!
+GetValueFromMaterialParamAsVector4D(1444): Trying to set VFX_VARIABLE_TYPE_MATRIX_* but this isn't supported yet! In material "%s"
+GetValueFromMaterialParamAsVector4D(1449): Bad VFX_VARIABlE type for VFX_VARIABLE_SOURCE_SET_BY_ARTIST %s in material "%s"!
 GetVariableTextureValue
 Glyph Miss: FontHandle_t:0x%8.8llx (%s), %s
 HEADER
@@ -973,15 +973,14 @@ MD5Init
 MD5Update
 MGetKV3ClassDefaults
 MM/dd/yy
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MODES
 MapListService_001
 March
 Marlett
-MatPrintShaderInfo(3687): Error reading index!
-MatPrintShaders(3367): pVfx == NULL!
-MatPrintShaders(3416): pVfx == NULL!
+MatPrintShaderInfo(3688): Error reading index!
+MatPrintShaders(3368): pVfx == NULL!
+MatPrintShaders(3417): pVfx == NULL!
 MatUtilsRenderMesh
 MatUtilsRenderOutlinedRect
 MatUtilsRenderPrimitives
@@ -1213,18 +1212,18 @@ SetEvent
 SetFilePointerEx
 SetLastError
 SetMapMode
-SetRenderStateValueFromVariable(1158): Unsupported render state type in material "%s"!
-SetSamplerStateValueFromVariable(1176): Sampler index %d out of bounds for "%s" in material "%s"!
-SetSamplerStateValueFromVariable(1249): Unsupported sampler state type for "%s" in material "%s"!
+SetRenderStateValueFromVariable(1155): Unsupported render state type in material "%s"!
+SetSamplerStateValueFromVariable(1173): Sampler index %d out of bounds for "%s" in material "%s"!
+SetSamplerStateValueFromVariable(1246): Unsupported sampler state type for "%s" in material "%s"!
 SetStdHandle
 SetSubTextureRGBA: Invalid texture id %i
 SetTextAlign
 SetTextColor
 SetTextureRGBA: Invalid texture id %i
 SetUnhandledExceptionFilter
-SetVariable(1332): Could not bind constant buffer "%s" because the constant buffer handle was invalid in material "%s"!
-SetVariable(1349): Error setting constant for REGISTER_FLOAT4 for "%s" in material "%s"! Talk to a programmer!
-SetVariableValue(982): Unknown variable type for %s in material "%s"!
+SetVariable(1329): Could not bind constant buffer "%s" because the constant buffer handle was invalid in material "%s"!
+SetVariable(1346): Error setting constant for REGISTER_FLOAT4 for "%s" in material "%s"! Talk to a programmer!
+SetVariableValue(979): Unknown variable type for %s in material "%s"!
 Shader
 Shader %s attribute "%s" has inconsistent value or type across multiple shaders of a feature combo! [
 Shader %s doesn't support compile target %s

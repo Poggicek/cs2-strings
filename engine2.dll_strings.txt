@@ -1,5 +1,4 @@
 
-
 	"%s" has %d known peers:
 	"%s" has no known peers.
 	%s	%.1f
@@ -16,7 +15,8 @@
 	GAMEROOT: "%s"
 	This is necessary to run!
 	You must construct it with ORDERED_CONSTRUCT macro in the dependency resolution function.
-	stackstats_dump "structname" ["filename"]
+	stackstats_dump %s ["filename"]
+	stackstats_dump struct ["filename"]. There's a single instance registered, auto-picking: %s
 
  
                             %12s peak, %s block
@@ -143,6 +143,7 @@
  0: read from NULL
  1: write to NULL
  2: force an Assert
+ 3: infinite loop
  3_6?
  = { <proto text format> }". To set fields within it, use syntax like "
  Base Class Array'
@@ -396,6 +397,7 @@ $0option $1;
 %Y-%m-%d-%H_%M_%S
 %d %d %d
 %d %d %d %d
+%d %s UserInfoChanged %d bytes s=%d
 %d (s/n %d)
 %d addons loaded
 %d clients:
@@ -461,14 +463,17 @@ $0option $1;
 %s %s:  updating %d:'%s' (%d total) userdata %d
 %s %s: AddString(%s) : %s (data %d bytes) at tick %d
 %s %s: ClearTick %d %s - tick %d - remaining userdata %d
+%s %s: ClearTick tick %d - %d items
 %s %s: CopyStringTable
+%s %s: Mirror table reset
 %s %s: Mirror table set up
 %s %s: SetStringUserData : %d %s (data %d bytes)
 %s %s: UpdateMirrorTable %d %s change tick %d mirror change tick %d - %d bytes
 %s %s: UpdateMirrorTable forcing AddString of item %d '%s' change tick %d because it was not in the table.
-%s %s: WriteBaselines at tick %d
+%s %s: WriteBaselines at tick %d. %d entries, %d bits
 %s %s: WriteUpdateAtTick %d %s userdata %d [t %d ack %d change %d]
-%s %s: m_nLastChangedTick[0]=%d, nMirrorChangeTick=%d
+%s %s: WriteUpdateAtTick %d entries [t %d ack %d] %d bits
+%s %s: m_nLastChangedTick[0]=%d, nMirrorChangeTick=%d, %d changes
 %s '%s': file size larger than 1 MB!
 %s '%s': invalid file type.
 %s '%s': invalid path.
@@ -590,7 +595,7 @@ $0option $1;
 %s: Skipping initializing breakpad.
 %s: SteamAPI_SetBreakpadAppID: %d
 %s: Transfering creation sequence %d to owner spawn group %s
-%s: Universe is %d
+%s: Universe is %d (%s)
 %s: couldn't exec '%s', missing file
 %s: couldn't exec '%s', unable to read file
 %s: execute perftest.cfg
@@ -638,6 +643,7 @@ $0option $1;
 (Relay)
 (Untested Direct Routing)
 (cannot determine missing fields for lite message)
+(dump took %.1fms)
 (merge 
 (no landmark)
 (no server running)
@@ -712,6 +718,7 @@ $0option $1;
 -allowdebug
 -appidoverride
 -asset
+-asyncconsole
 -attachtodebugger
 -auto -title "auto_bug %04d-%02d-%02d %02d:%02d:%02d"
 -bench
@@ -752,7 +759,6 @@ $0option $1;
 -error_if_idle
 -favor_consistent_framerate
 -flushlog
--forceLPP
 -force_new_recommend
 -forcenovsync
 -fpexcept
@@ -826,6 +832,7 @@ $0option $1;
 -set_power_qos_disable
 -showasserts
 -skip_driver_check
+-snallownoauth
 -snap
 -spewserializers
 -sse2
@@ -919,6 +926,15 @@ $0option $1;
 .?AV<lambda_e0b623a606acfd10554dbddbb0c1a7da>@@
 .?AV<lambda_e7905d7dbd7cab7f9b19199433c4f5d3>@@
 .?AV<lambda_f25c37099038263181b5186a3fa41b37>@@
+.?AV?$CAsyncCall@UDumpMemCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
+.?AV?$CAsyncCall@UPrintBroadcastTVStatusCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
+.?AV?$CAsyncCall@UStartAutoRecordingCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
+.?AV?$CAsyncCall@UStartBroadcastCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
+.?AV?$CAsyncCall@UStartRecordingCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
+.?AV?$CAsyncCallJob@VCHLTVServerAsync@@URunFrameJob_t@1@@@
+.?AV?$CAsyncCallJob@VCServerSideClient@@USendSnapshotJob_Empty_t@1@@@
+.?AV?$CAsyncCallJob@VCServerSideClient@@USendSnapshotJob_HltvReplay_t@1@@@
+.?AV?$CAsyncCallJob@VCServerSideClient@@USendSnapshotJob_HltvSource_t@1@@@
 .?AV?$CBaseAppSystem@VIAppSystem@@@@
 .?AV?$CBaseAppSystem@VIApplication@@@@
 .?AV?$CBaseAppSystem@VIBenchmarkService@@@@
@@ -1003,6 +1019,35 @@ $0option $1;
 .?AV?$CConCommandMemberAccessor@VCSplitScreenService@@@@
 .?AV?$CConCommandMemberAccessor@VCStatsService@@@@
 .?AV?$CConCommandMemberAccessor@VCVProfService@@@@
+.?AV?$CDeferredCall@UAppendSpawnGroupMessageCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UAppendSpawnGroupMessageCall_t@1@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UDumpMemCall_t@1@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UOnStartedRecordingReverseCall_t@1@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UPrintBroadcastTVStatusCall_t@1@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartAutoRecordingCall_t@1@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartBroadcastCall_t@1@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartRecordingCall_t@1@@@
+.?AV?$CDelayedCall2@VCNetworkGameServerBase@@V1@UClientConnectDelayedCall_t@1@@@
+.?AV?$CDelayedCall2@VCNetworkGameServerBase@@V1@UUnloadSpawnGroupCall_t@1@@@
+.?AV?$CDelayedCall2@VCNetworkGameServerBase@@VCHLTVServer@@UPrintTVStatusCall_t@2@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UDisconnectCall_t@1@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UProcessBaselineAckCall_t@1@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@USendNetMessageCall_t@1@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UUpdateAcknowledgedFramecountCall_t@1@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCHLTVClient@@UPrintTVStatusCall_t@2@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@USendInitialSpawnGroupsAsync_t@2@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@UStartHltvReplayCall_t@2@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@UStopHltvReplayCall_t@2@@@
+.?AV?$CDelayedCall@VCHLTVServerAsync@@UAppendSpawnGroupMessageCall_t@1@@@
+.?AV?$CDelayedCall@VCHLTVServerAsync@@UDumpMemCall_t@1@@@
+.?AV?$CDelayedCall@VCHLTVServerAsync@@UOnStartedRecordingReverseCall_t@1@@@
+.?AV?$CDelayedCall@VCHLTVServerAsync@@UPrintBroadcastTVStatusCall_t@1@@@
+.?AV?$CDelayedCall@VCHLTVServerAsync@@UStartAutoRecordingCall_t@1@@@
+.?AV?$CDelayedCall@VCHLTVServerAsync@@UStartBroadcastCall_t@1@@@
+.?AV?$CDelayedCall@VCHLTVServerAsync@@UStartRecordingCall_t@1@@@
+.?AV?$CDelayedCallBase@VCHLTVServerAsync@@@@
+.?AV?$CDelayedCallBase@VCNetworkGameServerBase@@@@
+.?AV?$CDelayedCallBase@VCServerSideClientBase@@@@
 .?AV?$CDemoMessagePB@$00VCDemoFileHeader@@@@
 .?AV?$CDemoMessagePB@$01VCDemoFileInfo@@@@
 .?AV?$CDemoMessagePB@$02VCDemoSyncTick@@@@
@@ -1078,8 +1123,7 @@ $0option $1;
 .?AV?$CParallelLambdaJob@V<lambda_1>@?8??WriteToBufferBC7_ispctexcomp@FloatBitMap_t@@IEBA_NPEAX_KW4ImageFormat@@AEBUFloatBitmapEncodeSettings_t@@@Z@@CParallelProcessLauncher@@
 .?AV?$CParallelLambdaJob@V<lambda_1>@?8??WriteToBufferETC@FloatBitMap_t@@IEBA_NPEAX_KW4ImageFormat@@AEBUFloatBitmapEncodeSettings_t@@@Z@@CParallelProcessLauncher@@
 .?AV?$CParallelLambdaJob@V<lambda_1>@?BF@??PackEntities_Normal@CNetworkGameServer@@AEAAXAEAV?$CUtlVector@PEBUEntity2Networkable_t@@HV?$CUtlMemory@PEBUEntity2Networkable_t@@H@@@@HPEAPEAVCServerSideClient@@AEAV?$CBitVec@$0EAAA@@@PEAVCFrameSnapshot@@@Z@@CParallelProcessLauncher@@
-.?AV?$CParallelLambdaJob@V<lambda_1>@?CN@??SendClientMessages@CNetworkGameServer@@UEAAX_N@Z@@CParallelProcessLauncher@@
-.?AV?$CParallelLambdaJob@V<lambda_1>@?DE@??ExpandDeltaFrameToFullFrame@CHLTVServer@@AEAAXPEAUSHLTVDeltaFrame_t@3@@Z@@CParallelProcessLauncher@@
+.?AV?$CParallelLambdaJob@V<lambda_1>@?DE@??ExpandDeltaFrameToFullFrame@CHLTVServerAsync@@IEAAXPEAUSHLTVDeltaFrame_t@@@Z@@CParallelProcessLauncher@@
 .?AV?$CParallelLambdaJob@V<lambda_2>@?BI@??PackEntities_Normal@CNetworkGameServer@@AEAAXAEAV?$CUtlVector@PEBUEntity2Networkable_t@@HV?$CUtlMemory@PEBUEntity2Networkable_t@@H@@@@HPEAPEAVCServerSideClient@@AEAV?$CBitVec@$0EAAA@@@PEAVCFrameSnapshot@@@Z@@CParallelProcessLauncher@@
 .?AV?$CParallelProcessorAbstract@V?$CParallelProcessor@HV?$CLambdaJobItemProcessor@H@@$00@@@@
 .?AV?$CParallelProcessorAbstract@V?$CParallelProcessor@HV?$CMemberFuncJobItemProcessor@HVCNetworkGameClientBase@@V1@@@$00@@@@
@@ -1090,6 +1134,7 @@ $0option $1;
 .?AV?$CRefCountServiceBase@VCRefMT@@@@
 .?AV?$CRefCounted1@VIRefCounted@@V?$CRefCountServiceBase@VCRefMT@@@@@@
 .?AV?$CRefCounted@V?$CRefCountServiceBase@VCRefMT@@@@@@
+.?AV?$CReverseCall@UOnStartedRecordingReverseCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
 .?AV?$CScriptAccessorT@VCDefScriptAccessorBase@@$00@@
 .?AV?$CScriptScopeT@VCDefScriptAccessorBase@@$00@@
 .?AV?$CTier0AppSystem@VIApplication@@$0A@@@
@@ -1452,6 +1497,7 @@ $0option $1;
 .?AVCFlattenedSerializerSpewFunc_Log@@
 .?AVCForceMatchList@CPureServerWhitelist@@
 .?AVCFragmentRequest@CDemoStreamHttp@@
+.?AVCFrameMemDumpJob@@
 .?AVCFrameSnapshotManager@@
 .?AVCGameClientConnectPrerequisite@@
 .?AVCGameEventDispatcher@@
@@ -1473,6 +1519,7 @@ $0option $1;
 .?AVCHLTVDemoRecorder@@
 .?AVCHLTVFrame@@
 .?AVCHLTVServer@@
+.?AVCHLTVServerAsync@@
 .?AVCHostStateMgr@@
 .?AVCHostSubscribeForProfileEvents@@
 .?AVCHttpCallback@CHLTVBroadcast@@
@@ -1735,6 +1782,11 @@ $0option $1;
 .?AVCScreenshotService@@
 .?AVCScreenshotServiceReadTexturePixelsCallback@@
 .?AVCScriptComponent@@
+.?AVCSendClientMessagesJob@CHLTVServerAsync@@
+.?AVCSendJob_Empty@CServerSideClient@@
+.?AVCSendJob_HltvReplay@CServerSideClient@@
+.?AVCSendJob_HltvSource@CServerSideClient@@
+.?AVCSendJob_Regular@CServerSideClient@@
 .?AVCSequentialPrerequisite@@
 .?AVCSerializedEntityPolyMorphicFieldsMetadataHelper@@
 .?AVCServerConsoleRedirect@@
@@ -1760,8 +1812,10 @@ $0option $1;
 .?AVCTextConsoleWin@@
 .?AVCTextOnlyLoggingListener@@
 .?AVCThread@@
+.?AVCThreadedDependentJob@@
 .?AVCThreadedFileLogger@@
 .?AVCThreadedJob@@
+.?AVCThreadedJobWithDependencies@@
 .?AVCThreadedLogger@@
 .?AVCTier1AppSystemDict@@
 .?AVCTier1Application@@
@@ -2022,6 +2076,7 @@ $0option $1;
 0123456789abcdefghijklmnopqrstuvwxyz
 0: Force z prepass off. 1: Force on. -1: Don't force
 0: Use normals reconstructed from depth. 1: Output correct normals in z prepass.
+0: run all send jobs on main thread; 1: send jobs run asynchronously (except on dedicated server); 2: send jobs asynchronously; 3: send jobs run in parallel but block to not overlap the next tick; 4: main server clients' send jobs run in parallel, then HLTV server jobs; this approximately matches pre-async profile for a single HLTV server configuration
 0=Off, 1=Surface Wireframe, 2=Transparent Wireframe
 0x%x,
 1 = Pause the game when pressing ~ to open the console. CTRL+~ opens the console without pause.
@@ -2031,7 +2086,7 @@ $0option $1;
 1#SNAN
 1.2.11
 127.0.0.1
-14:15:16
+14:43:21
 200000
 30000
 3dSkyboxFog
@@ -2167,6 +2222,7 @@ $0option $1;
 ?EnsureEndsWithNumCharacters@CMiniDumpComment@@QEAA_NDH_N@Z
 ?EnsureOSDescription@CMiniDumpComment@@QEAAXXZ
 ?EnterScope@CVProfile@@QEAAXPEBDH0_NH@Z
+?Execute@CThreadedJob@@QEAAHXZ
 ?ExitScope@CVProfile@@QEAAXXZ
 ?ExtendPath@CBufferString@@QEAAPEBDPEBDD_N@Z
 ?ExtractFileBase@CBufferString@@QEAAPEBDPEBD@Z
@@ -2441,6 +2497,7 @@ AllowAddonDependencies
 Allows cameraman_override to have effect. When this is set, the primary interactive caster will have all the relevant fields present in all network packets, in every snapshot. This allows the secondary cameraman (-interactivecaster that connects to a tv port) to override those fields some seconds later regardless of whether they changed originally or not.
 Allows the client to playback screenshot and jpeg commands in demos.
 Allows the console to be activated.
+Alpha
 Already recording movie!
 Already recording.
 Always force all engine & tools to render
@@ -2604,6 +2661,7 @@ C:\buildworker\csgo_rel_win64\build\src\engine2\basespawngroup.h
 C:\buildworker\csgo_rel_win64\build\src\engine2\cl_broadcast.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\cl_demo.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\cl_ents_parse.cpp
+C:\buildworker\csgo_rel_win64\build\src\engine2\clientframe.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\clockdriftmgr.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\engine2.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\enginegameui.cpp
@@ -2614,6 +2672,7 @@ C:\buildworker\csgo_rel_win64\build\src\engine2\hltvbroadcast.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\hltvclientstate.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\hltvdemo.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\hltvserver.cpp
+C:\buildworker\csgo_rel_win64\build\src\engine2\hltvserver_async.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\host.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\inputservice.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\loopmodeconsole.cpp
@@ -2624,7 +2683,7 @@ C:\buildworker\csgo_rel_win64\build\src\engine2\loopmoderemoteconnect.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\looptypebase.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\memtools.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp
-C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp:1318
+C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclient.cpp:1320
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.cpp
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameclientbase.h
 C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserver_interface.cpp
@@ -2749,6 +2808,7 @@ CEntityResourceManifest::AddResourceInternal( %s )
 CEntityResourceManifest::GetEntityLumpForTemplate
 CEntitySystem
 CFinalizeConnectionPrerequisite
+CFrameMemDumpJob
 CFrameSnapshot CUtlMemoryPoolMT
 CGameClient::SendHltvReplaySnapshot
 CGameClientConnectPrerequisite
@@ -2829,6 +2889,7 @@ CHECK failed: uninterpreted_options_field != nullptr:
 CHECK failed: unknown_fields->SerializeToString(outstr): 
 CHLTVBroadcast::RecordServerClasses
 CHLTVBroadcast::RecordSnapshot tick %.1f ms
+CHLTVBroadcast::WriteFrame
 CHLTVBroadcast:Frame(delta)
 CHLTVBroadcast:FullFrame
 CHLTVBuildFullFrameSplitJob
@@ -2853,6 +2914,7 @@ CHLTVDemoRecorder::CullSpawnGroups culling message %s, spawngroup %s was never c
 CHLTVDemoRecorder::CullSpawnGroups culling message at %d unable to unserialize
 CHLTVDemoRecorder::CullSpawnGroups culling message at unknown handle
 CHLTVDemoRecorder::RecordServerClasses
+CHLTVDemoRecorder::WriteFrame
 CHLTVDemoRecorder::WriteNetMessage %s with %u bytes at %i (%d)
 CHLTVDemoRecorder::WriteSpawnGroupUpdateMessages AddSpawnMessageToDemoSpawnGroups tick=%d (from %d) sending message %s (spawn group %s)
 CHLTVDemoRecorder::WriteSpawnGroupUpdateMessages tick=%d (from %d) sending message %s (spawn group %s)
@@ -2861,7 +2923,6 @@ CHLTVServer: BroadcastLocalChat
 CHLTVServer::AddNewDeltaFrame
 CHLTVServer::AddNewFrame
 CHLTVServer::ExpandDeltaFrameToFullFrame
-CHLTVServer::ExpandDeltaFrameToFullFrame(), C:\buildworker\csgo_rel_win64\build\src\engine2\hltvserver.cpp:1899
 CHLTVServer::IsCorrectUniqueTVCode: pszUniqueCode=%s s_nTVSecretCode=%llu clientAccount=%u nCombined=%llu
 CHLTVServer::OnHLTVClientStateConnectionClosing:  Terminating after uplink disconnected.
 CHLTVServer::SendClientMessages client %s SendSnapshot() returned false on tick %d.
@@ -2874,6 +2935,7 @@ CHLTVServer::StartRelay: WriteClassInfosBuffer overflow.
 CHLTVServer::StartRelay: WriteSendTables overflow.
 CHLTVServer::UpdateHibernationState:  Terminating after relaying game.
 CHLTVServer::UpdateTick
+CHLTVServerAsync::ExpandDeltaFrameToFullFrame(), C:\buildworker\csgo_rel_win64\build\src\engine2\hltvserver_async.cpp:966
 CHandle
 CHostStateMgr::QueueNewRequest( %s, %u )
 CInputService
@@ -3023,8 +3085,7 @@ CNetworkGameClientBase::ReadPacketEntities
 CNetworkGameClientBase::SynchronizeAndBlockUntilLoaded
 CNetworkGameServer::ActivateServer
 CNetworkGameServer::PackEntities_Normal(), C:\buildworker\csgo_rel_win64\build\src\engine2\sv_packedentities.cpp:1015
-CNetworkGameServer::PackEntities_Normal(), C:\buildworker\csgo_rel_win64\build\src\engine2\sv_packedentities.cpp:1034
-CNetworkGameServer::SendClientMessages(), C:\buildworker\csgo_rel_win64\build\src\engine2\networkgameserver.cpp:830
+CNetworkGameServer::PackEntities_Normal(), C:\buildworker\csgo_rel_win64\build\src\engine2\sv_packedentities.cpp:1035
 CNetworkGameServerBase::ConnectClient( name='%s', remote='%s' )
 CNetworkGameServerBase::EnsureInstanceBaseline
 CNetworkGameServerBase::GetClassBaseline
@@ -3111,17 +3172,18 @@ CScreenshotService::ServiceScreenshotRequests(358):
 CScriptComponent::Storage_t
 CScriptComponentReferenced
 CScriptComponentReferencedPtr
+CSendJob_Empty
 CSequentialPrerequisite
 CSequentialPrerequisite:  Bogus PrerequisiteStatus_t detected!
 CSequentialPrerequisite::GetPrerequisiteStatus
 CServerRemoteAccess::ScreenshotJPEG failed to CreateZipZ
 CServerSideClient::ActivatePlayer -end
 CServerSideClient::ActivatePlayer -start
+CServerSideClient::Await took %.1f ms
 CServerSideClientBase::ActivatePlayer
 CServerSideClientBase::Connect( name='%s', userid=%d, fake=%d, chan->addr=%s )
 CServerSideClientBase::ProcessServerInfo(done)
 CServerSideClientBase::SendSignonData
-CServerSideClientBase::SendSnapshot
 CServerSideClientBase::ShouldSendMessages: Send delayed due to !CanPacket, tick=%d
 CServerSideClientBase::SpawnPlayer
 CSoundService
@@ -3142,9 +3204,11 @@ CSteam3ServerS1::ShutdownGameServer
 CTSListBase: Misaligned list
 CTSQueue corruption
 CTSQueue: Misaligned queue
+CTSQueue<class CDelayedCallBase<class CServerSideClientBase> *,0>::Push
 CTSQueue<class std::function<void __cdecl(void)> *,0>::Push
 CTSQueue<struct CNetworkClientService::DeferredMessage_t,0>::Push
 CTSQueue<struct CNetworkMessageSignalQueue<class CEventIDManager_ProtobufBinding,struct BogusType_t>::QueuedMessage_t,0>::Push
+CTSQueue<struct CTextConsoleWin::PrintJob_t *,0>::Push
 CTSQueue<struct CThreadedLogger::Buffer_t *,0>::Push
 CTelemetryService
 CTextConsoleWin::GetLine: !GetNumberOfConsoleInputEvents
@@ -3304,7 +3368,6 @@ Client I/O
 Client Input/Output
 Client Rendering
 Client Simulation
-Client has no netchannel.
 Client is running in anonymous mode.  Many steam features will not work
 Client missing networkable entity class %s
 Client ping times:
@@ -3403,8 +3466,10 @@ Couldn't unserialize CCompressedResourceManifest
 Couldn't write to read-only file %s, using file _temp_mapcycle.txt instead.
 Crash
 Crash the client. Optional parameter -- type of crash:
+Crash-spinning... %d...
 Crashed! %d
 CreateDirectoryA
+CreateEventA
 CreateEventW
 CreateFileA
 CreateFileMappingA
@@ -3578,6 +3643,7 @@ Empty JPEG image (DNL not supported)
 Empty input file
 Enable Killer Replay, requires hltv server running (0:off, 1:default, 2:force)
 Enable SourceTV threading of delta merging
+Enable async client connect optimization
 Enable close captioning.
 Enable delta entity bit stream cache
 Enable floating point exceptions to find bugs
@@ -3846,19 +3912,19 @@ FixupResourceName: Illegal full path passed in ("%s")!
 FixupResourceName: Illegal path, missing extension passed in ("%s")!
 FlattenedSerializersVersion001
 FloatBitMap_t::ConvertGammaToLinear
-FloatBitMap_t::ConvertGammaToLinear(318): Conversion not supported yet!
+FloatBitMap_t::ConvertGammaToLinear(323): Conversion not supported yet!
 FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!
-FloatBitMap_t::WriteToBuffer(963): Unsupported color format "%s", skipping!
+FloatBitMap_t::WriteToBuffer(968): Unsupported color format "%s", skipping!
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1400
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1512
-FloatBitMap_t::WriteToBufferDXT_atitc(1020): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!
-FloatBitMap_t::WriteToBufferDXT_atitc(1105): Unsupported output color format "%s"!
-FloatBitMap_t::WriteToBufferDXT_atitc(1114): Error! Allocated %llu bytes when ATI's lib requires %d bytes!
-FloatBitMap_t::WriteToBufferDXT_atitc(1122): Error %d returned from ATI_TC_ConvertTexture()!
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1636
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1405
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1517
+FloatBitMap_t::WriteToBufferDXT_atitc(1025): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!
+FloatBitMap_t::WriteToBufferDXT_atitc(1110): Unsupported output color format "%s"!
+FloatBitMap_t::WriteToBufferDXT_atitc(1119): Error! Allocated %llu bytes when ATI's lib requires %d bytes!
+FloatBitMap_t::WriteToBufferDXT_atitc(1127): Error %d returned from ATI_TC_ConvertTexture()!
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1641
 FlsAlloc
 FlsFree
 FlsGetValue
@@ -3925,7 +3991,7 @@ GOTV[%d] Relay (%s)
 GOTV[%d] index out of range.
 GOTV[%d] is a relay.
 GOTV[%d] is broadcasting to %s: 
-GOTV[%d] memory consumption:
+GOTV[%d] memory consumption: (%.1fms)
 GOTV[%d] must be explicitly enabled (with -addhltv1) on this server. tv_enable%d 0 to hide this message
 GOTV[%d] not active.
 GOTV[%u]
@@ -3933,6 +3999,7 @@ GOTV[%u]: Only GOTV Master can record demos instantly.
 GPU Frame Time
 GPUTimeAvgMS,GPUTimeRangeMS,GPUTimeMinMS,GPUTimeMaxMS,rendersystemdll,width,height,msaa
 Game Engine
+Game Server is not running
 Game Time %s, Mod "%s", Map "%s"
 Game cannot launch without explicit commandline flag: %s
 Game does not support save/restore.
@@ -4085,6 +4152,7 @@ GetWin32ConsoleCursorColumnIndex
 GetWindowRect
 Going to tick %u...
 Goto a direct timestamp of the replay
+Green
 Green 
 HH:mm:ss
 HLTV Broadcast
@@ -4115,7 +4183,8 @@ Hltv Replay failure: HLTV frame is not ready
 Hltv Replay failure: already in replay
 Hltv Replay failure: requests are rate limited to no more than 1 per %g seconds
 Hltv replay delay %u cannot match the requested delay %u
-Host SourceTV port
+Host SourceTV[0] port
+Host SourceTV[1] port
 Host activate: %s
 Host game server port
 HostStateManager
@@ -4269,7 +4338,7 @@ JPEG parameter struct mismatch: library thinks size is %u, caller expects %u
 JPEGMEM
 January
 Jumping to random tick %d (%.2f min)
-Jun  5 2023
+Jun 29 2023
 JustInTime Resource Spawn Group
 JustInTimeManifest
 KERNEL32.dll
@@ -4317,6 +4386,7 @@ List currently known peers.
 List demo file contents.
 Listing known P2P networking peers from all peer groups:
 Lists banned users.
+Live++
 LoadAddressName
 LoadAddresses
 LoadAppSystems:   appSystems Load(start)
@@ -4401,7 +4471,6 @@ MOBILE_FPS_CONTROL: If true we increase framerate limit during HFR-tagged animat
 MOBILE_FPS_CONTROL: If true we increase framerate limit during touch
 MOBILE_FPS_CONTROL: If true we increase framerate limit while charging
 MOBILE_FPS_CONTROL: Mobile FPS limit - 15, 30, 60
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MP4 recording failed! Missing expected pixels!
 MSAADefaultNonVR
@@ -4559,8 +4628,8 @@ NetworkSystemVersion001
 Networking
 Networking/Entity Data Size
 No # necessary
+No Active SourceTV servers found
 No HLTV server running
-No active GOTV servers found
 No client connection
 No console available
 No conversion from %s to string at the moment!
@@ -4644,6 +4713,7 @@ OnNetLanConnectionlessPacket
 OnPostDataUpdate
 OnPreDataUpdate
 OnProfileStorageAvailable
+OnRequestFullUpdate
 OnServerAdvanceTick
 OnServerPollNetworking
 OnServerPostAdvanceTick
@@ -4879,6 +4949,7 @@ Post Source2 Client
 PostProcessingSystem_001
 PostServerFrameUpdate
 Pre Source2 Client
+Pre-match interface command from [U:1:%u]: %s
 Precache table %s:  %i slots used
 Precache table '%s' not found.
 PrecacheDecal called with no server!
@@ -4889,6 +4960,7 @@ PreloadIcuucDll
 Premature end of JPEG file
 Premature end of input file
 PrepareForAssetLoad(%s)
+PrepareSendClientMessages
 Prequisite %s not found in sequence for %s
 Prescale the clock by this amount.
 PreserveEnt
@@ -5088,7 +5160,9 @@ RenderingBudget/ArtistTrianglesRendered
 RendersampleScreenshot Job
 Rendersystem option in use (changing this does not change the rendersystem).
 Rendersystem option requested (changing this does not change the rendersystem).
+Rendersystem shader model in use (changing this does not change the shader model).
 Repeat last console command.
+Replay tick %d older than the oldest HLTV Server tick %d
 Replay time in seconds before the highlighted event
 Request a VProf data stream from the remote server (requires authentication)
 Requested feature was omitted at compile time
@@ -5248,7 +5322,7 @@ SV:  ServerSteamID=%s (%llu).
 SV:  Setting game load failed flag.
 SV:  Spawn Server: %s
 SV:  Spawn Server: %s: [%s]
-SV:  Unabled to parse C2S_CONNECT_Message_t payload from '%s'
+SV:  Unable to parse C2S_CONNECT_Message_t payload from '%s'
 SV:  VAC secure mode disabled.
 SV:  VAC secure mode is activated.
 SV:  WriteBaselines:  %20.20s wrote %6d bytes [%36.36s], headroom %6d bytes
@@ -5313,6 +5387,7 @@ Seek failed on temporary file
 Selected %d colors for quantization
 Send Table signon buffer overflowed %i bytes!!!
 Send embedded full frames
+Send full frame on every hltv replay transition
 Send tables cache file
 SendClientMessages
 SendConnectPacket
@@ -5320,9 +5395,13 @@ SendHltvReplaySnapshot
 SendHltvReplaySnapshot(already sent)
 SendHltvReplaySnapshot(force wait for tick)
 SendHltvReplaySnapshot: Retry Send
+SendJob_HltvReplay
+SendJob_HltvSource
+SendJob_Regular
+SendJob_RunFrame
 SendMessageToUser failed with result %d sending %d byte message %s to %s!
 SendMovePacket overflowed.
-SendSnapshot
+SendSnapshot_BeforeJobRuns
 Sending A2S_RESERVE_CHECK [%u protocol] %08X:%08X [%llu] to %s
 Sending C2S_CONNECT [%u protocol %u auth %d] to %s
 Sending RejectConnection to %s: %d: %s
@@ -5337,8 +5416,10 @@ Serialized Async Reads
 SerializedEntitiesVersion001
 Server
 Server (%s) is not a SourceTV proxy.
+Server Broadcast
 Server Changelevel
 Server CheckTransmit
+Server Demo
 Server GameSessionManifest
 Server Number: %i
 Server PackEntities
@@ -5357,7 +5438,6 @@ Server logging data to file %s
 Server logging disabled.
 Server logging enabled.
 Server not active, ignoring %s
-Server not running
 Server password for entry into multiplayer games
 Server queue reservation
 Server sent bogus string index %i for table %s
@@ -5392,7 +5472,6 @@ Set the screenshot directory.
 Set title for SourceTV spectator UI
 Set to 1 to use threaded snapshot sending on listen servers, 2 for dedicated servers.
 Set to 1 to use threading snapshot reading (if game supports and server is sending bitcounts).
-Set to 1 to use threading snapshot sending on listen servers, 2 for dedicated servers.
 Set to disable mouse input
 Set to display headers upon error (e.g. "CF-Ray,CF-Cache-Status,Body" )
 Set to enable world LOD
@@ -5494,6 +5573,7 @@ Skips to a tick in demo.
 Skips to location in demo.
 Slams viewport size to a specified value.
 Sleep
+Sleep randomly 0..net_async_job_random_sleep ms in the parallel server jobs; sleep is per job
 SleepConditionVariableCS
 SleepConditionVariableSRW
 Sleeping
@@ -5543,10 +5623,10 @@ Source2Shutdown
 Source2V8System001
 SourceRevision
 SourceTV
+SourceTV Source client to add new frame to inactive hltv server
 SourceTV SpawnGroup Buffering: tick=%d storing message %s (spawn group %s)
 SourceTV WriteInitialSpawnGroups client %s(%d): sending message %s (%d bits)
 SourceTV WriteSpawnGroupUpdateMessages client %s(%d): tick=%d (from %d) sending message %s (%d bits)
-SourceTV already recording to %s.
 SourceTV broadcast event: %s
 SourceTV can't connect to localhost.
 SourceTV client not found.
@@ -5565,6 +5645,7 @@ SourceTV shutting down, type %s, tv_enable is %s
 SourceTV signon complete.
 SourceTV: RecordPacket %i bytes at %i (%d)
 SourceTVRelay
+SourceTV[%d] %s%s
 SourceTV[%d] broadcast active.
 SourceTV[%d] relay active.
 SourceTV[%d] shutting down (%s) due to server disconnecting game.
@@ -5761,6 +5842,7 @@ This ZeroCopyOutputStream doesn't support aliasing. Reaching here usually means 
 This convar is being accessed prior to ConVar_Register being called
 This device does not meet the minimum requirements. The game requires at least %s of device memory to run reliably, you may not be able to complete a game on this device.
 This function cannot be called on a default constructed task
+This is a fade of current voices that is called when the game is disconnected. -1.f for no fade on disconnect
 This is a test of the emergency broadcast system.
 This number of relay client connections are reserved for SourceTV relays.
 This probably means the engine crashed while recording the .dem file and it was not finalized.
@@ -6026,6 +6108,7 @@ VM snapshot captured at %.2f
 VMaterialSystem2_001
 VMediaFoundation001
 VModEnable
+VNotify
 VP4003
 VPK overrides: 
 VPhysics2_Handle_Interface_001
@@ -6057,6 +6140,7 @@ V_FloatToString_Unsafe
 V_GetFileExtension
 V_GetFileExtensionSafe
 V_Get_stdout
+V_Int16ToString_Unsafe
 V_Int32ToString_Unsafe
 V_Int64ToString_Unsafe
 V_IsAbsolutePath
@@ -6219,6 +6303,7 @@ WSATRY_AGAIN
 WSAVERNOTSUPPORTED
 WSWSAECONNABORTEDAEINTR
 WaitForInputIdle
+WaitForSingleObject
 WaitForSingleObjectEx
 Waiting For Keyframe
 WakeAllConditionVariable
@@ -6320,7 +6405,7 @@ Your current chat group is "%s"
 [c:%u:%u]
 [client]
 [g:%u:%u]
-[hltv%d]
+[hltv]
 [i:%u:%u]
 [joy %d]%s is unbound.
 [libprotobuf %s %s:%d] %s
@@ -6352,6 +6437,7 @@ Your current chat group is "%s"
 \p{Xwd}
 ] %s
 ] is an invalid data character in JavaScript compatibility mode
+^^^ Duplicate connection allowed
 _V_AppendSlash
 _V_ComposeFileName
 _V_DefaultExtension
@@ -6622,6 +6708,7 @@ cl_clockdrift_max_ticks
 cl_connectionretrytime_p2p
 cl_debug_overlays_broadcast
 cl_disconnect_soundevent
+cl_disconnect_voice_fade
 cl_flushentitypacket
 cl_fullupdate
 cl_ignorepackets
@@ -6841,6 +6928,7 @@ engine_ostype
 engine_platform_name_extended
 engine_render_only
 engine_rendersystem_init
+engine_rendersystem_shader_model
 engine_rendersystem_used
 engine_show_frame_dispatch
 engine_show_frame_multiple_ticks
@@ -7007,6 +7095,7 @@ highest
 hl1mp
 hl2mp
 hltv memory statistics. Use with "ent 10" (dump entity 10 memory usage) or "top 8" (dump top 8 memory users) or "class" CWorld (dump CWorld class)
+hltv1
 hltv_addr
 hltv_clients
 hltv_fully_connected
@@ -7152,6 +7241,11 @@ js_object
 js_raw_args
 js_value
 json_name = "
+k_EUniverseBeta
+k_EUniverseDev
+k_EUniverseInternal
+k_EUniverseInvalid
+k_EUniversePublic
 key:%s%d
 key_findbinding
 key_findbinding: no inputsystem for bindings
@@ -7189,6 +7283,7 @@ loaded spawngroup(%3d)  : %s
 loading
 loading spawngroup(%3d)  : %s
 loadmap
+lobby_mapveto
 localhost
 localize
 locked
@@ -7372,6 +7467,8 @@ nTries < 10000000
 nan(ind)
 nan(snan)
 need dictionary
+net_async_clientconnect
+net_async_job_random_sleep
 net_maxroutable
 net_stats_json
 netmessages.proto
@@ -7812,6 +7909,7 @@ spec_mode
 spec_next
 spec_prev
 spec_replay_enable
+spec_replay_fullframe
 spec_replay_leadup_time
 spec_replay_message_time
 spec_replay_on_death
@@ -7828,6 +7926,7 @@ ss_remove
 ss_remove %d
 ss_voice_hearpartner
 ss_waitingforgamesessionmanifest
+stackstats has no registered instances, try running with -memstackstats
 stackstats_dump 
 stackstats_dump usage:
 startdemos
@@ -8062,7 +8161,6 @@ tv_maxclients
 tv_maxclients_relayreserved
 tv_maxrate
 tv_mem
-tv_mem took %.1fms
 tv_name
 tv_nochat
 tv_overridemaster
@@ -8075,6 +8173,7 @@ tv_playcast_origin_auth
 tv_playcast_retry_timeout
 tv_playcast_showerrors
 tv_port
+tv_port1
 tv_rate_multiplier
 tv_record
 tv_relay
@@ -8271,4 +8370,3 @@ zPrePassNormals
 {0x%x}
 } Dispatched EventAppShutdown_t
 ~CServerChangelevelState with non empty m_Clients, failed change level to %s!!!
-°h"

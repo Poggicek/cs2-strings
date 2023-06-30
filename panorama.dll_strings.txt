@@ -1,5 +1,4 @@
 
-
 	
 		
 			
@@ -156,7 +155,6 @@
  with 
  { ... };
  } from:
- Ű
 !
 ! Description
 ! Event
@@ -1536,82 +1534,6 @@ $0option $1;
 @import
 @import missing semicolon
 @keyframes
-@panorama_2d_translate_no_comp_layer
-@panorama_allow_texture_composition_layer_fast_path
-@panorama_allow_transitions
-@panorama_box_shadow_no_comp_layer
-@panorama_cache_command_list_repaint_threshold
-@panorama_cache_command_list_size_threshold
-@panorama_classes_force_invalidate
-@panorama_clear_frames_on_device_restore
-@panorama_command_reordering
-@panorama_comp_layer_lru_lifetime
-@panorama_composition_atlas
-@panorama_dash_border_base_width
-@panorama_dash_gap_len
-@panorama_dash_len
-@panorama_debug_dead_pad
-@panorama_debug_overlay_opacity
-@panorama_debug_overlay_opacity_max
-@panorama_debug_overlay_opacity_min
-@panorama_debug_ready_for_display
-@panorama_disable_blur
-@panorama_disable_box_shadow
-@panorama_disable_descendant_filtering
-@panorama_disable_draw_fancy_quad
-@panorama_disable_draw_text
-@panorama_disable_draw_text_shadow
-@panorama_disable_layer_cache
-@panorama_disable_layer_clear
-@panorama_disable_render_callbacks
-@panorama_disable_render_target_cache
-@panorama_disallow_hover_styles
-@panorama_dispatch_event
-@panorama_dragscroll_affordance
-@panorama_dragscroll_mintime
-@panorama_dragscroll_velocitymultiplier
-@panorama_dump_symbols
-@panorama_enable_secondary_layout_pass
-@panorama_force_text_shadow_strength
-@panorama_frame_limit_v8_gc_microseconds
-@panorama_generate_layout_xsd
-@panorama_highlight_bad_opacity_masks
-@panorama_highlight_composition_layers
-@panorama_highlight_slow_operations
-@panorama_hsbc_through_fast_path
-@panorama_joystick_axis_repeat_curve_time
-@panorama_joystick_axis_repeat_interval_end
-@panorama_joystick_axis_repeat_interval_start
-@panorama_joystick_button_repeat_curve_time
-@panorama_joystick_button_repeat_interval_end
-@panorama_joystick_button_repeat_interval_start
-@panorama_large_dispatch_event_queue
-@panorama_max_fps
-@panorama_max_oof_overlay_up_fps
-@panorama_max_overlay_fps
-@panorama_max_text_shadow_strength
-@panorama_might_scroll_no_comp_layer
-@panorama_min_comp_layer_cache_cost
-@panorama_print_cache_status
-@panorama_print_svg_stats
-@panorama_reload_animations
-@panorama_render_target_cache_max_size
-@panorama_show_fps
-@panorama_show_fps_scale
-@panorama_simple_borders_no_comp_layer
-@panorama_spew_layout_invalidates
-@panorama_stats_log_time
-@panorama_steampad_button_repeat_curve_time
-@panorama_steampad_button_repeat_interval_end
-@panorama_steampad_button_repeat_interval_start
-@panorama_style_flag_force_invalidate
-@panorama_suspend_paint
-@panorama_temp_comp_layer_min_dimension
-@panorama_track_render_commands
-@panorama_transform_parents_no_layer_for_perspective
-@panorama_transforms_no_comp_layer
-@panorama_transition_time_factor
-@panorama_use_backbuffer_directly
 A float representing a scale factor for transitions. 1.0 is normal, 2.0 would be twice as fast as normal, 0.5 half as fast
 A protocol message was rejected because it was too big (more than 
 A style file cannot import itself: %s trying to import '%s'
@@ -2045,6 +1967,7 @@ C:\buildworker\csgo_rel_win64\build\src\public\tier0\tslist.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlsortvector.h
 C:\buildworker\csgo_rel_win64\build\src\public\tier0\utlsymboltable.h
 C:\buildworker\csgo_rel_win64\build\src\tier0_perproject\singletons.cpp
+C:\buildworker\csgo_rel_win64\build\src\tier0_perproject\vnotifyapi.cpp
 CA Compromise
 CA Issuers
 CA Repository
@@ -3736,7 +3659,6 @@ MIC-ONLY
 MIME MHS
 MIME-Version: 1.0%s
 MM/dd/yy
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MODULE_INIT
 MODULE_LOAD_DSO
@@ -4348,6 +4270,7 @@ Proxy Certificate Information
 Public Key
 Public-Key
 Public-Key: (%d bit)
+Pw$
 Q:   
 QuadCoords_t CUtlMemoryPoolMT
 Quantization table 0x%02x was not defined
@@ -4402,9 +4325,7 @@ REQUEST_CERTIFICATE
 REQUEST_VERIFY
 RESOURCE_TYPE_PANORAMA_DYNAMIC_IMAGES
 RESOURCE_TYPE_PANORAMA_LAYOUT
-RESOURCE_TYPE_PANORAMA_SCRIPT
 RESOURCE_TYPE_PANORAMA_STYLE
-RESOURCE_TYPE_PANORAMA_TYPESCRIPT
 RESOURCE_TYPE_VECTOR_GRAPHIC
 RFC 3779 resource not subset of parent's resources
 RFC 5639 curve over a 160 bit prime field
@@ -5326,7 +5247,7 @@ Unsupported extension feature
 Unsupported marker type 0x%02x
 Unsupported: type mismatch
 Unused
-Usage: @panorama_dump_symbols <ESymbolType>
+Usage: panorama_dump_symbols <ESymbolType>
 UserInputActive
 UsesSvg
 UtlMemory_Alloc
@@ -5381,6 +5302,7 @@ VNotify Abandoned (Not enabled)
 VNotify Sent
 VNotify StartProcess failed!
 VNotify: %s
+VNotify_Internal_PostOrLaunchIfNeeded
 VP4003
 VPhysics2_Handle_Interface_001
 VPhysics2_Interface_001
@@ -5681,7 +5603,7 @@ X9_62_CURVE
 X9_62_FIELDID
 X9_62_PENTANOMIAL
 XInput Controller
-You must turn on @panorama_track_render_commands to track command usage.
+You must turn on panorama_track_render_commands to track command usage.
 You must type in 
 You need to read the OpenSSL FAQ, http://www.openssl.org/support/faq.html
 ZLONG
@@ -5765,7 +5687,6 @@ _nextafter
 `managed vector destructor iterator'
 `non-type-template-parameter
 `omni callsig'
-`p$
 `placement delete closure'
 `placement delete[] closure'
 `scalar deleting destructor'
@@ -7305,7 +7226,6 @@ font-weight: bold;
 font-weight: thin;</pre>
 fopen
 fopen('
-forceactivecontrollertype
 forestgreen
 forever
 format error in CRL's lastUpdate field
@@ -8767,22 +8687,99 @@ panorama::CUIEngineSource2::StartupSubsystems
 panorama::InternalMakeSymbol
 panorama::RequiredCallFailed
 panorama::UIImageLoadParams_t::ValidateMaxSize
+panorama_2d_translate_no_comp_layer
 panorama_GenerateLayoutXSD
+panorama_allow_texture_composition_layer_fast_path
+panorama_allow_transitions
+panorama_box_shadow_no_comp_layer
+panorama_cache_command_list_repaint_threshold
+panorama_cache_command_list_size_threshold
+panorama_classes_force_invalidate
+panorama_clear_frames_on_device_restore
+panorama_command_reordering
+panorama_comp_layer_lru_lifetime
+panorama_composition_atlas
 panorama_content
+panorama_dash_border_base_width
+panorama_dash_gap_len
+panorama_dash_len
+panorama_debug_dead_pad
+panorama_debug_overlay_opacity
+panorama_debug_overlay_opacity_max
+panorama_debug_overlay_opacity_min
+panorama_debug_ready_for_display
+panorama_disable_blur
+panorama_disable_box_shadow
+panorama_disable_descendant_filtering
+panorama_disable_draw_fancy_quad
+panorama_disable_draw_text
+panorama_disable_draw_text_shadow
+panorama_disable_layer_cache
+panorama_disable_layer_clear
+panorama_disable_render_callbacks
+panorama_disable_render_target_cache
+panorama_disallow_hover_styles
+panorama_dispatch_event
+panorama_dragscroll_affordance
+panorama_dragscroll_mintime
+panorama_dragscroll_velocitymultiplier
+panorama_dump_symbols
+panorama_enable_secondary_layout_pass
 panorama_fancyquad_gradienttexture.vtex
 panorama_fancyquad_vertexlayout
+panorama_force_active_controller_type
+panorama_force_text_shadow_strength
+panorama_frame_limit_v8_gc_microseconds
+panorama_generate_layout_xsd
+panorama_highlight_bad_opacity_masks
+panorama_highlight_composition_layers
+panorama_highlight_slow_operations
+panorama_hsbc_through_fast_path
+panorama_joystick_axis_repeat_curve_time
+panorama_joystick_axis_repeat_interval_end
+panorama_joystick_axis_repeat_interval_start
+panorama_joystick_button_repeat_curve_time
+panorama_joystick_button_repeat_interval_end
+panorama_joystick_button_repeat_interval_start
 panorama_js_minidumps
+panorama_large_dispatch_event_queue
+panorama_max_fps
+panorama_max_oof_overlay_up_fps
+panorama_max_overlay_fps
+panorama_max_text_shadow_strength
+panorama_might_scroll_no_comp_layer
+panorama_min_comp_layer_cache_cost
+panorama_print_cache_status
+panorama_print_svg_stats
+panorama_reload_animations
+panorama_render_target_cache_max_size
 panorama_rt_%s.vtex
 panorama_rt_composition_atlas%i.vtex
 panorama_rt_ds_%s.vtex
 panorama_rt_pp_%s.vtex
+panorama_show_fps
+panorama_show_fps_scale
+panorama_simple_borders_no_comp_layer
 panorama_spew_async_event_substring
+panorama_spew_layout_invalidates
+panorama_stats_log_time
+panorama_steampad_button_repeat_curve_time
+panorama_steampad_button_repeat_interval_end
+panorama_steampad_button_repeat_interval_start
+panorama_style_flag_force_invalidate
+panorama_suspend_paint
+panorama_temp_comp_layer_min_dimension
 panorama_text_pango
 panorama_texture.vtex
 panorama_texture_a.vtex
 panorama_texture_u.vtex
 panorama_texture_v.vtex
 panorama_texture_y.vtex
+panorama_track_render_commands
+panorama_transform_parents_no_layer_for_perspective
+panorama_transforms_no_comp_layer
+panorama_transition_time_factor
+panorama_use_backbuffer_directly
 panoramasymbol
 panorma_vertex_texturedlayout
 papayawhip
@@ -9637,7 +9634,6 @@ status too old
 std::nullptr_t
 std::nullptr_t 
 steam_api64.dll
-steamcontroller_flow_sensitivity
 steampad_a
 steampad_b
 steampad_dpad_down

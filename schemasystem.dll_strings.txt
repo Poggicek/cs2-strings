@@ -438,7 +438,6 @@ MFieldVerificationName
 MGetKV3ClassDefaults
 MIsBoxedIntegerType
 MNetworkSerializeAs
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MPropertyCustomFGDType
 MResourceTypeForInfoType
@@ -633,6 +632,7 @@ _V_strncpy
 _base
 _class
 _editor
+_include
 _multibase
 _not_pickable
 all-scopes

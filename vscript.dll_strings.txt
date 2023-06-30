@@ -523,7 +523,6 @@ LuaDbgFakeModule
 LuaTable
 MATCHFRAMEWORK_001
 MM/dd/yy
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 Malformed VMDbg Runtime.getProperties for '%s'
 MapListService_001
@@ -592,6 +591,7 @@ ParticleSystemMgr003
 Permission denied
 PhysicsBuilderMgr001
 Plat_DebugPrint
+Plat_DebugString
 Plat_ExitProcess
 Plat_FatalErrorFunc
 Plat_IsFile

@@ -55,7 +55,6 @@
 		"CDmeInputTexture"
 		"CDmeTextureOutputChannel"
 		"{images}/overheadmaps/%s_radar.tga"		""
-		%.*s
 		%32s:	%d/%d (%.3f%%) EvaluatePoses Used, %dx using bones without eval [Ave Eval/tick: %.3f]
 		%32s:	Count: %6d	Ave: %.3f
 		Criteria %d: %s %s
@@ -76,15 +75,11 @@
 		{
 		}
 		}%s
-	 
 	   %s
 	 Round is in freeze time.
 	 Round is in progress.
 	 Round is over.
-	 The lexer was matching from line %d, offset %d, which
-	 This indicates a poorly specified lexer RULE
 	 Weapon type is %d (%s).
-	 or unterminated input element such as: "STRING["]
 	!( ["%s"]->IsInstanceActive() 
 	!FClassnameIs( [%s] 
 	![%s]->FindWeapon([%s] 
@@ -125,11 +120,9 @@
 	"nomip" "1"
 	"output_format" "IMAGE_FORMAT_RGBA8888"
 	# Mesh:
-	%.*s
 	%2d (%d)%s::%s - %s
 	%llu
 	%s %d/%d 
-	%s at offset %d, 
 	%s%s
 	%s: 
 	( ["%s"]->IsInstanceActive() 
@@ -244,6 +237,8 @@
 	[%s]->HasWeaponInSlot()
 	[%s]->HealthFraction() 
 	[%s]->IsBuyMenuOpen()
+	[%s]->Speed < [%f]
+	[%s]->Speed >= [%f]
 	[%s]->Weapon_CanPickup([%s])
 	[%s]->Weapon_CanPickup([%s]) 
 	[%s]->Weapon_CanUse([%s])
@@ -290,7 +285,6 @@
 @()[]{}=&,:*|;'!
  
  	
-    
      
       
          
@@ -390,7 +384,6 @@
     Field type: 
     [%d: huff+mtf 
     combined CRCs: stored = 0x%x, computed = 0x%x
-    near %s
     {
     }
    %d
@@ -460,12 +453,12 @@
   Problem     : 
   Problem     : Enum value did not match field type:
   Problem     : Field is not the right type for this message:
+  R%d: %15s %25s %s
   Try a memory-test program.  I have used Memtest86
   V%d: '%s' (%s)
   Version: %llu:
   bzip2, and I would very much like to hear about it.  Please
   collapsed %s 0x%p back into 0x%p
-  expected one of : 
   let me know, and, ideally, save a copy of the file causing the
   points in compression, you may have a flaky memory system.
   power-on test, and may find failures that the BIOS doesn't.
@@ -485,15 +478,14 @@
  (%d)Unknown
  (%s)
  (Dirty Animation)
- (Start: 
  (classmap missing)
  (ignoring failure)
  (listed %s)
  (was %s)
  *     
+ ** Entrypoint For Method '%s'
  ,)(;
  - %s (%s)
- --> expression_value
  -i "
  -retail 
  ... Skipping view model attachment creation.
@@ -502,22 +494,10 @@
  240 frames: %5.1f fps, avg time:%5.2fms, abs_range:%7.2fms, min_time:%5.2fms, max_time:%5.2fms
  240 frames: %5.1f fps, avg:%5.2fms +/- %-7.2f | min:%5.2fms, max:%5.2fms
  240 server ticks: %5.1f tps, avg time:%5.2fms, abs_range:%7.2fms, min_time:%5.2fms, max_time:%5.2fms
- : Extraneous input - expected %s ...
- : Extraneous input - expected <EOF>
- : Extraneous input...
- : Missing %s 
- : Missing <EOF>
- : Missing token (%d)...
- : cannot match to any predicted input...
- : error %d : %s
- : expected %s ...
- : expected <EOF>
- : missing elements...
- : syntax error...
- : syntax not recognized...
- : unexpected input...
  ;{}:
  < [%s] 
+ <-- MethodArg '%s'
+ <-- MethodReturn '%s'
  <b></b> 
  <b>@import</b> 
  <i></i> 
@@ -535,7 +515,6 @@
  HeadPos: %.3f, %.3f, %.3f
  IsInstanceActive: %s. IsInstructing: %s. IsLearned: %s
  Limited Test Build v. %d/%d [%s] %s %s
- LinePos:
  MISSING MUSICKIT NAME
  MISSING STICKER NAME
  Mutator
@@ -617,7 +596,6 @@
 !ITestScriptMgr
 !The global list of entities
 !Used to create and manage particle effects
-!V_strcmp( pszResult, pszKV3Result )
 !absorigin
 !bAnyMalformed
 !bonemerge
@@ -2320,6 +2298,7 @@ $ent_ironsight
 $ent_local_team
 $ent_origin
 $ent_random
+$ent_renderbounds
 $ent_stattrak
 $ent_textdigit
 $ent_textdigit*
@@ -2424,8 +2403,10 @@ $taser_charge
 %d elements
 %d ents in group %s%u/%s%s
 %d hooked %s
+%d instruction(s)
 %d nodes
 %d queries, %d misses (%d free) suc spec = %d wasted spec=%d
+%d register(s) %d byte(s)
 %d total requeued messages
 %d unhooked %s
 %d | 
@@ -2712,7 +2693,6 @@ $taser_charge
 %s: %.3f	
 %s: %s
 %s: %s	
-%s: %s %s
 %s: %s [%d/%d] %.2f%%
 %s: %s%s
 %s: %s( %s %d %d )
@@ -2848,7 +2828,6 @@ $taser_charge
 &lt;Needs a description&gt;
 &nbsp
 '%s' -> '%s' has malformed string (leading or trailing space)
-', type<
 'align' cue-setting already used
 'align' cue-setting must have a value of either 'start', 'middle', or 'end'
 'line' cue-setting already used
@@ -2881,8 +2860,6 @@ $taser_charge
 (0x%08X)'??'
 (?R or (?[+-]digits must be followed by )
 (CLIENT) Inventory:
-(Expecting %s)
-(Expecting EOF)
 (Fade Removed: [%d,%d,%d,%d])
 (IImageSource)
 (Input)
@@ -2890,9 +2867,7 @@ $taser_charge
 (None)
 (WIPE AND EXTRACT)
 (cannot determine missing fields for lite message)
-(channel = 
 (default)
-(end of input).
 (end of track)
 (from angle, to angle, time) - Spherical lerp of angle from->to based on time
 (int iIndex, int iPoint, Vector vOrigin, QAngle qAngles ) - Set the transform for a control on a particle effect
@@ -2935,6 +2910,7 @@ $taser_charge
 * Matchmaking '%s' -vs- '%s' in '%s' '%s'
 ** ERROR!!! BONE TRANSFORM DATA WITH NO MODEL**!!!!
 *** A special note about internal error number 1007 ***
+*** DUCK DEBUG - %d ***
 *******
 *.hl?
 *.log
@@ -2992,10 +2968,7 @@ $taser_charge
 , %sdeg
 , %sdeg )
 , [%s] 
-, at <EOF>
-, at offset %d
 , from: 
-, near %s
 , not just within "
 ,%llu
 ,<ellipsis>
@@ -3023,7 +2996,6 @@ $taser_charge
 --CLoopModeGame::~CLoopModeGame
 --file:
 -1 255
--Stop: 
 -all_languages
 -allents
 -autoconfig_level
@@ -3040,7 +3012,6 @@ $taser_charge
 -defaultgamedir
 -detailedinfo
 -enabledownloadtest
--end of input-(
 -entkv_use_schema
 -fallback1
 -fallback2
@@ -3057,7 +3028,6 @@ $taser_charge
 -lootlist
 -makereslists
 -maxplayers
--memory-
 -more
 -multiple
 -network_class_conform_check
@@ -3092,8 +3062,6 @@ $taser_charge
 -toggle
 -tools
 -trusted
--unknown source-
--unknown source-(
 -untrusted
 -usebanlist
 -valveserver
@@ -3139,7 +3107,9 @@ $taser_charge
 .?AUPredictionRecord@@
 .?AURnQueryAttr_t@@
 .?AURnQueryShapeAttr_t@@
+.?AUSellbackPurchaseEntry_t@@
 .?AUVPhysicsCollisionAttribute_t@@
+.?AUViewAngleServerChange_t@@
 .?AUWeaponPurchaseCount_t@@
 .?AU_Anon@?$_Associated_state@H@std@@
 .?AU_Anon@?$_Associated_state@I@std@@
@@ -3156,26 +3126,6 @@ $taser_charge
 .?AV<lambda_11>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@
 .?AV<lambda_12>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@
 .?AV<lambda_13>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@
-.?AV<lambda_1>@?1???$?0HH@FuncInfo_t@@QEAA@P6AHH@Z@Z@
-.?AV<lambda_1>@?1???$?0HHH@FuncInfo_t@@QEAA@P6AHAEBH0@Z@Z@
-.?AV<lambda_1>@?1???$?0HHH@FuncInfo_t@@QEAA@P6AHHH@Z@Z@
-.?AV<lambda_1>@?1???$?0HHHH@FuncInfo_t@@QEAA@P6AHAEBH00@Z@Z@
-.?AV<lambda_1>@?1???$?0MHM@FuncInfo_t@@QEAA@P6AMHM@Z@Z@
-.?AV<lambda_1>@?1???$?0MM@FuncInfo_t@@QEAA@P6AMM@Z@Z@
-.?AV<lambda_1>@?1???$?0MMH@FuncInfo_t@@QEAA@P6AMMH@Z@Z@
-.?AV<lambda_1>@?1???$?0MMM@FuncInfo_t@@QEAA@P6AMAEBM0@Z@Z@
-.?AV<lambda_1>@?1???$?0MMM@FuncInfo_t@@QEAA@P6AMMM@Z@Z@
-.?AV<lambda_1>@?1???$?0MMMM@FuncInfo_t@@QEAA@P6AMAEBM00@Z@Z@
-.?AV<lambda_1>@?1???$?0MM_N@FuncInfo_t@@QEAA@P6AMM_N@Z@Z@
-.?AV<lambda_1>@?1???$?0M_NM@FuncInfo_t@@QEAA@P6AM_NM@Z@Z@
-.?AV<lambda_1>@?1???$?0_NHH@FuncInfo_t@@QEAA@P6A_NAEBH0@Z@Z@
-.?AV<lambda_1>@?1???$?0_NHH@FuncInfo_t@@QEAA@P6A_NHH@Z@Z@
-.?AV<lambda_1>@?1???$?0_NMM@FuncInfo_t@@QEAA@P6A_NAEBM0@Z@Z@
-.?AV<lambda_1>@?1???$?0_NMM@FuncInfo_t@@QEAA@P6A_NMM@Z@Z@
-.?AV<lambda_1>@?1???$?0_NVCUtlString@@V0@@FuncInfo_t@@QEAA@P6A_NAEBVCUtlString@@0@Z@Z@
-.?AV<lambda_1>@?1???$?0_N_N@FuncInfo_t@@QEAA@P6A_N_N@Z@Z@
-.?AV<lambda_1>@?1???$?0_N_N_N@FuncInfo_t@@QEAA@P6A_NAEB_N0@Z@Z@
-.?AV<lambda_1>@?1???$?0_N_N_N@FuncInfo_t@@QEAA@P6A_N_N0@Z@Z@
 .?AV<lambda_1>@?1???$ConvertFromBC6h@UBGRA8888_t@@$00@ImageLoader@@YA_NPEBEPEAUBGRA8888_t@@HH@Z@
 .?AV<lambda_1>@?1???$ConvertFromBC6h@URGBA16161616F_t@@$0A@@ImageLoader@@YA_NPEBEPEAURGBA16161616F_t@@HH@Z@
 .?AV<lambda_1>@?1???$ConvertFromBC6h@URGBA32323232F_t@@$0A@@ImageLoader@@YA_NPEBEPEAURGBA32323232F_t@@HH@Z@
@@ -3190,18 +3140,18 @@ $taser_charge
 .?AV<lambda_1>@?1???0CCSGO_InventoryItemList@@QEAA@PEAVCPanel2D@panorama@@PEBD@Z@
 .?AV<lambda_1>@?1???0CDelayLoadPanel@panorama@@QEAA@PEAVCPanel2D@2@PEBD@Z@
 .?AV<lambda_1>@?1??AsyncLoad@AsyncCaptionData_t@@QEAAXPEBDH@Z@
-.?AV<lambda_1>@?1??BAddAllToShuffle@CLoadoutShuffleItemLists@@QEAA_NPEBVC_EconItemView@@H@Z@
 .?AV<lambda_1>@?1??CreateGuidelines@CCSGOStatsProgressGraph@@AEAAXXZ@
 .?AV<lambda_1>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@
 .?AV<lambda_1>@?1??DrawCanvas@CCSGOStatsProgressGraph@@UEAAXXZ@
 .?AV<lambda_1>@?1??EnableHTML@CCSGO_Popup_Generic@@AEAAXXZ@
 .?AV<lambda_1>@?1??GetScoreDataJSO@CUiComponent_GameState@@QEAAXAEBV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z@
-.?AV<lambda_1>@?1??GetSmokeDensityInLine@SmokeVolume@@QEAAMAEBV?$Vector3DBase@M@@0PEAV3@@Z@
-.?AV<lambda_1>@?1??GetSmokeDensityLOS@SmokeVolume@@AEAAMAEBV?$Vector3DBase@M@@0PEAV3@@Z@
+.?AV<lambda_1>@?1??GetSmokeDensityInLine@SmokeVolume@@QEAAMAEBV?$Vec3D@M@@0PEAV3@@Z@
+.?AV<lambda_1>@?1??GetSmokeDensityLOS@SmokeVolume@@AEAAMAEBV?$Vec3D@M@@0PEAV3@@Z@
 .?AV<lambda_1>@?1??InitCacheFromDisk@CUiComponent_DeepStats@@AEAAXXZ@
 .?AV<lambda_1>@?1??Initialize@CComicViewerBook@@AEAAXXZ@
 .?AV<lambda_1>@?1??Initialize@CComicViewerPage@@QEAAXXZ@
 .?AV<lambda_1>@?1??Latch@CExtraLatchedState@CUiComponent_GameState@@QEAAXXZ@
+.?AV<lambda_1>@?1??LightmapQueries_PreSpawnGroupLoad@@YAXAEBUEventPreSpawnGroupLoad_t@@@Z@
 .?AV<lambda_1>@?1??OnLayoutTraverse@CCSGOStatsProgressGraph@@UEAAXMM@Z@
 .?AV<lambda_1>@?1??OnLayoutTraverse@CMapSpiderGraph@@UEAAXMM@Z@
 .?AV<lambda_1>@?1??OnLayoutTraverse@CWeaponSpiderGraph@@UEAAXMM@Z@
@@ -3219,7 +3169,6 @@ $taser_charge
 .?AV<lambda_1>@?1??UpdateSceneObjects@CDynamicLightManager@@QEAAXAEAVCCallQueue@@@Z@
 .?AV<lambda_1>@?3??CreatePips@CCSGO_Compass@@IEAAXXZ@
 .?AV<lambda_1>@?3??ReceiveRequestInventory@@YA_NAEBVCUserMessageRequestInventory_t@@@Z@
-.?AV<lambda_1>@?4??CountItemsInInventoryForShuffleSlot@CLoadoutShuffleItemLists@@QEAAIPEBVC_EconItemView@@H@Z@
 .?AV<lambda_1>@?4??DispatchAsyncSave@CEntity2SaveRestore@@AEAAXXZ@
 .?AV<lambda_1>@?4??OnBaseLayerSequenceChanged@CBaseAnimGraphController@@AEAAXPEAVCEntityInstance@@PEBI@Z@
 .?AV<lambda_1>@?4??OnPlaybackRateChanged@CBaseAnimGraphController@@AEAAXPEAVCEntityInstance@@PEBVCNetworkedQuantizedFloat@@@Z@
@@ -3294,7 +3243,7 @@ $taser_charge
 .?AV<lambda_1>@?CC@??QuarterSizeAttrWithBoxFilter@CSOAContainer@@QEAAXAEBV2@HHPEAVCCallQueue@@@Z@
 .?AV<lambda_1>@?CE@???R0?1???0CCSGO_InventoryItemList@@QEAA@PEAVCPanel2D@panorama@@PEBD@Z@QEBAPEAV23@0H0@Z@
 .?AV<lambda_1>@?L@??WriteToBufferBC6H_ispctexcomp@FloatBitMap_t@@IEBA_NPEAX_KW4ImageFormat@@AEBUFloatBitmapEncodeSettings_t@@@Z@
-.?AV<lambda_1>@?M@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vector3DBase@M@@2HPEAVCUtlMultiJobProcessor@@@Z@
+.?AV<lambda_1>@?M@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vec3D@M@@2HPEAVCUtlMultiJobProcessor@@@Z@
 .?AV<lambda_1>@?N@??FillAttr@CSOAContainer@@QEAAXHM@Z@
 .?AV<lambda_1>@?O@??CreateSpawnTiles@CCSGO_SurvivalSpawnSelect@@IEAAXXZ@
 .?AV<lambda_2>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@
@@ -3302,7 +3251,7 @@ $taser_charge
 .?AV<lambda_2>@?1??InitCacheFromDisk@CUiComponent_DeepStats@@AEAAXXZ@
 .?AV<lambda_2>@?1??OnClientPreOutput@CRenderGameSystem@@QEAAXAEBUEventClientPreOutput_t@@@Z@
 .?AV<lambda_2>@?BD@??SaveGame_Finalize@CEntity2SaveRestore@@UEAA_NPEAUSaveRestoreDataHandle_t__@@@Z@
-.?AV<lambda_2>@?BJ@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vector3DBase@M@@2HPEAVCUtlMultiJobProcessor@@@Z@
+.?AV<lambda_2>@?BJ@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vec3D@M@@2HPEAVCUtlMultiJobProcessor@@@Z@
 .?AV<lambda_2>@?CF@??GameShutdown@CBuildCubemapsGameSystem@@UEAAXAEBUEventGameShutdown_t@@@Z@
 .?AV<lambda_2>@?DE@??QuarterSizeAttrWithBoxFilter@CSOAContainer@@QEAAXAEBV2@HHPEAVCCallQueue@@@Z@
 .?AV<lambda_2>@?L@??DrawCanvas@CCSGOStatsProgressGraph@@UEAAXXZ@
@@ -3339,7 +3288,7 @@ $taser_charge
 .?AV?$CAttributeIterator_GetTypedAttributeValue@II@@
 .?AV?$CAttributeIterator_GetTypedAttributeValue@IM@@
 .?AV?$CAttributeIterator_GetTypedAttributeValue@MM@@
-.?AV?$CAttributeIterator_GetTypedAttributeValue@V?$Vector3DBase@M@@V1@@@
+.?AV?$CAttributeIterator_GetTypedAttributeValue@V?$Vec3D@M@@V1@@@
 .?AV?$CAttributeIterator_GetTypedAttributeValue@VCAttribute_String@@PEBD@@
 .?AV?$CAttributeIterator_GetTypedAttributeValue@VCAttribute_String@@V1@@@
 .?AV?$CBaseAppSystem@VIClientUI@@@@
@@ -3363,7 +3312,6 @@ $taser_charge
 .?AV?$CCallResult@VCGCFetchWebResource@@UHTTPRequestCompleted_t@@@@
 .?AV?$CCallResult@VCHTML@panorama@@UHTML_BrowserReady_t@@@@
 .?AV?$CCallResult@VCHelperStreamDownloadUrlToLocalFile@@UHTTPRequestCompleted_t@@@@
-.?AV?$CCallResult@VCLoadoutShuffleItemLists@@URemoteStorageFileWriteAsyncComplete_t@@@@
 .?AV?$CCallResult@VCSteamWorksGameStatsUploader@@UGameStatsSessionClosed_t@@@@
 .?AV?$CCallResult@VCSteamWorksGameStatsUploader@@UGameStatsSessionIssued_t@@@@
 .?AV?$CCallResult@VCUiComponent_Blog@@UHTTPRequestCompleted_t@@@@
@@ -3450,27 +3398,27 @@ $taser_charge
 .?AV?$CComponentPredictionCopyDataOps@VCBodyComponentPoint@@@@
 .?AV?$CCompressedAnim@H@@
 .?AV?$CCompressedAnim@M@@
-.?AV?$CCompressedAnim@V?$Vector3DBase@M@@@@
+.?AV?$CCompressedAnim@V?$Vec2D@M@@@@
+.?AV?$CCompressedAnim@V?$Vec3D@M@@@@
+.?AV?$CCompressedAnim@V?$Vec4D@M@@@@
 .?AV?$CCompressedAnim@VColor@@@@
 .?AV?$CCompressedAnim@VQuaternionStorage@@@@
-.?AV?$CCompressedAnim@VVector2D@@@@
-.?AV?$CCompressedAnim@VVector4D@@@@
 .?AV?$CCompressedAnim@_N@@
 .?AV?$CCompressedList@HD@@
 .?AV?$CCompressedList@HF@@
 .?AV?$CCompressedList@HH@@
 .?AV?$CCompressedList@MM@@
+.?AV?$CCompressedList@V?$Vec2D@M@@V1@@@
+.?AV?$CCompressedList@V?$Vec4D@M@@V1@@@
 .?AV?$CCompressedList@VColor@@V1@@@
-.?AV?$CCompressedList@VVector2D@@V1@@@
-.?AV?$CCompressedList@VVector4D@@V1@@@
 .?AV?$CCompressedList@_N_N@@
 .?AV?$CCompressedStatic@HD@@
 .?AV?$CCompressedStatic@HF@@
 .?AV?$CCompressedStatic@HH@@
 .?AV?$CCompressedStatic@MM@@
+.?AV?$CCompressedStatic@V?$Vec2D@M@@V1@@@
+.?AV?$CCompressedStatic@V?$Vec4D@M@@V1@@@
 .?AV?$CCompressedStatic@VColor@@V1@@@
-.?AV?$CCompressedStatic@VVector2D@@V1@@@
-.?AV?$CCompressedStatic@VVector4D@@V1@@@
 .?AV?$CCompressedStatic@_N_N@@
 .?AV?$CConCommandMemberAccessor@VCDebugOverlayCommandTool@@@@
 .?AV?$CConCommandMemberAccessor@VCEntityDebugGameSystem@@@@
@@ -3715,6 +3663,7 @@ $taser_charge
 .?AV?$CGameSystemStaticFactory@VCEnvCubemapFogSystem@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCEnvVolumetricFogControllerSystem@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCFlashlightEffectManager@@V1@@@
+.?AV?$CGameSystemStaticFactory@VCFlashlightReceiver_Manager@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCFlexSceneFileManager@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCGameJobSystem@@V1@@@
 .?AV?$CGameSystemStaticFactory@VCGameParticleManagerSystem@@V1@@@
@@ -3747,33 +3696,36 @@ $taser_charge
 .?AV?$CGameSystemStaticFactory@VC_Peer2PeerInit@@V1@@@
 .?AV?$CGameSystemStaticFactory@VC_ServerVoiceHandlerInit@@V1@@@
 .?AV?$CInterpolatedVar@M@@
-.?AV?$CInterpolatedVar@V?$Vector3DBase@M@@@@
+.?AV?$CInterpolatedVar@V?$Vec3D@M@@@@
 .?AV?$CInterpolatedVar@VCNetworkVelocityVector@@@@
 .?AV?$CInterpolatedVar@VCNetworkViewOffsetVector@@@@
+.?AV?$CInterpolatedVar@VCTransform@@@@
 .?AV?$CInterpolatedVar@VQAngle@@@@
 .?AV?$CInterpolatedVarArrayBase@M$0A@$00V?$CGlobalInterpolationLerpFuncs@M@@@@
 .?AV?$CInterpolatedVarArrayBase@M$0A@$0A@V?$CGlobalInterpolationLerpFuncs@M@@@@
 .?AV?$CInterpolatedVarArrayBase@UEnableRenderingInfo_t@@$0A@$00V?$CGlobalInterpolationLerpFuncs@UEnableRenderingInfo_t@@@@@@
 .?AV?$CInterpolatedVarArrayBase@UMeshGroupMaskInfo_t@@$0A@$00V?$CGlobalInterpolationLerpFuncs@UMeshGroupMaskInfo_t@@@@@@
 .?AV?$CInterpolatedVarArrayBase@UTransformHistory_t@@$0A@$00V?$COwnerInterpolationLerpFuncs@UTransformHistory_t@@VCGameSceneNode@@@@@@
-.?AV?$CInterpolatedVarArrayBase@V?$Vector3DBase@M@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@V?$Vector3DBase@M@@@@@@
+.?AV?$CInterpolatedVarArrayBase@V?$Vec3D@M@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@V?$Vec3D@M@@@@@@
 .?AV?$CInterpolatedVarArrayBase@VAnimationOperationHistory_t@@$0A@$00V?$COwnerInterpolationLerpFuncs@VAnimationOperationHistory_t@@VCBaseAnimGraphController@@@@@@
 .?AV?$CInterpolatedVarArrayBase@VCClothSnapshotState@@$0A@$00V?$COwnerInterpolationLerpFuncs@VCClothSnapshotState@@VCModelState@@@@@@
 .?AV?$CInterpolatedVarArrayBase@VCCompositeParentSpaceState@@$0A@$00V?$CGlobalInterpolationLerpFuncs@VCCompositeParentSpaceState@@@@@@
 .?AV?$CInterpolatedVarArrayBase@VCNetworkVelocityVector@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCNetworkVelocityVector@@@@@@
 .?AV?$CInterpolatedVarArrayBase@VCNetworkViewOffsetVector@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCNetworkViewOffsetVector@@@@@@
+.?AV?$CInterpolatedVarArrayBase@VCTransform@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCTransform@@@@@@
 .?AV?$CInterpolatedVarArrayBase@VQAngle@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VQAngle@@@@@@
 .?AV?$CInterpolatedVarBase@M$0A@$00V?$CGlobalInterpolationLerpFuncs@M@@@@
 .?AV?$CInterpolatedVarBase@M$0A@$0A@V?$CGlobalInterpolationLerpFuncs@M@@@@
 .?AV?$CInterpolatedVarBase@UEnableRenderingInfo_t@@$0A@$00V?$CGlobalInterpolationLerpFuncs@UEnableRenderingInfo_t@@@@@@
 .?AV?$CInterpolatedVarBase@UMeshGroupMaskInfo_t@@$0A@$00V?$CGlobalInterpolationLerpFuncs@UMeshGroupMaskInfo_t@@@@@@
 .?AV?$CInterpolatedVarBase@UTransformHistory_t@@$0A@$00V?$COwnerInterpolationLerpFuncs@UTransformHistory_t@@VCGameSceneNode@@@@@@
-.?AV?$CInterpolatedVarBase@V?$Vector3DBase@M@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@V?$Vector3DBase@M@@@@@@
+.?AV?$CInterpolatedVarBase@V?$Vec3D@M@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@V?$Vec3D@M@@@@@@
 .?AV?$CInterpolatedVarBase@VAnimationOperationHistory_t@@$0A@$00V?$COwnerInterpolationLerpFuncs@VAnimationOperationHistory_t@@VCBaseAnimGraphController@@@@@@
 .?AV?$CInterpolatedVarBase@VCClothSnapshotState@@$0A@$00V?$COwnerInterpolationLerpFuncs@VCClothSnapshotState@@VCModelState@@@@@@
 .?AV?$CInterpolatedVarBase@VCCompositeParentSpaceState@@$0A@$00V?$CGlobalInterpolationLerpFuncs@VCCompositeParentSpaceState@@@@@@
 .?AV?$CInterpolatedVarBase@VCNetworkVelocityVector@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCNetworkVelocityVector@@@@@@
 .?AV?$CInterpolatedVarBase@VCNetworkViewOffsetVector@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCNetworkViewOffsetVector@@@@@@
+.?AV?$CInterpolatedVarBase@VCTransform@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCTransform@@@@@@
 .?AV?$CInterpolatedVarBase@VQAngle@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VQAngle@@@@@@
 .?AV?$CInterpolatedVarProcedural@M@@
 .?AV?$CInterpolatedVarProcedural@UEnableRenderingInfo_t@@@@
@@ -3784,12 +3736,13 @@ $taser_charge
 .?AV?$CInterpolatedVarProceduralBase@UEnableRenderingInfo_t@@$0A@$00V?$CGlobalInterpolationLerpFuncs@UEnableRenderingInfo_t@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@UMeshGroupMaskInfo_t@@$0A@$00V?$CGlobalInterpolationLerpFuncs@UMeshGroupMaskInfo_t@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@UTransformHistory_t@@$0A@$00V?$COwnerInterpolationLerpFuncs@UTransformHistory_t@@VCGameSceneNode@@@@@@
-.?AV?$CInterpolatedVarProceduralBase@V?$Vector3DBase@M@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@V?$Vector3DBase@M@@@@@@
+.?AV?$CInterpolatedVarProceduralBase@V?$Vec3D@M@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@V?$Vec3D@M@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@VAnimationOperationHistory_t@@$0A@$00V?$COwnerInterpolationLerpFuncs@VAnimationOperationHistory_t@@VCBaseAnimGraphController@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@VCClothSnapshotState@@$0A@$00V?$COwnerInterpolationLerpFuncs@VCClothSnapshotState@@VCModelState@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@VCCompositeParentSpaceState@@$0A@$00V?$CGlobalInterpolationLerpFuncs@VCCompositeParentSpaceState@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@VCNetworkVelocityVector@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCNetworkVelocityVector@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@VCNetworkViewOffsetVector@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCNetworkViewOffsetVector@@@@@@
+.?AV?$CInterpolatedVarProceduralBase@VCTransform@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VCTransform@@@@@@
 .?AV?$CInterpolatedVarProceduralBase@VQAngle@@$0A@$0A@V?$CGlobalInterpolationLerpFuncs@VQAngle@@@@@@
 .?AV?$CInterpolatedVarProceduralBaseUsingOwnerLerp@UTransformHistory_t@@VCGameSceneNode@@$0A@@@
 .?AV?$CInterpolatedVarProceduralBaseUsingOwnerLerp@VAnimationOperationHistory_t@@VCBaseAnimGraphController@@$0A@@@
@@ -3895,6 +3848,7 @@ $taser_charge
 .?AV?$CNetMessagePB@$0JA@VCUserMessageAudioParameter@@$0N@$00$00@@
 .?AV?$CNetMessagePB@$0JB@VCUserMsg_ParticleManager@@$0N@$00$00@@
 .?AV?$CNetMessagePB@$0JJ@VCUserMessageUpdateCssClasses@@$0N@$00$00@@
+.?AV?$CNetMessagePB@$0KC@VCUserMessageRequestDiagnostic@@$0N@$00$00@@
 .?AV?$CNetMessagePB@$0MJ@VCMsgPlaceDecalEvent@@$0M@$00$00@@
 .?AV?$CNetMessagePB@$0MN@VCMsgSource1LegacyGameEventList@@$09$00$00@@
 .?AV?$CNetMessagePB@$0MO@VCMsgSource1LegacyListenEvents@@$09$00$00@@
@@ -3919,25 +3873,6 @@ $taser_charge
 .?AV?$CParallelProcessorAbstract@V?$CParallelProcessor@HV?$CLambdaJobItemProcessor@H@@$00@@@@
 .?AV?$CParallelProcessorAbstract@V?$CParallelProcessor@UWorkItem_t@IWrappedInterpolatedVar@@V?$CFuncJobItemProcessor@UWorkItem_t@IWrappedInterpolatedVar@@@@$00@@@@
 .?AV?$CParallelProcessorAbstract@VCRestoreLastSimulationValuesForInterpolationList_ParallelProcessingController@@@@
-.?AV?$CPredictionCopyUtlVector@V?$CUtlVector@HHV?$CUtlMemory@HH@@@@@@
-.?AV?$CPredictionCopyUtlVector@V?$CUtlVector@MHV?$CUtlMemory@MH@@@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@EVNetworkVar_m_OwnerOnlyPredNetByteVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@EVNetworkVar_m_PredNetByteVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@GVNetworkVar_m_OwnerOnlyPredNetUInt16Variables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@GVNetworkVar_m_PredNetUInt16Variables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@HVNetworkVar_m_OwnerOnlyPredNetIntVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@HVNetworkVar_m_PredNetIntVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@IVNetworkVar_m_OwnerOnlyPredNetBoolVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@IVNetworkVar_m_OwnerOnlyPredNetUInt32Variables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@IVNetworkVar_m_PredNetBoolVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@IVNetworkVar_m_PredNetUInt32Variables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@MVNetworkVar_m_OwnerOnlyPredNetFloatVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@MVNetworkVar_m_PredNetFloatVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@V?$CHandle@VC_BasePlayerWeapon@@@@VNetworkVar_m_hMyWeapons@CPlayer_WeaponServices@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_OwnerOnlyPredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_PredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@VQuaternion@@VNetworkVar_m_OwnerOnlyPredNetQuaternionVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CPredictionCopyUtlVector@V?$C_NetworkUtlVectorBase@VQuaternion@@VNetworkVar_m_PredNetQuaternionVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
 .?AV?$CProtoBufMsg@VAccountActivity@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCChinaAgreementSessions_StartAgreementSessionInGame_Request@@@GCSDK@@
 .?AV?$CProtoBufMsg@VCChinaAgreementSessions_StartAgreementSessionInGame_Response@@@GCSDK@@
@@ -4159,6 +4094,7 @@ $taser_charge
 .?AV?$CRefCounted@V?$CRefCountServiceBase@VCRefMT@@@@@@
 .?AV?$CRefCountedMemPoolObject@VCAnimPose@@@@
 .?AV?$CReferencedFieldPredictionCopyDataOps@VCCSPlayer_BulletServices@@@@
+.?AV?$CReferencedFieldPredictionCopyDataOps@VCCSPlayer_BuyServices@@@@
 .?AV?$CReferencedFieldPredictionCopyDataOps@VCCSPlayer_CameraServices@@@@
 .?AV?$CReferencedFieldPredictionCopyDataOps@VCCSPlayer_ItemServices@@@@
 .?AV?$CReferencedFieldPredictionCopyDataOps@VCCSPlayer_MovementServices@@@@
@@ -4182,15 +4118,15 @@ $taser_charge
 .?AV?$CRopePhysics@$09@@
 .?AV?$CSchemaAttributeTypeBase@I@@
 .?AV?$CSchemaAttributeTypeBase@M@@
-.?AV?$CSchemaAttributeTypeBase@V?$Vector3DBase@M@@@@
+.?AV?$CSchemaAttributeTypeBase@V?$Vec3D@M@@@@
 .?AV?$CSchemaAttributeTypeBase@VCAttribute_String@@@@
 .?AV?$CSchemaAttributeTypeProtobufBase@VCAttribute_String@@@@
 .?AV?$CScriptAccessorT@VCDefScriptAccessorBase@@$00@@
 .?AV?$CScriptScopeT@VCDefScriptAccessorBase@@$00@@
 .?AV?$CStartupHookGameSystem@VGameEvent_RegisterInternal@@$0EEAA@@@
-.?AV?$CStructuredReport@W4BhopReportField@@$0A@HHV?$Vector3DBase@M@@V2@MMV2@M_N_N_N_N@@
-.?AV?$CStructuredReport@W4MoveReportField@@$0A@HHV?$Vector3DBase@M@@V2@MV2@M_N_N_N_NM@@
-.?AV?$CStructuredReport@W4TSRC@@$0A@MHMMVVector2D@@MMV2@V2@MM@@
+.?AV?$CStructuredReport@W4BhopReportField@@$0A@HHV?$Vec3D@M@@V2@MMV2@M_N_N_N_NM@@
+.?AV?$CStructuredReport@W4MoveReportField@@$0A@HHV?$Vec3D@M@@V2@MV2@M_N_N_N_NM@@
+.?AV?$CStructuredReport@W4TSRC@@$0A@MHMMV?$Vec2D@M@@MMV2@V2@MM@@
 .?AV?$CStylePropertyDimensionsBase@VCStylePropertyMargin@panorama@@@panorama@@
 .?AV?$CStylePropertyDimensionsBase@VCStylePropertyPadding@panorama@@@panorama@@
 .?AV?$CSurfacePropReloadableDataTable@VCGameSurfaceProperties@@@@
@@ -4248,7 +4184,7 @@ $taser_charge
 .?AV?$CUIEvent@$00MMPEAVIUIEvent@panorama@@@panorama@@
 .?AV?$CUIEvent@$00PEAVCPanel2D@panorama@@HH@panorama@@
 .?AV?$CUIEvent@$00PEAVCPanel2D@panorama@@HM@panorama@@
-.?AV?$CUIEvent@$00PEAVCPanel2D@panorama@@HVVector2D@@@panorama@@
+.?AV?$CUIEvent@$00PEAVCPanel2D@panorama@@HV?$Vec2D@M@@@panorama@@
 .?AV?$CUIEvent@$00PEAVIImageSource@panorama@@@panorama@@
 .?AV?$CUIEvent@$00PEAVIUIEvent@panorama@@@panorama@@
 .?AV?$CUIEvent@$00PEBD@panorama@@
@@ -4344,8 +4280,8 @@ $taser_charge
 .?AV?$CUIEvent@$0A@V?$Local@VObject@v8@@@v8@@@panorama@@
 .?AV?$CUIEvent@$0A@VCPlayerSlot@@@panorama@@
 .?AV?$CUIEvent@$0A@W4GamePhase@@@panorama@@
-.?AV?$CUIEvent@$0A@W4loadout_positions_t@@@panorama@@
-.?AV?$CUIEvent@$0A@W4loadout_positions_t@@PEAVIUIPanel@panorama@@@panorama@@
+.?AV?$CUIEvent@$0A@W4loadout_slot_t@@@panorama@@
+.?AV?$CUIEvent@$0A@W4loadout_slot_t@@PEAVIUIPanel@panorama@@@panorama@@
 .?AV?$CUIEvent@$0A@_K@panorama@@
 .?AV?$CUIEvent@$0A@_KH@panorama@@
 .?AV?$CUIEvent@$0A@_K_KH@panorama@@
@@ -4444,6 +4380,7 @@ $taser_charge
 .?AV?$CUserMessagePB@$0JA@VCUserMessageAudioParameter@@$00@@
 .?AV?$CUserMessagePB@$0JB@VCUserMsg_ParticleManager@@$00@@
 .?AV?$CUserMessagePB@$0JJ@VCUserMessageUpdateCssClasses@@$00@@
+.?AV?$CUserMessagePB@$0KC@VCUserMessageRequestDiagnostic@@$00@@
 .?AV?$CUtlVectorDataOps@V?$CUtlVector@USaveRestoreBlockHeader_t@@HV?$CUtlMemory@USaveRestoreBlockHeader_t@@H@@@@$09@@
 .?AV?$CUtlVectorDataOps@V?$CUtlVector@Uglobalentity_t@@HV?$CUtlMemory@Uglobalentity_t@@H@@@@$09@@
 .?AV?$CUtlVectorDataOps@V?$CUtlVector@V?$CHandle@VC_BaseEntity@@@@HV?$CUtlMemory@V?$CHandle@VC_BaseEntity@@@@H@@@@$0N@@@
@@ -4472,12 +4409,13 @@ $taser_charge
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$CHandle@VC_BasePlayerPawn@@@@VNetworkVar_m_aPlayers@C_Team@@$0?0H@@$0N@@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$CHandle@VC_BasePlayerWeapon@@@@VNetworkVar_m_hMyWeapons@CPlayer_WeaponServices@@$0?0H@@$0N@@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$CHandle@VC_PostProcessingVolume@@@@VNetworkVar_m_PostProcessingVolumes@CPlayer_CameraServices@@$0?0H@@$0N@@@
-.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_OwnerOnlyPredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@$02@@
-.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_PathNodes_Color@C_PathParticleRope@@$0?0H@@$02@@
-.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_PathNodes_Position@C_PathParticleRope@@$0?0H@@$02@@
-.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_PathNodes_TangentIn@C_PathParticleRope@@$0?0H@@$02@@
-.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_PathNodes_TangentOut@C_PathParticleRope@@$0?0H@@$02@@
-.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_PredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@$02@@
+.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vec2D@M@@VNetworkVar_m_vecPanelVertices@shard_model_desc_t@@$0?0H@@$0BJ@@@
+.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_OwnerOnlyPredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@$02@@
+.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_PathNodes_Color@C_PathParticleRope@@$0?0H@@$02@@
+.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_PathNodes_Position@C_PathParticleRope@@$0?0H@@$02@@
+.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_PathNodes_TangentIn@C_PathParticleRope@@$0?0H@@$02@@
+.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_PathNodes_TangentOut@C_PathParticleRope@@$0?0H@@$02@@
+.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_PredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@$02@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@VCUtlString@@VNetworkVar_m_LightStyleEvents@C_BarnLight@@$0?0H@@$0DF@@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@VCUtlString@@VNetworkVar_m_QueuedLightStyleStrings@C_BarnLight@@$0?0H@@$0DF@@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@VCUtlSymbolLarge@@VNetworkVar_m_AssociatedEntityNames@ActiveModelConfig_t@@$0?0H@@$01@@
@@ -4486,9 +4424,9 @@ $taser_charge
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@VCUtlSymbolLarge@@VNetworkVar_m_vecCSSClasses@C_PointClientUIWorldPanel@@$0?0H@@$01@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@VQuaternion@@VNetworkVar_m_OwnerOnlyPredNetQuaternionVariables@CAnimGraphNetworkedVariables@@$0?0H@@$03@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@VQuaternion@@VNetworkVar_m_PredNetQuaternionVariables@CAnimGraphNetworkedVariables@@$0?0H@@$03@@
-.?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@VVector2D@@VNetworkVar_m_vecPanelVertices@shard_model_desc_t@@$0?0H@@$0BJ@@@
 .?AV?$CUtlVectorDataOps@V?$C_NetworkUtlVectorBase@_NVNetworkVar_m_PathNodes_PinEnabled@C_PathParticleRope@@$0?0H@@$05@@
 .?AV?$CUtlVectorDataOps@V?$C_UtlVectorEmbeddedNetworkVar@UEntityRenderAttribute_t@@VNetworkVar_m_vecRenderAttributes@C_BaseModelEntity@@$0?0H@@$09@@
+.?AV?$CUtlVectorDataOps@V?$C_UtlVectorEmbeddedNetworkVar@USellbackPurchaseEntry_t@@VNetworkVar_m_vecSellbackPurchaseEntries@CCSPlayer_BuyServices@@$0?0H@@$09@@
 .?AV?$CUtlVectorDataOps@V?$C_UtlVectorEmbeddedNetworkVar@UWeaponPurchaseCount_t@@VNetworkVar_m_weaponPurchases@WeaponPurchaseTracker_t@@$0?0H@@$09@@
 .?AV?$CUtlVectorPredictionCopyDataOps@V?$CUtlVector@HHV?$CUtlMemory@HH@@@@@@
 .?AV?$CUtlVectorPredictionCopyDataOps@V?$CUtlVector@MHV?$CUtlMemory@MH@@@@@@
@@ -4505,18 +4443,18 @@ $taser_charge
 .?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@MVNetworkVar_m_OwnerOnlyPredNetFloatVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
 .?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@MVNetworkVar_m_PredNetFloatVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
 .?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@V?$CHandle@VC_BasePlayerWeapon@@@@VNetworkVar_m_hMyWeapons@CPlayer_WeaponServices@@$0?0H@@@@
-.?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_OwnerOnlyPredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
-.?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@V?$Vector3DBase@M@@VNetworkVar_m_PredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
+.?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_OwnerOnlyPredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
+.?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@V?$Vec3D@M@@VNetworkVar_m_PredNetVectorVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
 .?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@VQuaternion@@VNetworkVar_m_OwnerOnlyPredNetQuaternionVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
 .?AV?$CUtlVectorPredictionCopyDataOps@V?$C_NetworkUtlVectorBase@VQuaternion@@VNetworkVar_m_PredNetQuaternionVariables@CAnimGraphNetworkedVariables@@$0?0H@@@@
 .?AV?$CWrappedInterpolatedVarGuts@M$00M$0A@V?$CInterpolatedVar@M@@@@
-.?AV?$CWrappedInterpolatedVarGuts@V?$Vector3DBase@M@@$00V1@$0A@V?$CInterpolatedVar@V?$Vector3DBase@M@@@@@@
+.?AV?$CWrappedInterpolatedVarGuts@V?$Vec3D@M@@$00V1@$0A@V?$CInterpolatedVar@V?$Vec3D@M@@@@@@
 .?AV?$CWrappedInterpolatedVarGuts@VCNetworkVelocityVector@@$00V1@$0A@V?$CInterpolatedVar@VCNetworkVelocityVector@@@@@@
 .?AV?$CWrappedInterpolatedVarGuts@VCNetworkViewOffsetVector@@$00V1@$0A@V?$CInterpolatedVar@VCNetworkViewOffsetVector@@@@@@
 .?AV?$CWrappedInterpolatedVarGuts@VQAngle@@$00V1@$0A@V?$CInterpolatedVar@VQAngle@@@@@@
 .?AV?$CWrappedVar@V?$CWrappedInterpolatedNumericVar@VCNetworkVelocityVector@@@@@@
 .?AV?$CWrappedVar@V?$CWrappedInterpolatedVar@M@@@@
-.?AV?$CWrappedVar@V?$CWrappedInterpolatedVar@V?$Vector3DBase@M@@@@@@
+.?AV?$CWrappedVar@V?$CWrappedInterpolatedVar@V?$Vec3D@M@@@@@@
 .?AV?$CWrappedVar@V?$CWrappedInterpolatedVar@VCNetworkViewOffsetVector@@@@@@
 .?AV?$CWrappedVar@V?$CWrappedInterpolatedVar@VQAngle@@@@@@
 .?AV?$GCClientJobLambda@V<lambda_1>@?1??BatchRequestData@?$CAsyncDataCache@VCUtlString@@_K@@QEAAXPEBVCUtlString@@H@Z@@GCSDK@@
@@ -4536,7 +4474,7 @@ $taser_charge
 .?AV?$ISceneObjectDescBase@VCWorldTextSceneObject@@@@
 .?AV?$ISchemaAttributeTypeBase@I@@
 .?AV?$ISchemaAttributeTypeBase@M@@
-.?AV?$ISchemaAttributeTypeBase@V?$Vector3DBase@M@@@@
+.?AV?$ISchemaAttributeTypeBase@V?$Vec3D@M@@@@
 .?AV?$ISchemaAttributeTypeBase@VCAttribute_String@@@@
 .?AV?$Local@VObject@v8@@@v8@@
 .?AV?$MapEntry@VCMsgSteamLearn_InferenceMetadata_Response_CompactTable_MapMappingsEntry_DoNotUse@@IVCMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry@@$0N@$0L@@internal@protobuf@google@@
@@ -4573,7 +4511,8 @@ $taser_charge
 .?AV?$RepeatedPtrFieldWrapper@VMessage@protobuf@google@@@internal@protobuf@google@@
 .?AV?$TypeDefinedMapFieldBase@IVCMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry@@@internal@protobuf@google@@
 .?AV?$TypeDefinedMapFieldBase@VMapKey@protobuf@google@@VMapValueRef@23@@internal@protobuf@google@@
-.?AV?$Vector3DBase@M@@
+.?AV?$Vec2D@M@@
+.?AV?$Vec3D@M@@
 .?AV?$_Associated_state@H@std@@
 .?AV?$_Associated_state@I@std@@
 .?AV?$_CancellationTokenCallback@V<lambda_be3e5d9dce35d2c8dbfa8485373731d5>@@@details@Concurrency@@
@@ -4595,14 +4534,11 @@ $taser_charge
 .?AV?$_Func_base@XPEAVCDelayLoadPanel@panorama@@@std@@
 .?AV?$_Func_base@XPEAVCSceneObject@@@std@@
 .?AV?$_Func_base@XPEAVIAsyncReadRequest2@@W4AsyncRequestStatus_t@@@std@@
-.?AV?$_Func_base@XPEAVKeyValues3@@PEBV1@@std@@
-.?AV?$_Func_base@XPEAVKeyValues3@@PEBV1@PEBV1@@std@@
-.?AV?$_Func_base@XPEAVKeyValues3@@PEBV1@PEBV1@PEBV1@@std@@
 .?AV?$_Func_base@XPEAXHHHHHHHHM_N@std@@
 .?AV?$_Func_base@XPEBD@std@@
 .?AV?$_Func_base@XPEBVC_EconItemView@@AEAVCUtlBuffer@@HH_K@std@@
 .?AV?$_Func_base@XPEBX@std@@
-.?AV?$_Func_base@_NAEBV?$Vector3DBase@M@@I@std@@
+.?AV?$_Func_base@_NAEBV?$Vec3D@M@@I@std@@
 .?AV?$_Func_base@_NPEAVCButton@panorama@@@std@@
 .?AV?$_Func_base@_NPEAVCComicViewerPage@@@std@@
 .?AV?$_Func_base@_NPEAVCImagePanel@panorama@@@std@@
@@ -4610,7 +4546,6 @@ $taser_charge
 .?AV?$_Func_base@_NPEAVCPanel2D@panorama@@@std@@
 .?AV?$_Func_base@_NPEAVCRadioButton@panorama@@@std@@
 .?AV?$_Func_base@_NPEAVC_Team@@@std@@
-.?AV?$_Func_base@_NPEBVC_EconItemView@@@std@@
 .?AV?$_Func_impl@V<lambda_5a9ef80d79df7873994019ff15dceae5>@@V?$allocator@H@std@@X$$V@std@@
 .?AV?$_Func_impl@V<lambda_60c5de84e69e46aa92419d47e2f3ad51>@@V?$allocator@H@std@@X$$V@std@@
 .?AV?$_Func_impl@V<lambda_713ee8bbd6b08550d59c52695cab5ce3>@@V?$allocator@H@std@@X$$V@std@@
@@ -4624,32 +4559,11 @@ $taser_charge
 .?AV?$_Func_impl_no_alloc@P6AHPEBVIUIPanelClient@panorama@@0@ZHPEAV12@PEAV12@@std@@
 .?AV?$_Func_impl_no_alloc@P6AXPEAVCCompositeMaterialOwner@@@ZXPEAV1@@std@@
 .?AV?$_Func_impl_no_alloc@P6AXPEAVCSceneObject@@@ZXPEAV1@@std@@
-.?AV?$_Func_impl_no_alloc@P6AXPEAVKeyValues3@@PEBV1@1@ZXPEAV1@PEBV1@PEBV1@@std@@
 .?AV?$_Func_impl_no_alloc@P6AXPEBVC_EconItemView@@AEAVCUtlBuffer@@HH_K@ZXPEBV1@AEAV2@HH_K@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_10>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@MAEBVDeepPlayerStatsEntry@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_11>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@MAEBVDeepPlayerStatsEntry@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_12>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@MAEBVDeepPlayerStatsEntry@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_13>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@MAEBVDeepPlayerStatsEntry@@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0HH@FuncInfo_t@@QEAA@P6AHH@Z@Z@XPEAVKeyValues3@@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0HHH@FuncInfo_t@@QEAA@P6AHAEBH0@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0HHH@FuncInfo_t@@QEAA@P6AHHH@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0HHHH@FuncInfo_t@@QEAA@P6AHAEBH00@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0MHM@FuncInfo_t@@QEAA@P6AMHM@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0MM@FuncInfo_t@@QEAA@P6AMM@Z@Z@XPEAVKeyValues3@@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0MMH@FuncInfo_t@@QEAA@P6AMMH@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0MMM@FuncInfo_t@@QEAA@P6AMAEBM0@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0MMM@FuncInfo_t@@QEAA@P6AMMM@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0MMMM@FuncInfo_t@@QEAA@P6AMAEBM00@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0MM_N@FuncInfo_t@@QEAA@P6AMM_N@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0M_NM@FuncInfo_t@@QEAA@P6AM_NM@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_NHH@FuncInfo_t@@QEAA@P6A_NAEBH0@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_NHH@FuncInfo_t@@QEAA@P6A_NHH@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_NMM@FuncInfo_t@@QEAA@P6A_NAEBM0@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_NMM@FuncInfo_t@@QEAA@P6A_NMM@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_NVCUtlString@@V0@@FuncInfo_t@@QEAA@P6A_NAEBVCUtlString@@0@Z@Z@XPEAVKeyValues3@@PEBV4@PEBV4@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_N_N@FuncInfo_t@@QEAA@P6A_N_N@Z@Z@XPEAVKeyValues3@@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_N_N_N@FuncInfo_t@@QEAA@P6A_NAEB_N0@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$?0_N_N_N@FuncInfo_t@@QEAA@P6A_N_N0@Z@Z@XPEAVKeyValues3@@PEBV3@PEBV3@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$ConvertFromBC6h@UBGRA8888_t@@$00@ImageLoader@@YA_NPEBEPEAUBGRA8888_t@@HH@Z@XAEAH@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$ConvertFromBC6h@URGBA16161616F_t@@$0A@@ImageLoader@@YA_NPEBEPEAURGBA16161616F_t@@HH@Z@XAEAH@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???$ConvertFromBC6h@URGBA32323232F_t@@$0A@@ImageLoader@@YA_NPEBEPEAURGBA32323232F_t@@HH@Z@XAEAH@std@@
@@ -4664,18 +4578,18 @@ $taser_charge
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???0CCSGO_InventoryItemList@@QEAA@PEAVCPanel2D@panorama@@PEBD@Z@PEAV34@PEAV34@HPEAV34@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1???0CDelayLoadPanel@panorama@@QEAA@PEAVCPanel2D@3@PEBD@Z@XPEAV23@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??AsyncLoad@AsyncCaptionData_t@@QEAAXPEBDH@Z@XPEAVIAsyncReadRequest2@@W4AsyncRequestStatus_t@@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??BAddAllToShuffle@CLoadoutShuffleItemLists@@QEAA_NPEBVC_EconItemView@@H@Z@_NPEBV4@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??CreateGuidelines@CCSGOStatsProgressGraph@@AEAAXXZ@_NPEAVCPanel2D@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@MAEBVDeepPlayerStatsEntry@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??DrawCanvas@CCSGOStatsProgressGraph@@UEAAXXZ@_NPEAVCPanel2D@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??EnableHTML@CCSGO_Popup_Generic@@AEAAXXZ@_NPEAVCLabel@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??GetScoreDataJSO@CUiComponent_GameState@@QEAAXAEBV?$FunctionCallbackInfo@VValue@v8@@@v8@@@Z@_NPEAVC_Team@@@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??GetSmokeDensityInLine@SmokeVolume@@QEAAMAEBV?$Vector3DBase@M@@0PEAV4@@Z@_NAEBV4@I@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??GetSmokeDensityLOS@SmokeVolume@@AEAAMAEBV?$Vector3DBase@M@@0PEAV4@@Z@_NAEBV4@I@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??GetSmokeDensityInLine@SmokeVolume@@QEAAMAEBV?$Vec3D@M@@0PEAV4@@Z@_NAEBV4@I@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??GetSmokeDensityLOS@SmokeVolume@@AEAAMAEBV?$Vec3D@M@@0PEAV4@@Z@_NAEBV4@I@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??InitCacheFromDisk@CUiComponent_DeepStats@@AEAAXXZ@XPEBD@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??Initialize@CComicViewerBook@@AEAAXXZ@_NPEAVCComicViewerPage@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??Initialize@CComicViewerPage@@QEAAXXZ@_NPEAVCPanel2D@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??Latch@CExtraLatchedState@CUiComponent_GameState@@QEAAXXZ@_NPEAVC_Team@@@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??LightmapQueries_PreSpawnGroupLoad@@YAXAEBUEventPreSpawnGroupLoad_t@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??OnLayoutTraverse@CCSGOStatsProgressGraph@@UEAAXMM@Z@_NPEAVCPanel2D@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??OnLayoutTraverse@CMapSpiderGraph@@UEAAXMM@Z@_NPEAVCImagePanel@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??OnLayoutTraverse@CWeaponSpiderGraph@@UEAAXMM@Z@_NPEAVCImagePanel@panorama@@@std@@
@@ -4693,7 +4607,6 @@ $taser_charge
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??UpdateSceneObjects@CDynamicLightManager@@QEAAXAEAVCCallQueue@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?3??CreatePips@CCSGO_Compass@@IEAAXXZ@_NPEAVCLabel@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?3??ReceiveRequestInventory@@YA_NAEBVCUserMessageRequestInventory_t@@@Z@X$$V@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?4??CountItemsInInventoryForShuffleSlot@CLoadoutShuffleItemLists@@QEAAIPEBVC_EconItemView@@H@Z@_NPEBV4@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?4??DispatchAsyncSave@CEntity2SaveRestore@@AEAAXXZ@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?4??OnBaseLayerSequenceChanged@CBaseAnimGraphController@@AEAAXPEAVCEntityInstance@@PEBI@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?4??OnPlaybackRateChanged@CBaseAnimGraphController@@AEAAXPEAVCEntityInstance@@PEBVCNetworkedQuantizedFloat@@@Z@X$$V@std@@
@@ -4768,7 +4681,7 @@ $taser_charge
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?CC@??QuarterSizeAttrWithBoxFilter@CSOAContainer@@QEAAXAEBV3@HHPEAVCCallQueue@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?CE@???R1?1???0CCSGO_InventoryItemList@@QEAA@PEAVCPanel2D@panorama@@PEBD@Z@QEBAPEAV34@0H0@Z@XPEBVC_EconItemView@@AEAVCUtlBuffer@@HH_K@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?L@??WriteToBufferBC6H_ispctexcomp@FloatBitMap_t@@IEBA_NPEAX_KW4ImageFormat@@AEBUFloatBitmapEncodeSettings_t@@@Z@XAEAH@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_1>@?M@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vector3DBase@M@@2HPEAVCUtlMultiJobProcessor@@@Z@X$$V@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?M@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vec3D@M@@2HPEAVCUtlMultiJobProcessor@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?N@??FillAttr@CSOAContainer@@QEAAXHM@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?O@??CreateSpawnTiles@CCSGO_SurvivalSpawnSelect@@IEAAXXZ@_NPEAVCButton@panorama@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_2>@?1??CreateStatAggregatonFuncs@CUiComponent_DeepStats@@QEAAXXZ@MAEBVDeepPlayerStatsEntry@@@std@@
@@ -4776,7 +4689,7 @@ $taser_charge
 .?AV?$_Func_impl_no_alloc@V<lambda_2>@?1??InitCacheFromDisk@CUiComponent_DeepStats@@AEAAXXZ@XPEBD@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_2>@?1??OnClientPreOutput@CRenderGameSystem@@QEAAXAEBUEventClientPreOutput_t@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_2>@?BD@??SaveGame_Finalize@CEntity2SaveRestore@@UEAA_NPEAUSaveRestoreDataHandle_t__@@@Z@X$$V@std@@
-.?AV?$_Func_impl_no_alloc@V<lambda_2>@?BJ@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vector3DBase@M@@2HPEAVCUtlMultiJobProcessor@@@Z@X$$V@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_2>@?BJ@??RefineNode@RayTracingEnvironment@@AEAAXHPEBHHPEBUTriangleBounds_t@@V?$Vec3D@M@@2HPEAVCUtlMultiJobProcessor@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_2>@?CF@??GameShutdown@CBuildCubemapsGameSystem@@UEAAXAEBUEventGameShutdown_t@@@Z@XPEBX@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_2>@?DE@??QuarterSizeAttrWithBoxFilter@CSOAContainer@@QEAAXAEBV3@HHPEAVCCallQueue@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_2>@?L@??DrawCanvas@CCSGOStatsProgressGraph@@UEAAXXZ@_NPEAVCPanel2D@panorama@@@std@@
@@ -4840,7 +4753,6 @@ $taser_charge
 .?AVCAnimGraphGameSystem@@
 .?AVCAnimGraphNetworkedVariables@@
 .?AVCAnimGraphSaveRestoreOps@@
-.?AVCAnimGraphSymbol@@
 .?AVCAnimGraphTraceFilter@@
 .?AVCAnimGraphTraceProvider@@
 .?AVCAnimPose@@
@@ -5057,6 +4969,7 @@ $taser_charge
 .?AVCCSPlayerInventory@@
 .?AVCCSPlayer_ActionTrackingServices@@
 .?AVCCSPlayer_BulletServices@@
+.?AVCCSPlayer_BuyServices@@
 .?AVCCSPlayer_CameraServices@@
 .?AVCCSPlayer_GlowServices@@
 .?AVCCSPlayer_HostageServices@@
@@ -5473,6 +5386,7 @@ $taser_charge
 .?AVCEntityMsg@@
 .?AVCEntityOriginRenderAttribCallback@@
 .?AVCEntityRandomRenderAttribCallback@@
+.?AVCEntityRenderBoundsRenderAttribCallback@@
 .?AVCEntitySaveRestoreBlockHandler@@
 .?AVCEntityStattrakDisplayValueRenderAttribCallback@@
 .?AVCEntitySubclassGameSystem@@
@@ -5497,6 +5411,7 @@ $taser_charge
 .?AVCFireSceneObjectDesc@@
 .?AVCFlashbangResolveLayerRenderer@@
 .?AVCFlashlightEffectManager@@
+.?AVCFlashlightReceiver_Manager@@
 .?AVCFlexAnimationTrack@@
 .?AVCFlexSceneFileManager@@
 .?AVCFloatCondition@CItemSelectionCriteria@@
@@ -5597,19 +5512,9 @@ $taser_charge
 .?AVCGameTimescale@@
 .?AVCGaussianBloomBlurRenderer@@
 .?AVCGenerateMipsProceduralLayer@@
-.?AVCGenericExprPart@@
-.?AVCGenericExpr_Binary@@
-.?AVCGenericExpr_BoolLiteral@@
-.?AVCGenericExpr_FloatLiteral@@
-.?AVCGenericExpr_FunctionCall@@
-.?AVCGenericExpr_IntLiteral@@
-.?AVCGenericExpr_Property@@
-.?AVCGenericExpr_StringLiteral@@
-.?AVCGenericExpr_TernaryConditional@@
-.?AVCGenericExpr_Unary@@
-.?AVCGenericExpr_VariableReference@@
 .?AVCGlobalFlexControllerMgr@@
 .?AVCGlobalLightBase@@
+.?AVCGlobalSymbol@@
 .?AVCGlowHelperSceneObject@@
 .?AVCGlowHelperSceneObjectDesc@@
 .?AVCGlowManager@@
@@ -5672,6 +5577,7 @@ $taser_charge
 .?AVCLeaderboardDataCache@@
 .?AVCLeaderboardHandleCache@@
 .?AVCLegacyCollisionData@@
+.?AVCLegacyConsoleInput@panorama@@
 .?AVCLegacyGameUI@@
 .?AVCLightComponent@@
 .?AVCLightQueryGameSystem@@
@@ -6403,7 +6309,6 @@ $taser_charge
 .?AVCPulseCell_Test_NoInflow@@
 .?AVCPulseCell_Val_TestDomainFindEntityByName@@
 .?AVCPulseCell_Val_TestDomainGetEntityName@@
-.?AVCPulseCell_Value_Expression@@
 .?AVCPulseCell_Value_RandomInt@@
 .?AVCPulseCell_Value_TestValue50@@
 .?AVCPulseExecCursor@@
@@ -6880,6 +6785,7 @@ $taser_charge
 .?AVCUserMessageLagCompensationError@@
 .?AVCUserMessageRequestDiagnostic@@
 .?AVCUserMessageRequestDiagnostic_Diagnostic@@
+.?AVCUserMessageRequestDiagnostic_t@@
 .?AVCUserMessageRequestDllStatus@@
 .?AVCUserMessageRequestInventory@@
 .?AVCUserMessageRequestState@@
@@ -7454,6 +7360,7 @@ $taser_charge
 .?AVIErrorListener@@
 .?AVIEventRegisterCallback@@
 .?AVIFieldChangeLimitSpew@@
+.?AVIFlashlightReceiver@@
 .?AVIFlexSceneFileManager@@
 .?AVIFriendsListWatchableFriendsInfo@@
 .?AVIGameClientExports@@
@@ -7737,7 +7644,6 @@ $taser_charge
 .?AVUninterpretedOption@protobuf@google@@
 .?AVUninterpretedOption_NamePart@protobuf@google@@
 .?AVVacNetShot@@
-.?AVVector2D@@
 .?AVWatchableMatchInfo@@
 .?AVWeaponPurchaseTracker_t@@
 .?AVXpProgressData@@
@@ -7796,11 +7702,10 @@ $taser_charge
 .?AW4GamePadCode@panorama@@
 .?AW4GamePhase@@
 .?AW4GenericPopupResult_t@@
-.?AW4loadout_positions_t@@
+.?AW4loadout_slot_t@@
 .P6AHPEBVIUIPanelClient@panorama@@0@Z
 .P6AXPEAVCCompositeMaterialOwner@@@Z
 .P6AXPEAVCSceneObject@@@Z
-.P6AXPEAVKeyValues3@@PEBV0@1@Z
 .P6AXPEBVC_EconItemView@@AEAVCUtlBuffer@@HH_K@Z
 .PEAUInputMessage_t@panorama@@
 .PEAV?$Global@VFunction@v8@@@v8@@
@@ -7913,7 +7818,6 @@ $taser_charge
 1970/01/02
 1: default; 0: disables vote UI for spectators
 1:"Desktop", 2:"Couch", 3:"Classic" 
-1:1: Tokens : ( T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | TOK_COLON | OPEN_BRACE | CLOSE_BRACE | OPEN_PAREN | CLOSE_PAREN | OPEN_BRACKET | CLOSE_BRACKET | SEMICOLON | OP_EQUAL | COMMA | DOUBLE_AND | NEGATIVE_TOK | DOUBLE_OR | LITERAL_TRUE | LITERAL_FALSE | POS_INTLITERAL | POS_FLOATLITERAL | ID | DOUBLE_QUOTED_STRING | SINGLE_QUOTED_STRING | SINGLE_LINE_COMMENT | ML_COMMENT | WS | UNRECOGNIZED );
 1=show hits and near misses, 2=show hits only
 1v1_attempts
 1v2_attempts
@@ -7940,7 +7844,6 @@ $taser_charge
 3dSkyboxWorldOffset
 3|2;#GameUI_Retake_Card_UmpInSmoke,1,1,smg2,grenade4|2;#GameUI_Retake_Card_FunNGun,1,1,smg0,grenade3|2;#GameUI_Retake_Card_Sharpshooter,1,1,rifle2,grenade2|2;#GameUI_Retake_Card_BurstBullpup,1,1,rifle0
 40 40 40 196
-488:1: POS_FLOATLITERAL : ( ( DIGIT )+ '.' ( DIGIT )* ( EXPONENT )? | '.' ( DIGIT )+ ( EXPONENT )? | ( DIGIT )+ EXPONENT );
 4|2;#GameUI_Retake_Card_LightEmUp,1,1,rifle1,grenade2|2;#GameUI_Retake_Card_Kobe,1,1,rifle1,grenade3|1;#GameUI_Retake_Card_1g,1,1,rifle1,grenade0|1;#GameUI_Retake_Card_DisappearingAct,1,1,rifle1,grenade4|1;#GameUI_Retake_Card_EyesOnTarget,1,1,rifle3
 7355608
 735560x
@@ -7958,10 +7861,6 @@ $taser_charge
 :    initpredictable %d:%s for %d slots
 : Tried to copy from a message with a different type. to: 
 : failed to parse contents
-: lexer error %d :
-:demofile:
-:demoparams!%llu:%s
-:demoparams!%llu:lowlights:%s
 ;-s2-mix-blend-mode: opaque;</pre>
 ;sv_pausable;sv_cheats
 < [%s] 
@@ -7984,9 +7883,6 @@ $taser_charge
 <<GCMSG#%u (%s, %u bytes)
 <<illegal>>
 <BAD GAMEUI STATE>
-<DOWN>
-<EOF>
-<EOR>
 <GroupEquipmentSlot>
 <ItemSet>
 <LoadoutSlot>
@@ -8027,14 +7923,12 @@ $taser_charge
 <invalid>
 <map_key>
 <map_value>
-<missing 
 <msgid> Send a blank body message with a given ID to gc for routing tests
 <no bone transform data>
 <no class info>
 <no debug name>
 <no failure reason set>
 <no model>
-<no text for the token>
 <none>
 <noplayercontroller>
 <null>
@@ -8132,6 +8026,7 @@ $taser_charge
 ??YCUtlString@@QEAAAEAV0@PEBD@Z
 ??_7CCharBufferFormatOutputStream@@6B@
 ?Abort@CThreadedJob@@QEAAH_N@Z
+?AccessGet@CUtlBuffer@@QEAAPEBXH@Z
 ?Acquire@CUtlString@@QEAAXPEAVCBufferString@@_N@Z
 ?AddNullTermination@CUtlBuffer@@IEAAXXZ
 ?AddString@CUtlSymbolTable@@QEAA?AVCUtlSymbol@@PEBDPEA_N@Z
@@ -8171,7 +8066,6 @@ $taser_charge
 ?CopySubkeys@KeyValues@@QEBAXPEAV1@@Z
 ?Count@KeyValues@@QEBAHXZ
 ?CreateHandle@HandleScope@v8@@KAPEA_KPEAVIsolate@internal@2@_K@Z
-?CreateKeyUsingKnownLastChild@KeyValues@@QEAAPEAV1@PEBDPEAV1@@Z
 ?CreateNewKey@KeyValues@@QEAAPEAV1@XZ
 ?CreatePeerKey@KeyValues@@QEAAPEAV1@PEBD@Z
 ?DebugPrintKV3@@YAXPEBVKeyValues3@@@Z
@@ -8200,7 +8094,6 @@ $taser_charge
 ?Find@CUtlSymbolTable@@QEBA?AVCUtlSymbol@@PEBD@Z
 ?FindKey@KeyValues@@QEAAPEAV1@PEBD_N@Z
 ?FindKey@KeyValues@@QEBAPEAV1@VHKeySymbol@@@Z
-?FindLastSubKey@KeyValues@@QEBAPEAV1@XZ
 ?FindOrCreateCounter@CVProfile@@QEAAPEA_KPEBDW4CounterGroup_t@@@Z
 ?FioClose@@YAHPEAX@Z
 ?FioCreateFile@@YAHPEBDW4EFioAccessFlags@@W4EFioShareFlags@@W4EFioCreateMode@@IPEAPEAX@Z
@@ -8359,7 +8252,6 @@ $taser_charge
 ?RemoveDotSlashes@CBufferString@@QEAAPEBDD@Z
 ?RemoveFromStart@CUtlString@@QEBA?AV1@PEBD_N@Z
 ?RemoveSubKey@KeyValues@@QEAAXPEAV1@_N1@Z
-?Replace@CBufferString@@QEAAHPEBD0_N@Z
 ?Replace@CUtlString@@QEBA?AV1@PEBD0_N@Z
 ?Reset@CSHA1@@QEAAXXZ
 ?Reset@CThreadEvent@@QEAA_NXZ
@@ -8472,45 +8364,8 @@ $taser_charge
 ?referer=csgo_client&steamID=%llu
 ?stickers
 @SwfAlias:OperationPayback#SFUI_mapgroup_op_op11
-@console_max_autocomplete
-@console_max_history
-@console_max_lines
-@console_position_and_size
 @keyframes 
 @keyframes '%s'
-@panorama_3dpanel_anim_fadeinout_time_scale
-@panorama_3dpanel_anims_pivotlock
-@panorama_3dpanel_camera_blend_mode
-@panorama_3dpanel_camera_inout_scale
-@panorama_3dpanel_camera_inout_scale_kb
-@panorama_3dpanel_camera_lookat_scale
-@panorama_3dpanel_camera_preset_blend_time
-@panorama_3dpanel_camera_rotate_altitude_scale
-@panorama_3dpanel_camera_rotate_azimuth_scale
-@panorama_3dpanel_debuginfo_anim
-@panorama_3dpanel_debuginfo_cam
-@panorama_3dpanel_debuginfo_item
-@panorama_3dpanel_debuginfo_manifest
-@panorama_3dpanel_debuginfo_paused
-@panorama_3dpanel_debuginfo_player
-@panorama_3dpanel_light_move_scale
-@panorama_3dpanel_light_rotate_altitude_scale
-@panorama_3dpanel_light_rotate_azimuth_scale
-@panorama_3dpanel_loadout_rotate_drag
-@panorama_3dpanel_loadout_rotate_frametime_multiplier
-@panorama_3dpanel_loadout_rotate_grab_scale
-@panorama_3dpanel_loadout_rotate_scale
-@panorama_daisy_wheel
-@panorama_debug_movies
-@panorama_debug_overlay_opacity
-@panorama_debug_overlay_opacity_max
-@panorama_debug_overlay_opacity_min
-@panorama_dragscroll_maxflickvelocity
-@panorama_dragscroll_minflickvelocity
-@panorama_early_anim_dispatch
-@panorama_movie_async_load_size_bytes
-@panorama_movie_force_not_ready_behavior
-@panorama_transition_time_factor
 @workshop
 A 220x45 (<16kb) image file in /csgo/ that will be displayed to spectators.
 A 360x60 (<16kb) image file in /csgo/ that will be displayed to spectators.
@@ -8535,6 +8390,9 @@ ACTIVATE_TYPE_DATAUPDATE_CREATION
 ACTIVATE_TYPE_INITIAL_CREATION
 ACTIVATE_TYPE_ONRESTORE
 ACTOR
+ADD_FLOAT
+ADD_INT
+ADD_STRING
 ADJACENCY
 ADVAPI32.dll
 AE_CL_BODYGROUP_SET_TO_CLIP
@@ -8604,8 +8462,6 @@ ANIM_LOOP_MODE_INVALID
 ANIM_LOOP_MODE_LOOPING
 ANIM_LOOP_MODE_NOT_LOOPING
 ANIM_LOOP_MODE_USE_SEQUENCE_SETTINGS
-ANTLR3_EXCEPTION number %d (%08X).
-ANTLR3_EXCEPTION: %s
 ANYCRLF)
 AO Proxies
 AOBinnerTexture
@@ -8634,8 +8490,12 @@ Abort
 Aborting - cannot delete file: %s
 Aborting sticker application.
 AbovePlayer
+AbsFloat
+AbsInt
 AbsTagType(unknown)
 Absolute
+Absolute value (float)
+Absolute value (int)
 Accel_for_arms
 Accel_for_counter_lean
 Accel_for_leans
@@ -8673,6 +8533,7 @@ ActionMatchmaking
 ActionMatchmaking: all client settings match host
 ActionMatchmaking: client needs a new lobby (%s on client '%s' != host '%s')
 ActionMatchmaking: host switching lobby to new mission
+ActionPregameCastMyVote
 ActionReconnectToOngoingMatch
 ActionRedeemOperationGoods
 ActionRequestSeasonalOperationMissionCardID
@@ -8703,7 +8564,7 @@ Actual Render Width
 Actual UI Scale X
 Actual UI Scale Y
 Actual UI Scale Z
-Actually dude, we didn't seem to be expecting anything here, or at least
+Add R%d <- R%d + R%d
 Add a CSS class to a panel after a specified delay. 
 Add a CSS class to a panel.
 Add a CSS class to all children of this panel.
@@ -8711,9 +8572,7 @@ Add a class for a specified duration, with optional pre-delay; clears existing t
 Add a filter to the game debug overlay
 Add a player to one of the team select player lists.
 Add a watch to the game debug overlay
-Add all items in the inventory to a shuffle
 Add an output
-Add item to a shuffle list for the associated loadout position. Returns true if item was sucessfully added to any shuffle.
 Add linear and angular velocity to the physics object
 AddAllocatedMessage
 AddBlurPanel
@@ -8734,7 +8593,7 @@ AddImpulseAtPosition
 AddInt32
 AddInt64
 AddItemToCart
-AddItemToShuffle
+AddItemToFavorites
 AddMessage
 AddModel
 AddOption
@@ -8803,7 +8662,6 @@ AllPlayersDuringFreezePeriod
 AllocGroundLink: failed to allocate groundlink_t.!!!
 Allow Interrupt
 Allow a client to draw on the map overview
-Allow player speed to exceed maximum running speed
 AllowOversized
 Allows client to disable (=-1), defer to server (=0), or request a certain min-command queue size for games that support the command queue (IsUsingCommandQueue()) for CUserCmds.
 Allows flipping the model, regardless of whether it is built left or right handed
@@ -8813,7 +8671,6 @@ Allows rain in splitscreen
 Allows sending HTTP log from client main menu.
 Allows spectating and communicating with a team ( 'coach t' or 'coach ct' )
 Allows team members to injure other members of their team
-Allows the server set players in third person mode without the client slamming it back (if cheats are on, all clients can set thirdperson without this convar being set)
 Alpha
 Alpha for rope antialiasing effect
 Alpha immunity material not found!
@@ -8855,6 +8712,7 @@ An orthographic spot light entity
 AnalogueCursor
 Anchor
 Ancient
+And R%d <- R%d && R%d
 AngleDiff
 Angles
 Angles (%s space)
@@ -8866,7 +8724,6 @@ AnimGraph Recording saved to %s
 AnimGraph Recording started on entity %s (%s):%i
 AnimGraph Recording stopped on entity %s (%s):%i
 AnimGraph State
-AnimGraph Update
 AnimGraphEditorUtils001
 AnimGraphUpdate
 AnimLoopMode_t
@@ -9108,7 +8965,6 @@ Award this many upgrade points every round in demolition mode
 AxisAngleToQuaternion
 Aztec
 B2B2B2
-BACKSLASH_CHAR
 BADFUNCTIONPOINTER
 BAcceptsFocus
 BAcceptsInput
@@ -9209,19 +9065,6 @@ Basalt
 Base Pulse Domain
 Base component class %s needs to have the same contained / referenced rules as its derived classes!
 Base entity with model
-Base recognizer function 'alreadyParsedRule' called by unknown parser type - provide override for this function
-Base recognizer function 'consumeUntil' called by unknown parser type - provide override for this function
-Base recognizer function 'consumeUntilSet' called by unknown parser type - provide override for this function
-Base recognizer function 'match' called by unknown parser type - provide override for this function
-Base recognizer function 'matchAny' called by unknown parser type - provide override for this function
-Base recognizer function 'mismatch' called by unknown parser type - provide override for this function
-Base recognizer function 'synPred' called by unknown parser type - provide override for this function
-Base recognizer function antlr3RecognitionExceptionNew called by unknown parser type - provide override for this function
-Base recognizer function consumeUntilSet called by unknown parser type - provide override for this function
-Base recognizer function displayRecognitionError called by unknown parser type - provide override for this function
-Base recognizer function recover called by unknown parser type - provide override for this function
-Base recognizer function recoverFromMismatchedSet called by unknown parser type - provide override for this function
-Base recognizer function recoverFromMismatchedToken called by unknown parser type - provide override for this function
 BaseAnimating::StudioFrameAdvance
 BaseCombatCharacter
 BaseCombatCharacter.AmmoPickup
@@ -9242,6 +9085,8 @@ BaseText
 BaseTextureOverride
 Base_CmdKeyValues
 Baseline entity %d - %s
+Basic math support.
+BasicFunction
 Bazaar
 BeamClipStyle_t
 BeamManifest
@@ -9263,20 +9108,6 @@ BestOfPipsText
 BetaUniverse
 BgColor
 BigShot
-BinAdd
-BinDiv
-BinEq
-BinGt
-BinGtE
-BinInvalid
-BinLogAnd
-BinLogOr
-BinLt
-BinLtE
-BinMod
-BinMul
-BinNe
-BinSub
 BinaryProperties_GetValue
 BindingLabelContainer
 Biome
@@ -9348,7 +9179,6 @@ BonusChallenge
 BonusExpressionTokens
 BonusHardMode
 BonusPistolOnly
-Bool( %s )
 Boolean
 Boolean default must be true or false.
 Border.Bright
@@ -9497,10 +9327,8 @@ C:\buildworker\csgo_rel_win64\build\src\game\client\c_te_effect_dispatch.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\c_te_legacytempents.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\cameramanager_base.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\cdll_client_int.cpp
-C:\buildworker\csgo_rel_win64\build\src\game\client\cdll_util.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\clientglowproperty.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\clientinput.cpp
-C:\buildworker\csgo_rel_win64\build\src\game\client\clientinput_camera.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\clientinput_joystick.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\clientmode_shared.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\clientuischeme.cpp
@@ -9553,7 +9381,6 @@ C:\buildworker\csgo_rel_win64\build\src\game\client\fx_water.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\glow_overlay.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\glowmanager.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\hud_closecaption.cpp
-C:\buildworker\csgo_rel_win64\build\src\game\client\hud_locator_target.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\panorama_world_panel.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\particleslibhost_client.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\prediction.cpp
@@ -9561,7 +9388,6 @@ C:\buildworker\csgo_rel_win64\build\src\game\client\renderingpipeline\gaussian_b
 C:\buildworker\csgo_rel_win64\build\src\game\client\view.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\view_effects.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\viewport_client_system.cpp
-C:\buildworker\csgo_rel_win64\build\src\game\client\viewrender.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\warp_overlay.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\client\weapon_selection.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\gameinterfaces\gameinterfaces.cpp
@@ -9572,7 +9398,7 @@ C:\buildworker\csgo_rel_win64\build\src\game\shared\baseanimgraph.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\baseanimgraphcontroller.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\baseentity_shared.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\baseflex_shared.cpp
-C:\buildworker\csgo_rel_win64\build\src\game\shared\baseplayercontroller.h:619
+C:\buildworker\csgo_rel_win64\build\src\game\shared\baseplayercontroller.h:621
 C:\buildworker\csgo_rel_win64\build\src\game\shared\baseplayerweapon.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\beam_shared.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\collisionproperty.cpp
@@ -9624,6 +9450,7 @@ C:\buildworker\csgo_rel_win64\build\src\game\shared\gamerules_register.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\gamescenenode.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\igamesystem.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\ipredictioncopyable.h
+C:\buildworker\csgo_rel_win64\build\src\game\shared\lightquerygamesystem.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\loopmodegame.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\nav_link_schema.cpp
 C:\buildworker\csgo_rel_win64\build\src\game\shared\particle_parse.cpp
@@ -9660,7 +9487,6 @@ C:\buildworker\csgo_rel_win64\build\src\gcsdk_csgo_legacy\steamextra\tier1\tsmem
 C:\buildworker\csgo_rel_win64\build\src\gcsdk_csgo_legacy\steamextra\tier1\tsmultimempool.cpp
 C:\buildworker\csgo_rel_win64\build\src\gcsdk_csgo_legacy\string_misc.cpp
 C:\buildworker\csgo_rel_win64\build\src\gcsdk_csgo_legacy\workthreadpool.cpp
-C:\buildworker\csgo_rel_win64\build\src\mathlib\extended\generic_expr.g
 C:\buildworker\csgo_rel_win64\build\src\mathlib\mathlib.cpp
 C:\buildworker\csgo_rel_win64\build\src\modellib\model.cpp
 C:\buildworker\csgo_rel_win64\build\src\panorama\basesymbol.cpp
@@ -9717,8 +9543,8 @@ CAnimEventQueueListener
 CAnimGraphControllerBase
 CAnimGraphControllerManager::CreateControllerToGraphBindings
 CAnimGraphControllerManager::DestroyControllerToGraphBindings
-CAnimGraphGameSystem::ParallelHierarchyUpdate(), C:\buildworker\csgo_rel_win64\build\src\game\shared\animgraph_gamesystem.cpp:915
-CAnimGraphGameSystem::ServerTickUpdate(), C:\buildworker\csgo_rel_win64\build\src\game\shared\animgraph_gamesystem.cpp:467
+CAnimGraphGameSystem::ParallelHierarchyUpdate(), C:\buildworker\csgo_rel_win64\build\src\game\shared\animgraph_gamesystem.cpp:894
+CAnimGraphGameSystem::ServerTickUpdate(), C:\buildworker\csgo_rel_win64\build\src\game\shared\animgraph_gamesystem.cpp:446
 CAnimGraphNetworkedVariables
 CAnimGraphNetworkedVariables::m_OwnerOnlyPredNetBoolVariables
 CAnimGraphNetworkedVariables::m_OwnerOnlyPredNetByteVariables
@@ -9736,9 +9562,8 @@ CAnimGraphNetworkedVariables::m_PredNetQuaternionVariables
 CAnimGraphNetworkedVariables::m_PredNetUInt16Variables
 CAnimGraphNetworkedVariables::m_PredNetUInt32Variables
 CAnimGraphNetworkedVariables::m_PredNetVectorVariables
-CAnimGraphParam
-CAnimGraphSymbolWithStorage
-CAnimGraphTag
+CAnimGraphParamRef
+CAnimGraphTagRef
 CAnimationDecodeContext::AddAnimationDecodeDesc ran out of allocator memory (1)
 CAnimationDecodeContext::AddAnimationDecodeDesc ran out of allocator memory (2)
 CAnimationDecodeContext::AddAnimationDecodeDesc ran out of allocator memory (3)
@@ -9925,6 +9750,8 @@ CCSPlayer_ActionTrackingServices
 CCSPlayer_ActionTrackingServices *
 CCSPlayer_BulletServices
 CCSPlayer_BulletServices *
+CCSPlayer_BuyServices
+CCSPlayer_BuyServices *
 CCSPlayer_CameraServices
 CCSPlayer_GlowServices
 CCSPlayer_GlowServices *
@@ -10278,7 +10105,6 @@ CGameConfiguration::ComputeMaxClients
 CGameEntitySystem::CreateEntities: NULL binding for entity %s.
 CGameEntitySystem::ExtractClientServerSpecificEntities
 CGameEntitySystem::Spawn
-CGameEvent::GetName
 CGameEventManager: couldn't register event '%s', limit reached (%i).
 CGameEventManager: unknown type %i for key '%s' [%s].
 CGameEventManager: unkown type %i for key '%s'.
@@ -10310,6 +10136,7 @@ CGameSceneNode::m_vecOrigin
 CGameSceneNodeHandle
 CGlobalLightBase
 CGlobalLightBase::UpdateState
+CGlobalSymbol
 CGlowHelperSceneObjectDesc
 CGlowOverlay
 CGlowProperty
@@ -10502,9 +10329,6 @@ CLIENT
 CLIENTSIDE
 CLIENTSTUB
 CLIENT_DLL
-CLOSE_BRACE
-CLOSE_BRACKET
-CLOSE_PAREN
 CLegacyGameUI::FindPlatformDirectory
 CLegacyGameUI::Init
 CLegacyGameUI::Initialize() failed to get necessary interfaces
@@ -10591,7 +10415,6 @@ CNetworkedSequenceOperation
 CNewParticleEffect
 CNewParticleEffect::DetectChanges
 CO-%u
-COMMA
 COMMUNITYMAPCREDITS:
 COMPMATSYSVAR_COMPOSITETIME
 COMPMATSYSVAR_EMPTY_RESOURCE_SPACER
@@ -10618,7 +10441,7 @@ CONTAINER_SOURCE_TYPE_TARGET_MATERIAL
 CONTAINER_SOURCE_TYPE_VARIABLE_FROM_TARGET_ATTR
 CONTENT
 CONTINUE_TO_APPLY_DAMAGE
-COUNT
+CONVERT_VALUE
 COmniLight
 CPPTYPE_BOOL
 CPPTYPE_DOUBLE
@@ -10659,6 +10482,7 @@ CPanoramaWorldPanel::Init
 CPanoramaWorldPanel::Init(233): 
 CPanoramaWorldPanelSceneObjectDesc
 CParadropChopper
+CParticleBindingRealPulse!Graph_UpdateBoundValues
 CParticleMgr::SimulateParticles(), C:\buildworker\csgo_rel_win64\build\src\particleslib\particlemgr.cpp:1069
 CParticleProperty
 CParticleProperty::AddControlPoint
@@ -10678,7 +10502,7 @@ CPhysicsGameSystem::GameWorldInit
 CPhysicsGameSystem::OnSimulate
 CPhysicsGameSystem::PullKinematicTransformsWorker
 CPhysicsGameSystem::PullSoftbodyTransforms
-CPhysicsGameSystem::PushDynamicTransformsWorker(), C:\buildworker\csgo_rel_win64\build\src\game\shared\physicsgamesystem.cpp:1071
+CPhysicsGameSystem::PushDynamicTransformsWorker(), C:\buildworker\csgo_rel_win64\build\src\game\shared\physicsgamesystem.cpp:1074
 CPhysicsProp
 CPhysicsPropMultiplayer
 CPickledRadixTrie::CChildren
@@ -10738,7 +10562,7 @@ CPrecipitationVData
 CPredictedViewModel
 CPrediction::PerformPrediction executed too many commands
 CPrediction::PostEntityPacketReceived(), C:\buildworker\csgo_rel_win64\build\src\game\client\prediction.cpp:507
-CPrediction::PostNetworkDataReceived(), C:\buildworker\csgo_rel_win64\build\src\game\client\prediction.cpp:672
+CPrediction::PostNetworkDataReceived(), C:\buildworker\csgo_rel_win64\build\src\game\client\prediction.cpp:674
 CPrediction::Update
 CPredictionCopy::CPredictionCopy
 CPredictionCopy::Init must have pDest!
@@ -10803,7 +10627,6 @@ CPulseCell_Test_MultiInflow_WithDefault
 CPulseCell_Test_NoInflow
 CPulseCell_Val_TestDomainFindEntityByName
 CPulseCell_Val_TestDomainGetEntityName
-CPulseCell_Value_Expression
 CPulseCell_Value_RandomInt
 CPulseCell_Value_TestValue50
 CPulseGraphDef
@@ -10817,6 +10640,18 @@ CPulseGraphInstance_TestDomain_Derived!Graph_GenerateIntWithResult
 CPulseGraphInstance_TestDomain_Derived!Graph_HandleIntDerived
 CPulseGraphInstance_TurtleGraphics
 CPulseGraphInstance_TurtleGraphics!Graph_Go
+CPulseMathlib
+CPulseMathlib!AbsFloat
+CPulseMathlib!AbsInt
+CPulseMathlib!ClampFloat
+CPulseMathlib!ClampInt
+CPulseMathlib!Cos
+CPulseMathlib!MaxFloat
+CPulseMathlib!MaxInt
+CPulseMathlib!MinFloat
+CPulseMathlib!MinInt
+CPulseMathlib!Pow
+CPulseMathlib!Sin
 CPulseRuntimeMethodArg
 CPulseTestFuncs_DerivedDomain
 CPulseTestFuncs_DerivedDomain!GetCursorValueA
@@ -11056,7 +10891,6 @@ CSGO_%s
 CSGO_Checkmark
 CSGO_Checkmark_Spacer
 CSGO_GAME_UI_STATE_INGAME
-CSGO_GAME_UI_STATE_INTROMOVIE
 CSGO_GAME_UI_STATE_INVALID
 CSGO_GAME_UI_STATE_LOADINGSCREEN
 CSGO_GAME_UI_STATE_MAINMENU
@@ -11141,6 +10975,7 @@ CSmokeGrenadeProjectile
 CSmokeVolumeInstanceMaskRenderer::Render
 CSmokeVolumeObjectDesc
 CSmokeVolumeSceneObjectDesc::DrawArraySmokeVolume
+CSmokeVolumeSceneObjectDesc::SmokeDepth
 CSoundAreaEntityBase
 CSoundAreaEntityOrientedBox
 CSoundAreaEntitySphere
@@ -11519,7 +11354,7 @@ C_BaseCombatCharacter::WaterWakeMode_t
 C_BaseDoor
 C_BaseEntity
 C_BaseEntity::InterpolateEntities %.2fms
-C_BaseEntity::PerformLatchWork(), C:\buildworker\csgo_rel_win64\build\src\game\client\c_baseentity.cpp:2538
+C_BaseEntity::PerformLatchWork(), C:\buildworker\csgo_rel_win64\build\src\game\client\c_baseentity.cpp:2584
 C_BaseFire
 C_BaseFlex
 C_BaseFlex::AddSceneEvent:  event->GetActor() was NULL!!!
@@ -11841,6 +11676,7 @@ CallGlobalScriptFunction
 CallPrivateScriptFunction
 CallScriptFunction
 Callback for event "%s" is NULL!!!
+Called to fetch all needed bound values from the attached targets, when dirty.
 Called to invoke the graph
 Calling ReleaseGameInputHandler with an invalid handle. Cause: AddGameInputHandler never called or ReleaseGameInputHandler already called for the given handle.
 Camera
@@ -11893,6 +11729,7 @@ Cancel any waiting cursors.
 CancelButton
 CancelConnectToServer
 CancelDownloadingMatchAutoPlay
+CancelDrag
 CancelEntityIOEvents
 CancelPending
 CancelQuestAudio
@@ -11965,7 +11802,6 @@ CategoryContainer2
 CategoryContainer3
 CategoryContainer4
 CategoryContainer5
-CategoryHasAllDefaultItems
 CategoryIsSelected
 Causes each execution cursor to pause at this node for a fixed period of time. Each cursor will wake up and resume execution when the time expires, unless aborted or early-woken.
 CenterColumn
@@ -12022,7 +11858,11 @@ CircularProgressBar
 CircularProgressBarBG
 CircularProgressBarFG
 Clabel::OnMouseMove
+Clamp value to range (float)
+Clamp value to range (int)
+ClampFloat
 ClampHealth
+ClampInt
 Class
 Class: %s (%d)
 Class_T
@@ -12051,7 +11891,6 @@ ClearPanelEvent
 ClearPropertyFromCode
 ClearQuadCoverage
 ClearSelection
-ClearShuffle
 ClearTeamSelectPlayerLists
 ClearWorldDecalsEvent_t
 Clearing old .sav file %s
@@ -12422,6 +12261,7 @@ Controls which CT model is used when cl_minmodels is set to 1.
 Controls which Terrorist model is used when cl_minmodels is set to 1.
 Controls white-space wrapping on rendered text.  "normal" means wrap on whitespace, "nowrap" means do no wrapping at all.<br><br><b>Examples:</b><pre>white-space: normal;
 Convars
+Convert %s R%d <- %s R%d
 Convert AccountID into XUID
 Convert SteamID into multiple formats
 Converted rgb '%s'->'%s'.
@@ -12434,6 +12274,7 @@ CoopScoreReceived
 Copy Keys with Suffix
 Copy Matching Keys From
 Copy Property From
+Copy R%d <- R%d
 Copy for Panorama Alpha
 Copy to Clipboard
 CopyDepthNoCharacters
@@ -12448,6 +12289,7 @@ Coroutine_Continue
 Coroutine_Create
 Coroutine_YieldToMain
 Cos of angle of incidence to ladder perpendicular for applying ladder_dampen
+Cosine of angle, in degrees (0 -> 1, 90 -> 0)
 Could not create an instance of 
 Could not create defuser tool model.
 Could not deduce full path for map name %s
@@ -12469,7 +12311,6 @@ CountDownFinish
 CountDownTick
 CountFilesCompletedTrustCheck
 CountFilesNeedTrustCheck
-CountItemsInInventoryForShuffleSlot
 CountItemsToReport
 Countdown
 CountdownActive
@@ -12620,7 +12461,6 @@ DAMAGED_DIR_RIGHT
 DAMAGED_DIR_TOTAL
 DEBRIS
 DECOYGRENADE
-DEF INDEX %d IS NOT EQUIPPED ON TEAM %d
 DEFAULT_WRITE_PATH
 DEFINE
 DEFINE group contains more than one branch
@@ -12638,12 +12478,13 @@ DFLAG_SUPPRESS_DAMAGE_MODIFICATION
 DFLAG_SUPPRESS_EFFECTS
 DFLAG_SUPPRESS_HEALTH_CHANGES
 DFLAG_SUPPRESS_PHYSICS_FORCE
-DIGIT
 DIRECT
 DISABLED
 DISPLAY_LIMIT
 DISSOLVE
 DISTANCE
+DIV_FLOAT
+DIV_INT
 DLC Install Status
 DMG_%s
 DMG_ACID
@@ -12694,10 +12535,6 @@ DOTATooltipChatBubble
 DOTAUnignoreUser
 DOTAUserIgnoreStateChanged
 DOTAViewSteamProfile
-DOUBLE_AND
-DOUBLE_OR
-DOUBLE_QUOTED_STRING
-DOUBLE_QUOTE_CHAR
 DROWN
 DROWNRECOVER
 DURATION OF SOUND: %f
@@ -13117,6 +12954,7 @@ Disable
 Disable interpolation list optimizations.
 Disable map color-correction entities
 Disable player sprays.
+Disable teamselect menu on clients
 Disable weapon inaccuracy spread
 DisableAnimEventSounds
 DisableCollision
@@ -13190,6 +13028,7 @@ Distance to constrain first/thirdperson camera and head
 DistanceFromFocus%d
 DistanceTravelled
 DitherNoiseAmount
+Div R%d <- R%d / R%d
 Dizzy
 Do client side flex animation.
 Do not consider events that happened in the last specified number of seconds when a user clicks 'previous' on the UI.
@@ -13366,6 +13205,7 @@ Dump the state of the VM to the console
 DumpScriptBindings()
 Dumps info about an entity
 Dumps the client's soundscape data.
+Dumps the local player's animgraph state to console
 Dumps the names and values of this entity's script scope to the console
 Duplicate 'default' item definition.
 Duplicate Campaign definition id %d
@@ -13441,13 +13281,16 @@ ENTITY_IO_TARGET_ENTITYNAME_OR_CLASSNAME
 ENTITY_IO_TARGET_INVALID
 ENTITY_NOT_DORMANT
 ENTITY_SUSPENDED
+EQ_BOOL
+EQ_FLOAT
+EQ_INT
+EQ_STRING
 ERROR
 ERROR! Cannot load RenderingPipelineCsgoStartup resource manifest for the Csgo render pipeline!
 ERROR: Ammo (%s) found no CVar named (%s)
+ERROR: Duplicate generic_data_type (%s) found in vdata files (%s) and (%s).
 ERROR: No subclass vdata file (%s) found.
 ERROR: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!
-ESCAPE_CHAR
-ESCAPE_CODE
 ESL One Cologne 2014 CS:GO Championship
 ESL One Cologne 2015 CS:GO Championship
 ESL One Cologne 2016 CS:GO Championship
@@ -13482,9 +13325,7 @@ EXPLOSION_TYPE_NONE
 EXPLOSION_TYPE_SHRAPNEL
 EXPLOSION_TYPE_SMOKEGRENADE
 EXPLOSION_TYPE_TRIPMINE
-EXPONENT
 EXPORTSYSTEM_INTERFACE_VERSION_001
-Early exit
 EarlyRetireParticleSystems
 Eclipse
 Econ Description
@@ -13547,6 +13388,7 @@ Enable ImGui Input
 Enable all physics simulation
 Enable animation graph
 Enable animation graph networking. The setting is only read at graph creation time; to use please set on the command line.
+Enable automatic ammo purchase when inside buy zones during buy periods
 Enable close captioning.
 Enable fog
 Enable or Disable debug display of visibility boxes
@@ -13556,6 +13398,7 @@ Enable that firing will pretend like it's happening on frames.
 Enable the rendering of the hud
 Enable the use of the hw morph models. (-1 = never, 1 = always, 0 = based upon GPU)
 Enable the use of the hw morph vcd(s). (-1 = never, 1 = always, 0 = based upon GPU)
+Enable this to visualize collisions between player and geometry.
 Enable to force certain client convars to minimum/maximum values to help prevent competitive advantages.
 Enable to output stats about latching
 Enable to show interpolation profile timing
@@ -13644,12 +13487,12 @@ EnterCriticalSection
 Entities
 Entities/Client Entity Count
 Entities/Thinks
-Entity
 Entity "%s" encountered an error in RunPrivateScript()
 Entity %d: %s became %s on client
 Entity %s [%s]: Invalid keyvalue type for 'parentname' key of skeleton instance!
 Entity Browser
 Entity Dump
+Entity Handle
 Entity Health Fraction [0.0, 1.0]
 Entity Hierarchy For %d:
 Entity I/O attempted to invoke unknown global script function "%s"!
@@ -13658,9 +13501,10 @@ Entity I/O attempted to invoke unknown private script function "%s" on entity "%
 Entity Index, Model Name, Entity Class, Entity Name
 Entity Input  (%0.2f): (%d[%s]) "%s"[%s].%s(%s) <- Caller (%d[%s]) "%s"[%s] <- Activator (%d[%s]) "%s"[%s]
 Entity Load Unserialize
-Entity Orign (x,y,z)
+Entity Origin (x,y,z)
 Entity Output (%0.2f): (%d) "%s"[%s] : "%s"	Activator (%d) "%s"[%s]
 Entity Output (%0.2f): (%d[%s]) "%s"[%s] -> "%s".%s(%s)%s	Activator (%d[%s]) "%s"[%s]
+Entity Render Bounds Dimensions (x,y,z)
 Entity System
 Entity allocation failed since it forced slot %d, which is currently used by entity "%s"!
 Entity class %s does not have its own datadesc (uses %s)
@@ -13715,6 +13559,7 @@ EnvMapArray
 EnvVolumetricFogControllerSystem
 EnvironmentMaps
 Epsilon to trigger movement of VR subtitle panel in world space
+Eq R%d <- R%d == R%d
 EquipItemInSlot
 EquipPlayerFromLoadout
 EquipPlayerWithItem
@@ -13852,7 +13697,6 @@ Exposed Fixed Range
 Exposed Friendly Group
 Exposed Friendly Name
 ExposureBiasScaleFactor
-Expr: 
 ExpressionTokens
 Extension "
 Extension conflicts with extension already in database: extend 
@@ -13876,7 +13720,6 @@ ExtraMatchDataText
 ExtraMatchDataTextL
 ExtraMatchDataTextR
 Extraction
-Extraneous token
 EyeOcclusionDS.vtex
 EyeOcclusionPingPongRT_%dx%d.vtex
 EyeOcclusionRT.vtex
@@ -14043,9 +13886,6 @@ Fades: %d ------------------------------------
 Fail to schedule the chore!
 Failed to access account privacy settings!
 Failed to activate script entity %s of type %s: script entity instance is null
-Failed to allocate a lexer for '%s'. (Out of memory?)
-Failed to allocate a parser for '%s'. (Out of memory?)
-Failed to allocate a token stream for '%s'. (Out of memory?)
 Failed to allocate an instance of a class
 Failed to allocate an instance of class '%s'
 Failed to compile cubemaps
@@ -14100,6 +13940,12 @@ Failed to verify clan
 Failed to write %s
 Failed to write %s!
 Fake Ent-Fire
+FakeEntity_t
+FakeEntity_t!BasicFunction
+FakeEntity_t!GetFloatValue
+FakeEntity_t!GetIntValue
+FakeEntity_t!SetAndGetIntValue
+FakeEntity_t!SetIntValue
 FallVelocityQuantizer_t
 FalloffExponent
 False
@@ -14264,6 +14110,7 @@ FlashbangOverlay
 FlashbangResolveLayer
 Flashed
 FlashlightEffectManager1
+FlashlightReceiverManager
 FlashlightShadow_FOVLabel
 FlashlightShadow_FOVSlider
 FlattenedSerializersVersion001
@@ -14273,31 +14120,28 @@ Flick
 FlipFrustumX
 Float
 Float Bitmap Failure
-Float( %f )
 Float2
 Float3
 Float4
 FloatBitMap::QuarterSize
 FloatBitMap_t::ConvertGammaToLinear
-FloatBitMap_t::ConvertGammaToLinear(318): Conversion not supported yet!
-FloatBitMap_t::ConvertLinearToGamma(404): Conversion not supported yet!
+FloatBitMap_t::ConvertGammaToLinear(323): Conversion not supported yet!
+FloatBitMap_t::ConvertLinearToGamma(409): Conversion not supported yet!
 FloatBitMap_t::CopyFloatBitmap: Received NULL pointer!
 FloatBitMap_t::InitializeDummyRow
 FloatBitMap_t::LoadFromBuffer: Received improper buffer size, skipping!
 FloatBitMap_t::LoadFromBuffer: Unsupported color format, skipping!
 FloatBitMap_t::LoadFromFloatBitmap: Received improper bitmap size, skipping!
 FloatBitMap_t::WriteInMemoryEXRFast(), C:\buildworker\csgo_rel_win64\build\src\bitmap\tinyexr_impl.cpp:161
-FloatBitMap_t::WriteToBuffer(963): Unsupported color format "%s", skipping!
+FloatBitMap_t::WriteToBuffer(968): Unsupported color format "%s", skipping!
 FloatBitMap_t::WriteToBuffer: Received improper buffer size %s (expecting %s), skipping!
-FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1400
-FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1512
-FloatBitMap_t::WriteToBufferDXT_atitc(1020): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!
-FloatBitMap_t::WriteToBufferDXT_atitc(1105): Unsupported output color format "%s"!
-FloatBitMap_t::WriteToBufferDXT_atitc(1114): Error! Allocated %llu bytes when ATI's lib requires %d bytes!
-FloatBitMap_t::WriteToBufferDXT_atitc(1122): Error %d returned from ATI_TC_ConvertTexture()!
-FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1636
-FloatExpression failed to compile at runtime: %s
-FloatExpression failed to evaluate at runtime: %s
+FloatBitMap_t::WriteToBufferBC7_bc7e(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1405
+FloatBitMap_t::WriteToBufferBC7_ispctexcomp(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1517
+FloatBitMap_t::WriteToBufferDXT_atitc(1025): Error! Temp texture is %d bytes when ATI's lib requires %d bytes!
+FloatBitMap_t::WriteToBufferDXT_atitc(1110): Unsupported output color format "%s"!
+FloatBitMap_t::WriteToBufferDXT_atitc(1119): Error! Allocated %llu bytes when ATI's lib requires %d bytes!
+FloatBitMap_t::WriteToBufferDXT_atitc(1127): Error %d returned from ATI_TC_ConvertTexture()!
+FloatBitMap_t::WriteToBufferETC(), C:\buildworker\csgo_rel_win64\build\src\bitmap\floatbitmap.cpp:1641
 FloatTime
 FlsAlloc
 FlsFree
@@ -14328,11 +14172,13 @@ FootstepsMade
 For crosshair style 1: How big to make the gap between the pips in the fixed crosshair
 For drawing only the crosshair and death notices (used for moviemaking)
 For examples how to use Dear ImGui, see ImGui>Show Demo Window (imgui_demo.cpp) the Entity Browser, etc (or ask Pete)
+For subtick jumps, if this much time has elapsed since the last time the user has pressed the jump key, pretend they hadn't. Lowering this makes bunnyhopping easier.
 Force Reload Cubemaps
 Force a specific lesson to be triggered
 Force all clients to disable their game instructors.
 Force all shots to have maximum inaccuracy
 Force closing all visible popups
+Force human players on to a team. 0 to disable.
 Force on if not prohibited
 Force spread to the specified value.
 Force the view model to draw, even when in 3rd person
@@ -14418,7 +14264,6 @@ FullTossMovePush
 FullWalkMovePostMove
 FullWalkMovePreMove
 Fullscreen
-Func( %s )
 FuncMonitorTexture.vtex
 Function              %10s %10s %10s %10s
 FunctionInfo_t
@@ -14454,13 +14299,7 @@ GEAR_SLOT_RESERVED_SLOT9
 GEAR_SLOT_RIFLE
 GEAR_SLOT_UTILITY
 GENERIC
-GET_VAR_REG_BOOL
-GET_VAR_REG_EHANDLE
-GET_VAR_REG_FLOAT
-GET_VAR_REG_INT
-GET_VAR_REG_SNDEVT_GUID
-GET_VAR_REG_STR
-GET_VAR_REG_VEC3
+GET_VAR
 GI.lesson.%s
 GOTV Theater -- refreshing '%s' container...
 GOTV Theater -- starting GOTV for match #%d/%llu in '%s' container...
@@ -14508,6 +14347,7 @@ GameControllerMappingChanged
 GameDebugEntityBrowser
 GameDebugVisualizer
 GameEventSystemClientV001
+GameEventSystemServerV001
 GameEvent_RegisterHookupGameSystem
 GameHeader
 GameInit - PreCache - Finish
@@ -14628,6 +14468,8 @@ Get the match JSO to manage.
 Get the name of the map.
 Get the number of matches that can be managed.
 Get the steam id of the current lobby host.
+Get the test value as a float
+Get the test value as an int
 Get the time spent on the server in the last frame
 Get the timestamp of the earliest time deepstats will query for ('all time').
 Get time left to ready up for the current match.
@@ -14702,7 +14544,6 @@ GetCampaignNodeState
 GetCampaignNodeSubtitles
 GetCampaignNodeSuccessors
 GetCategories
-GetCategoryItemDefNames
 GetCharacterDefaultCheerByItemId
 GetCharacterDefaultCheerByXuid
 GetCharacterPatchPosition
@@ -14776,6 +14617,7 @@ GetDecodeableRestriction
 GetDeepStatsStartTime
 GetDefaultItem
 GetDefaultMiniDumpTypeFlags
+GetDefaultSlot
 GetDesignerNameForScriptClass
 GetDesiredPage
 GetDetailsAccountEntriesCount
@@ -14832,6 +14674,7 @@ GetFlairItemImage
 GetFlairItemName
 GetFloat
 GetFloat(name) : returns the convar as a float. May return null if no such convar.
+GetFloatValue
 GetFocusChild
 GetFocusIndex
 GetFocusedChildVisibleIndex
@@ -14915,6 +14758,7 @@ GetInt(name) : returns the convar as an int. May return null if no such convar.
 GetInt32
 GetInt64
 GetIntAttr
+GetIntValue
 GetInventoryCount
 GetInventoryItemIDByIndex
 GetInventoryStructureJSON
@@ -14927,7 +14771,6 @@ GetItemCapabilitiesCount
 GetItemCapabilityByIndex
 GetItemCapabilityDisabledMessageByIndex
 GetItemCertificateInfo
-GetItemCountInShuffle
 GetItemDefinitionIndex
 GetItemDefinitionIndexFromDefinitionName
 GetItemDefinitionName
@@ -14962,6 +14805,7 @@ GetLauncherType
 GetLeaderboardDetailsHandleForCoop
 GetLicenseType
 GetListenServerHost
+GetLoadoutCategory
 GetLoadoutSlotNames
 GetLocalOrInEyePlayerXuid
 GetLocalPlayerController
@@ -15152,6 +14996,20 @@ GetPossibleCraftResultID
 GetPossibleCraftResultName
 GetPossibleCraftResultsCount
 GetPreferredItemIdForItemDefIndex
+GetPregameMapIdState
+GetPregameMapIdsList
+GetPregameMyVoteInSlot
+GetPregamePhase
+GetPregamePhaseSecondsRemaining
+GetPregamePlayerCount
+GetPregamePlayerParty
+GetPregamePlayerXuid
+GetPregameTeamStartingCT
+GetPregameTeamToActNow
+GetPregameTeamWinningCoinToss
+GetPregameTeamWithFirstChoice
+GetPregameWinningVotes
+GetPregameXuidsForVote
 GetPrivateQueuePartyXuidByIndex
 GetPrivateQueuesCount
 GetPrivateQueuesMoreParties
@@ -15287,9 +15145,8 @@ GetSetNameByIndex
 GetSettingInfo
 GetSettingString
 GetShortPathNameA
-GetSlot
+GetShuffleItems
 GetSlotEquippedWithDefIndex
-GetSlotSubPosition
 GetSortMethodByIndex
 GetSortMethodsCount
 GetSpawnedEntities
@@ -15409,12 +15266,7 @@ GetUserDefaultLCID
 GetUserDefaultLocaleName
 GetUserObjectInformationW
 GetValue
-GetVar R%d <- Bool V%d (%s)
-GetVar R%d <- EHandle V%d (%s)
-GetVar R%d <- Float V%d (%s)
-GetVar R%d <- Int V%d (%s)
-GetVar R%d <- Str V%d (%s)
-GetVar R%d <- Vec3 V%d (%s)
+GetVar R%d <- V%d (%s)
 GetViewRenderInstance() must be implemented by game.
 GetViewerCount
 GetWeaponScores
@@ -15500,6 +15352,7 @@ GrassburnLayer
 GrassburnMats
 Gravity
 Greek
+Green
 GreenBlood
 Grenade
 Grenade Data
@@ -15957,7 +15810,6 @@ Hungarian
 Hurricane
 Husky
 HydroGraphic
-I could not work out what I was expecting, like so many of us these days!
 I suggest the following: try compressing the file again,
 ICON_OFFSET
 ICON_RELATIVE_OFFSET
@@ -15967,7 +15819,6 @@ IChoreoServices
 IChoreoServices::ChoreoState_t
 IChoreoServices::ScriptState_t
 IClientAlphaProperty
-ID_CHAR
 IEM 2019 Katowice CS:GO Major Championship
 IEM Rio 2022 CS:GO Major Championship
 IEconItemDescription::YieldingFillOutEconItemDescription()
@@ -16193,6 +16044,7 @@ InfoPanel
 InfoPaused
 InfoPivot
 InfoPlayer
+Init LightmapQueryData
 Init With
 InitAvatar
 InitGameRules: game rules entity (%s) not created
@@ -16370,7 +16222,6 @@ InstructorLesson--OnScreenPulse
 InstructorLessonDetails
 Insufficient random names pool!
 InsufficientLevel
-Int( %d )
 Integer
 Integer out of range (
 Integer2
@@ -16461,6 +16312,7 @@ Invite
 InviteXuid
 Invoke Cell%d [eid=%d] %s::%s
 Invoke Lib %s
+Invoke Target %s
 Invoke a javascript callback using a handle previously registered with RegisterJSCallback. First argument must be the callback handle followed by the callback's arguments.
 InvokeJSCallback
 InvokeMiniDumpHandler
@@ -16476,11 +16328,9 @@ Is Interpolated
 Is Panorama in ECO (perf) mode
 Is attached to parent
 Is gamestate data currently latched and not updating (e.g. end-of-match)
-Is item slot allowed to shuffle items
 Is local user the host of the currently active session. False if no session active.
 Is set, the clan name will show next to player names in the death notices.
 Is this a starter item?
-Is this weapon slot/team currently shuffling items
 IsAttachedToParent
 IsBannerEntryMarketLink
 IsBundle
@@ -16520,7 +16370,6 @@ IsInventoryImageCachable
 IsInventoryValid
 IsItemDefEquipped
 IsItemDefault
-IsItemInShuffleForTeam
 IsItemInfoValid
 IsItemNew
 IsItemStickerAtExtremeWear
@@ -16528,7 +16377,6 @@ IsItemUnusual
 IsLatched
 IsLive
 IsLoadoutAllowed
-IsLoadoutSlotSubPositionAWeapon
 IsLocalPlayerHLTV
 IsLocalPlayerPlayingMatch
 IsLocalPlayerWatchingOwnDemo
@@ -16538,6 +16386,7 @@ IsMaster
 IsMissionRefuseAllowed
 IsMultiplayer
 IsNewClientAvailable
+IsNewPlayer
 IsPanoramaInECOMode
 IsPartyMember
 IsPartySessionActive
@@ -16559,7 +16408,6 @@ IsServer
 IsServerLogTournamentMatch
 IsServerQuestEligible
 IsSessionActive
-IsShuffleAllowed
 IsShuffleEnabled
 IsSizeValid
 IsSplitScreen
@@ -16627,6 +16475,7 @@ ItemInspectConnectedPainted
 ItemInspectMainMenuDefault
 ItemInspectMainMenuPainted
 ItemInspectMainMenu_CharacterTest
+ItemIsInFavorites
 ItemName
 ItemNameCraftNumberFormat
 ItemNameUniqueFormat
@@ -16697,7 +16546,7 @@ JsOnMapLoadStarted
 JsRegionLabel
 Jump to Instr I%d
 JumpOrLeap( C%d:I%d )
-Jun  5 2023
+Jun 29 2023
 Jungle
 Just ignore the calculations, you can zoom to this amount (will validate that this is <= maxscale)
 JustInTimeManifest
@@ -16739,6 +16588,7 @@ KnifeSlash
 KnifeSlash_global_client
 Known
 Korean
+LAST_SERIALIZED_CODE
 LATCH_DIRTY_CLIENT_SIMULATED
 LATCH_DIRTY_DISALLOW
 LATCH_DIRTY_FRAMESIMULATE
@@ -16757,84 +16607,81 @@ LIFE_DYING
 LIFE_RESPAWNABLE
 LIFE_RESPAWNING
 LINEAR_D24S8
-LINE_CONTINUATION
-LITERAL_FALSE
-LITERAL_TRUE
 LOADOUT ACTION BATCH #%i
 LOADOUT GC UPDATE BaseItem "%s" to slot: %i
-LOADOUT_POSITION_C4
-LOADOUT_POSITION_CLOTHING_APPEARANCE
-LOADOUT_POSITION_CLOTHING_CUSTOMPLAYER
-LOADOUT_POSITION_CLOTHING_EYEWEAR
-LOADOUT_POSITION_CLOTHING_FACEMASK
-LOADOUT_POSITION_CLOTHING_HANDS
-LOADOUT_POSITION_CLOTHING_HAT
-LOADOUT_POSITION_CLOTHING_LOWERBODY
-LOADOUT_POSITION_CLOTHING_TORSO
-LOADOUT_POSITION_COUNT
-LOADOUT_POSITION_EQUIPMENT0
-LOADOUT_POSITION_EQUIPMENT1
-LOADOUT_POSITION_EQUIPMENT2
-LOADOUT_POSITION_EQUIPMENT3
-LOADOUT_POSITION_EQUIPMENT4
-LOADOUT_POSITION_EQUIPMENT5
-LOADOUT_POSITION_FIRST_ALL_CHARACTER
-LOADOUT_POSITION_FIRST_AUTO_BUY_WEAPON
-LOADOUT_POSITION_FIRST_COSMETIC
-LOADOUT_POSITION_FIRST_PRIMARY_WEAPON
-LOADOUT_POSITION_FIRST_WHEEL_EQUIPMENT
-LOADOUT_POSITION_FIRST_WHEEL_GRENADE
-LOADOUT_POSITION_FIRST_WHEEL_WEAPON
-LOADOUT_POSITION_FLAIR0
-LOADOUT_POSITION_GRENADE0
-LOADOUT_POSITION_GRENADE1
-LOADOUT_POSITION_GRENADE2
-LOADOUT_POSITION_GRENADE3
-LOADOUT_POSITION_GRENADE4
-LOADOUT_POSITION_GRENADE5
-LOADOUT_POSITION_HEAVY0
-LOADOUT_POSITION_HEAVY1
-LOADOUT_POSITION_HEAVY2
-LOADOUT_POSITION_HEAVY3
-LOADOUT_POSITION_HEAVY4
-LOADOUT_POSITION_HEAVY5
-LOADOUT_POSITION_INVALID
-LOADOUT_POSITION_LAST_ALL_CHARACTER
-LOADOUT_POSITION_LAST_AUTO_BUY_WEAPON
-LOADOUT_POSITION_LAST_COSMETIC
-LOADOUT_POSITION_LAST_PRIMARY_WEAPON
-LOADOUT_POSITION_LAST_WHEEL_EQUIPMENT
-LOADOUT_POSITION_LAST_WHEEL_GRENADE
-LOADOUT_POSITION_LAST_WHEEL_WEAPON
-LOADOUT_POSITION_MELEE
-LOADOUT_POSITION_MISC0
-LOADOUT_POSITION_MISC1
-LOADOUT_POSITION_MISC2
-LOADOUT_POSITION_MISC3
-LOADOUT_POSITION_MISC4
-LOADOUT_POSITION_MISC5
-LOADOUT_POSITION_MISC6
-LOADOUT_POSITION_MUSICKIT
-LOADOUT_POSITION_PET
-LOADOUT_POSITION_RIFLE0
-LOADOUT_POSITION_RIFLE1
-LOADOUT_POSITION_RIFLE2
-LOADOUT_POSITION_RIFLE3
-LOADOUT_POSITION_RIFLE4
-LOADOUT_POSITION_RIFLE5
-LOADOUT_POSITION_SECONDARY0
-LOADOUT_POSITION_SECONDARY1
-LOADOUT_POSITION_SECONDARY2
-LOADOUT_POSITION_SECONDARY3
-LOADOUT_POSITION_SECONDARY4
-LOADOUT_POSITION_SECONDARY5
-LOADOUT_POSITION_SMG0
-LOADOUT_POSITION_SMG1
-LOADOUT_POSITION_SMG2
-LOADOUT_POSITION_SMG3
-LOADOUT_POSITION_SMG4
-LOADOUT_POSITION_SMG5
-LOADOUT_POSITION_SPRAY0
+LOADOUT_SLOT_C4
+LOADOUT_SLOT_CLOTHING_APPEARANCE
+LOADOUT_SLOT_CLOTHING_CUSTOMPLAYER
+LOADOUT_SLOT_CLOTHING_EYEWEAR
+LOADOUT_SLOT_CLOTHING_FACEMASK
+LOADOUT_SLOT_CLOTHING_HANDS
+LOADOUT_SLOT_CLOTHING_HAT
+LOADOUT_SLOT_CLOTHING_LOWERBODY
+LOADOUT_SLOT_CLOTHING_TORSO
+LOADOUT_SLOT_COUNT
+LOADOUT_SLOT_EQUIPMENT0
+LOADOUT_SLOT_EQUIPMENT1
+LOADOUT_SLOT_EQUIPMENT2
+LOADOUT_SLOT_EQUIPMENT3
+LOADOUT_SLOT_EQUIPMENT4
+LOADOUT_SLOT_EQUIPMENT5
+LOADOUT_SLOT_FIRST_ALL_CHARACTER
+LOADOUT_SLOT_FIRST_AUTO_BUY_WEAPON
+LOADOUT_SLOT_FIRST_COSMETIC
+LOADOUT_SLOT_FIRST_PRIMARY_WEAPON
+LOADOUT_SLOT_FIRST_WHEEL_EQUIPMENT
+LOADOUT_SLOT_FIRST_WHEEL_GRENADE
+LOADOUT_SLOT_FIRST_WHEEL_WEAPON
+LOADOUT_SLOT_FLAIR0
+LOADOUT_SLOT_GRENADE0
+LOADOUT_SLOT_GRENADE1
+LOADOUT_SLOT_GRENADE2
+LOADOUT_SLOT_GRENADE3
+LOADOUT_SLOT_GRENADE4
+LOADOUT_SLOT_GRENADE5
+LOADOUT_SLOT_HEAVY0
+LOADOUT_SLOT_HEAVY1
+LOADOUT_SLOT_HEAVY2
+LOADOUT_SLOT_HEAVY3
+LOADOUT_SLOT_HEAVY4
+LOADOUT_SLOT_HEAVY5
+LOADOUT_SLOT_INVALID
+LOADOUT_SLOT_LAST_ALL_CHARACTER
+LOADOUT_SLOT_LAST_AUTO_BUY_WEAPON
+LOADOUT_SLOT_LAST_COSMETIC
+LOADOUT_SLOT_LAST_PRIMARY_WEAPON
+LOADOUT_SLOT_LAST_WHEEL_EQUIPMENT
+LOADOUT_SLOT_LAST_WHEEL_GRENADE
+LOADOUT_SLOT_LAST_WHEEL_WEAPON
+LOADOUT_SLOT_MELEE
+LOADOUT_SLOT_MISC0
+LOADOUT_SLOT_MISC1
+LOADOUT_SLOT_MISC2
+LOADOUT_SLOT_MISC3
+LOADOUT_SLOT_MISC4
+LOADOUT_SLOT_MISC5
+LOADOUT_SLOT_MISC6
+LOADOUT_SLOT_MUSICKIT
+LOADOUT_SLOT_PET
+LOADOUT_SLOT_RIFLE0
+LOADOUT_SLOT_RIFLE1
+LOADOUT_SLOT_RIFLE2
+LOADOUT_SLOT_RIFLE3
+LOADOUT_SLOT_RIFLE4
+LOADOUT_SLOT_RIFLE5
+LOADOUT_SLOT_SECONDARY0
+LOADOUT_SLOT_SECONDARY1
+LOADOUT_SLOT_SECONDARY2
+LOADOUT_SLOT_SECONDARY3
+LOADOUT_SLOT_SECONDARY4
+LOADOUT_SLOT_SECONDARY5
+LOADOUT_SLOT_SMG0
+LOADOUT_SLOT_SMG1
+LOADOUT_SLOT_SMG2
+LOADOUT_SLOT_SMG3
+LOADOUT_SLOT_SMG4
+LOADOUT_SLOT_SMG5
+LOADOUT_SLOT_SPRAY0
 LOCAL_PLAYER
 LOCK_DURATION
 LOG_CONSOLE
@@ -16853,6 +16700,10 @@ LOOSE_VARIABLE_TYPE_RESOURCE_MATERIAL
 LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE
 LOOSE_VARIABLE_TYPE_STRING
 LOOSE_VARIABLE_TYPE_SYSTEMVAR
+LTE_FLOAT
+LTE_INT
+LT_FLOAT
+LT_INT
 LT_txt
 Label
 Label.BgColor
@@ -16904,11 +16755,14 @@ LeftMouseScrollRegion
 LeftOfFocus%d
 LeftPip
 LeftPipBlack
+LegacyConsoleInput
 LegacyGameUI001
 Length
 Length of time grenade trajectory remains visible as a spectator.
 LensPlane
 LerpVectors
+Less R%d <- R%d < R%d
+LessEq R%d <- R%d <= R%d
 Lesson 
 Lesson "%s" defined twice!
 LessonContainer
@@ -16916,7 +16770,6 @@ LessonInstance
 Lessons
 Level
 Level: %s
-Lexer encountered %d error(s)
 Library
 LifeState_t
 Lifetime
@@ -16943,14 +16796,13 @@ LightSelectionLabel
 LightStylesManifest_Client
 LightingOriginOffset
 Lightmap Query Data unknown version number %d
-LightmapQueryData_t::Init(), C:\buildworker\csgo_rel_win64\build\src\game\shared\lightquerygamesystem.cpp:221
+LightmapQueryData_t::Init(), C:\buildworker\csgo_rel_win64\build\src\game\shared\lightquerygamesystem.cpp:228
 LightmapUV
 LightmapUVW
 Limit the number of consecutive rounds targeting the same site.
 Limited
 Line %i
 Line2D
-Line: 
 LineGraphOuter
 Linear
 Lines starting with # or // will be skipped
@@ -17001,6 +16853,7 @@ Loading custom game "%s" with map "%s"
 LoadingScreenOpened
 LoadingThrobber
 LoadoutAPI
+LoadoutFavorites
 LoadoutFilterByItemType
 LoadoutMenu_Character
 LoadoutSlot
@@ -17144,7 +16997,6 @@ MIsBoxedFloatType
 MIsBoxedIntegerType
 MIsStringAndTokenType
 MLG Columbus 2016 CS:GO Championship
-ML_COMMENT
 MM/dd/yy
 MMStatus
 MNetworkAlias
@@ -17174,8 +17026,9 @@ MNetworkVarEmbeddedFieldOffsetDelta
 MNetworkVarNames
 MNetworkVarTypeOverride
 MNetworkVarsAtomic
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
+MOD_FLOAT
+MOD_INT
 MOLOTOV
 MOUSE
 MOVECOLLIDE_COUNT
@@ -17217,17 +17070,23 @@ MPropertyHideField
 MPropertyStartGroup
 MPropertySuppressBaseClassField
 MPropertySuppressEnumerator
+MPulseBindableTarget
 MPulseCellMethodBindings
 MPulseCellWithCustomDocNode
 MPulseDomainHiddenInTool
+MPulseDomainOptInFeatureTag
 MPulseEditorHeaderIcon
 MPulseEditorHeaderText
 MPulseInstanceDomainInfo
 MPulseLibraryBindings
+MPulseProvideFeatureTag
+MPulseRegisterTypeInfo
 MSAA Resolve No Shader
 MSAA Resolve NoShader
 MSAA Resolve PS
 MTreatUnknownEnumeratorsAsZero
+MUL_FLOAT
+MUL_INT
 MUST FIX: %s
 MVDataNodeType
 MVDataOverlayType
@@ -17266,6 +17125,7 @@ MainMenu_PromotedSettingsViewed
 MainThread
 Mainly cosmetic, client-only effect: when client doesn't know the last position of another player that spawns a ragdoll, the ragdoll creation is simplified and ragdoll is created in the right place. If you increase this significantly, ragdoll positions on your client may be dramatically wrong, but it won't affect other clients
 Make a joinable session in preparation to start matchmaking or running a listen server.
+MakeGlobalSymbol
 MakeOnline
 MakeStringSafe
 MakeStringToken
@@ -17413,7 +17273,9 @@ MaxAlertHeight
 MaxButton
 MaxExposure
 MaxFPS
+MaxFloat
 MaxHistogramGuideline
+MaxInt
 MaxNetworkableEntities
 MaxNonNetworkableEntities
 Maximum amount of force applied to physics objects by players.
@@ -17422,6 +17284,8 @@ Maximum angle of slope on which the molotov will detonate
 Maximum distance to transmit footstep sound effects.
 Maximum number of ragdolls to show (-1 disables limit)
 Maximum of how hard the player is pushed away from physics objects.
+Maximum of two values (float)
+Maximum of two values (int)
 Maximum prop breakable piece count per frame (-1 = model default)
 Maximum size in bytes of the WebAPIValues buffer pool
 Maximum speed any ballistically moving object is allowed to attain per axis.
@@ -17442,12 +17306,9 @@ MediaVolumeUp
 Melee
 MemAlloc_AllocAlignedFunc
 MemAlloc_AllocFunc
-MemAlloc_CallocFunc
 MemAlloc_FreeAlignedFunc
 MemAlloc_FreeFunc
-MemAlloc_ReallocFunc
 MemAlloc_StrDupFunc
-MemAlloc_StrDupWrapperFunc
 MemAlloc_WcStrDupFunc
 Members
 Memory Level - Default: High
@@ -17487,11 +17348,15 @@ Min FPS at which molotov dlights will be created
 MinButton
 MinExposure
 MinFPS
+MinFloat
 MinHistogramGuideline
+MinInt
 MinimizeApp
 Minimum amount of time to pause between playing main menu music
 Minimum clamped size in pixels of a cable (if using F_CLAMP_MIN_RADIUS 1 in cable material)
 Minimum number of seconds that halftime lasts even if team intros are active
+Minimum of two values (float)
+Minimum of two values (int)
 Minimum size of pushback objects
 Minimum stopping speed when on ground.
 Minimum time before recognizing consecutive duck key
@@ -17502,13 +17367,9 @@ Minutes
 Mirage
 Mirror
 MirrorPattern
-Mismatched Token Exception
-Mismatched set
 Missing Model
 Missing caption for '%s'
 Missing exposed variables from: %s
-Missing token
-Missing token %s
 Mission
 MissionsAPI
 Mixed
@@ -17518,6 +17379,7 @@ MixedResolutionScale
 MixedResolutionTexture
 MixedShadowsChanged
 Mocha
+Mod R%d <- R%d %% R%d
 ModData
 ModInfo
 Model "%s" :	
@@ -17605,6 +17467,7 @@ MoviePlayerUIVisible
 MoviePlayerVolumeControl
 MoviePlaying
 Moving %s to %s
+Mul R%d <- R%d * R%d
 MultiByteToWideChar
 Multiple components in same entity instance not supported (%s in class %s)
 Multiple entity classes have the same designer name "%s" ( alias class %s and class %s )
@@ -17667,11 +17530,16 @@ NDebugOverlay::Box
 NDebugOverlay::ScreenTextOffset
 NDebugOverlay::ScreenTextPretty
 NDebugOverlay::Text
-NEGATIVE_TOK
+NEGATE
+NEGATE_FLOAT
+NEGATE_INT
 NERVEGAS
 NETWORK_FIELD_CHANGES_OFTEN_PRIORITY
 NEVERGIB
-NEWLINE
+NE_BOOL
+NE_FLOAT
+NE_INT
+NE_STRING
 NORTH
 NOT ENOUGH SPACE
 NOT opened (because action is not bound).
@@ -17711,7 +17579,9 @@ NavigationSnapshot
 NearFarScaleBias
 Need to increase size of static g_StylePropertyRegistrations (MAX_PANORAMA_STYLE_SYMBOLS) before registering more styles, failed on %s
 NeedDebounce
+Neg R%d <- -R%d
 Nemesis
+Neq R%d <- R%d != R%d
 NetMsg: %s
 NetMsg: Unknown %d
 NetworkClientService_001
@@ -17752,7 +17622,6 @@ No conversion from %s to int now
 No conversion from %s to string at the moment!
 No debugoverlay to clear with
 No default value
-No expression!
 No field named "uninterpreted_option" in the Options proto.
 No free conversion of %s variant to %s right now
 No free conversion of %s variant to Color right now
@@ -17763,7 +17632,6 @@ No free conversion of %s variant to string_t right now
 No free locator targets!
 No free server controlled control points.
 No game search path! Can't create minimap!
-No input data for '%s'. (Empty buffer.)
 No key specified
 No map loaded
 No map loaded!
@@ -17796,9 +17664,11 @@ NonDemoOnly_RecipientsFilter
 None given.
 Normal Map
 NormalWaterLayer
+NormalWsTexture
 North
 Norwegian
 Not Found!
+Not R%d <- !R%d
 Not VAC verified
 Not expecting FIELD_EMBEDDED in flattened list (%s)
 Not logged in
@@ -17874,10 +17744,6 @@ ONFRAME_FALSE
 ONFRAME_TRUE
 ONFRAME_UNKNOWN
 ONSCREEN_ICON
-OPEN_BRACE
-OPEN_BRACKET
-OPEN_PAREN
-OP_EQUAL
 OSType
 OUTPUT
 OVERLAY_ABSBOX_BIT
@@ -17984,10 +17850,12 @@ OnHeadConstraintChanged
 OnHealthChanged
 OnInterpolationAmountChanged
 OnInterpolationFrameChanged
+OnIntroMatchesRefused
 OnInvite
 OnIsSpottedChanged
 OnJumpedChanged
 OnLatchInterpolatedVariables
+OnLifeStateChanged
 OnLightGroupChanged
 OnLocalPlayerChangedTeam
 OnLocalVelocityChanged
@@ -18022,6 +17890,7 @@ OnNightVisionChanged
 OnObserverModeChanged
 OnObserverTargetChanged
 OnOpen event 
+OnOpenPlayMenu
 OnOpenScoreboard
 OnPawnChanged
 OnPlayerActivity
@@ -18047,7 +17916,6 @@ OnSale
 OnScaleChanged
 OnScaleTimeChanged
 OnScreenAnim
-OnServerAngleChange
 OnShow
 OnSimulationChanged
 OnSimulationTimeChanged
@@ -18135,6 +18003,7 @@ Option field "
 Option_%d
 OptionsMenuAPI
 Opvar Set Point Manager
+Or R%d <- R%d || R%d
 Ordered constructor wrapped type has no default constructor.
 OrigMat
 Origin
@@ -18254,8 +18123,6 @@ POISON
 PORT OFFSET [%d]: %s -> %s
 POSIX collating elements are not supported
 POSIX named classes are supported only within a class
-POS_FLOATLITERAL
-POS_INTLITERAL
 PRECIPITATION
 PRECIPITATIONBLOCKER
 PREVENT_PHYSICS_FORCE
@@ -18273,6 +18140,7 @@ PVAL_FLOAT
 PVAL_INT
 PVAL_INVALID
 PVAL_RESOURCE
+PVAL_SCHEMA_PTR
 PVAL_SNDEVT_GUID
 PVAL_STRING
 PVAL_TRANSFORM
@@ -18354,6 +18222,7 @@ PanoramaComponent_Inventory_PrestigeCoinResponse
 PanoramaComponent_Inventory_WeaponPreviewRequest
 PanoramaComponent_Leaderboards_StateChange
 PanoramaComponent_Loadout_EquipSlotChanged
+PanoramaComponent_Loadout_SetShuffleEnabled
 PanoramaComponent_Lobby_MatchmakingSessionUpdate
 PanoramaComponent_Lobby_PartyChat
 PanoramaComponent_Lobby_PartyLeaderChanged
@@ -18361,6 +18230,7 @@ PanoramaComponent_Lobby_PlayerJoined
 PanoramaComponent_Lobby_PlayerRemoved
 PanoramaComponent_Lobby_PlayerUpdated
 PanoramaComponent_Lobby_ReadyUpForMatch
+PanoramaComponent_Lobby_ShowPreMatchInterface
 PanoramaComponent_MatchInfo_StateChange
 PanoramaComponent_MatchList_FantasyUploaded
 PanoramaComponent_MatchList_PredictionUploaded
@@ -18385,6 +18255,7 @@ PanoramaComponent_PartyBrowser_PrivateQueuesUpdate
 PanoramaComponent_PartyBrowser_Refresh
 PanoramaComponent_PartyList_PlayerActivityVoice
 PanoramaComponent_PartyList_RebuildPartyList
+PanoramaComponent_PregameDraft_DraftUpdate
 PanoramaComponent_Store_AccountWalletUpdated
 PanoramaComponent_Store_PriceSheetChanged
 PanoramaComponent_Store_PurchaseCompleted
@@ -18422,7 +18293,6 @@ Params
 Parent Map: %s
 ParentWithProperties
 Parse error on %s: %s
-Parser encountered %d error(s)
 ParserResponse
 Parsing attempt:  
 Particle Effect Systems:
@@ -18590,6 +18460,7 @@ Plat_GetTimeString
 Plat_IsHighDPI
 Plat_IsInDebugSession
 Plat_IsInTestMode
+Plat_IsWindowFocused
 Plat_LoadModule
 Plat_MSTime
 Plat_MessageBox
@@ -19022,7 +18893,6 @@ ProgressionIcon
 ProgressionIcon--level
 ProgressionPip
 PromptShowSelectItemForCapabilityPopup
-Prop( %s )
 PropColon
 PropData
 PropName
@@ -19046,9 +18916,11 @@ Public Release
 PublicUniverse
 Puffin
 Pulse
+PulseClientEntities
 PulseDebugLog: %s
 PulseDebugLog: Calling external method on non-existent entity
 PulseDocNodeID_t
+PulseFakeEntities
 PulseInstructionCode_t
 PulseMethodCallMode_t
 PulseRegisterMap_t
@@ -19352,12 +19224,12 @@ Received server welcome from GC.
 Recipe definition %d: Missing required field "input_items"
 Recipe definition %d: Missing required field "output_items"
 Recipe definition index %d must be greater than or equal to zero
-Recognition Exception
-Recognition exception
 Recommended Distance
 Recommended distance this movement traverses
 RecomputeSprings
 ReconnectGameInterface
+ReconstructNormals
+Record that the function was called
 RecordUIEvent
 Recording duration: %f seconds
 Recovery
@@ -19437,7 +19309,6 @@ Reloads the hud scale and resets scale and borders
 Reloads wearable custom materials for the local player
 RemainText
 Remote Storage unavailable, failing to save preferred items to cloud.
-Remote Storage unavailable, failing to save shuffle file to cloud.
 Remove
 Remove Command
 Remove a CSS class from a panel after a specified delay. 
@@ -19445,8 +19316,6 @@ Remove a CSS class from a panel.
 Remove a CSS class from all children of this panel.
 Remove a filter from the game debug overlay
 Remove a watch from the game debug overlay
-Remove all shuffled items from the loadout position associted with the item ID. Returns true if an existing shuffle was cleared.
-Remove item from the shuffle list for the associated loadout position. Returns true if item was sucessfully removed from any shuffle 
 Remove the C proxy for a script-based spawn group filter
 Remove the decals from the entity under the crosshair.
 Remove then immediately add back a CSS class from a panel. Useful to re-trigger events like animations or sound effects.
@@ -19461,7 +19330,7 @@ RemoveCraftIngredient
 RemoveExpiredTimedStyles
 RemoveHealth
 RemoveItemFromCart
-RemoveItemFromShuffle
+RemoveItemFromFavorites
 RemoveItemModel
 RemoveLast
 RemoveOption
@@ -19577,7 +19446,6 @@ Reset all player equipment every N rounds (0 for never)
 Reset all player money every N rounds (0 for never)
 Reset information from cl_showfps.
 ResetCarouselMouseWheelCounts
-ResetCategoryToDefaultItems
 ResetEvent
 ResetEventIndicatorPanel
 ResetSequence : %s: %s -> %s
@@ -19658,7 +19526,6 @@ Return XUID by index for the accepted match
 Return a comma delimited list of short mapnames (eg 'de_dust2, de_inferno, 123123/de_workshopmap') in the currently playing map group (returns null if not in game).
 Return a comma delimited list of short mapnames (eg 'de_dust2, de_inferno, 123123/de_workshopmap') in the given map group.
 Return a loc token for the given short map name (eg 'de_dust2').
-Return count of items selected for shuffle given slot
 Return number of accounts in the accepted match
 Return true if this match was entered 
 ReturnJobManualEventToPool
@@ -19696,6 +19563,7 @@ RightPipBlack
 Robin
 RollPercentage
 Romanian
+RoomDSP
 Root class of all client-side entities
 Root entity class
 Rope subdivision amount
@@ -19768,7 +19636,6 @@ SCRIPT_WAIT
 SCRIPT_WALK_TO_MARK
 SChinese
 SEARCH
-SEMICOLON
 SERVERSIDE
 SET_REGISTER_DOMAIN_VALUE
 SET_REGISTER_LIT_BOOL
@@ -19778,13 +19645,7 @@ SET_REGISTER_LIT_INVAL_EHANDLE
 SET_REGISTER_LIT_INVAL_SNDEVT_GUID
 SET_REGISTER_LIT_STR
 SET_REGISTER_LIT_VEC3
-SET_VAR_REG_BOOL
-SET_VAR_REG_EHANDLE
-SET_VAR_REG_FLOAT
-SET_VAR_REG_INT
-SET_VAR_REG_SNDEVT_GUID
-SET_VAR_REG_STR
-SET_VAR_REG_VEC3
+SET_VAR
 SF GetLootListItemIdByIndex called on an item with no loot list. Only crates and quests are supported
 SFMShadowDepthTexture
 SFUIHUD_Spectate_Predictions
@@ -19829,9 +19690,6 @@ SHOW-EQUIPINFO
 SHOW-NADES
 SHOW-WEAPON
 SHOW_WHEN_OCCLUDED
-SINGLE_LINE_COMMENT
-SINGLE_QUOTED_STRING
-SINGLE_QUOTE_CHAR
 SLASH
 SLOWBURN
 SMOKEGRENADE
@@ -19942,7 +19800,6 @@ STEAM_REQUIRED: No steam friends
 STEAM_REQUIRED: No steam user
 STRING1
 STRING2
-STRING_CHAR
 SUBCLASS_SCOPE_COUNT
 SUBCLASS_SCOPE_NONE
 SUBCLASS_SCOPE_PLAYER_WEAPONS
@@ -19950,6 +19807,8 @@ SUBCLASS_SCOPE_PRECIPITATION
 SUBCLASS_VDATA_CREATED
 SUBCLASS_VDATA_RELOADED
 SUBCLASS_VDATA_SUBCLASS_CHANGED
+SUB_FLOAT
+SUB_INT
 SUB_Remove called on entity with health > 0
 SUPPRESS_REST
 SURROUNDING_TYPE_BIT_COUNT
@@ -19980,9 +19839,7 @@ SaveRestoreIO
 SaveRestoreIOFiltered
 SaveRestoreSyncIO
 Saved log to '%s'
-SavedItemShuffles
 Saves all active animgraph recordings to disk
-Saves the last viewed spectator mode for use next time we start to spectate
 Saving game to %s...
 Scale
 Scale (%s space)
@@ -20337,6 +20194,7 @@ SelectionGroup
 Selector
 SellItem
 SellbackButton
+SellbackPurchaseEntry_t
 Send a string to the console as a client command
 SendProxyNotUsingClientSideAnimation_RecipientsFilter
 SendToConsole
@@ -20404,6 +20262,7 @@ Set the key to use for donation in the buy menu. 0: Left Control; 1: Left Alt; 2
 Set the max dimension for the map.  This determines the far clipping plane
 Set the message on this entity.
 Set the name of %s to %s
+Set the test value as an int
 Set this convar to a comma-delimited list of definition indices of weapons that should be prohibited from use.
 Set to 1 and the game instructor will run EVERY scripted command to uncover errors.
 Set to 1 for standard debugging or 2 (in combo with gameinstructor_verbose_lesson) to show update actions.
@@ -20428,6 +20287,7 @@ SetAlreadyLocalizedText
 SetAmbientLightColor
 SetAmbientLightColor( %3.2f, %3.2f, %3.2f )
 SetAmmoType
+SetAndGetIntValue
 SetAngles
 SetAngularVelocity
 SetAnimGraphParameter
@@ -20575,6 +20435,7 @@ SetInt32
 SetInt64
 SetIntAttr
 SetIntMessage
+SetIntValue
 SetInventoryFilter
 SetInventorySortAndFilters
 SetItemAttributeValueAsync
@@ -20706,12 +20567,7 @@ SetURL
 SetUnhandledExceptionFilter
 SetUnloadFunction
 SetValueNoEvents
-SetVar V%d (%s) <- Bool R%d
-SetVar V%d (%s) <- EHandle R%d
-SetVar V%d (%s) <- Float R%d
-SetVar V%d (%s) <- Int R%d
-SetVar V%d (%s) <- Str R%d
-SetVar V%d (%s) <- Vec3 R%d
+SetVar V%d (%s) <- R%d
 SetVelocity
 SetWantsCamera
 Sets 2 dimensional X/Y scale factors that apply to the quad for this panel prior to 3 dimensional transforms. This scaling applies without perspective and leaves the panel centered at the same spot as it started. Default of 1.0 means no scaling, 0.5 would be half size.<br><br><b>Examples:</b><pre>pre-transform-scale2d: 0.8
@@ -20812,6 +20668,7 @@ Should we offset the current frame to the tick
 Should we play the animevents that animgraph will skip over?
 Should we skip the first frame of shooting to make the animation punchier?
 Should we use new move code or just force legacy move.
+ShouldAutostartBotMatch
 ShouldShow
 ShouldShowHudElements
 ShouldShowSpecStats
@@ -21000,10 +20857,7 @@ Shows teamID over player's heads.  0 = off, 1 = on
 Shows this layer
 Shrapnel
 Shrapnel.Explode
-Shuffle equipment in the given slot (if enough valid items are equipped)
-ShuffleAllForTeam
-ShuffleEquipmentInSlot
-Shuffles failed to write to remote storage (%d)
+ShuffleSlots
 Shut down existing lobby session.
 ShutdownMachine
 ShutdownPredictables due to convar change
@@ -21022,6 +20876,7 @@ Simulated GC communications failure is active. Mode: Down
 Simulated GC communications failure is active. Mode: RecvOnly
 Simulated GC communications failure is not active.
 SimultaneousParallel (%d): 
+Sine of angle, in degrees (0 -> 0, 90 -> 1)
 SinglePlayerSharedMemory001
 Sirocco
 Size of minimap texture generated with cs_minimap_create (512 default)
@@ -21079,6 +20934,7 @@ SmokeMaskCopyDepth
 SmokeOverlayDataA.vtex
 SmokeOverlayDataB.vtex
 SmokeRenderer
+SmokeShadow
 SmokeStackMaterials_client
 SmokeVolume
 SmokeVolumeMaskTex_%d
@@ -21117,7 +20973,7 @@ SoundCommand_t
 SoundCommand_t CUtlMemoryPool
 SoundControllerImp
 SoundEmitterSystem
-SoundEvent GUID
+SoundEvent Handle
 SoundFinished
 SoundHigh
 SoundLevel string appears to be a Volume level %f
@@ -21459,7 +21315,6 @@ StreamsAPI
 String
 String Command
 String field
-String( %s )
 StringToken(%08x)
 StringToken(%s)
 StringToken()
@@ -21473,6 +21328,7 @@ StyleClassesChanged
 StyleFlagsChanged
 StyleLink
 StylesDirtied
+Sub R%d <- R%d - R%d
 SubPanelBgColor
 Subclass: %s
 SubclassVDataChangeType_t
@@ -21563,6 +21419,7 @@ T style crosshair
 TABLET_SKIN_STATE_BLANK
 TABLET_SKIN_STATE_BUYMENU
 TABLET_SKIN_STATE_RADAR
+TARGET_INVOKE
 TChinese
 TD_OFFSET_NORMAL
 TD_OFFSET_PACKED
@@ -21604,7 +21461,6 @@ TIMELINE_COMPRESSION_COUNT_PER_INTERVAL
 TIMELINE_COMPRESSION_SUM
 TIMELINE_COMPRESSION_TOTAL
 TIMEOUT
-TOK_COLON
 TOO CLOSE
 TOP_SLOT
 TOSS HULL BLOCKED
@@ -21656,6 +21512,7 @@ Target must use Shader: '%s'
 Target name must NOT contain: '%s'
 Target name must contain: '%s'
 Target number of seconds that halftime lasts; shortened if team intros are active
+Target object instance
 TargetID
 TargetIcon
 Team deathmatch victory points to award for collecting enemy dogtags
@@ -21705,7 +21562,6 @@ Temp_Depth
 Temp_NoCharactersDepth
 Terminate()
 TerminateProcess
-TernaryConditional
 Terrorists
 Test Domain
 Test Item %d
@@ -21714,6 +21570,7 @@ Test a punch-style screen shake.
 Test functions for the derived test domain.
 Test node that just generates the integer 50. Nothing to see here!
 Test node that randomly picks between two outflows.
+Test step with return value
 Test voice and status notices
 TestClock_AutoRun
 TestClock_ExplicitStepped
@@ -21852,6 +21709,7 @@ This value used to determine this weapon's importance in autoselection
 Thread "%s" (ID %llu) failed to shut down
 ThreadInMainThread
 ThreadJoin
+ThreadMultiWait
 ThreadMultiWaitObjectSetDestroy
 ThreadShellExecute
 ThreadShellExecuteEx
@@ -21938,7 +21796,6 @@ Toggle Ent Text
 Toggle clutch mode convar
 Toggle prop debug mode. If on, props will show colorcoded bounding boxes. Red means ignore all damage. White means respond physically to damage but never break. Green maps health in the range of 100 down to 1.
 Toggle set the player names and team names to the opposite side in which they are are on the spectator panel.
-Toggle shuffle enabled for slot
 Toggle the in-game script debug features
 Toggle the visibility of scoreboard players.
 Toggle the visibility of the spectator bindings.
@@ -22333,7 +22190,6 @@ UNCHANGED
 UNKNOWN
 UNKNOWN TEAM
 UNKNOWN_ENUM_VALUE_%s_%d
-UNRECOGNIZED
 UPDATE_INTERVAL
 USE_BEST_COLLISION_BOUNDS
 USE_COLLISION_BOUNDS_NEVER_VPHYSICS
@@ -22370,9 +22226,6 @@ UiToolkit.ShowTitleTextTooltipStyled - Unable to find target panel %s.
 UiToolkitAPI
 Ukrainian
 UmutePlayer
-UnInvalid
-UnNegate
-UnNot
 Unable find required entry points in %s
 Unable to connect to debugger
 Unable to create default camera. Aborting...
@@ -22400,6 +22253,7 @@ Unable to obey override request from net_client_steamdatagram_enable_override.  
 Unable to obey override request from net_client_steamdatagram_enable_override.  Connecting via direct UDP to %s
 Unable to read file %s
 Unable to read video config convar %s
+Unable to render more than %d shadow voxels.
 Unable to render more than %d smokes.
 Unable to render more than %d stencil proxies for player visibility.
 Unable to restore binary scene '%s'
@@ -22411,14 +22265,8 @@ Unbinding old command "%s" from key %s.
 UnblurOperationPanel
 Underlying object is deleted!
 Underwater.BulletImpact
-Unexpected character
-Unexpected character '%c' (0x%02X)
-Unexpected end of file
 Unexpected end of file expanding save game
 Unexpected failure while serializing option submessage 
-Unexpected node
-Unexpected token
-Unexpected token '%s' %s
 UnhandledExceptionFilter
 Unholster Transition
 Unimplemented type: 
@@ -22470,7 +22318,6 @@ Unsupported: type mismatch
 UnusedHealthBars
 UnusedPlayerIDs
 UnusedPlayerPings
-Unwanted token '%s' %s
 Unzipping %s (%d files)
 Update
 Update event 
@@ -22495,6 +22342,7 @@ Update/game/clantag
 Update/game/map
 Update/game/nby
 Update: %6.3f [ms] for %d worlds
+UpdateBoundValues
 UpdateButtonStates
 UpdateCountdownInternal
 UpdateDebugHealthBars
@@ -22579,9 +22427,6 @@ VApplication001
 VAsyncFileSystem2_001
 VAvi001
 VBik001
-VCRT_isdigit
-VCRT_isprint
-VCRT_toupper
 VConComm001
 VDataChoice( scripts/ammo.vdata )
 VDataModelAttachment( m_szWorldModel )
@@ -22632,6 +22477,7 @@ VOTE_FAILED_TOO_EARLY_SURRENDER
 VOTE_FAILED_TRANSITIONING_PLAYERS
 VOTE_FAILED_WAITINGFORPLAYERS
 VOTE_FAILED_YES_MUST_EXCEED_NO
+VOTE|%d|%d|%d|
 VP4003
 VPK directory for '%s' corrupt
 VPK: Check file %s Length %d MD5 %s 
@@ -22664,7 +22510,6 @@ V_FixSlashes
 V_FloatToString_Unsafe
 V_GetFileExtension
 V_GetFileExtensionSafe
-V_Get_stderr
 V_HtmlEntityDecodeToUTF8
 V_Int16ToString_Unsafe
 V_Int32ToString_Unsafe
@@ -22726,7 +22571,6 @@ V_exp2f
 V_expf
 V_fmodf
 V_fpclassifyd
-V_fprintf
 V_frexpf
 V_isbreakablewspace32
 V_isdigit_str
@@ -22799,7 +22643,6 @@ Var %s.%s != %s
 Var %s.%s == %s
 Var Does NOT Exist: %s.%s
 Var Exists: %s.%s
-Var( %s )
 VarData dump: %u bytes
 Variable Name
 Variable Value
@@ -22811,6 +22654,7 @@ Vector-dir
 Vector-quantized
 Vector2D
 Vector2d
+Vector3
 Vector4D
 Vector4d
 VectorText3D
@@ -22850,6 +22694,7 @@ VideoQualityPopup
 VideoSegment
 Vietnamese
 View offset during demo playback (+/- 1.25 is a good default for human average left/right eye offset)
+ViewAngleServerChange_t
 ViewEffects
 ViewEffectsGameSystem
 ViewFrustrum
@@ -22983,10 +22828,9 @@ WEAPON_IS_CARRIED_BY_PLAYER
 WEAPON_NOT_CARRIED
 WEAPON_PRIMARY_ATTACK
 WEAPON_SECONDARY_ATTACK
-WEAPON_SOUND_DOUBLE
 WEAPON_SOUND_DROP
 WEAPON_SOUND_EMPTY
-WEAPON_SOUND_IMPACT1
+WEAPON_SOUND_IMPACT
 WEAPON_SOUND_MELEE_HIT
 WEAPON_SOUND_MELEE_HIT_PLAYER
 WEAPON_SOUND_MELEE_HIT_WORLD
@@ -22997,7 +22841,10 @@ WEAPON_SOUND_NUM_TYPES
 WEAPON_SOUND_RADIO_USE
 WEAPON_SOUND_REFLECT
 WEAPON_SOUND_RELOAD
+WEAPON_SOUND_SECONDARY_ATTACK
 WEAPON_SOUND_SECONDARY_EMPTY
+WEAPON_SOUND_SECONDARY_IMPACT
+WEAPON_SOUND_SECONDARY_REFLECT
 WEAPON_SOUND_SINGLE
 WEAPON_SOUND_SINGLE_ACCURATE
 WEAPON_SOUND_SPECIAL1
@@ -23034,7 +22881,6 @@ WakeAllConditionVariable
 WakeConditionVariable
 WakeDependentJobFinished
 WakeGotLock
-Walk inventory and return count of any econ item that goes in this shuffle slot.
 WalkSpeed
 War Games
 Warmup man name contains invalid character %c at position %d!
@@ -23045,8 +22891,6 @@ Warn if lag compensated head hitbox position doesn't match that on client.
 Warning
 Warning font %s does not have a 'name' key! No windows font will be created. Check your scheme to make sure all machine configs are supported.
 Warning parsing text-format 
-Warning: !engine->IsLocalPlayerResolvable() failed at %s (%d)
-Warning: engine->IsLocalPlayerResolvable() failed at %s (%d)
 Warning: system time went backward by %d seconds
 Was the weapon was built right-handed?
 Watch
@@ -23164,7 +23008,7 @@ WedgeKeybinding
 Wednesday
 Welcome message contained %s twice
 Whale
-What type of penertration to use. 0 = old CS, 1 = new penetration
+What type of penetration to use. 1 = CS:GO, 2 = CS2
 When attempting to get the bonus weapon in deathmatch, whether we should respawn you with it or just give it to you directly
 When enabled server will populate an additional random seed independent of the client
 When enabled will automatically pause the match at next freeze time if less than 5 players are connected on each team.
@@ -23301,6 +23145,7 @@ Writing cubemaps to %s
 X Max
 X Min
 X Value
+X to the Y power
 XInputPad
 XpDataJSO
 XpNeededForDrop
@@ -23341,7 +23186,7 @@ Zooming
 [ %d : %d ]
 [ (%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f), (%f, %f, %f, %f) ]
 [ (%g, %g, %g), (%g, %g, %g), (%g, %g, %g), (%g, %g, %g) ]
-[ Chunk%d - %d register(s) %d byte(s) ]
+[ Chunk%d ]
 [ RETAKE RULES ] A card should have at least 4 items.
 [ RETAKE RULES ] Each loadout definition should follow the rule: "available amount;body armor present,helmet present,weapon,utility1,...;body armor present,helmet present,..."
 [ RETAKE RULES ] Error parsing CT's bonus card.
@@ -23359,7 +23204,7 @@ Zooming
 [ RETAKE RULES ] None of the specified cards were valid - adding a default card.
 [ RETAKE RULES ] Ran out of loadouts before fulfilling amount required ( %d ).
 [ RETAKE RULES ] Round should contain at least one loadout.
-[ TODO ]
+[ written by I%d last-read I%d ]
 [!%u]
 [%d %d] -> %s
 [%d] 
@@ -23403,7 +23248,6 @@ Zooming
 [I:%u:%u]
 [IMMEDIATE_HALT]
 [INVALID]
-[Index: 
 [L:%u:%u]
 [M:%u:%u:%u]
 [NOP]
@@ -23474,6 +23318,7 @@ Zooming
 _BaseEntity
 _Bonus
 _DateOnly
+_Target
 _Tooltip
 _V_AppendSlash
 _V_ComposeFileName
@@ -23529,7 +23374,6 @@ __unaligned
 __vectorcall
 __w64 
 _base
-_broken.vmdl
 _buildcubemaps
 _buildcubemaps.vpk
 _builtins
@@ -23548,6 +23392,7 @@ _flt.vpk
 _gamestats.dat
 _glove_
 _hypot
+_include
 _large
 _leathery
 _legacy
@@ -23747,8 +23592,6 @@ ai_debug_shoot_positions
 ai_disabled
 ai_model_info
 ai_sequence_debug
-ai_shot_bias_max
-ai_shot_bias_min
 aimat
 aimbot
 aimsight
@@ -24075,46 +23918,6 @@ announcement_body
 antialias
 antialiasing
 antiquewhite
-antlr3BaseRecognizerNew
-antlr3BitsetCopy
-antlr3BitsetList
-antlr3BitsetLoad
-antlr3BitsetNew
-antlr3BitsetOf
-antlr3BitsetSetAPI
-antlr3CommonTokenDebugStreamSourceNew
-antlr3CommonTokenNew
-antlr3CommonTokenStreamNew
-antlr3CommonTokenStreamSourceNew
-antlr3EnumNew
-antlr3ExceptionNew
-antlr3Hash
-antlr3HashTableNew
-antlr3IntStreamNew
-antlr3IntTrieNew
-antlr3LexerNew
-antlr3LexerNewStream
-antlr3ListNew
-antlr3MTExceptionNew
-antlr3NewAsciiStringCopyStream
-antlr3NewAsciiStringInPlaceStream
-antlr3NewUCS2StringInPlaceStream
-antlr3ParserNew
-antlr3ParserNewStream
-antlr3ParserNewStreamDbg
-antlr3RecognitionExceptionNew
-antlr3SetTokenAPI
-antlr3SetVectorApi
-antlr3StackNew
-antlr3StringFactoryNew
-antlr3TokenFactoryNew
-antlr3TokenStreamNew
-antlr3UCS2StringFactoryNew
-antlr3VectorFactoryNew
-antlr3VectorNew
-antlr3dfapredict
-antlr3dfaspecialStateTransition
-antlr3dfaspecialTransition
 any_equipment
 appid
 application/json
@@ -24293,7 +24096,9 @@ azure
 bClip3DSkyBoxNearToWorldFar
 bDropListIsReady
 bDropTimeHasEnded
+bDuck: %d, bDesiresDuck: %d, bCanDuck: %d, CanUnduck: %d, bMustDuck: %d
 bFired
+bInAir: %d, m_bDuckOverride: %d, bBotAndMustDuck: %d, m_flDuckOffset: %.2f, m_flDuckAmount: %.2f
 bSkillgroupDataReady
 bXpDataReady
 b_Hit_Trigger
@@ -24417,7 +24222,6 @@ blendindices
 blendtobackground
 blendweight
 blendweights
-blink
 blink_duration
 blockLOS
 blockedyou
@@ -24464,7 +24268,6 @@ bone(%d:%s)
 boneIndex
 bonemerge
 bonemergeflex
-bonename
 bonus
 bonus_discount_period
 bonus_discount_period_nonpublic
@@ -24848,8 +24651,9 @@ center
 center_follow
 center_nopixelsnap
 center_on_damage_point
+cfg/cs2_loadout_favorites.txt
 cfg/cs2_preferred_items.txt
-cfg/cs2_saved_item_shuffles.txt
+cfg/cs2_shuffle_slots.txt
 cfg/gamestate_integration_*.cfg
 cfg/qmmconnect.dt
 cfg/video_defaults_%d.txt
@@ -24984,6 +24788,7 @@ cl_deathcam_audio_mix_phase2_fade_amount
 cl_deathcam_audio_mix_phase2_fade_time
 cl_deathcampanel_position_dynamic
 cl_debug_client_gamestats
+cl_debug_duck
 cl_debug_overlay_fullposition
 cl_debug_round_stat_submission
 cl_debugoverlay_cycle_domain
@@ -25021,6 +24826,7 @@ cl_drawhud_force_teamid_overhead
 cl_drawhud_specvote
 cl_drawline
 cl_dump_animgraph_list
+cl_dump_player_animgraph_state
 cl_dump_projected_texture_count
 cl_dumpentity
 cl_dumpsplithacks
@@ -25183,6 +24989,7 @@ cl_mute_enemy_team
 cl_mute_player_after_reporting_abuse
 cl_net_showeventlisteners
 cl_net_showevents
+cl_num_bot_matches
 cl_obs_interp_angle_progress_headstart
 cl_obs_interp_dist_to_turn_to_face
 cl_obs_interp_enable
@@ -25418,7 +25225,6 @@ cl_sos_test_get_opvar
 cl_sos_test_set_opvar
 cl_soundscape_flush
 cl_soundscape_printdebuginfo
-cl_spec_mode
 cl_spec_show_bindings
 cl_spec_stats
 cl_spec_swapplayersides
@@ -25672,6 +25478,7 @@ composite_material_use_gpu
 composite_material_use_gpu_endpoint_optimization
 composite_material_use_gpu_perceptual_error_metric
 compositematerial_showdebugwindow
+compressedtangentframe
 compression
 cond_
 cond_armor_heavyassaultsuit
@@ -25903,7 +25710,6 @@ cq_netgraph_statusbars_maxdistance
 cq_netgraph_statusbars_maxhistories
 craft_class
 crafted
-crafting
 crate_unlock
 create
 createClientOnlyEntities
@@ -26756,7 +26562,6 @@ diffuse_scale
 digit
 digit expected after (?+
 dim_dismiss
-dimensions
 dimgray
 dimgrey
 dimmer
@@ -27208,8 +27013,8 @@ extra_info
 extra_wearable
 extractlevelsfromsavegame
 extrazoomout
-eye_data_list
-eye_occlusion_renderer
+eyeball_l
+eyeball_r
 eyes_follow
 f_Hit_Heading
 f_Hit_Strength
@@ -27449,7 +27254,6 @@ filepos
 fill 
 fill-parent-flow
 fill-parent-flow( %s )
-fillBufferExt
 filter
 filter_category
 filterinfo
@@ -27507,12 +27311,15 @@ flDurationSec
 flExponent
 flInterval
 flLandWeight
+flMax
 flMaxVal
+flMin
 flMinVal
 flNextTrailLineTime
 flOriginalDamage
 flOut
 flScaleAmount
+flValue
 fl_override_timing_value
 flags
 flair
@@ -27526,6 +27333,7 @@ flashbang
 flashbang_detonate
 flashed
 flashed_autoclear
+flashpoint
 flat group
 flexanimation
 flexanimations
@@ -27850,6 +27658,7 @@ game_online
 game_particle_manager_dump_requeue
 game_particle_manager_list_active
 game_particle_manager_requeue_messages
+game_phase_changed
 game_public
 game_sensitivity
 game_ui_dialog
@@ -27920,10 +27729,6 @@ generate bone setup statistics
 generic
 generic-type-
 generic_data_type
-generic_exprLexerNew
-generic_exprLexerNewSSD
-generic_exprParserNew
-generic_exprParserNewSSD
 german
 gesture
 get active weapon
@@ -29024,7 +28829,6 @@ iostream
 iostream stream error
 ironsight_float
 is a directory
-is also the end of the line, so you must check your lexer rules
 is buymenu open
 is casual or training
 is commodity
@@ -29104,7 +28908,6 @@ item_rarity
 item_rotate
 item_schema_initialized
 item_sets
-item_shares_equip_slot
 item_slot2
 item_sub_position2
 item_type
@@ -29132,7 +28935,6 @@ ivory
 ja_JP
 japanese
 javascript:
-jawOpen
 jklmnopqrstuvwxyzyxwvutsrqponmlkj
 job warning: Resuming job '%s (id: %lld)' due to timeout while paused for %s
 jobmsgcontext
@@ -29469,7 +29271,6 @@ level_data
 level_up_reward
 levellist_t
 levelname
-lexer->mTokens(): Error: No lexer rules were added to the lexer yet!
 lfoot
 lifetime
 light
@@ -29532,6 +29333,7 @@ lighting/postprocessing/effects/zoomed_rifle.vpost
 lighting/postprocessing/effects/zoomed_sniper.vpost
 lighting/postprocessing/effects/zoomed_sniper_moving.vpost
 lightingOnly
+lighting_only_tint_color
 lightpink
 lightprobetexture
 lightprobetexture_dli
@@ -29589,7 +29391,7 @@ loadmap
 loadondemand
 loadout
 loadout_pos
-loadout_positions_t
+loadout_slot_t
 lobby
 lobby_clanid
 lobby_default_privacy_bits
@@ -29653,7 +29455,6 @@ look_at_entity %s %f %f %f
 lookat
 lookatweapon
 lookbehind assertion is not fixed length
-looks like this:
 loopback
 loopback:%d
 loopcount
@@ -29714,6 +29515,7 @@ m_CaseOutflows
 m_Cells
 m_ChildModelName
 m_Chunks
+m_Class
 m_ClearDebugBits
 m_ClientOverrideTint
 m_Collision
@@ -29730,7 +29532,7 @@ m_DamagerXuid
 m_DangerZones
 m_DataChangeEventRef
 m_DefaultCaseOutflow
-m_DefaultLoadoutPosition
+m_DefaultLoadoutSlot
 m_DefaultValue
 m_DegreesPerSecond
 m_Description
@@ -29750,7 +29552,6 @@ m_ExpectedArgs
 m_ExpectedParamType
 m_ExplosionSound
 m_Exponent
-m_ExprText
 m_FOV
 m_FadeDuration
 m_Filter
@@ -29774,6 +29575,7 @@ m_InnerAngle
 m_Inparams
 m_Input
 m_InspectorSpecularDirection
+m_InstanceType
 m_InstructionEditorIDs
 m_Instructions
 m_InternalId
@@ -29916,6 +29718,7 @@ m_ScriptCallbackScope
 m_ScriptSpawnCallback
 m_SecondaryColor
 m_SequenceCompleteTimer
+m_ServerViewAngleChanges
 m_SetDebugBits
 m_ShadowDirection
 m_ShardDesc
@@ -29962,6 +29765,7 @@ m_TextureHeight
 m_TextureScale
 m_TimeBetweenEvents
 m_TimeSinceNoInput
+m_TimeSinceNoInput: %f
 m_Tracepoints
 m_Transforms
 m_Type
@@ -30021,6 +29825,7 @@ m_animgraph
 m_animgraphCharacterModeString
 m_arrFeaturedGiftersAccounts
 m_arrFeaturedGiftersGifts
+m_arrForceSubtickMoveWhen
 m_arrProhibitedItemIndices
 m_arrTournamentActiveCasterAccounts
 m_arrTrajectoryTrailPointCreationTimes
@@ -30035,7 +29840,6 @@ m_bActivated
 m_bActive
 m_bActiveParticlePrecipEmitter
 m_bAllocated
-m_bAllowAutoMovement
 m_bAllowFadeInView
 m_bAllowFlipping
 m_bAllowInteractionFromAllSceneWorlds
@@ -30054,7 +29858,6 @@ m_bAnyHostageReached
 m_bApplyLayerMatchIDToModel
 m_bApplyWind
 m_bArmed
-m_bAssaultSuitIsRefundable
 m_bAsynchronouslySpawnEntities
 m_bAttachmentDirty
 m_bAttributesInitialized
@@ -30080,6 +29883,7 @@ m_bBuiltRagdoll
 m_bBuiltRightHanded
 m_bBumpWithTimeoutWhenLearned
 m_bBurstMode
+m_bC4Activated
 m_bCTCantBuy
 m_bCTTimeOutActive
 m_bCacheGlowObstruction
@@ -30115,7 +29919,6 @@ m_bClientTransparentImmunityAlphaEffectEnabled
 m_bClientside
 m_bClipHitStaticWorld
 m_bClipTested
-m_bCompressedNormalTangent2
 m_bConformToCollisionBounds
 m_bConstantSpeed
 m_bConstrainBetweenEndpoints
@@ -30125,13 +29928,15 @@ m_bCopyDiffuseFromDefaultCubemap
 m_bCoreExplode
 m_bCreateAsChildSpawnGroup
 m_bCreateNonSolid
+m_bCrouch: %s
 m_bCustomCubemapTexture
 m_bDMBonusActive
 m_bDangerZoneControllerEnabled
 m_bDebugAbsOriginChanges
 m_bDefaultEnvMap
 m_bDefaultSpecEnvMap
-m_bDefuserIsRefundable
+m_bDesiresDuck
+m_bDestroyed
 m_bDidSmokeEffect
 m_bDirectional
 m_bDirty
@@ -30212,6 +30017,7 @@ m_bFlashBuildUp
 m_bFlashDspHasBeenCleared
 m_bFlashScreenshotHasBeenGrabbed
 m_bFlashed
+m_bFlashed: %s
 m_bFlashing
 m_bFlicker
 m_bFlipHorizontal
@@ -30228,6 +30034,7 @@ m_bFreezeTargetState
 m_bFreezeTransitionActive
 m_bFrozen
 m_bFullbright
+m_bFuncWasCalled
 m_bGamePaused
 m_bGameRestart
 m_bGlowForPing
@@ -30321,6 +30128,7 @@ m_bIsHit
 m_bIsHoldingLookAtWeapon
 m_bIsIncGrenade
 m_bIsInterpolated
+m_bIsJumping: %s
 m_bIsLive
 m_bIsLocalPlayerController
 m_bIsLookingAtWeapon
@@ -30354,7 +30162,7 @@ m_bIsUsable
 m_bIsValveDS
 m_bIsWalking
 m_bIsYesNoVote
-m_bKevlarIsRefundable
+m_bJumpThrow
 m_bKilledByHeadshot
 m_bKilledByTaser
 m_bLanded
@@ -30419,7 +30227,9 @@ m_bOldIsScoped
 m_bOldJumpPressed
 m_bOn
 m_bOnGround
+m_bOnGround: %s
 m_bOnLadder
+m_bOnLadder: %s
 m_bOneSided
 m_bOnlyRenderToTexture
 m_bOpaque
@@ -30453,7 +30263,9 @@ m_bPrevEndPointPos
 m_bPrevHelmet
 m_bPreventLoopback
 m_bPreviousGroundState
+m_bPreviousGroundState: %s
 m_bPreviousLadderState
+m_bPreviousLadderState: %s
 m_bPreviouslyInBuyZone
 m_bProjectOnCharacters
 m_bProjectOnWater
@@ -30481,6 +30293,7 @@ m_bRenderWithViewModels
 m_bRequired
 m_bRequiresUseKey
 m_bResetFlexWeightsOnModelChange
+m_bRespawn: %s
 m_bRestartAfterRestore
 m_bRestoreCustomMaterialAfterPrecache
 m_bResumeZoom
@@ -30496,6 +30309,7 @@ m_bSequenceChangeNetworked
 m_bSequenceFinished
 m_bServerPaused
 m_bSetBonus
+m_bSetDeployOnCreation: %s
 m_bShadowAlphaOverride
 m_bShouldAnimateDuringGameplayPause
 m_bShouldAutobuyDMWeapons
@@ -30517,6 +30331,7 @@ m_bSimpleProjection
 m_bSimulate
 m_bSimulatedEveryTick
 m_bSimulationTimeChanged
+m_bSkipOneHeadConstraintUpdate
 m_bSmokeEffectSpawned
 m_bSmokeVolumeDataReceived
 m_bSpawnedSkyboxParticles
@@ -30545,6 +30360,7 @@ m_bSwitchingTeamsAtRoundReset
 m_bTCantBuy
 m_bTabletReceptionIsBlocked
 m_bTakesDamage
+m_bTeamIntroActivated
 m_bTeamIntroPeriod
 m_bTechnicalTimeOut
 m_bTenSecWarning
@@ -30715,6 +30531,7 @@ m_fStashGrenadeParameterWhen
 m_fThrowTime
 m_fTimeout
 m_fUpdateInterval
+m_fValue
 m_fWarmupPeriodEnd
 m_fWarmupPeriodStart
 m_fWidth
@@ -30729,11 +30546,9 @@ m_fireXDelta
 m_fireYDelta
 m_fireZDelta
 m_firstTaserShakeTime
-m_fixAngleChangeAngle
-m_fixAngleChangeTick
-m_fixAngleChangeType
 m_flAbsScale
 m_flAccelMagnitudeDamped16
+m_flAccelMagnitudeDamped16: %f
 m_flAlphaHaze
 m_flAlphaHdr
 m_flAlphaScale
@@ -30742,6 +30557,7 @@ m_flAmbientScale1
 m_flAmbientScale2
 m_flAmount
 m_flAnimDuckAmount
+m_flAnimDuckAmount: %f
 m_flAnimTime
 m_flAnimationLifeSpan
 m_flAnimationScale
@@ -30862,11 +30678,14 @@ m_flDropStartTime
 m_flDroppedAtTime
 m_flDrowningDamageInterval
 m_flDuckAdditional
+m_flDuckAdditional: %f
 m_flDuckAmount
 m_flDuckOffset
 m_flDuckSpeed
+m_flDuckSpeed: %.2f, m_bDuckUntilOnGround: %d, m_bDucking: %d
 m_flDuration
 m_flDurationInAir
+m_flDurationInAir: %f
 m_flEaseIn
 m_flEaseOut
 m_flEdgeFadeDist
@@ -30927,10 +30746,12 @@ m_flFireTime
 m_flFlashBangTime
 m_flFlashDuration
 m_flFlashHoldTime
+m_flFlashHoldTime: %f
 m_flFlashMaxAlpha
 m_flFlashOverlayAlpha
 m_flFlashScreenshotAlpha
 m_flFlashStartTime
+m_flFlashStartTime: %f
 m_flFlashlightTime
 m_flFlexDelayTime
 m_flFlexDelayedWeight
@@ -30963,7 +30784,6 @@ m_flFogStrength
 m_flFogVerticalExponent
 m_flFontSize
 m_flForceClientTime
-m_flForceSubtickMoveWhen
 m_flForceTeamTime
 m_flForwardMove
 m_flFov
@@ -31005,6 +30825,7 @@ m_flHorizSpeed
 m_flHorzSize
 m_flIdleInterval
 m_flInAirSmoothValue
+m_flInAirSmoothValue: %f
 m_flInaccuracyAltSoundThreshold
 m_flInaccuracyCrouch
 m_flInaccuracyFire
@@ -31044,15 +30865,21 @@ m_flIronSightPullUpSpeed
 m_flIronSightPutDownSpeed
 m_flJammedEffectAmount
 m_flJawOpenAmount
+m_flJumpPressedTime
+m_flJumpStartTime: %f
 m_flJumpUntil
 m_flJumpVel
 m_flKillImpactParticlesTime
 m_flLODBias
 m_flLadderCycle
+m_flLadderCycle: %f
 m_flLadderSpeed
+m_flLadderSpeed: %f
+m_flLandWeight: %f
 m_flLandingTime
 m_flLandseconds
 m_flLastAccelerationHeading
+m_flLastAccelerationHeading: %f
 m_flLastAccuracyUpdateTime
 m_flLastClientFireBulletTime
 m_flLastClientThinkTime
@@ -31060,6 +30887,7 @@ m_flLastClosePoseParamVal
 m_flLastCollisionCeiling
 m_flLastCollisionCeilingChangeTime
 m_flLastDeployTime
+m_flLastDeployTime: %f
 m_flLastDuckTime
 m_flLastEventAnimTime
 m_flLastEventCycle
@@ -31070,10 +30898,13 @@ m_flLastLOSTraceFailureTime
 m_flLastNearbyItemHighlightCheck
 m_flLastOriginChangeTime
 m_flLastPhysicsInfluenceTime
+m_flLastPredictionExecutedTeleportTime
 m_flLastRopeTime
 m_flLastShotFOV
 m_flLastShotTime
+m_flLastShotTime: %f
 m_flLastSimTime
+m_flLastSimTime: %f
 m_flLastSmokeOverlayAlpha
 m_flLastSpawnTimeIndex
 m_flLastTeleportTime
@@ -31082,10 +30913,13 @@ m_flLastTime
 m_flLastTimeCargoWasAttached
 m_flLastTimeNotIdle
 m_flLastUpdateIncrement
+m_flLastUpdateIncrement: %f
 m_flLastUpdateTime
+m_flLastUpdateTime: %f
 m_flLaunchHeight
 m_flLaunchTime
 m_flLeftGroundHeight
+m_flLeftGroundHeight: %f
 m_flLeftMove
 m_flLegDamageMultiplier
 m_flLightFOV
@@ -31118,6 +30952,8 @@ m_flMinRoughness
 m_flMomentumModifier
 m_flMouseSensitivity
 m_flMoveSpeedDamped
+m_flMoveSpeedDamped: %f
+m_flMovingGunRaiseBlendValue: %f
 m_flMusicRoundStartTime
 m_flMuzzleFlashBrightness
 m_flNavIgnoreUntilTime
@@ -31250,6 +31086,7 @@ m_flShadowFadeSizeEnd
 m_flShadowFadeSizeStart
 m_flShadowStrength
 m_flShape
+m_flShootingLerpValue: %f
 m_flShowMapTime
 m_flSimTime
 m_flSimulationTime
@@ -31279,6 +31116,7 @@ m_flSpread
 m_flSpriteFramerate
 m_flSpriteScale
 m_flStamina
+m_flStand: %f
 m_flStartAnisoTime
 m_flStartAnisotropy
 m_flStartDistance
@@ -31315,6 +31153,7 @@ m_flThrowStrengthApproach
 m_flThrowVelocity
 m_flTickRemainder
 m_flTimeCreated
+m_flTimeLastBurned: %f
 m_flTimeOfLastInjury
 m_flTimeOfLastValueChange
 m_flTimeParticleEffectSpawn
@@ -31323,7 +31162,9 @@ m_flTimeRemaining
 m_flTimeScale
 m_flTimeSilencerSwitchComplete
 m_flTimeSinceHighLookAngleEnded
+m_flTimeSinceHighLookAngleEnded: %f
 m_flTimeSinceLowLookAngle
+m_flTimeSinceLowLookAngle: %f
 m_flTimeToIdleAfterFire
 m_flTimeToNextGust
 m_flTimeWeaponIdle
@@ -31343,7 +31184,9 @@ m_flTransitionTime
 m_flTurningInaccuracy
 m_flTurningInaccuracyDelta
 m_flTurns_FacingWS
+m_flTurns_FacingWS: %f
 m_flTurns_TimeSinceChange
+m_flTurns_TimeSinceChange: %f
 m_flUpMove
 m_flUpOffset
 m_flUpgradeExpirationTime
@@ -31365,6 +31208,7 @@ m_flValueFloatZ_Min
 m_flValues
 m_flVariationTime
 m_flVelocityLengthZ
+m_flVelocityLengthZ: %f
 m_flVelocityModifier
 m_flVertSize
 m_flVerticalFOV
@@ -31373,6 +31217,7 @@ m_flVisibleBBoxMinHeight
 m_flVolumetricIntensity
 m_flWarnAITime
 m_flWasdHigh_so_scale_param2
+m_flWasdHigh_so_scale_param2: %f
 m_flWaterEntryTime
 m_flWaterJumpTime
 m_flWaterLevel
@@ -31534,6 +31379,7 @@ m_hScriptScope
 m_hSequence
 m_hSkyCamera
 m_hSkyMaterial
+m_hSkyMaterialLightingOnly
 m_hSkyboxCopy
 m_hSnapshotTrajectoryParticleSnapshot
 m_hSplitOwner
@@ -31588,6 +31434,7 @@ m_iChangedVariables
 m_iClanID
 m_iClip1
 m_iClip1Prev
+m_iClip1Prev: %d
 m_iClip2
 m_iCoachingTeam
 m_iCompTeammateColor
@@ -31791,6 +31638,7 @@ m_iszStackName
 m_iszTitle
 m_iszWorldName
 m_iv_AnimOpHistory
+m_iv_Transforms[ %d ]
 m_jumpedThisFrame
 m_killType
 m_ladderSurpressionTimer
@@ -31831,6 +31679,7 @@ m_minInterval
 m_mins
 m_modelChanged
 m_modelState
+m_mover_mode_enum: %d
 m_msQueuedModeDisconnectionTimestamp
 m_nAccountIDs
 m_nAddDecal
@@ -31978,6 +31827,7 @@ m_nGuardianModeSpecialWeaponNeeded
 m_nGuardianModeWaveNumber
 m_nHalloweenMaskListSeed
 m_nHaloIndex
+m_nHandle
 m_nHandshake
 m_nHapticsType
 m_nHealthLost
@@ -31985,6 +31835,7 @@ m_nHeavyAssaultSuitCooldownRemaining
 m_nHierarchicalDepth
 m_nHierarchyId
 m_nHierarchyType
+m_nHighestConsumedServerViewAngleChangeIndex
 m_nHitBox
 m_nHitbox
 m_nHitboxSet
@@ -32139,7 +31990,9 @@ m_nPoseParamYaw
 m_nPostDataUpdateTick
 m_nPotentialVotes
 m_nPredictionRandomSeed
+m_nPrevArmor
 m_nPrevArmorVal
+m_nPrevGrenadeAmmoCount
 m_nPrevNewSequenceParity
 m_nPrevResetEventsParity
 m_nPreviousAccount
@@ -32162,7 +32015,6 @@ m_nRatchetType
 m_nRecoilSeed
 m_nRecoveryTransitionEndBullet
 m_nRecoveryTransitionStartBullet
-m_nRefundable
 m_nRefundableCurrency
 m_nReg
 m_nReg0
@@ -32324,6 +32176,7 @@ m_pActionTrackingServices
 m_pAnimGraphInstance
 m_pAnimGraphInstance != nullptr
 m_pAnimGraphInstance == nullptr
+m_pAssociatedGraphInstance
 m_pAsyncSaveCallQueue
 m_pAttributes
 m_pAutoaimServices
@@ -32333,6 +32186,7 @@ m_pBaseClassComponentHelper
 m_pBulletServices
 m_pButtonPressedCmdNumber
 m_pButtonStates
+m_pBuyServices
 m_pCPPClassname
 m_pCameraServices
 m_pChild
@@ -32382,6 +32236,8 @@ m_pParent
 m_pParticleDef
 m_pParticles
 m_pPingServices
+m_pPlayer: %p (entindex:%d)
+m_pPlayer: nullptr
 m_pPrecacheEntityKeys
 m_pPredictionPlayerController
 m_pPrev
@@ -32395,7 +32251,6 @@ m_pSceneObject
 m_pSkeletonInstance
 m_pSubclassVData
 m_pSurfaceData
-m_pTagName
 m_pTarget
 m_pTargetInput
 m_pTargetPanel
@@ -32609,6 +32464,7 @@ m_szWorldDroppedModel
 m_szWorldModel
 m_tParticlePrecipTraceTimer
 m_tParticleSpawn
+m_tagName
 m_tangents
 m_target
 m_targetCamera
@@ -32637,7 +32493,8 @@ m_unActiveQuestId
 m_unAlignmentDegrees
 m_unClientFlags
 m_unCurrentEquipmentValue
-m_unDMBonusWeaponItemDefIndex
+m_unDMBonusWeaponLoadoutSlot
+m_unDefIdx
 m_unFrameFuncThreadID == unCurrentThread
 m_unFreezetimeEndEquipmentValue
 m_unHorizontalAlign
@@ -32656,7 +32513,9 @@ m_unWeaponHash
 m_usSolidFlags
 m_usable
 m_vAccelerationDampened16
+m_vAccelerationDampened16: ( %f, %f, %f )
 m_vAccelerationDampened36
+m_vAccelerationDampened36: ( %f, %f, %f )
 m_vAlternateColor
 m_vAngles
 m_vAnimationBoundsMax
@@ -32694,6 +32553,7 @@ m_vLastCollisionOrigin
 m_vLastSlopeCheckPos
 m_vLastSmokeOverlayColor
 m_vLastVelocity
+m_vLastVelocity: ( %f, %f, %f )
 m_vLiteralVec3
 m_vLookTargetPosition
 m_vLoweredWeaponOffset
@@ -32729,11 +32589,11 @@ m_vSortOrigin
 m_vStart
 m_vSunPos
 m_vTintColor
+m_vTintColorLightingOnly
 m_vWhereToSetLightingOrigin
 m_vWindDir
 m_value
 m_valueOverride
-m_varRegisters
 m_variableMap
 m_variables
 m_variablesRead
@@ -32839,6 +32699,7 @@ m_vecPlayerPatchEconIndices
 m_vecPlayerPositionHistory
 m_vecPosOriginal
 m_vecPositionLast
+m_vecPositionLast: ( %f, %f, %f )
 m_vecPredictedScriptFloatIDs
 m_vecPredictedScriptFloats
 m_vecPredictionError
@@ -32851,6 +32712,7 @@ m_vecRandomRollInputVars_InputVarsToRoll
 m_vecRenderAttributes
 m_vecRenderModelComponentTransforms
 m_vecReportedPosition
+m_vecSellbackPurchaseEntries
 m_vecSkyboxOrigin
 m_vecSpawnRappellingRopeOrigin
 m_vecSpecifiedSurroundingMaxs
@@ -33201,7 +33063,9 @@ materials/dev/player_visibility.vmat
 materials/dev/player_visibility_datacolor.vmat
 materials/dev/player_visibility_stencil_proxy.vmat
 materials/dev/post_process.vmat
+materials/dev/reconstruct_normals.vmat
 materials/dev/smoke_volume.vmat
+materials/dev/smoke_volume_depth.vmat
 materials/dev/smoke_volume_mask.vmat
 materials/dev/upsample.vmat
 materials/dev/upsample_fsr.vmat
@@ -33557,6 +33421,7 @@ models/editor/axis_helper.vmdl
 models/editor/axis_helper_thick.vmdl
 models/editor/spot.vmdl
 models/hostage/hostage.vmdl
+models/hostage/v_hostage_arm.vmdl
 models/inventory_items/dogtags.vmdl
 models/inventory_items/skillgroups/skillgroup1.vmdl
 models/inventory_items/skillgroups/skillgroup10.vmdl
@@ -33672,7 +33537,6 @@ mouse_sens
 mousedown
 mousepanningcursorsize
 mousewheeltickcount
-mouth
 move_mode
 move_speed_blend_value
 move_speed_blend_value_after_turn_speed_min_walk_value
@@ -33913,6 +33777,7 @@ nShakeType
 nSummarisedCount
 nSwitchValue
 nTries < 10000000
+nType
 nValue
 n_actions
 n_reload
@@ -33929,8 +33794,6 @@ nametoken
 nan(ind)
 nan(snan)
 navajowhite
-near '%c' :
-near char(%#02X) :
 nearby
 nearclipplane
 nearlyempty
@@ -33959,6 +33822,7 @@ networksystem
 neutral
 neverfade
 neverselected
+new_phase
 new_rank
 newest
 newunit
@@ -34084,6 +33948,7 @@ numcascades
 numeric
 numericpassword
 numtowin
+nux-recommended
 object_culling
 objective
 objective_type
@@ -34094,8 +33959,6 @@ official
 offline
 offscreen_panorama
 offset
-offset_angles
-offset_origin
 offset_rotation
 okcommand
 okifnomodel
@@ -34130,17 +33993,13 @@ oninputsubmit
 onlaunch
 onload
 only_breakable_by
-only_campaigns
-only_coupons
 only_econ_items
 only_first_material
 only_gamepad
-only_gifts
 only_keyboard
 only_other_players
 only_other_spectators
 only_others
-only_quests
 only_render_to_texture
 only_weapons
 onmouseactivate
@@ -34225,7 +34084,6 @@ optional with src
 optional_target
 optionallycompressedtangentframe
 options
-options/bypasslobby
 options/clanid
 options/friendxuid
 options/nby
@@ -34398,13 +34256,50 @@ panorama::CTextEntry::IME_SetSelection
 panorama::CTextEntry::IME_SetWideCursor
 panorama::CTextEntry::IME_ShowList
 panoramaDeferredView
+panorama_3dpanel_anim_fadeinout_time_scale
+panorama_3dpanel_anims_pivotlock
+panorama_3dpanel_camera_blend_mode
+panorama_3dpanel_camera_inout_scale
+panorama_3dpanel_camera_inout_scale_kb
+panorama_3dpanel_camera_lookat_scale
+panorama_3dpanel_camera_preset_blend_time
+panorama_3dpanel_camera_rotate_altitude_scale
+panorama_3dpanel_camera_rotate_azimuth_scale
+panorama_3dpanel_debuginfo_anim
+panorama_3dpanel_debuginfo_cam
+panorama_3dpanel_debuginfo_item
+panorama_3dpanel_debuginfo_manifest
+panorama_3dpanel_debuginfo_paused
+panorama_3dpanel_debuginfo_player
+panorama_3dpanel_light_move_scale
+panorama_3dpanel_light_rotate_altitude_scale
+panorama_3dpanel_light_rotate_azimuth_scale
+panorama_3dpanel_loadout_rotate_drag
+panorama_3dpanel_loadout_rotate_frametime_multiplier
+panorama_3dpanel_loadout_rotate_grab_scale
+panorama_3dpanel_loadout_rotate_scale
 panorama_async_compute_mipgen
 panorama_bb_copy_intermediate
+panorama_console_max_autocomplete
+panorama_console_max_history
+panorama_console_max_lines
+panorama_console_position_and_size
+panorama_daisy_wheel
+panorama_debug_movies
+panorama_debug_overlay_opacity
+panorama_debug_overlay_opacity_max
+panorama_debug_overlay_opacity_min
 panorama_debugger_theme
+panorama_dragscroll_maxflickvelocity
+panorama_dragscroll_minflickvelocity
+panorama_early_anim_dispatch
 panorama_focus_world_panels
 panorama_ingame
 panorama_light_inout_scale
+panorama_movie_async_load_size_bytes
+panorama_movie_force_not_ready_behavior
 panorama_rt_panolayer.vtex
+panorama_transition_time_factor
 panorama_world_panel
 panorama_world_panel (%s)
 panorama_world_panel_%d
@@ -34892,6 +34787,7 @@ preentitypacketrec:exec %d->%d [ack %d]
 prefab
 prefabs
 prefix_owner
+prematch:
 premium_only
 prepared
 prereq
@@ -34995,6 +34891,7 @@ pushed
 pvsplayer
 pwatchent
 pwatchvar
+qAngle
 qangle
 qangle_precise
 quad_coverage.vtex
@@ -35042,6 +34939,7 @@ r_RainParticleDensity
 r_aoproxy_debug
 r_aoproxy_enable
 r_aoproxy_min_dist
+r_aoproxy_show
 r_bloom_tent_filter_radius
 r_cacheSequenceData
 r_character_decal_resolution
@@ -35106,6 +35004,8 @@ r_csgo_postprocess_enable
 r_csgo_prewarm_particles
 r_csgo_r11g11b10_dither_mode
 r_csgo_readonly_depth_stencil_enable
+r_csgo_reconstruct_normals
+r_csgo_reconstruct_normals_method
 r_csgo_reflection_min_far_plane
 r_csgo_render_alpha_immunity
 r_csgo_render_decals
@@ -35125,6 +35025,7 @@ r_csgo_single_lightbinner
 r_csgo_smoke_fullres_pass
 r_csgo_smoke_overlay_min_dt
 r_csgo_smoke_quality
+r_csgo_smoke_shadow
 r_csgo_stencil_sniper_zoom
 r_csgo_tools_vis_cubemap_roughness
 r_csgo_viewmodel_envmap_position_bias
@@ -35226,7 +35127,6 @@ r_replay_post_effect
 r_ropetranslucent
 r_screen_size_expansion
 r_shadows
-r_show_ao_proxies
 r_show_build_info
 r_showdebugoverlays
 r_showsceneobjectbounds
@@ -35258,6 +35158,7 @@ radio2
 radio3
 radio_icons_use_particles
 radius
+rafting
 ragAnglesChanged
 ragdoll
 ragdoll_friction_scale
@@ -35485,6 +35386,7 @@ returns: '' (if never queried), 'not_enrolled' (never enrolled, should buy from 
 returns: number
 retval
 revenge
+reverb_0_null
 reverb_29_UI
 reverse
 review
@@ -35803,11 +35705,6 @@ serializing
 server
 server %5.1f ms curr, %5.1f ave, %5.1f peak
 server acknowledged to slot %d client only predicted into %d slots, full repredict will occur
-server/adrlocal
-server/adronline
-server/name
-server/reserved
-server/server
 server_cvar
 server_exec
 server_low_fps_label
@@ -36018,6 +35915,7 @@ skirt_near
 skulltype
 sky3dparams_t
 sky_camera
+sky_lightingonly_name
 sky_urb01
 skyambientbouncOe
 skyblue
@@ -36067,6 +35965,7 @@ sm_UniformStreams
 sm_bAccurateTriggerBboxChecks
 sm_bDatadescValidating
 sm_bDisableTouchFuncs
+sm_bRunningPredictedClientStringCommands
 sm_footstepControllers
 sm_nonPrimaryGlobalLights
 sm_pGlobalLight
@@ -36303,6 +36202,7 @@ specularcolor
 specularindependence
 specularpower
 speed
+speed less than
 speed_scale_for_runs_with_turning
 speed_scale_for_runs_with_turning_n_accel
 speed_up_turns
@@ -36597,9 +36497,9 @@ sv_air_pushaway_dist
 sv_airaccelerate
 sv_airaccelerate_parachute
 sv_airaccelerate_rappel
-sv_allow_thirdperson
 sv_alternateticks
 sv_autobunnyhopping
+sv_autobuyammo
 sv_backspeed
 sv_bot_difficulty_kbm
 sv_bounce
@@ -36632,6 +36532,7 @@ sv_disable_immunity_alpha
 sv_disable_observer_interpolation
 sv_disable_querycache
 sv_disable_radar
+sv_disable_teamselect_menu
 sv_disconnected_player_data_hold_time
 sv_dz_cash_bundle_size
 sv_dz_enable_respawn
@@ -36646,7 +36547,6 @@ sv_dz_team_count
 sv_dz_zone_bombdrop_money_reward
 sv_dz_zone_bombdrop_money_reward_bonus
 sv_dz_zone_hex_radius
-sv_enablebunnyhopping
 sv_endmatch_item_drop_interval
 sv_endmatch_item_drop_interval_ancient
 sv_endmatch_item_drop_interval_legendary
@@ -36677,9 +36577,11 @@ sv_hide_roundtime_until_seconds
 sv_highlight_distance
 sv_highlight_duration
 sv_holiday_mode
+sv_human_autojoin_team
 sv_infinite_ammo
 sv_invites_only_mainmenu
 sv_jump_impulse
+sv_jump_spam_penalty_time
 sv_kick_ban_duration
 sv_knife_attack_extend_from_player_aabb
 sv_ladder_angle
@@ -36732,6 +36634,7 @@ sv_shield_explosive_damage_mult
 sv_shield_explosive_damage_scale
 sv_shield_hitpoints
 sv_show_bot_difficulty_in_name
+sv_show_move_collisions
 sv_show_ragdoll_playernames
 sv_show_team_equipment_force_on
 sv_show_team_equipment_prohibit
@@ -37700,6 +37603,7 @@ vCompMat failed to load: %s (falling back to %s)
 vCompMat update exceeded %.3f seconds! [%s]
 v_Hit_Direction
 v_angle
+v_anglePrevious
 v_glove_
 vac_live
 valid
@@ -37746,7 +37650,7 @@ vector3
 vector4
 vector4d
 vector<T> too long
-vel:  %.2f
+vel:  %.2f (%.2f)
 velocity
 velocity_cp
 version
@@ -38263,6 +38167,7 @@ workshop/stickers/templates/sticker_paper.vmat
 workshop_arms
 workshop_greenscreen
 workshop_id
+workshop_preview
 world
 world-blur
 world-blur: gaussian( 6, 6, 1 );

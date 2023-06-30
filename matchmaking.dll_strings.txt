@@ -1464,7 +1464,6 @@ LookingToPlay
 LookingToTrade
 MATCHFRAMEWORK_001
 MM/dd/yy
-MODEL_PROCESSING_SCRIPT_INTERFACE_001
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MakeOnline
 MapKey::GetBoolValue
@@ -1706,7 +1705,6 @@ SerializedEntitiesVersion001
 Server
 Server manager refresh completed.
 Server shutting down
-Server/adrlocal
 Server/adronline
 Server/connectstring
 Server/ping
@@ -2106,6 +2104,7 @@ botDifficulty
 bot_difficulty
 bot_dont_shoot
 bot_quota
+botcomp
 broken pipe
 buffer
 bytes
@@ -2287,7 +2286,6 @@ hltv_replay
 host unreachable
 host>client
 host_writeconfig_ss %d
-hostage_models
 hostendgame
 hostinit
 iController
@@ -2708,4 +2706,3 @@ xuidReserve
 xuidsrc
 yielding
 youblocked
-°–
