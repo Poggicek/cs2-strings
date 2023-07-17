@@ -498,7 +498,7 @@
 ?SetCopy@CStrAutoEncode@@QEAAXPEBIH@Z
 ?SetCopy@CStrAutoEncode@@QEAAXPEB_WH@Z
 ?SetDirect@CUtlString@@QEAAXPEBDH@Z
-?SetExtension@CBufferString@@QEAAPEBDPEBD@Z
+?SetExtension@CBufferString@@QEAAPEBDPEBD_N@Z
 ?SetInt@KeyValues@@QEAAXPEBDH@Z
 ?SetLength@CBufferString@@QEAAPEADH_NPEAH@Z
 ?SetLength@CUtlBinaryBlock@@QEAAXH@Z
@@ -510,7 +510,7 @@
 ?Slice@CUtlString@@QEBA?AV1@HH@Z
 ?SpinLockForWrite@CThreadSpinRWLock@@AEAAXPEBDHI@Z
 ?String@CUtlSymbolTable@@QEBAPEBDVCUtlSymbol@@@Z
-?StripExtension@CBufferString@@QEAAPEBDXZ
+?StripExtension@CBufferString@@QEAAPEBD_N@Z
 ?StripExtension@CUtlString@@QEBA?AV1@XZ
 ?ToLowerFast@CBufferString@@QEAAXH@Z
 ?ToLowerFast@CUtlString@@QEAAXXZ
@@ -787,6 +787,7 @@ DynamicComboRule
 DynamicGlobalsBDA
 ERROR!
 ERROR! Renderable pass data is being used across frame boundaries! Renderable pass has frame count %u. Current frame count is %u.
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!
 ESC_SEQ
 EXPONENT
@@ -815,6 +816,7 @@ Expression Parser -
 ExtTextOutW
 ExternalDescSet
 Extraneous token
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: unable to register all schema data: %s
 FATAL: %s called on a pool context (no root available)
 FEATURES
@@ -1534,7 +1536,6 @@ _psrs
 `vector vbase copy constructor iterator'
 `vftable'
 `virtual displacement map'
-alias_materialsystem
 antlr3BaseRecognizerNew
 antlr3BitsetCopy
 antlr3BitsetList

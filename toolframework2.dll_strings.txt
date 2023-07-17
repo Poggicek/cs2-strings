@@ -146,6 +146,7 @@ $name_$id
 %s :: %s (%s) (%d)
 %s :: Invalid bone referenced :: %s
 %s :: No bone defined
+%s = %s
 %s F=%d V=%d hE=%d
 %s [%s]
 %s allocation count overflow
@@ -918,6 +919,8 @@ $name_$id
 .?AUCAttr_m_flTracksPrecision@?1??GetStaticAttributes@CModelDocAclParameters@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_flTranslationConstantThreshold@?1??GetStaticAttributes@CModelDocAclParameters@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_flTranslationWeight@?1??GetStaticAttributes@CModelDocAnimIkLockLocal@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttr_m_flValueOne@?1??GetStaticAttributes@CModelDocAnimForceMorphValueRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttr_m_flValueZero@?1??GetStaticAttributes@CModelDocAnimForceMorphValueRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_flVelocitySmoothRate@?1??GetStaticAttributes@CModelDocClothParams@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_flVertexCountPercent@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpConvexHull@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_flVirtualVertexDistance@?1??GetStaticAttributes@CModelDocAclParameters@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
@@ -979,6 +982,7 @@ $name_$id
 .?AUCAttr_m_nEndFrame@?1??GetStaticAttributes@CModelDocAnimForceBonePositionRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nEndFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneScaleLerpBase@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nEndFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneSpin@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttr_m_nEndFrame@?1??GetStaticAttributes@CModelDocAnimForceMorphValueRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nEndFrame@?1??GetStaticAttributes@CModelDocAnimMarkupUserAnimation@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nEndFrame@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nEndFrame@?1??GetStaticAttributes@CModelDocLocalHierarchy@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
@@ -1055,6 +1059,7 @@ $name_$id
 .?AUCAttr_m_nPeakFrame@?1??GetStaticAttributes@CModelDocAnimForceBonePositionRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nPeakFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneScaleLerpBase@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nPeakFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneSpin@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttr_m_nPeakFrame@?1??GetStaticAttributes@CModelDocAnimForceMorphValueRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nPeakFrame@?1??GetStaticAttributes@CModelDocAnimMarkupUserAnimation@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nPeakFrame@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nPeakFrame@?1??GetStaticAttributes@CModelDocLocalHierarchy@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
@@ -1078,6 +1083,7 @@ $name_$id
 .?AUCAttr_m_nStartFrame@?1??GetStaticAttributes@CModelDocAnimForceBonePositionRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nStartFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneScaleLerpBase@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nStartFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneSpin@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttr_m_nStartFrame@?1??GetStaticAttributes@CModelDocAnimForceMorphValueRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nStartFrame@?1??GetStaticAttributes@CModelDocAnimMarkupUserAnimation@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nStartFrame@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nStartFrame@?1??GetStaticAttributes@CModelDocLocalHierarchy@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
@@ -1087,6 +1093,7 @@ $name_$id
 .?AUCAttr_m_nTailFrame@?1??GetStaticAttributes@CModelDocAnimForceBonePositionRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nTailFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneScaleLerpBase@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nTailFrame@?1??GetStaticAttributes@CModelDocAnimForceBoneSpin@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttr_m_nTailFrame@?1??GetStaticAttributes@CModelDocAnimForceMorphValueRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nTailFrame@?1??GetStaticAttributes@CModelDocAnimMarkupUserAnimation@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nTailFrame@?1??GetStaticAttributes@CModelDocClothEffectAnimEvent@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_nTailFrame@?1??GetStaticAttributes@CModelDocLocalHierarchy@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
@@ -1130,6 +1137,7 @@ $name_$id
 .?AUCAttr_m_sIkChainName@?1??GetStaticAttributes@CModelDocAnimIkLockLocal@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_sMaxMorphShape@?1??GetStaticAttributes@CModelDocMorphControlPair@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_sMinMorphShape@?1??GetStaticAttributes@CModelDocMorphControlPair@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttr_m_sMorphChannelName@?1??GetStaticAttributes@CModelDocAnimForceMorphValueRange@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_sMorphControl@?1??GetStaticAttributes@CModelDocMorphStereoControl@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_sMorphShape@?1??GetStaticAttributes@CModelDocMorphCombinationShape@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_sMorphShape@?1??GetStaticAttributes@CModelDocMorphDominator@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
@@ -1262,6 +1270,7 @@ $name_$id
 .?AUCAttr_m_vecScale@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpUVMapCylinder@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_vecScaleXYZ@?1??GetStaticAttributes@CModelDocPhysicsHullFromPoints_Point@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttr_m_vecWavelength@?1??GetStaticAttributes@CModelDocMeshModifier_MeshOpVertexSineWave@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttributeType@?2??GetStaticAttributes@CModelDocAnimConstraintDotToMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?2??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceBone@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?2??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?2??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
@@ -1272,21 +1281,27 @@ $name_$id
 .?AUCAttributeType@?2??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?2??GetStaticAttributes@CModelDocIKJointConstraint_Hinge@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?2??GetStaticAttributes@CModelDocNode@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttributeType@?3??GetStaticAttributes@CModelDocAnimConstraintDotToMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?3??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceBone@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?3??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?3??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?3??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?3??GetStaticAttributes@CModelDocIKJointConstraint_Hinge@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttributeType@?4??GetStaticAttributes@CModelDocAnimConstraintDotToMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?4??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceBone@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?4??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?4??GetStaticAttributes@CModelDocBaseBreakPiece@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?4??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?4??GetStaticAttributes@CModelDocIKJointConstraint_Hinge@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttributeType@?5??GetStaticAttributes@CModelDocAnimConstraintDotToMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?5??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?5??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttributeType@?6??GetStaticAttributes@CModelDocAnimConstraintDotToMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?6??GetStaticAttributes@CModelDocAnimConstraintPoseSpaceMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?6??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttributeType@?7??GetStaticAttributes@CModelDocAnimConstraintDotToMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?7??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
+.?AUCAttributeType@?8??GetStaticAttributes@CModelDocAnimConstraintDotToMorph@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?8??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCAttributeType@?9??GetStaticAttributes@CModelDocIKChain@@MEAAXPEAV?$CUtlVector@PEAVIBaseToolAttr@@HV?$CUtlMemory@PEAVIBaseToolAttr@@H@@@@@Z@
 .?AUCMorphSetData@@
@@ -1358,6 +1373,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttr@HVCModelDocAnimForceBoneScale@@@@
 .?AV?$CBaseConcreteToolAttr@HVCModelDocAnimForceBoneScaleLerpBase@@@@
 .?AV?$CBaseConcreteToolAttr@HVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CBaseConcreteToolAttr@HVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CBaseConcreteToolAttr@HVCModelDocAnimFrame@@@@
 .?AV?$CBaseConcreteToolAttr@HVCModelDocAnimGesture@@@@
 .?AV?$CBaseConcreteToolAttr@HVCModelDocAnimMarkupUserAnimation@@@@
@@ -1418,6 +1434,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CBaseConcreteToolAttr@MVCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimConstraintMorph@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimConstraintParent@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -1427,6 +1444,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimForceBoneScale@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CBaseConcreteToolAttr@MVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimGameplayTiming@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimIkLockLocal@@@@
 .?AV?$CBaseConcreteToolAttr@MVCModelDocAnimatedMaterialAttributeValue@@@@
@@ -1571,6 +1589,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintMorph@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintParent@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -1587,6 +1606,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimForceBoneScaleSet@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimForceBoneSpin@@@@
+.?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimFrame@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimGameplayTiming@@@@
 .?AV?$CBaseConcreteToolAttr@VCUtlString@@VCModelDocAnimGesture@@@@
@@ -1885,6 +1905,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttrValue@HVCModelDocAnimForceBoneScale@@@@
 .?AV?$CBaseConcreteToolAttrValue@HVCModelDocAnimForceBoneScaleLerpBase@@@@
 .?AV?$CBaseConcreteToolAttrValue@HVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CBaseConcreteToolAttrValue@HVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CBaseConcreteToolAttrValue@HVCModelDocAnimFrame@@@@
 .?AV?$CBaseConcreteToolAttrValue@HVCModelDocAnimGesture@@@@
 .?AV?$CBaseConcreteToolAttrValue@HVCModelDocAnimMarkupUserAnimation@@@@
@@ -1945,6 +1966,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimConstraintMorph@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimConstraintParent@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -1954,6 +1976,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimForceBoneScale@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimGameplayTiming@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimIkLockLocal@@@@
 .?AV?$CBaseConcreteToolAttrValue@MVCModelDocAnimatedMaterialAttributeValue@@@@
@@ -2087,6 +2110,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimConstraintMorph@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimConstraintParent@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -2103,6 +2127,7 @@ $name_$id
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimForceBoneScaleSet@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimForceBoneSpin@@@@
+.?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimFrame@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimGameplayTiming@@@@
 .?AV?$CBaseConcreteToolAttrValue@VCUtlString@@VCModelDocAnimGesture@@@@
@@ -2402,6 +2427,7 @@ $name_$id
 .?AV?$CConcreteToolAttr@HVCModelDocAnimForceBoneScale@@X@@
 .?AV?$CConcreteToolAttr@HVCModelDocAnimForceBoneScaleLerpBase@@X@@
 .?AV?$CConcreteToolAttr@HVCModelDocAnimForceBoneSpin@@X@@
+.?AV?$CConcreteToolAttr@HVCModelDocAnimForceMorphValueRange@@X@@
 .?AV?$CConcreteToolAttr@HVCModelDocAnimFrame@@X@@
 .?AV?$CConcreteToolAttr@HVCModelDocAnimGesture@@X@@
 .?AV?$CConcreteToolAttr@HVCModelDocAnimMarkupUserAnimation@@X@@
@@ -2462,6 +2488,7 @@ $name_$id
 .?AV?$CConcreteToolAttr@MVCModelDocAnimBlendLayerPoseParam@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimConstraintAttachmentInput@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimConstraintBoneInput@@X@@
+.?AV?$CConcreteToolAttr@MVCModelDocAnimConstraintDotToMorph@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimConstraintMorph@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimConstraintParent@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimConstraintPoseSpaceBone@@X@@
@@ -2471,6 +2498,7 @@ $name_$id
 .?AV?$CConcreteToolAttr@MVCModelDocAnimForceBoneScale@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimForceBoneScaleLerp@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimForceBoneSpin@@X@@
+.?AV?$CConcreteToolAttr@MVCModelDocAnimForceMorphValueRange@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimGameplayTiming@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimIkLockLocal@@X@@
 .?AV?$CConcreteToolAttr@MVCModelDocAnimatedMaterialAttributeValue@@X@@
@@ -2615,6 +2643,7 @@ $name_$id
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimBlendLayerPoseParam@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintAttachmentInput@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintBoneInput@@X@@
+.?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintDotToMorph@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintMorph@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintParent@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimConstraintPoseSpaceBone@@X@@
@@ -2631,6 +2660,7 @@ $name_$id
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimForceBoneScaleLerp@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimForceBoneScaleSet@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimForceBoneSpin@@X@@
+.?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimForceMorphValueRange@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimFrame@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimGameplayTiming@@X@@
 .?AV?$CConcreteToolAttr@VCUtlString@@VCModelDocAnimGesture@@X@@
@@ -2961,6 +2991,7 @@ $name_$id
 .?AV?$CModelDocAttr@HVCModelDocAnimForceBoneScale@@@@
 .?AV?$CModelDocAttr@HVCModelDocAnimForceBoneScaleLerpBase@@@@
 .?AV?$CModelDocAttr@HVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CModelDocAttr@HVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CModelDocAttr@HVCModelDocAnimFrame@@@@
 .?AV?$CModelDocAttr@HVCModelDocAnimGesture@@@@
 .?AV?$CModelDocAttr@HVCModelDocAnimMarkupUserAnimation@@@@
@@ -3019,6 +3050,7 @@ $name_$id
 .?AV?$CModelDocAttr@MVCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CModelDocAttr@MVCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimConstraintMorph@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimConstraintParent@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -3028,6 +3060,7 @@ $name_$id
 .?AV?$CModelDocAttr@MVCModelDocAnimForceBoneScale@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CModelDocAttr@MVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimGameplayTiming@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimIkLockLocal@@@@
 .?AV?$CModelDocAttr@MVCModelDocAnimatedMaterialAttributeValue@@@@
@@ -3169,6 +3202,7 @@ $name_$id
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimConstraintMorph@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimConstraintParent@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -3184,6 +3218,7 @@ $name_$id
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimForceBoneScaleSet@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimForceBoneSpin@@@@
+.?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimFrame@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimGameplayTiming@@@@
 .?AV?$CModelDocAttr@VCUtlString@@VCModelDocAnimGesture@@@@
@@ -3503,6 +3538,7 @@ $name_$id
 .?AV?$CToolAttrGetSetAccess@HVCModelDocAnimForceBoneScale@@@@
 .?AV?$CToolAttrGetSetAccess@HVCModelDocAnimForceBoneScaleLerpBase@@@@
 .?AV?$CToolAttrGetSetAccess@HVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CToolAttrGetSetAccess@HVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CToolAttrGetSetAccess@HVCModelDocAnimFrame@@@@
 .?AV?$CToolAttrGetSetAccess@HVCModelDocAnimGesture@@@@
 .?AV?$CToolAttrGetSetAccess@HVCModelDocAnimMarkupUserAnimation@@@@
@@ -3562,6 +3598,7 @@ $name_$id
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CToolAttrGetSetAccess@MVCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimConstraintMorph@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimConstraintParent@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -3571,6 +3608,7 @@ $name_$id
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimForceBoneScale@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CToolAttrGetSetAccess@MVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimGameplayTiming@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimIkLockLocal@@@@
 .?AV?$CToolAttrGetSetAccess@MVCModelDocAnimatedMaterialAttributeValue@@@@
@@ -3704,6 +3742,7 @@ $name_$id
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimConstraintMorph@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimConstraintParent@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -3719,6 +3758,7 @@ $name_$id
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimForceBoneScaleSet@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimForceBoneSpin@@@@
+.?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimFrame@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimGameplayTiming@@@@
 .?AV?$CToolAttrGetSetAccess@VCUtlString@@VCModelDocAnimGesture@@@@
@@ -4016,6 +4056,7 @@ $name_$id
 .?AV?$CValueAttributeWrapper@HVCModelDocAnimForceBoneScale@@@@
 .?AV?$CValueAttributeWrapper@HVCModelDocAnimForceBoneScaleLerpBase@@@@
 .?AV?$CValueAttributeWrapper@HVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CValueAttributeWrapper@HVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CValueAttributeWrapper@HVCModelDocAnimFrame@@@@
 .?AV?$CValueAttributeWrapper@HVCModelDocAnimGesture@@@@
 .?AV?$CValueAttributeWrapper@HVCModelDocAnimMarkupUserAnimation@@@@
@@ -4074,6 +4115,7 @@ $name_$id
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CValueAttributeWrapper@MVCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimConstraintMorph@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimConstraintParent@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -4083,6 +4125,7 @@ $name_$id
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimForceBoneScale@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimForceBoneSpin@@@@
+.?AV?$CValueAttributeWrapper@MVCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimGameplayTiming@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimIkLockLocal@@@@
 .?AV?$CValueAttributeWrapper@MVCModelDocAnimatedMaterialAttributeValue@@@@
@@ -4216,6 +4259,7 @@ $name_$id
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimBlendLayerPoseParam@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimConstraintAttachmentInput@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimConstraintBoneInput@@@@
+.?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimConstraintDotToMorph@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimConstraintMorph@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimConstraintParent@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimConstraintPoseSpaceBone@@@@
@@ -4231,6 +4275,7 @@ $name_$id
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimForceBoneScaleLerp@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimForceBoneScaleSet@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimForceBoneSpin@@@@
+.?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimForceMorphValueRange@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimFrame@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimGameplayTiming@@@@
 .?AV?$CValueAttributeWrapper@VCUtlString@@VCModelDocAnimGesture@@@@
@@ -4717,6 +4762,7 @@ $name_$id
 .?AVCBindableCommand@@
 .?AVCBindableTargetDescriptorInstance@?1??StaticBindableTargetDescriptor@CGlobalHotkeyCommands@@SAPEAVCBindTargetDescriptorBase@@XZ@
 .?AVCBoneConstraintBase@@
+.?AVCBoneConstraintDotToMorph@@
 .?AVCBoneConstraintPoseSpaceBone@@
 .?AVCBoneConstraintPoseSpaceMorph@@
 .?AVCClassInput@@
@@ -4768,6 +4814,7 @@ $name_$id
 .?AVCModelDocAnimConstraintAttachmentInput@@
 .?AVCModelDocAnimConstraintBase@@
 .?AVCModelDocAnimConstraintBoneInput@@
+.?AVCModelDocAnimConstraintDotToMorph@@
 .?AVCModelDocAnimConstraintList@@
 .?AVCModelDocAnimConstraintMorph@@
 .?AVCModelDocAnimConstraintOrient@@
@@ -4791,6 +4838,7 @@ $name_$id
 .?AVCModelDocAnimForceBoneScaleLerpBase@@
 .?AVCModelDocAnimForceBoneScaleSet@@
 .?AVCModelDocAnimForceBoneSpin@@
+.?AVCModelDocAnimForceMorphValueRange@@
 .?AVCModelDocAnimFrame@@
 .?AVCModelDocAnimGameplayTiming@@
 .?AVCModelDocAnimGesture@@
@@ -5428,7 +5476,7 @@ $name_$id
 ??0CUtlString@@QEAA@AEBVCBufferString@@@Z
 ??0CUtlSymbolTable@@QEAA@HH_N@Z
 ??0FbxString@fbxsdk@@QEAA@XZ
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
 ??0QAbstractNativeEventFilter@@QEAA@XZ
 ??0QAction@@QEAA@PEAVQObject@@@Z
 ??0QApplication@@QEAA@AEAHPEAPEADH@Z
@@ -5737,7 +5785,7 @@ $name_$id
 ?EnterScope@CVProfile@@QEAAXPEBDH0_NH@Z
 ?ExitScope@CVProfile@@QEAAXXZ
 ?ExtendPath@CBufferString@@QEAAPEBDPEBDD_N@Z
-?ExtractFileBase@CBufferString@@QEAAPEBDPEBD@Z
+?ExtractFileBase@CBufferString@@QEAAPEBDPEBD_N@Z
 ?ExtractFileExtension@CBufferString@@QEAAPEBDPEBD@Z
 ?ExtractFilePath@CBufferString@@QEAAPEBDPEBD_N@Z
 ?Find@CUtlSymbolTable@@QEBA?AVCUtlSymbol@@PEBD@Z
@@ -5835,7 +5883,7 @@ $name_$id
 ?SetBoolProp@FbxIOSettings@fbxsdk@@QEAAXPEBD_N@Z
 ?SetBufferType@CUtlBuffer@@QEAAX_N0@Z
 ?SetDirect@CUtlString@@QEAAXPEBDH@Z
-?SetExtension@CBufferString@@QEAAPEBDPEBD@Z
+?SetExtension@CBufferString@@QEAAPEBDPEBD_N@Z
 ?SetInt@KeyValues@@QEAAXPEBDH@Z
 ?SetLength@CBufferString@@QEAAPEADH_NPEAH@Z
 ?SetLength@CUtlString@@QEAAXH@Z
@@ -5845,7 +5893,7 @@ $name_$id
 ?ShortenPath@CBufferString@@QEAAPEBD_N@Z
 ?Slice@CUtlString@@QEBA?AV1@HH@Z
 ?String@CUtlSymbolTable@@QEBAPEBDVCUtlSymbol@@@Z
-?StripExtension@CBufferString@@QEAAPEBDXZ
+?StripExtension@CBufferString@@QEAAPEBD_N@Z
 ?StripExtension@CUtlString@@QEBA?AV1@XZ
 ?StripFilename@CUtlString@@QEBA?AV1@XZ
 ?ToLowerFast@CBufferString@@QEAAXH@Z
@@ -7447,6 +7495,7 @@ AnimConstraintAim
 AnimConstraintAttachmentInput
 AnimConstraintBase
 AnimConstraintBoneInput
+AnimConstraintDotToMorph
 AnimConstraintList
 AnimConstraintMorph
 AnimConstraintOrient
@@ -7474,6 +7523,8 @@ AnimForceBoneScaleLerpBase
 AnimForceBoneScaleSet
 AnimForceBoneSpin
 AnimForceBoneSpin [%s]
+AnimForceMorphValueRange
+AnimForceMorphValueRange [%s]
 AnimFrame
 AnimGameplayTiming
 AnimGesture
@@ -7540,6 +7591,7 @@ Apply UV mapping coordinates according to a custom planar projection.
 Apply UV mapping coordinates according to a cylindrical projection.
 Apply UV mapping coordinates according to a planar projection.
 Apply a local transformation to a bindpose bone.
+Apply a morph parameter value over the specified range.
 Apply a scale to the entire model
 Apply given Cloth Effect, modulating it with time.
 April
@@ -7811,6 +7863,7 @@ CAnimSkeleton
 CAttachment
 CBaseConstraint
 CBoneConstraintBase
+CBoneConstraintDotToMorph
 CBoneConstraintPoseSpaceBone
 CBoneConstraintPoseSpaceBone::Input_t
 CBoneConstraintPoseSpaceMorph
@@ -8307,6 +8360,7 @@ DCT scaled block size %dx%d not supported
 DNGBackwardVersion
 DNGPrivateData
 DNGVersion
+DOT_TO_MORPH
 DW::%s
 DXT1_ONEBITALPHA
 DXT5_NM
@@ -8414,6 +8468,7 @@ DontGenerateFootstepEvents
 DotRange
 Double-save to Member '%s'
 Draw Order
+Drive a morph channel based on a remapped range of the angle between a bone's up-vector and the direction to a target bone.
 DriverBone
 DualHull
 DumpModeDecode: Not enough data for scanline %d
@@ -8426,6 +8481,7 @@ DynamicConfigReplacements
 ERROR! LoadFromJPG( %s ) failed!
 ERROR! LoadFromPNG( %s ) failed!
 ERROR! TiffReadFile( %s ) failed!
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR: Failed to load tool configuration file: %s
 ERROR: Failed to open file for key bindings:
 ERROR: Failed to read key bindings from:
@@ -8599,6 +8655,7 @@ Extrude Radius
 Extrude Sides
 Extrude Twist
 FABRIK
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: unable to register all schema data: %s
 FATAL: %s called on a pool context (no root available)
 FBX Read Error
@@ -9175,6 +9232,7 @@ Ignored
 Ignoring Empty Hold Frame :: %d, Count :: %d, Count Must Be > 0
 Ignoring duplicate bone anim channel :: %s
 Ignoring duplicate morph anim channel :: %s
+Ignoring implicit morph rule :: %s = %s Reason: existing explicit rule :: %s = %s
 Ignoring invalid hull with %i vertices
 IkChain
 Illegal to wait on a task in a Windows Runtime STA
@@ -9369,7 +9427,7 @@ JiggleBone
 JiggleBoneList
 Joint Name
 Joint to Joint Simple
-Jun 29 2023
+Jul 12 2023
 KERNEL32.dll
 KV3 instances cannot be set to an unspecified specific type
 KV3 save transfer failed: %s
@@ -9695,6 +9753,7 @@ ModelModifier_Translate
 ModelSkeletonData_t
 ModelSkeletonData_t::BoneFlags_t
 Monday
+Morph Channel Name
 Morph Control
 Morph Layer Name
 Morph Shape
@@ -10313,8 +10372,12 @@ Release
 ReleaseMutex
 ReleaseSRWLockExclusive
 Reloading...
+Remap From Max
+Remap From Min
 Remap Max
 Remap Min
+Remap To Max
+Remap To Min
 Remap assigned materials.
 Remap the trace result value relative to this range.
 Remapped width of the shadow penumbra
@@ -10483,7 +10546,7 @@ Select All (
 Select All Mesh Components
 Select Edges
 Select Edges by Length
-Select Edges w/length %s %.1f
+Select Edges w/length %s %.3f
 Select Face by Trace
 Select Faces
 Select Faces With Overlapping UVs
@@ -10790,6 +10853,7 @@ Tail Frame Number
 Target
 Target Body
 Target Bone
+Target Bone Name
 Target Color
 Target Directory
 Target Name
@@ -11227,6 +11291,8 @@ Valid External Path
 Valid Game Absolute Path
 Valid Relative Path
 Value
+Value One
+Value Zero
 ValveBiped
 ValveSMMem:%s
 ValveSMMut:%s
@@ -13017,6 +13083,7 @@ m_flRFactor
 m_flRadius
 m_flRadius0
 m_flRadius1
+m_flRemap
 m_flRodVelocitySmoothRate
 m_flRotationOffset
 m_flShapeRadius
@@ -13219,8 +13286,10 @@ m_roughThreshold
 m_roughnessFactor
 m_sAttachmentName
 m_sBoneName
+m_sMorphChannelName
 m_sName
 m_sSurfaceProperty
+m_sTargetBoneName
 m_sTargetMorph
 m_sceneObjects
 m_scrapeRough
@@ -13457,6 +13526,7 @@ monkey
 moody
 moose
 morph
+morph_channel
 morph_layer_name
 morph_weights
 mosquito
@@ -13784,8 +13854,12 @@ rebuild_propertyeditor_on_change
 recenter_on_parent_bone
 relative_angles
 relative_origin
+remap_from_max
+remap_from_min
 remap_max
 remap_min
+remap_to_max
+remap_to_min
 remaps
 remove_behind
 remove_front
@@ -14070,6 +14144,7 @@ target_attribute
 target_attributes
 target_body
 target_bone
+target_bone_name
 target_color
 target_destination
 target_file
@@ -14168,6 +14243,7 @@ tools/images/modeldoc_editor/outliner_icon_animfilereverse.png
 tools/images/modeldoc_editor/outliner_icon_animforceboneposition.png
 tools/images/modeldoc_editor/outliner_icon_animforcebonescaleset.png
 tools/images/modeldoc_editor/outliner_icon_animforcebonespin.png
+tools/images/modeldoc_editor/outliner_icon_animforcemorphvaluerange.png
 tools/images/modeldoc_editor/outliner_icon_animframe.png
 tools/images/modeldoc_editor/outliner_icon_animgameplaytiming.png
 tools/images/modeldoc_editor/outliner_icon_animgesture.png
@@ -14474,6 +14550,8 @@ vSize
 vSphere
 value
 value too large
+value_one
+value_zero
 valve
 vanilla
 variation

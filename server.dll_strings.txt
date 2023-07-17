@@ -185,7 +185,7 @@
   -Push Softbody Transforms: %6.3f [ms]
   -Simulate Frame: %6.3f [ms]
   -Solve (%d active bodies in %d islands): %6.3f [ms]
-  -SolveTOI (for %d active contacts): %6.3f [ms]
+  -SolveTOI (for %d TOI events): %6.3f [ms]
   -Step Softbodies: %6.3f [ms]
   -more : extra info
   0 : un-highlight.
@@ -1898,6 +1898,7 @@ $gender
 --debug_game_event_list
 -1 255
 -allents
+-buildcubemaps
 -class
 -classes
 -curtimewarnings
@@ -1969,6 +1970,8 @@ $gender
 .?AV<lambda_1>@?1??ComputeCharacterDefIndex@CCSPlayerPawnBase@@AEBAGPEBD@Z@
 .?AV<lambda_1>@?1??DebugDraw@CNavObstacleConnectionMgr@@QEAAXM@Z@
 .?AV<lambda_1>@?1??DoSearchScaled@CNavSearchHexLattice@@IEAA_NXZ@
+.?AV<lambda_1>@?1??DoSetLibraryStackFields@CSoundOpGameSystem@@AEAAXPEBVIRecipientFilter@@IIPEBVCSosFieldData@@FPEBXH@Z@
+.?AV<lambda_1>@?1??DoSetSoundEventParams@CSoundOpGameSystem@@AEAAXPEBVIRecipientFilter@@VSoundEventGuid_t@@IPEBVCSosFieldData@@FPEBXH@Z@
 .?AV<lambda_1>@?1??DrawConnectedAreas@CNavDrawArea@@SAXAEBVCNavArea@@PEBV?$Vec3D@M@@MMPEBVINavPathCost@@@Z@
 .?AV<lambda_1>@?1??EmitGrenade@CDecoyGrenade@@UEAAXV?$Vec3D@M@@VQAngle@@0VRotationVector@@PEAVCBasePlayerPawn@@@Z@
 .?AV<lambda_1>@?1??EmitGrenade@CFlashbang@@UEAAXV?$Vec3D@M@@VQAngle@@0VRotationVector@@PEAVCBasePlayerPawn@@@Z@
@@ -2713,6 +2716,7 @@ $gender
 .?AV?$TypeDefinedMapFieldBase@IVCMsgSteamLearn_InferenceMetadata_Response_CompactTable_Entry@@@internal@protobuf@google@@
 .?AV?$TypeDefinedMapFieldBase@VMapKey@protobuf@google@@VMapValueRef@23@@internal@protobuf@google@@
 .?AV?$Vec3D@M@@
+.?AV?$_Func_base@PEAVCSosEventInfo_t@@$$V@std@@
 .?AV?$_Func_base@V?$Vec3D@M@@AEBV1@AEBV1@@std@@
 .?AV?$_Func_base@W4NavSearchAreaResult_t@@AEAVCNavArea@@PEBU?$NavSearchInfo_t@VCNavArea@@@@@std@@
 .?AV?$_Func_base@W4NavSearchPosResult_t@@AEBV?$Vec3D@M@@@std@@
@@ -2753,6 +2757,8 @@ $gender
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??ComputeCharacterDefIndex@CCSPlayerPawnBase@@AEBAGPEBD@Z@_NAEBUCharacterDefn_t@CCStrike15ItemSchema@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??DebugDraw@CNavObstacleConnectionMgr@@QEAAXM@Z@X_K@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??DoSearchScaled@CNavSearchHexLattice@@IEAA_NXZ@_NGG@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??DoSetLibraryStackFields@CSoundOpGameSystem@@AEAAXPEBVIRecipientFilter@@IIPEBVCSosFieldData@@FPEBXH@Z@PEAVCSosEventInfo_t@@$$V@std@@
+.?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??DoSetSoundEventParams@CSoundOpGameSystem@@AEAAXPEBVIRecipientFilter@@VSoundEventGuid_t@@IPEBVCSosFieldData@@FPEBXH@Z@PEAVCSosEventInfo_t@@$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??DrawConnectedAreas@CNavDrawArea@@SAXAEBVCNavArea@@PEBV?$Vec3D@M@@MMPEBVINavPathCost@@@Z@W4NavSearchAreaResult_t@@AEAV4@PEBU?$NavSearchInfo_t@VCNavArea@@@@@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??EmitGrenade@CDecoyGrenade@@UEAAXV?$Vec3D@M@@VQAngle@@0VRotationVector@@PEAVCBasePlayerPawn@@@Z@X$$V@std@@
 .?AV?$_Func_impl_no_alloc@V<lambda_1>@?1??EmitGrenade@CFlashbang@@UEAAXV?$Vec3D@M@@VQAngle@@0VRotationVector@@PEAVCBasePlayerPawn@@@Z@X$$V@std@@
@@ -3147,6 +3153,9 @@ $gender
 .?AVCCSGO_TeamSelectCounterTerroristPosition@@
 .?AVCCSGO_TeamSelectTerroristPosition@@
 .?AVCCSGameConfiguration@@
+.?AVCCSGameModeRules@@
+.?AVCCSGameModeRules_Deathmatch@@
+.?AVCCSGameModeRules_Noop@@
 .?AVCCSGameRules@@
 .?AVCCSGameRulesProxy@@
 .?AVCCSGameStats@@
@@ -3198,6 +3207,7 @@ $gender
 .?AVCCSSprite@@
 .?AVCCSTeam@@
 .?AVCCSTraceFilterSimple@@
+.?AVCCSUsrMsgPreMatchSayText@@
 .?AVCCSUsrMsg_AchievementEvent@@
 .?AVCCSUsrMsg_AdjustMoney@@
 .?AVCCSUsrMsg_AdjustMoney_t@@
@@ -4402,6 +4412,7 @@ $gender
 .?AVCPlayerPawnComponent@@
 .?AVCPlayerPing@@
 .?AVCPlayerSprayDecal@@
+.?AVCPlayerVisibility@@
 .?AVCPlayerVoiceListener@@
 .?AVCPlayer_CameraServices@@
 .?AVCPlayer_ItemServices@@
@@ -4432,9 +4443,6 @@ $gender
 .?AVCPointEntityFinder@@
 .?AVCPointGamestatsCounter@@
 .?AVCPointGiveAmmo@@
-.?AVCPointHMDAnchor@@
-.?AVCPointHMDAnchorOverride@@
-.?AVCPointHintUi@@
 .?AVCPointHurt@@
 .?AVCPointPrefab@@
 .?AVCPointProximitySensor@@
@@ -4475,7 +4483,6 @@ $gender
 .?AVCProtobufBinding@?$CNetMessagePB@$0BBI@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEvent@@@@$0O@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BBJ@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEventBounce@@@@$0O@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BBK@VCClientMsg_ClientUIEvent@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBN@VCClientMsg_RotateAnchor@@$0O@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BCN@VCCSUsrMsg_VGUIMenu@@$0N@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BDN@VCCSUsrMsg_SendAudio@@$0N@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BDO@VCCSUsrMsg_RawAudio@@$0N@$00$00@@
@@ -5388,7 +5395,6 @@ $gender
 .?AVIPointDZParadropDenialRegion@@
 .?AVIPointDZWeaponSpawn@@
 .?AVIPointDZWeaponSpawnGroup@@
-.?AVIPointHintUiAutoList@@
 .?AVIPolymorphicMetadataHelper@@
 .?AVIPoseAccessor@@
 .?AVIPositionWatcher@@
@@ -6051,7 +6057,8 @@ $gender
 ??0CUtlSymbolTable@@QEAA@HH_N@Z
 ??0IFormatOutputStream@@QEAA@XZ
 ??0KeyValues@@QEAA@PEBD00@Z
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
+??0KeyValues@@QEAA@PEBDW4KV_DISPOSABLE_STRING_TABLE_STATE@0@@Z
 ??1CCharBufferFormatOutputStream@@UEAA@XZ
 ??1CMemoryStack@@QEAA@XZ
 ??1CStringRegistry@@QEAA@XZ
@@ -6244,7 +6251,7 @@ $gender
 ?SetColumnHeader@CGridStringPrinter@@QEAAXHPEBD@Z
 ?SetColumnJustification@CGridStringPrinter@@QEAAXH_N@Z
 ?SetDirect@CUtlString@@QEAAXPEBDH@Z
-?SetExtension@CBufferString@@QEAAPEBDPEBD@Z
+?SetExtension@CBufferString@@QEAAPEBDPEBD_N@Z
 ?SetExternalBuffer@CUtlBuffer@@QEAAXPEAXHHH@Z
 ?SetFloat@KeyValues@@QEAAXPEBDM@Z
 ?SetFromString@netadr_t@@QEAA_NPEBD_N@Z
@@ -6272,7 +6279,7 @@ $gender
 ?Start@CThread@@UEAA_NIW4ThreadPriorityEnum_t@@@Z
 ?StrFormat@CBufferString@@QEAAPEBDPEBDZZ
 ?String@CUtlSymbolTable@@QEBAPEBDVCUtlSymbol@@@Z
-?StripExtension@CBufferString@@QEAAPEBDXZ
+?StripExtension@CBufferString@@QEAAPEBD_N@Z
 ?StripExtension@CUtlString@@QEBA?AV1@XZ
 ?StripFilename@CUtlString@@QEBA?AV1@XZ
 ?StripTrailingSlash@CUtlString@@QEAAXXZ
@@ -6607,10 +6614,6 @@ ASN1_verify
 ASYNC_FIRE_AND_FORGET
 ATI1N
 ATI2N
-ATTACHED_ENTITY
-ATTACHED_ENTITY_LARGE
-ATTACHED_HAND_SPECIFIED_IN_EVENT
-ATTACHED_NONE
 ATTACK END
 ATTACKING: %s
 AUTHORITY_INFO_ACCESS
@@ -6724,6 +6727,7 @@ AllPlayersDuringFreezePeriod
 Allies Chat
 AllocGroundLink: failed to allocate groundlink_t.!!!
 Allow Interrupt
+Allow player speed to exceed maximum running speed
 Allow players to extend the current map?
 Allow spectators to initiate votes?
 Allow spectators to vote on issues?
@@ -7631,6 +7635,10 @@ CCSGO_TeamPreviewCharacterPosition
 CCSGO_TeamSelectCharacterPosition
 CCSGO_TeamSelectCounterTerroristPosition
 CCSGO_TeamSelectTerroristPosition
+CCSGameModeRules
+CCSGameModeRules *
+CCSGameModeRules_Deathmatch
+CCSGameModeRules_Noop
 CCSGameRules
 CCSGameRules*
 CCSGameRules: Invalid number of kills-to-upgrade (%d) for weapon %s.
@@ -7693,6 +7701,7 @@ CCSPulseServerFuncs_Globals
 CCSPulseServerFuncs_Globals!EntFireBroadcast
 CCSPulseServerFuncs_Globals!GameMode
 CCSPulseServerFuncs_Globals!GameType
+CCSPulseServerFuncs_Globals!IsWarmupPeriod
 CCSSprite
 CCSTeam
 CCSUsrMsg_AdjustMoney_t
@@ -7746,7 +7755,6 @@ CChoreoScene::RestoreFromBinaryBuffer( %s ):  discarding invalid event of type '
 CClientMsg_ClientUIEvent_t
 CClientMsg_CustomGameEventBounce_t
 CClientMsg_CustomGameEvent_t
-CClientMsg_RotateAnchor_t
 CClientUIDialogManager
 CCoJobMgr::BResumeSleepingJobs
 CCoJobMgr::BResumeYieldingJobs
@@ -8670,7 +8678,7 @@ CPhysicsGameSystem::GameWorldInit
 CPhysicsGameSystem::OnSimulate
 CPhysicsGameSystem::PullKinematicTransformsWorker
 CPhysicsGameSystem::PullSoftbodyTransforms
-CPhysicsGameSystem::PushDynamicTransformsWorker(), C:\buildworker\csgo_rel_win64\build\src\game\shared\physicsgamesystem.cpp:1074
+CPhysicsGameSystem::PushDynamicTransformsWorker(), C:\buildworker\csgo_rel_win64\build\src\game\shared\physicsgamesystem.cpp:1076
 CPhysicsProp
 CPhysicsProp '%s' has become an obstacle after spawning.  Probably need to update dynamically.
 CPhysicsPropMultiplayer
@@ -8694,6 +8702,7 @@ CPlayerPawnComponent
 CPlayerPing
 CPlayerSlot
 CPlayerSprayDecal
+CPlayerVisibility
 CPlayer_AutoaimServices
 CPlayer_AutoaimServices *
 CPlayer_CameraServices
@@ -8735,9 +8744,6 @@ CPointEntityFinder
 CPointGamestatsCounter
 CPointGamestatsCounter::InputIncrement:  No stat name specified for point_gamestats_counter @%f, %f, %f [ent index %d]
 CPointGiveAmmo
-CPointHMDAnchor
-CPointHMDAnchorOverride
-CPointHintUi
 CPointHurt
 CPointPrefab
 CPointProximitySensor
@@ -8810,6 +8816,7 @@ CPulseCell_Val_TestDomainGetEntityName
 CPulseCell_Value_FindEntByName
 CPulseCell_Value_RandomInt
 CPulseCell_Value_TestValue50
+CPulseExecCursor
 CPulseGraphDef
 CPulseGraphInstance_ServerPointEntity
 CPulseGraphInstance_ServerPointEntity!Graph_InitialActivate
@@ -8820,8 +8827,10 @@ CPulseGraphInstance_TestDomain!Graph_GenerateIntWithResult
 CPulseGraphInstance_TestDomain!Graph_GenerateVector
 CPulseGraphInstance_TestDomain!Graph_HandleInt
 CPulseGraphInstance_TestDomain_Derived
+CPulseGraphInstance_TestDomain_Derived!GetInstanceValueX
 CPulseGraphInstance_TestDomain_Derived!Graph_GenerateIntWithResult
 CPulseGraphInstance_TestDomain_Derived!Graph_HandleIntDerived
+CPulseGraphInstance_TestDomain_Derived!SetInstanceValueX
 CPulseGraphInstance_TurtleGraphics
 CPulseGraphInstance_TurtleGraphics!Graph_Go
 CPulseMathlib
@@ -8851,12 +8860,12 @@ CPulseServerFuncs_Sounds!SoundEventStop
 CPulseTestFuncs_DerivedDomain
 CPulseTestFuncs_DerivedDomain!GetCursorValueA
 CPulseTestFuncs_DerivedDomain!SetCursorValueA
-CPulseTurtleGraphicsLib
-CPulseTurtleGraphicsLib!Move
-CPulseTurtleGraphicsLib!PenDown
-CPulseTurtleGraphicsLib!PenUp
-CPulseTurtleGraphicsLib!SetColor
-CPulseTurtleGraphicsLib!Turn
+CPulseTurtleGraphicsCursor
+CPulseTurtleGraphicsCursor!Move
+CPulseTurtleGraphicsCursor!PenDown
+CPulseTurtleGraphicsCursor!PenUp
+CPulseTurtleGraphicsCursor!SetColor
+CPulseTurtleGraphicsCursor!Turn
 CPulseValueFullType
 CPulse_CallInfo
 CPulse_Chunk
@@ -9073,8 +9082,8 @@ CSoundscapeSystem::InitGlobalSoundscapes
 CSource1LegacyGameEventGameSystem
 CSource2GameClients::StartHLTVServer: game event %s not found.
 CSource2GameEntities::CheckEntities: %d ents
-CSource2GameEntities::CheckTransmit(), C:\buildworker\csgo_rel_win64\build\src\game\server\gameinterface.cpp:3092
-CSource2GameEntities::CheckTransmit(), C:\buildworker\csgo_rel_win64\build\src\game\server\gameinterface.cpp:3203
+CSource2GameEntities::CheckTransmit(), C:\buildworker\csgo_rel_win64\build\src\game\server\gameinterface.cpp:3091
+CSource2GameEntities::CheckTransmit(), C:\buildworker\csgo_rel_win64\build\src\game\server\gameinterface.cpp:3202
 CSource2Server::ApplyGameSettings game settings payload received:
 CSource2Server::GameFrame
 CSource2Server::GameServerSteamAPIActivated()
@@ -9135,6 +9144,9 @@ CTankTrainAI
 CTeam
 CTeamColorsAssignedSystem
 CTeamplayRules
+CTestDomainDerived_Cursor
+CTestDomainDerived_Cursor!GetCursorValueB
+CTestDomainDerived_Cursor!SetCursorValueB
 CTestEffect
 CTextureBasedAnimatable
 CThreadedJob
@@ -9684,7 +9696,6 @@ Context: %s:%s
 Continue an iteration over the list of entities, providing reference to a previously found entity
 Continuing to guard hostage rescue zones
 Control how bots talk. Allowed values: 'off', 'radio', 'minimal', or 'normal'.
-Controller slot:%d name:%s
 Controller: %s
 Controller: (%d) Name: %s
 Controls what information player see in the status bar: 0 all names; 1 team names; 2 no names
@@ -10808,6 +10819,7 @@ ERROR: CSource2Server::Connect - Failed to connect to saverestore data in host.d
 ERROR: CSource2Server::Connect - Failed to connect to scenefilecache
 ERROR: CSource2Server::Connect - Failed to connect to soundopsystem
 ERROR: CSource2Server::Connect - No g_pSource2Engine
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR: Can't init spring %s from "%s" to "%s"
 ERROR: Duplicate generic_data_type (%s) found in vdata files (%s) and (%s).
 ERROR: Map either has < 2 bomb sites, or one of the sites has no areas. Coop bots will be broken.
@@ -11314,6 +11326,7 @@ EyePosition
 FAILED TO GET A VALID SPAWN SPOT
 FALSE
 FATAL
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: unable to register all schema data: %s
 FATAL: %s called on a pool context (no root available)
 FCVAR_ARCHIVE
@@ -11967,9 +11980,12 @@ Get entity local origin as a Vector
 Get entity local pitch, yaw, roll as a QAngle
 Get entity pitch, yaw, roll as a vector.
 Get float value for an entity attribute.
+Get if the game is currently in a Warmup period.
 Get int value for an entity attribute.
 Get scale of entity's model.
 Get the 'ValueA' number off the cursor.
+Get the 'ValueB' number off the cursor.
+Get the 'ValueX' number off the graph instance.
 Get the attachment id's angles as a p,y,r vector.
 Get the attachment id's forward vector.
 Get the attachment id's origin vector.
@@ -12061,6 +12077,7 @@ GetCurrentScene
 GetCurrentThreadId
 GetCursorInfo
 GetCursorValueA
+GetCursorValueB
 GetDamage
 GetDamageCustom
 GetDamageForce
@@ -12098,6 +12115,7 @@ GetGraphParameter
 GetHealth
 GetInflictor
 GetInputsForScriptClass
+GetInstanceValueX
 GetInt
 GetInt(name) : returns the convar as an int. May return null if no such convar.
 GetInt32
@@ -12272,7 +12290,7 @@ Graffiti tint definition id out of range [1..%d]: #%d %s
 Graffiti tint definitions failed to parse
 Graffiti tint name duplicate: #%d %s
 Grant healthshots in arms race after n kills
-Grant healthshots in team deathmatch after n kills
+Grant healthshots in deathmatch after n kills
 GraphicsAPI
 GravityTouch
 GreenBlood
@@ -12306,7 +12324,7 @@ GuardingHostages
 GuardingLooseBomb
 GunGameWeapon.ImpendingLevelUp
 GunfireThink
-HAS_LADDERS_AND_ELEVATORS
+HAS_LADDERS
 HDR Color Scale: %0.3f
 HDRColorScale
 HEAD 
@@ -12574,7 +12592,6 @@ ICC or token signature
 IChoreoServices
 IChoreoServices::ChoreoState_t
 IChoreoServices::ScriptState_t
-ID%d/C%d
 IDEA(128)
 IDEA-CBC
 IDEA-CFB
@@ -13177,6 +13194,9 @@ InputSetParentAttachmentMaintainOffset
 InputSetPercentBrightPixels
 InputSetPercentTarget
 InputSetPlaybackRate
+InputSetPlayerFogDistanceMultiplier
+InputSetPlayerFogMaxDensityMultiplier
+InputSetPlayerVisibilityStrength
 InputSetPosition
 InputSetPositionImmediately
 InputSetPushDirection
@@ -13441,6 +13461,7 @@ IsValidCodePage
 IsValidEntity
 IsValidLocale
 IsValidLocaleName
+IsWarmupPeriod
 Issuer certificate lookup error
 Item "%s" is missing schema item class!
 Item %llu installed, but failed to get install directory from steam.
@@ -13489,9 +13510,9 @@ Job passed lock it wasn't waiting for. Job: %s, Lock: %s %s(%d), Paused for %s, 
 Jobs/Coroutines
 JointMotion_t
 Joints: %d (%d)
+Jul 12 2023
 Jump to Instr I%d
 JumpOrLeap( C%d:I%d )
-Jun 29 2023
 JustInTimeManifest
 K-163
 K-233
@@ -13887,6 +13908,7 @@ MNetworkIncludeByUserGroup
 MNetworkMaxValue
 MNetworkMinValue
 MNetworkOverride
+MNetworkPolymorphic
 MNetworkPriority
 MNetworkSendProxyRecipientsFilter
 MNetworkSerializeAs
@@ -13952,6 +13974,7 @@ MPulseDomainOptInFeatureTag
 MPulseEditorHeaderIcon
 MPulseEditorHeaderText
 MPulseInstanceDomainInfo
+MPulseInternal_IsCursor
 MPulseLibraryBindings
 MPulseProvideFeatureTag
 MPulseRegisterTypeInfo
@@ -15711,12 +15734,10 @@ PlayerDied
 PlayerDisconnected
 PlayerDisconnecting
 PlayerFogController
-PlayerFoley.Teleport_movement_short
 PlayerForceTeamThink
 PlayerHasAmmo
 PlayerHasNoAmmo
 PlayerHealth
-PlayerIndex
 PlayerInstanceFromIndex
 PlayerMove_PostMove
 PlayerMovementTraces
@@ -15727,6 +15748,7 @@ PlayerReconnecting
 PlayerReserved
 PlayerSpawn
 PlayerUpdateThink
+PlayerVisibilityStateChanged
 PlayerVoiceListener
 PlayerWeapon
 Players automatically re-jump while holding jump button
@@ -16458,6 +16480,7 @@ RotationVector
 RotationVector-world
 Round MVP disabled: sv_nomvp is set.
 Round can be delayed by this much due to someone watching a replay; must be at least 3-4 seconds, otherwise the last replay will always be interrupted by round start, assuming normal pause between round_end and round_start events (7 seconds) and freezecam delay (2 seconds) and 7.4 second full replay (5.4 second pre-death and ~2 seconds post-death) and replay in/out switching (up to a second)
+RoundNumber
 RoundResults/round%d
 RouteService
 RouteServiceDomain%d
@@ -17176,6 +17199,7 @@ Script_PrecacheModel
 Script_PrecacheResource
 Script_PrecacheScriptSound
 Script_QSlerp
+Script_RandomFloat
 Script_RegisterListener
 Script_RegisterSpawnGroupFilterProxy
 Script_Remove
@@ -17362,6 +17386,8 @@ Set rendering on/off for an ehandle
 Set scale of entity's model.
 Set skin (int).
 Set the 'ValueA' number on the cursor.
+Set the 'ValueB' number on the cursor.
+Set the 'ValueX' number on the graph instance.
 Set the control point data for a control on a particle effect
 Set the current color
 Set the current quest name.
@@ -17451,6 +17477,7 @@ SetControlPoint
 SetCounter
 SetCurrent
 SetCursorValueA
+SetCursorValueB
 SetCustomAppearance
 SetDOFFarBlurry
 SetDOFFarCrisp
@@ -17535,6 +17562,7 @@ SetHealth
 SetHingeFriction
 SetHitMax
 SetHitMin
+SetInstanceValueX
 SetInt
 SetInt(name, val) : sets the value of the convar to the int.
 SetInt32
@@ -17631,6 +17659,9 @@ SetPercentBrightPixels
 SetPercentTarget
 SetPhysAngularVelocity
 SetPlaybackRate
+SetPlayerFogDistanceMultiplier
+SetPlayerFogMaxDensityMultiplier
+SetPlayerVisibilityStrength
 SetPosition
 SetPositionImmediately
 SetPositionMoveDone
@@ -18456,6 +18487,7 @@ Team deathmatch victory points to award for collecting enemy dogtags
 Team deathmatch victory points to award for enemy kill
 Team deathmatch victory points to award for kill with bonus weapon
 Team for queue player#%d/%d (%x - %s) on %s team for %s teams: %s
+TeamName
 TeamNum
 Teammate said what I was going to say - shutting up.
 TeammateAndSpectatorExclusive
@@ -18701,7 +18733,6 @@ TonemapMinAvgLum
 TonemapName
 TonemapPercentBrightPixels
 TonemapPercentTarget
-Too many controllers for competitive
 Too many shards (%d), skipping any above (%d)
 Too many vertical sections for minimap (> %d), skipping.
 Tool '%s' missing required type.
@@ -19506,7 +19537,6 @@ When -gamestatsfileoutputonly is specified, file will be emitted here instead of
 When >=0 restricts autorecording only to the specified TV index
 When a bot disconnects, kill them first.  Requires mp_disconnect_kills_players.
 When a player disconnects, kill them first (triggering item drops, stats, etc.)
-When attempting to get the bonus weapon in deathmatch, whether we should respawn you with it or just give it to you directly
 When computing respondents for a 'THEN ANY' rule, all rule-matching scores within this much of the best score will be considered.
 When enabled prints next map to clients
 When enabled server will populate an additional random seed independent of the client
@@ -19605,7 +19635,6 @@ WorldGameSystem
 WorldGroupId_t
 WorldRendererMgr001
 WorldSpaceCenter
-WorldTextAttachmentType_t
 WorldTextPanelHorizontalAlign_t
 WorldTextPanelOrientation_t
 WorldTextPanelVerticalAlign_t
@@ -19795,9 +19824,11 @@ Zooming
 [ AI BT ]: Element '%d' is not a waypoint.
 [ AI BT ]: Element '%d' is not an array.
 [ AI BT ]: Element '%d' is not an integer.
+[ AI BT ]: Invalid team specification '%s' ( accepted values: 'T', 'CT', 'ANY' ).
 [ AI BT ]: Item alias array '%s' missing from KV3 file.
 [ AI BT ]: Item array '%s' missing from KV3 file.
 [ AI BT ]: Memory to expire def item is not a table.
+[ AI BT ]: Number of team restrictions in array '%s' must match number of tokens in tokens array ( actual = %d, expected = %d ).
 [ AI BT ]: Param item is not a table.
 [ AI BT ]: Param key 'value' is missing.
 [ AI BT ]: Purchase def item is not a table.
@@ -21290,6 +21321,7 @@ buildingName
 bulletPenetrationDamageModifier
 bullet_flight_resolution
 bullet_impact
+bulletspenetrate
 bullpup
 bumpmine
 bumpmine_projectile
@@ -21596,6 +21628,7 @@ cl_autohelp
 cl_clanid
 cl_color
 cl_cq_min_queue
+cl_debounce_attack2
 cl_imgui_set_selection %i
 cl_interp
 cl_interp_ratio
@@ -22922,7 +22955,6 @@ distinguishedName
 distpoint
 distpoint already set
 div by zero
-dm_bonus_weapon_start
 dm_reset_spawns
 dm_togglerandomweapons
 dmdName
@@ -23442,6 +23474,7 @@ env_particle_glow
 env_physexplosion
 env_physimpact
 env_physwire
+env_player_visibility
 env_portal_path_track
 env_projectedtexture
 env_screenoverlay
@@ -24615,7 +24648,6 @@ hint_auto_start
 hint_binding
 hint_caption
 hint_color
-hint_controller_use_hand_origin
 hint_custom_layoutfile
 hint_display_limit
 hint_entindex
@@ -24630,8 +24662,6 @@ hint_layoutfiletype
 hint_local_player_only
 hint_name
 hint_nooffscreen
-hint_panel_fadein
-hint_panel_fadeout
 hint_pulseoption
 hint_range
 hint_replace_key
@@ -26988,7 +27018,6 @@ m_bCreatedFromMapFile
 m_bCreatedModel
 m_bCrouching
 m_bCustomCubemapTexture
-m_bDMBonusActive
 m_bDampAllRotation
 m_bDangerZoneControllerEnabled
 m_bDebris
@@ -27083,6 +27112,7 @@ m_bFirstBlocked
 m_bFirstBombWarning
 m_bFirstCollisionAfterLaunch
 m_bFirstConnected
+m_bFirstThink
 m_bFirstTick
 m_bFirstTime
 m_bFirstUpdate
@@ -27167,7 +27197,6 @@ m_bHasTarget
 m_bHasTriggerRadius
 m_bHasTriggeredCoopSpawnReset
 m_bHasTriggeredRoundStartMusic
-m_bHasUsedDMBonusRespawn
 m_bHasWalkMovedSinceLastJump
 m_bHasWarnedAI
 m_bHeatAtLevel
@@ -27277,7 +27306,6 @@ m_bIsQuestEligible
 m_bIsQueuedMatchmaking
 m_bIsRenderingWithViewModels
 m_bIsRescuing
-m_bIsRespawningForDMBonus
 m_bIsRevolver
 m_bIsRunningUnitTests
 m_bIsScoped
@@ -27391,6 +27419,7 @@ m_bPausedViaInput
 m_bPawnHasDefuser
 m_bPawnHasHelmet
 m_bPawnIsAlive
+m_bPenUp
 m_bPendingBuyMenu
 m_bPerformScreenFade
 m_bPhysStartAsleep
@@ -27486,6 +27515,7 @@ m_bSetValueOnDisable
 m_bShatterRateLimited
 m_bShouldAnimateDuringGameplayPause
 m_bShouldAutoConvertBackFromDebris
+m_bShouldBleed
 m_bShouldDeleteActivationRecord
 m_bShouldDeleteAttachedActivationRecord
 m_bShouldDetach
@@ -27493,6 +27523,7 @@ m_bShouldExplode
 m_bShouldIgnoreOffsetAndAccuracy
 m_bShouldProgressGunGameTRBombModeWeapon
 m_bShouldRemove
+m_bShouldSpark
 m_bShouldTeleportPhysics
 m_bShowC4LED
 m_bShowHints
@@ -28056,7 +28087,6 @@ m_flDynamicMaximumOcclusion
 m_flEdgeFadeDist
 m_flElasticity
 m_flEmitSoundTime
-m_flEnableTime
 m_flEndDistance
 m_flEngageDistance
 m_flExpireTime
@@ -28120,6 +28150,7 @@ m_flFlinchVelocityModifierSmall
 m_flFloatValue
 m_flFluidDensity
 m_flFogContributionStength
+m_flFogDistanceMultiplier
 m_flFogEnd
 m_flFogEndDistance
 m_flFogEndHeight
@@ -28129,6 +28160,7 @@ m_flFogHeightExponent
 m_flFogHeightStart
 m_flFogHeightWidth
 m_flFogMaxDensity
+m_flFogMaxDensityMultiplier
 m_flFogMaxEnd
 m_flFogMaxOpacity
 m_flFogMaxStart
@@ -28172,6 +28204,7 @@ m_flGustDuration
 m_flHDRColorScale
 m_flHazeScale
 m_flHeadDamageMultiplier
+m_flHeadingDeg
 m_flHeadshotMultiplier
 m_flHealthShotBoostExpirationTime
 m_flHeatAbsorb
@@ -28682,6 +28715,7 @@ m_flVariationTime
 m_flVelocityModifier
 m_flVerticalFOV
 m_flViewkick
+m_flVisibilityStrength
 m_flVolume
 m_flVolumetricIntensity
 m_flVoteCheckThrottle
@@ -29677,6 +29711,7 @@ m_nCurrentPhase
 m_nCurrentTick
 m_nCurrentTickThisFrame
 m_nCursorValueA
+m_nCursorValueB
 m_nDamage
 m_nDamageFlags
 m_nDamageTaken
@@ -29795,6 +29830,7 @@ m_nInfernoType
 m_nInitialSeed
 m_nInitialValue
 m_nInputType
+m_nInstanceValueX
 m_nInstruction
 m_nInteractsAs
 m_nInteractsExclude
@@ -29961,7 +29997,6 @@ m_nPlayer
 m_nPlayerButtons
 m_nPlayerDominated
 m_nPlayerDominatingMe
-m_nPlayerIndex
 m_nPoseParamPitch
 m_nPoseParamYaw
 m_nPotentialVotes
@@ -30236,6 +30271,7 @@ m_pEnvMap
 m_pExpresser
 m_pFlashlightServices
 m_pFollowup
+m_pGameModeRules
 m_pGameRules
 m_pGameSceneNode
 m_pGasCanLaunchers
@@ -31405,7 +31441,6 @@ models/props_survival/upgrades/upgrade_tablet_hires.vmdl
 models/props_survival/upgrades/upgrade_tablet_zone.vmdl
 models/props_vehicles/helicopter_rescue.vmdl
 models/tools/bullet_hit_marker.vmdl
-models/ui/arrow_2d.vmdl
 models/weapons/shield_gibs/shield_gib1.vmdl
 models/weapons/shield_gibs/shield_gib10.vmdl
 models/weapons/shield_gibs/shield_gib2.vmdl
@@ -31528,9 +31563,9 @@ mp_display_kill_assists
 mp_dm_bonus_length_max
 mp_dm_bonus_length_min
 mp_dm_bonus_percent
-mp_dm_bonus_respawn
 mp_dm_bonusweapon_dogtags
 mp_dm_dogtag_score
+mp_dm_healthshot_killcount
 mp_dm_kill_base_score
 mp_dm_teammode
 mp_dm_teammode_bonus_score
@@ -31722,7 +31757,6 @@ mp_taser_recharge_time
 mp_td_dmgtokick
 mp_td_dmgtowarn
 mp_td_spawndmgthreshold
-mp_tdm_healthshot_killcount
 mp_team_intro_time
 mp_team_timeout_max
 mp_team_timeout_time
@@ -32725,7 +32759,6 @@ particles/fire_01/env_fire_small.vpcf
 particles/fire_01/env_fire_small_smoke.vpcf
 particles/fire_01/env_fire_tiny.vpcf
 particles/fire_01/env_fire_tiny_smoke.vpcf
-particles/gameui/particle_line_ui.vpcf
 particles/generic_fx/fx_electricspark.vpcf
 particles/generic_fx/fx_metalspark.vpcf
 particles/generic_fx/fx_sparks.vpcf
@@ -33045,6 +33078,8 @@ player_thrown
 player_use_radius
 playerchatwheel
 playercontroller
+playerfogdistancemultiplier
+playerfogmaxdensitymultiplier
 playerhealth
 playerhealthfrac
 playername
@@ -33052,6 +33087,7 @@ playerradio
 playerradio commands may only use responses from an allow list of commands.
 playerslot
 playerspeed
+playervisibilitystrength
 playerweapon
 playing_commentary
 playoverscript
@@ -33084,8 +33120,6 @@ point_follow_substepped
 point_gamestats_counter
 point_give_ammo
 point_hiding_spot
-point_hint_ui
-point_hmd_anchor
 point_hurt
 point_instructor_event
 point_message
@@ -33103,7 +33137,6 @@ point_value_remapper
 point_velocitysensor
 point_viewcontrol
 point_viewcontrol_multiplayer
-point_vr_anchor_override
 point_worldtext
 pointer != NULL
 points
@@ -34970,6 +35003,7 @@ sv_dz_zone_bombdrop_money_reward
 sv_dz_zone_bombdrop_money_reward_bonus
 sv_dz_zone_damage
 sv_dz_zone_hex_radius
+sv_enablebunnyhopping
 sv_endmatch_item_drop_interval
 sv_endmatch_item_drop_interval_ancient
 sv_endmatch_item_drop_interval_legendary
@@ -35184,6 +35218,7 @@ sv_staminarecoveryrate
 sv_stepsize
 sv_stopspeed
 sv_strict_notarget
+sv_suppress_friendlyfire_decals
 sv_suppress_viewpunch
 sv_tablet_show_path_to_nearest_resq
 sv_talk_after_dying_time
@@ -35343,6 +35378,7 @@ team_intro_counterterrorist
 team_intro_terrorist
 team_manager
 team_preview_position
+team_restriction
 team_select_camera
 team_select_counterterrorist
 team_select_terrorist

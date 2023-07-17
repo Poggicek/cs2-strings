@@ -1,4 +1,5 @@
 
+
 	
 		
 			
@@ -51,8 +52,8 @@
 	Not suitable for ECDSA.
 	Questionable extension field!
 	You must construct it with ORDERED_CONSTRUCT macro in the dependency resolution function.
-	vrpad_secondary_up
 
+{}':
             Not After : 
             Not Before: 
         %3d %3d %3d %3d %3d %3d %3d %3d
@@ -95,7 +96,6 @@
  - Incorrect file extension for script file. Use %s instead.
  ... }
  ;{}:
- ;{};{}
  = { <proto text format> }". To set fields within it, use syntax like "
  @ %s
  Average %s commands per frame: %u, %u bytes
@@ -204,6 +204,7 @@
 " which is a proto3 message type.
 " which is not defined or is not an extension of "
 " which is.
+"""
 "$0", 
 ") is not compatible with this reflection object (which is for type "
 ") to start from the outermost scope.
@@ -681,6 +682,7 @@ $0option $1;
 .?AVCSchemaInstallCallback@@
 .?AVCSchemaRegistration@@
 .?AVCSchemaRegistration_panorama_content@@
+.?AVCSimpleErrorListener@@
 .?AVCSource2DoubleBufferedTexture@panorama@@
 .?AVCSource2DoubleBufferedYUVA420Texture@panorama@@
 .?AVCSource2PanelImageSourceTexture@panorama@@
@@ -930,10 +932,8 @@ $0option $1;
 .?AVtype_info@@
 .?AVxml_writer@pugi@@
 .?AW4EActiveControllerType@panorama@@
-.?AW4ESoundType@panorama@@
 .?AW4EVideoPlayerEvent@@
 .?AW4GamePadCode@panorama@@
-.PEAUInputMessage_t@panorama@@
 .PEAV?$Global@VFunction@v8@@@v8@@
 .PEAVCImageProxySource@panorama@@
 .PEAVCVideoPlayerAudioRenderer@panorama@@
@@ -942,8 +942,6 @@ $0option $1;
 .PEAVIImageSource@panorama@@
 .PEAVIUIWindow@panorama@@
 .PEAVIVideoPlayer@@
-.PEAVKeyValues@@
-.PEAX
 .PEBVILocalizationString@panorama@@
 .PLACEHOLDER_VALUE
 .\crypto\asn1\a_bitstr.c
@@ -1314,7 +1312,6 @@ $0option $1;
 ??1Utf8Value@String@v8@@QEAA@XZ
 ??4CUtlString@@QEAAAEAV0@AEBVCBufferString@@@Z
 ??8CUtlString@@QEBA_NAEBV0@@Z
-??ACUtlString@@QEBADH@Z
 ??YCUtlString@@QEAAAEAV0@AEBVCBufferString@@@Z
 ??YCUtlString@@QEAAAEAV0@PEBD@Z
 ?Acquire@CUtlString@@QEAAXPEAVCBufferString@@_N@Z
@@ -1351,6 +1348,7 @@ $0option $1;
 ?Dispose@Isolate@v8@@QEAAXXZ
 ?DisposeGlobal@api_internal@v8@@YAXPEA_K@Z
 ?EatWhiteSpace@CUtlBuffer@@QEAAXXZ
+?EndsWith@CBufferString@@QEBA_NPEBD@Z
 ?EndsWith_FastCaseInsensitive@CBufferString@@QEBA_NPEBD@Z
 ?EnsureCapacity@CBufferString@@QEAAHHPEAPEAD_N1@Z
 ?EnsureCapacity@CUtlBuffer@@QEAAXH@Z
@@ -1475,7 +1473,7 @@ $0option $1;
 ?SetCaptureStackTraceForUncaughtExceptions@Isolate@v8@@QEAAX_NHW4StackTraceOptions@StackTrace@2@@Z
 ?SetDirToWatch@CDirWatcher@@QEAA_NPEBDI_NI_K@Z
 ?SetDirect@CUtlString@@QEAAXPEBDH@Z
-?SetExtension@CBufferString@@QEAAPEBDPEBD@Z
+?SetExtension@CBufferString@@QEAAPEBDPEBD_N@Z
 ?SetExternalBuffer@CUtlBuffer@@QEAAXPEAXHHH@Z
 ?SetFatalErrorHandler@Isolate@v8@@QEAAXP6AXPEBD0@Z@Z
 ?SetHandler@ObjectTemplate@v8@@QEAAXAEBUNamedPropertyHandlerConfiguration@2@@Z
@@ -1521,6 +1519,7 @@ $0option $1;
 ?V_UnicodeLength@@YAHPEBI@Z
 ?V_UnicodeLength@@YAHPEB_W@Z
 ?V_stristr_fast@@YAPEBDPEBD0@Z
+?V_strnlen@@YAHPEBDH@Z
 ?Value@External@v8@@QEBAPEAXXZ
 ?Value@Number@v8@@QEBANXZ
 ?VerifyHostDefinedOptions@ScriptOrigin@v8@@AEBAXXZ
@@ -1785,8 +1784,6 @@ AssetSystem001
 AssetSystemTest001
 AsyncEvent
 AsyncPanoramaQuitWithError
-AsyncPanoramaSurfaceLost
-AsyncPanoramaSurfaceReturned
 AsyncWebRequest
 At marker 0x%02x, recovery action %d
 August
@@ -2378,8 +2375,8 @@ Certificate Hold
 Certificate Sign
 Certificate:
 Cessation Of Operation
-ChangeUser
 Char=
+CharacterSetBuild
 CheckChildrenScrolledIntoView
 ClearField
 ClearPanelEvent
@@ -2389,7 +2386,6 @@ Close the group automatically after a short wait (good for 'success' messages)
 Close the group automatically when the associated parent process exits (good for sticky 'error' messages)
 CloseDebuggerWindow
 CloseHandle
-CloseModalDialog
 CloseToolhelp32Snapshot
 Closed temporary file %s
 Closing joystick %i
@@ -2742,7 +2738,6 @@ DragStart
 Drop focus entirely from the window containing this panel.
 DropInputFocus
 DropdownMenuFocusChanged
-DummyWizardOpen
 Duplicate snippet name: %s
 Dutch
 E-mail Protection
@@ -2933,6 +2928,7 @@ ENUMERATED
 EOF on memory BIO
 ERROR
 ERROR: AsyncWebRequest has been removed.
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!
 ESS_ADD_SIGNING_CERT
 ESS_CERT_ID_NEW_INIT
@@ -3078,7 +3074,6 @@ Exceeds Maximum Package Depth
 Excluded
 ExecuteSteamURL
 ExitProcess
-ExitSteam
 Expanded map entry type 
 Expect a decimal number, got: 
 Expected "
@@ -3112,6 +3107,7 @@ Extensions of MessageSets must be optional messages.
 Extensions to non-lite types can only be declared in non-lite files.  Note that you cannot extend a non-lite type to contain a lite type, but the reverse is allowed.
 FALSE
 FATAL
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: unable to register all schema data: %s
 FATAL: %s called on a pool context (no root available)
 FILE pointer
@@ -3206,6 +3202,7 @@ Follow user preference
 FontManager_001
 Force style invalidation of the entire panel subtree when adding / removing classes.
 Force style invalidation of the entire panel subtree when adding / removing style flags.
+Found button without associated event: %s
 Found duplicate <script /> tag; only one per file permitted.
 Found duplicate <scripts /> tag; only one per file permitted.
 Found duplicate <snippets /> tag; only one per file permitted.
@@ -3275,13 +3272,10 @@ GOST94
 GOST94-GOST89-GOST89
 GOST94-NULL-GOST94
 GRAPHICSTRING
-GameControllerMappingChanged
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
 GamepadInput
-GamepadInserted
-GamepadRemoved
 GeneralNames
 GeneralString
 Generate the Layout XML Schema Definition for the current run-time (types are dependent on which game DLL is running).
@@ -3370,11 +3364,7 @@ GetUserObjectInformationW
 GetWidth
 Gets the time this frame started, in seconds since panorama was initialized
 GlobalMemoryStatus
-GoOffline
-GoOnline
 Greek
-GuideButton
-GuideButtonUp
 HEAD 
 HH:mm:ss
 HMAC GOST 34.11-94
@@ -3501,10 +3491,10 @@ Invalid JPEG file structure: SOS before SOF
 Invalid JPEG file structure: missing SOS marker
 Invalid JPEG file structure: two SOF markers
 Invalid JPEG file structure: two SOI markers
-Invalid Key Bind
 Invalid SOS parameters for sequential JPEG
 Invalid XML format: %s
 Invalid basic quad material
+Invalid button: %s
 Invalid certificate verification context
 Invalid clip-path %s, expecting url(#...)
 Invalid color quantization mode change
@@ -3522,7 +3512,6 @@ Invalid fancy quad material
 Invalid file descriptor data passed to EncodedDescriptorDatabase::Add().
 Invalid float number: 
 Invalid image URL (unknown type) to LoadImageFromURL: %s
-Invalid key %s in binds file %s
 Invalid key for map field.
 Invalid memory pool code %d
 Invalid number of arguments for event in %s for %s
@@ -3578,7 +3567,6 @@ JS stack trace begin.
 JS stack trace end.
 JS(%s:%d:%d)
 JSConsoleOutput
-JSONWebAPIResponse
 JSScheduledFunction
 January
 Japanese
@@ -3644,6 +3632,7 @@ LogChannel
 LoggingSystem_FindChannel
 LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
+LoggingSystem_LogDirect
 LoggingSystem_RegisterLoggingChannel
 MASK:
 MATCHFRAMEWORK_001
@@ -3700,13 +3689,6 @@ Mask Algorithm:
 MaterialUtils_001
 MathLib_Init
 Maximum supported image dimension is %u pixels
-MediaNextTrack
-MediaPlayPause
-MediaPrevTrack
-MediaStop
-MediaVolumeDown
-MediaVolumeMute
-MediaVolumeUp
 MemAlloc_AllocFunc
 MemAlloc_FreeFunc
 MemAlloc_StrDupFunc
@@ -3732,7 +3714,6 @@ Microsoft Server Gated Crypto
 Microsoft Smartcardlogin
 Microsoft Trust List Signing
 Microsoft Universal Principal Name
-MinimizeApp
 Minimum mouse movement in pixels before a move is treated as a drag scroll
 Minimum time that the mouse button must be down before a move is treated as a drag scroll
 Miscellaneous marker 0x%02x, length %u
@@ -3836,6 +3817,8 @@ NetworkServerService_001
 NetworkService_001
 NetworkSystemVersion001
 Never close the group automatically (used to indicate an error like the process exiting unexpectedly)
+Newline in string literal
+No closing */ before end of file
 No default value
 No document element found
 No error
@@ -3955,7 +3938,6 @@ Option field "
 Order: 
 Ordered constructor wrapped type has no default constructor.
 Output file write error --- out of disk space?
-OverlayGamepadInputMsg
 P-192
 P-224
 P-256
@@ -4151,8 +4133,6 @@ PSK-AES256-CBC-SHA
 PSK-RC4-SHA
 PSPECIFIED
 PUBLIC KEY
-PadBackButton
-PadBackButtonUp
 PageDown
 PageLeft
 PagePanelDown
@@ -4192,7 +4172,6 @@ Panorama_OutputColor
 Panorama_OutputDepth
 Panorama_OutputIntermediate
 Parameters
-ParseTokenFromCharString
 Parsing attempt:  
 ParticleSystemMgr003
 PeekNamedPipe
@@ -4234,7 +4213,6 @@ Pointers cannot be used as numeric values
 Policy Qualifier CPS
 Policy Qualifier User Notice
 Polish
-PollingForSteamClientUpdate
 Polynomial:
 Portuguese
 PostProcessingSystem_001
@@ -4253,8 +4231,6 @@ Proc-Type:
 Proc-Type: 4,
 Process32First
 Process32Next
-ProfileOff
-ProfileOn
 Property getter for CPanelStyle called on invalid object
 Property getter for CPanelStyle called with invalid css property name (%s)
 Property setter for CPanelStyle called on invalid object
@@ -4270,7 +4246,7 @@ Proxy Certificate Information
 Public Key
 Public-Key
 Public-Key: (%d bit)
-Pw$
+Pš
 Q:   
 QuadCoords_t CUtlMemoryPoolMT
 Quantization table 0x%02x was not defined
@@ -4278,7 +4254,6 @@ Quantizing to %d = %d*%d*%d colors
 Quantizing to %d colors
 QueryPerformanceCounter
 Queue async event '%s' (delay %.2f to deliver at %.2f) for '%s' ( 0x%p )
-QuitApp
 R11_EAC
 R16G16_UINT
 R16_UINT
@@ -4501,7 +4476,6 @@ ResourceStatusChange:	CRC matches, Ignoring '%s'
 ResourceStatusChange:	ReloadChangedFile '%s'
 ResourceStatusChange: (CRC: Expected: 0x%8.8x, Got: 0x%8.8x), '%s'
 ResourceSystem013
-RestartMachine
 Romanian
 Root node must be named 'root', found '%s'.
 RtlCaptureContext
@@ -4859,7 +4833,6 @@ Sets the width for this panel. Possible values:<br>"fit-children" - Panel size i
 Sets the x, y, z position for a panel. Must not be in a flowing layout.<br><br><b>Example:</b><pre>position: 3% 20px 0px;</pre>
 Sets the z-index for a panel, panels will be sorted and painted in order within a parent panel.  The sorting first sorts by the z-pos computed from position and transforms, then if panels have matching zpos zindex is used. z-index is different than z-pos in that it doesn't affect rendering perspective, just paint/hit-test ordering. The default z-index value is 0, and any floating point value is accepted.<br><br><b>Example:</b><pre>z-index: 1;</pre>
 Sets whether the given panel is enabled
-SettingsPanelShown
 Shorthand for setting panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border: 2px solid #111111FF;</pre>
 Shorthand for setting the bottom panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border-bottom: 2px solid #111111FF;</pre>
 Shorthand for setting the left panel border. Specify width, style, and color.  Supported styles are: solid, dashed, none.<br><br><b>Examples:</b><pre>border-left: 2px solid #111111FF;</pre>
@@ -4869,10 +4842,8 @@ Shorthand to set border radius for all corners at once.  Border radius rounds of
 Should not pass empty string for FindChildInContext()/$()
 Should not reach here.
 Show regardless of user setting
-ShowQuitDialog
 ShowTooltip
 ShowWindow
-ShutdownMachine
 Simplified_Chinese
 SleepConditionVariableCS
 SleepConditionVariableSRW
@@ -4882,13 +4853,10 @@ Snippet elements must have 'name' attribute.
 Snippet elements must have only a single 'name' attribute.
 SoftwareKeyboardVisibilityChanged
 Some options could not be correctly parsed using the proto descriptors compiled into this binary.
-SoundFinished
-SoundMuteChanged
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
 SoundSystem001
-SoundVolumeChanged
 Source2Client002
 Source2ClientPrediction001
 Source2ClientUI001
@@ -4958,8 +4926,6 @@ Start Of Frame 0x%02x: width=%u, height=%u, components=%d
 Start Of Scan: %d components
 Start of Image
 Start-end tags mismatch
-StartButton
-StartButtonUp
 StatsService_001
 Steam API unavailable
 SteamAPI_GetHSteamUser
@@ -4979,10 +4945,6 @@ SteamNetworking006
 SteamUI
 SteamUser023
 SteamUtils010
-SteampadGuideButton
-SteampadGuideButtonUp
-StopStreaming
-StopStreamingAndSuspendClient
 StopVideo
 Streaming Gamepad
 String field
@@ -5002,7 +4964,6 @@ Suite B: invalid signature algorithm
 Sunday
 Superseded
 Surface %p %s stats: %llu frames rendered in %.3f seconds, %.3fms per frame
-SuspendMachine
 Suspension not allowed here
 Swedish
 Switch which class the panel has for a given attribute slot. Allows easily changing between multiple states.
@@ -5115,7 +5076,6 @@ Toggle whether a panel has the given CSS class.
 Toggle whether this panel is :selected.
 ToggleConsole
 ToggleDebugger
-ToggleFullscreen
 TogglePanelSelected
 ToggleStyle
 Too many color components: %d, max %d
@@ -5143,7 +5103,6 @@ TrySendVNotify - SendKV3 failed
 Trying to apply missing animation: %s
 Tuesday
 Turkish
-TurnOffActiveController
 Type appears to be in generated pool but wasn't 
 Type is already registered: 
 Type=
@@ -5248,7 +5207,6 @@ Unsupported marker type 0x%02x
 Unsupported: type mismatch
 Unused
 Usage: panorama_dump_symbols <ESymbolType>
-UserInputActive
 UsesSvg
 UtlMemory_Alloc
 UtlMemory_CalcNewAllocationCount
@@ -7955,6 +7913,13 @@ key_f1
 key_f10
 key_f11
 key_f12
+key_f13
+key_f14
+key_f15
+key_f16
+key_f17
+key_f18
+key_f19
 key_f2
 key_f3
 key_f4
@@ -7984,6 +7949,7 @@ key_media_prev_track
 key_media_stop
 key_minus
 key_n
+key_none
 key_numlock
 key_numlocktoggle
 key_o
@@ -8007,6 +7973,7 @@ key_pad_plus
 key_pagedown
 key_pageup
 key_period
+key_printscreen
 key_q
 key_r
 key_ralt
@@ -8259,7 +8226,6 @@ monitor_pid
 mouse
 mouse_4
 mouse_5
-mouse_invalid
 mouse_left
 mouse_middle
 mouse_right
@@ -8615,6 +8581,7 @@ p.other
 p.ppBasis
 p.prime
 p.tpBasis
+p2€	
 pEngine
 pSourceFunc
 pSpecified
@@ -8624,7 +8591,6 @@ pad_b
 pad_back
 pad_down
 pad_guide
-pad_last
 pad_left
 pad_left_shoulder
 pad_ltrigger
@@ -8633,11 +8599,13 @@ pad_right_shoulder
 pad_rtrigger
 pad_start
 pad_stick1
+pad_stick1_analog
 pad_stick1_down
 pad_stick1_left
 pad_stick1_right
 pad_stick1_up
 pad_stick2
+pad_stick2_analog
 pad_stick2_down
 pad_stick2_left
 pad_stick2_right
@@ -9642,25 +9610,32 @@ steampad_dpad_right
 steampad_dpad_up
 steampad_guide
 steampad_lback
+steampad_lpad_analog
 steampad_lpad_clicked
 steampad_lpad_doubletap
 steampad_lpad_down
 steampad_lpad_left
 steampad_lpad_right
+steampad_lpad_touch
 steampad_lpad_up
 steampad_lshoulder
 steampad_ltrigger
+steampad_ltrigger_analog
 steampad_rback
+steampad_rpad_analog
 steampad_rpad_clicked
 steampad_rpad_doubletap
 steampad_rpad_down
 steampad_rpad_left
 steampad_rpad_right
+steampad_rpad_touch
 steampad_rpad_up
 steampad_rshoulder
 steampad_rtrigger
+steampad_rtrigger_analog
 steampad_select
 steampad_start
+steampad_stick1_analog
 steampad_stick1_clicked
 steampad_stick1_down
 steampad_stick1_left
@@ -10111,19 +10086,6 @@ volatile
 volatile 
 volume_atten
 vparams
-vrpad_primary_down
-vrpad_primary_grip
-vrpad_primary_guide
-vrpad_primary_left
-vrpad_primary_right
-vrpad_primary_trigger
-vrpad_primary_up
-vrpad_secondary_down
-vrpad_secondary_grip
-vrpad_secondary_guide
-vrpad_secondary_left
-vrpad_secondary_right
-vrpad_secondary_trigger
 vscroll
 vsvg_c
 vts_c

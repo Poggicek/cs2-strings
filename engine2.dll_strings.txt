@@ -1,7 +1,6 @@
 
 	"%s" has %d known peers:
 	"%s" has no known peers.
-	%s	%.1f
 	%s manifest end
 	-1 = use default (parallel controller split)
 	0 = single threaded combined (i.e., ReadFieldList and Decode combined into one call)
@@ -22,6 +21,7 @@
                             %12s peak, %s block
                           : %s snapshots (%s-%s) in entindex %d
                     max   : %s bytes in entindex %d
+                  %d delta frames, +%11s bytes
                ticks      : %d = %d - %d
             %s
            Other markers removed.
@@ -114,6 +114,7 @@
   tick mark is unlocked
   valid  : %s
  "%s"
+ %02x
  %4d frame cache   = %12s bytes
  %4u Delta Frames  = %12s bytes
  %4u Hltv Frames   = %12s bytes
@@ -154,8 +155,6 @@
  CServerSideClientBase::ProcessClassInfo(done)
  CServerSideClientBase::ProcessCreateStringTable(%s)
  CServerSideClientBase::ProcessServerInfo
- CServerSideClientBase::SendServerInfo
- CServerSideClientBase::SendServerInfo(finished)
  CServerSideClientBase::SendSignonData
  Class Hierarchy Descriptor'
  Complete Object Locator'
@@ -403,7 +402,6 @@ $0option $1;
 %d clients:
 %d snapshot creation ticks referred
 %d spawn groups
-%d(%f):  
 %d,%f,%f,%f,%f,%f
 %d. Msg_HltvReplay %s->%s
 %d. Msg_Tick %d cl:delayed sv:real-time
@@ -464,14 +462,12 @@ $0option $1;
 %s %s: AddString(%s) : %s (data %d bytes) at tick %d
 %s %s: ClearTick %d %s - tick %d - remaining userdata %d
 %s %s: ClearTick tick %d - %d items
-%s %s: CopyStringTable
-%s %s: Mirror table reset
 %s %s: Mirror table set up
 %s %s: SetStringUserData : %d %s (data %d bytes)
 %s %s: UpdateMirrorTable %d %s change tick %d mirror change tick %d - %d bytes
 %s %s: UpdateMirrorTable forcing AddString of item %d '%s' change tick %d because it was not in the table.
 %s %s: WriteBaselines at tick %d. %d entries, %d bits
-%s %s: WriteUpdateAtTick %d %s userdata %d [t %d ack %d change %d]
+%s %s: WriteUpdateAtTick %d %s userdata %d %s [t %d ack %d change %d]
 %s %s: WriteUpdateAtTick %d entries [t %d ack %d] %d bits
 %s %s: m_nLastChangedTick[0]=%d, nMirrorChangeTick=%d, %d changes
 %s '%s': file size larger than 1 MB!
@@ -614,7 +610,6 @@ $0option $1;
 %s<%i><%s><>
 %s\%s
 %s\icuuc.dll
-%s\loadaddress.txt
 %s_%03i.log
 %s_%04d%s%s
 %s_%u_slot%d
@@ -1020,24 +1015,26 @@ $0option $1;
 .?AV?$CConCommandMemberAccessor@VCStatsService@@@@
 .?AV?$CConCommandMemberAccessor@VCVProfService@@@@
 .?AV?$CDeferredCall@UAppendSpawnGroupMessageCall_t@CHLTVServerAsync@@@CHLTVServerAsync@@
-.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UAppendSpawnGroupMessageCall_t@1@@@
-.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UDumpMemCall_t@1@@@
-.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UOnStartedRecordingReverseCall_t@1@@@
-.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UPrintBroadcastTVStatusCall_t@1@@@
-.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartAutoRecordingCall_t@1@@@
-.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartBroadcastCall_t@1@@@
-.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartRecordingCall_t@1@@@
-.?AV?$CDelayedCall2@VCNetworkGameServerBase@@V1@UClientConnectDelayedCall_t@1@@@
-.?AV?$CDelayedCall2@VCNetworkGameServerBase@@V1@UUnloadSpawnGroupCall_t@1@@@
-.?AV?$CDelayedCall2@VCNetworkGameServerBase@@VCHLTVServer@@UPrintTVStatusCall_t@2@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UDisconnectCall_t@1@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UProcessBaselineAckCall_t@1@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@USendNetMessageCall_t@1@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UUpdateAcknowledgedFramecountCall_t@1@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@VCHLTVClient@@UPrintTVStatusCall_t@2@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@USendInitialSpawnGroupsAsync_t@2@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@UStartHltvReplayCall_t@2@@@
-.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@UStopHltvReplayCall_t@2@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UAppendSpawnGroupMessageCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UDumpMemCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UOnStartedRecordingReverseCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UPrintBroadcastTVStatusCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartAutoRecordingCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartBroadcastCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCHLTVServerAsync@@V1@UStartRecordingCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCNetworkGameServerBase@@V1@UClientConnectDelayedCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCNetworkGameServerBase@@VCHLTVServer@@UPrintTVStatusCall_t@2@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UBuildServerInfoMessageAsync_t@1@VCNetworkGameServerSpawnGroupAutoLock@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UDisconnectCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UProcessBaselineAckCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@USendNetMessageCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@USignonStateNewCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@USignonStateNewFailedCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@V1@UUpdateAcknowledgedFramecountCall_t@1@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCHLTVClient@@UPrintTVStatusCall_t@2@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@UFakeClientMarkSpawnGroupsAsLoadedCall_t@2@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@UStartHltvReplayCall_t@2@Uempty_t@@@@
+.?AV?$CDelayedCall2@VCServerSideClientBase@@VCServerSideClient@@UStopHltvReplayCall_t@2@Uempty_t@@@@
 .?AV?$CDelayedCall@VCHLTVServerAsync@@UAppendSpawnGroupMessageCall_t@1@@@
 .?AV?$CDelayedCall@VCHLTVServerAsync@@UDumpMemCall_t@1@@@
 .?AV?$CDelayedCall@VCHLTVServerAsync@@UOnStartedRecordingReverseCall_t@1@@@
@@ -2085,8 +2082,8 @@ $0option $1;
 1#QNAN
 1#SNAN
 1.2.11
+10:17:21
 127.0.0.1
-14:43:21
 200000
 30000
 3dSkyboxFog
@@ -2115,8 +2112,6 @@ $0option $1;
 <unknown>
 === %sEntity List Summary (%s) ===
 === Total: %s/%s %s entities%s ===
-======End loadaddress.vpc output======
-=====Begin loadaddress.vpc output=====
 >>> %s: %s
 ??0CCommandBuffer@@QEAA@XZ
 ??0CEventDispatcher_Base@@IEAA@XZ
@@ -2138,7 +2133,8 @@ $0option $1;
 ??0CVirtualMemorySnapshot@@QEAA@XZ
 ??0KeyValues@@QEAA@PEBD00@Z
 ??0KeyValues@@QEAA@PEBD0H@Z
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
+??0KeyValues@@QEAA@PEBDW4KV_DISPOSABLE_STRING_TABLE_STATE@0@@Z
 ??0KeyValuesJSONParser@@QEAA@PEBDH@Z
 ??1CCommandBuffer@@QEAA@XZ
 ??1CMiniDumpComment@@QEAA@XZ
@@ -2217,7 +2213,6 @@ $0option $1;
 ?Dump@KeyValues@@QEAA_NPEAVIKeyValuesDumpContext@@H@Z
 ?EncounteredComplexReadLockOperation@CThreadRWLock_FastRead@@IEAA_NI_NPEBDH@Z
 ?EndProcessingCommands@CCommandBuffer@@QEAAXXZ
-?EnsureCapacity@CBufferString@@QEAAHHPEAPEAD_N1@Z
 ?EnsureCapacity@CUtlBuffer@@QEAAXH@Z
 ?EnsureEndsWithNumCharacters@CMiniDumpComment@@QEAA_NDH_N@Z
 ?EnsureOSDescription@CMiniDumpComment@@QEAAXXZ
@@ -2225,7 +2220,7 @@ $0option $1;
 ?Execute@CThreadedJob@@QEAAHXZ
 ?ExitScope@CVProfile@@QEAAXXZ
 ?ExtendPath@CBufferString@@QEAAPEBDPEBDD_N@Z
-?ExtractFileBase@CBufferString@@QEAAPEBDPEBD@Z
+?ExtractFileBase@CBufferString@@QEAAPEBDPEBD_N@Z
 ?ExtractFilePath@CBufferString@@QEAAPEBDPEBD_N@Z
 ?Find@CUtlSymbolTable@@QEBA?AVCUtlSymbol@@PEBD@Z
 ?FindAndDeleteSubKey@KeyValues@@QEAA_NPEBD@Z
@@ -2309,6 +2304,8 @@ $0option $1;
 ?Lock@CThreadSpinMutex@@AECAXPEBDHII@Z
 ?LockCommandBuffer@CCommandBuffer@@QEAAX_N@Z
 ?LockForRead@CThreadSpinRWLock@@QEAAXPEBDH@Z
+?LoggingSystem_GetLogCapture@@YAXPEAV?$CUtlVector@VCUtlString@@HV?$CUtlMemory@VCUtlString@@H@@@@_N@Z
+?LoggingSystem_GetLogCapture@@YAXPEAVCMiniDumpComment@@_N@Z
 ?LoggingSystem_Log@@YA?AW4LoggingResponse_t@@HW4LoggingSeverity_t@@AEBULeafCodeInfo_t@@PEBDZZ
 ?LoggingSystem_Log@@YA?AW4LoggingResponse_t@@HW4LoggingSeverity_t@@PEBULoggingMetaData_t@@PEBDZZ
 ?LoggingSystem_Log@@YA?AW4LoggingResponse_t@@HW4LoggingSeverity_t@@VColor@@PEBDZZ
@@ -2369,7 +2366,7 @@ $0option $1;
 ?SetColumnHeader@CGridStringPrinter@@QEAAXHPEBD@Z
 ?SetCopy@CStrAutoEncode@@QEAAXPEBDH@Z
 ?SetDirect@CUtlString@@QEAAXPEBDH@Z
-?SetExtension@CBufferString@@QEAAPEBDPEBD@Z
+?SetExtension@CBufferString@@QEAAPEBDPEBD_N@Z
 ?SetExternalBuffer@CUtlBuffer@@QEAAXPEAXHHH@Z
 ?SetFromSockadr@netadr_t@@QEAA_NPEBUsockaddr@@@Z
 ?SetFromString@netadr_t@@QEAA_NPEBD_N@Z
@@ -2397,7 +2394,7 @@ $0option $1;
 ?StartsWith@CBufferString@@QEBA_NPEBD@Z
 ?Stop@CVProfile@@QEAAXXZ
 ?String@CUtlSymbolTable@@QEBAPEBDVCUtlSymbol@@@Z
-?StripExtension@CBufferString@@QEAAPEBDXZ
+?StripExtension@CBufferString@@QEAAPEBD_N@Z
 ?StripExtension@CUtlString@@QEBA?AV1@XZ
 ?StripFilename@CUtlString@@QEBA?AV1@XZ
 ?StripTrailingSlash@CBufferString@@QEAAPEBDXZ
@@ -2920,9 +2917,6 @@ CHLTVDemoRecorder::WriteSpawnGroupUpdateMessages AddSpawnMessageToDemoSpawnGroup
 CHLTVDemoRecorder::WriteSpawnGroupUpdateMessages tick=%d (from %d) sending message %s (spawn group %s)
 CHLTVServer:  SendClientMessages
 CHLTVServer: BroadcastLocalChat
-CHLTVServer::AddNewDeltaFrame
-CHLTVServer::AddNewFrame
-CHLTVServer::ExpandDeltaFrameToFullFrame
 CHLTVServer::IsCorrectUniqueTVCode: pszUniqueCode=%s s_nTVSecretCode=%llu clientAccount=%u nCombined=%llu
 CHLTVServer::OnHLTVClientStateConnectionClosing:  Terminating after uplink disconnected.
 CHLTVServer::SendClientMessages client %s SendSnapshot() returned false on tick %d.
@@ -2935,7 +2929,7 @@ CHLTVServer::StartRelay: WriteClassInfosBuffer overflow.
 CHLTVServer::StartRelay: WriteSendTables overflow.
 CHLTVServer::UpdateHibernationState:  Terminating after relaying game.
 CHLTVServer::UpdateTick
-CHLTVServerAsync::ExpandDeltaFrameToFullFrame(), C:\buildworker\csgo_rel_win64\build\src\engine2\hltvserver_async.cpp:966
+CHLTVServerAsync::ExpandDeltaFrameToFullFrame(), C:\buildworker\csgo_rel_win64\build\src\engine2\hltvserver_async.cpp:965
 CHandle
 CHostStateMgr::QueueNewRequest( %s, %u )
 CInputService
@@ -3237,11 +3231,10 @@ CUtlRBTree overflow with %u elements!
 CUtlSortVector<class CEntityIndex,class CVConsole2FlattenedSerializerListener::CEntityIndex_less,class CUtlVector<class CEntityIndex,int,class CUtlMemory<class CEntityIndex,int> > >::Find
 CUtlSortVector<int,class CUtlSortVectorDefaultLess<int>,class CUtlVector<int,int,class CUtlMemory<int,int> > >::FindLessOrEqual
 CUtlSortVector<int,class CUtlSortVectorDefaultLess<int>,class CUtlVector<int,int,class CUtlMemory<int,int> > >::InsertIfNotFound
-CUtlSortVector<struct ProjectSize_t,struct ProjectSize_t,class CUtlVector<struct ProjectSize_t,int,class CUtlMemory<struct ProjectSize_t,int> > >::FindLessOrEqual
-CUtlSortVector<struct ProjectSize_t,struct ProjectSize_t,class CUtlVector<struct ProjectSize_t,int,class CUtlMemory<struct ProjectSize_t,int> > >::Insert
 CUtlSortVector<unsigned int,class CUtlSortVectorDefaultLess<unsigned int>,class CUtlVector<unsigned int,int,class CUtlMemory<unsigned int,int> > >::Find
 CUtlSortVector<unsigned int,class CUtlSortVectorDefaultLess<unsigned int>,class CUtlVector<unsigned int,int,class CUtlMemory<unsigned int,int> > >::FindAndRemove
 CUtlSortVector<unsigned int,class CUtlSortVectorDefaultLess<unsigned int>,class CUtlVector<unsigned int,int,class CUtlMemory<unsigned int,int> > >::FindLessOrEqual
+CUtlSortVector<unsigned int,class CUtlSortVectorDefaultLess<unsigned int>,class CUtlVector<unsigned int,int,class CUtlMemory<unsigned int,int> > >::HasElement
 CUtlSortVector<unsigned int,class CUtlSortVectorDefaultLess<unsigned int>,class CUtlVector<unsigned int,int,class CUtlMemory<unsigned int,int> > >::Insert
 CUtlSymbolLarge
 CUtlSymbolTableLargeBase
@@ -3486,7 +3479,7 @@ Current alias commands: %d
 Current resident memory: %s
 Current server access password
 Current sv_pure value is %d.
-Currently storing %d client frames, %s bytes
+Currently storing %d client frames, %12s bytes
 Curtime( %f )
 Custom
 Custom user info value
@@ -3601,7 +3594,6 @@ Dump the contents of the next spawngroup manifest to file.
 Dump vprof counters to the console
 DumpInstanceBaselineToString
 Dumped stack stats struct "%s" to file "%s"
-Dumps the binary sizes to use for the game in loadaddress.vpc
 Duplicate engine service named "%s" registered!
 Duplicate loop named "%s" registered!
 ENABLED
@@ -3618,6 +3610,7 @@ ERD_LEAVEPVS
 ERD_NETWORKPACKETFINISHED
 ERD_RECORDBITS
 ERROR
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR: Detected mismatched logging state. Expected matching LoggingSystem_PushLoggingState/LoggingSystem_PopLoggingState.
 ERROR: Executable Location: %s
 ERROR: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!
@@ -3819,6 +3812,7 @@ Extensions to non-lite types can only be declared in non-lite files.  Note that 
 F/M/S %u/%u/%u 
 FALSE
 FATAL
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: unable to register all schema data: %s
 FCMOV 
 FCVAR_CHEAT cvars reverted to defaults (sv_cheats disabled).
@@ -4163,6 +4157,7 @@ HLTV has frame snapshot manager different from the server
 HLTV send %d-delta of frame %d: %d bytes
 HLTV send full frame %d: %d bytes
 HLTV:  SetSignonState( %s )
+HLTV:maxplayers set to %i
 HLTV_CopyNewEntity: GetDynamicBaseline(%d) failed.
 HSR_GAME_REMOTE_CHANGELEVEL_RECONNECT
 HammerMapLoader001
@@ -4273,7 +4268,6 @@ InputStackSystemVersion001
 InputSystemVersion001
 Inserted tick %d with full packet
 InstallAndInvokeClientStringTableCallbacks
-InstallClientStringTableMirrors! Missing client table "%s".
 InstallSchemaBindings
 InstantReplay
 Insufficient memory (case %d)
@@ -4337,8 +4331,8 @@ JPEG datastream contains no image
 JPEG parameter struct mismatch: library thinks size is %u, caller expects %u
 JPEGMEM
 January
+Jul 12 2023
 Jumping to random tick %d (%.2f min)
-Jun 29 2023
 JustInTime Resource Spawn Group
 JustInTimeManifest
 KERNEL32.dll
@@ -4386,9 +4380,6 @@ List currently known peers.
 List demo file contents.
 Listing known P2P networking peers from all peer groups:
 Lists banned users.
-Live++
-LoadAddressName
-LoadAddresses
 LoadAppSystems:   appSystems Load(start)
 LoadAppSystems:  Adding server/client configs took %f msec
 LoadAppSystems:  appSystems Load(finish)
@@ -4407,7 +4398,6 @@ LoadLibraryExW
 Loaded %d LOS segments from %s!
 Loaded %d los hints from existing file
 Loaded '%s' from SteamRemoteStorage, %d bytes OK
-LoadedBinarySize
 Loading (%s)
 Loading map "%s"
 Loading map "%s" (addon '%s')
@@ -4426,8 +4416,12 @@ Log server information in the log file.
 Log server information to only one file.
 Log when a tick is received
 Log when the tick delta >= this
+LoggingSystem_AddLogCapture
+LoggingSystem_AddLogCaptureString
+LoggingSystem_AddLogCaptureV
 LoggingSystem_CurrentStateIndex
 LoggingSystem_EnableBackdoorLoggingListeners
+LoggingSystem_EnableLogCapture
 LoggingSystem_GetChannel
 LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
@@ -4441,6 +4435,7 @@ LoggingSystem_RegisterLoggingListener
 LoggingSystem_ResetBackdoorLoggingState
 LoggingSystem_ResetCurrentLoggingState
 LoggingSystem_SetChannelVerbosity
+LoggingSystem_SetMaxLogCaptureLines
 LoggingSystem_UnregisterLoggingListener
 Loop "%s" contains a circular dependency with service "%s"!
 Loop named "%s" failed to init!
@@ -4452,7 +4447,6 @@ LoopModeRemoteConnect
 Lost RCON connection, please retry command
 Lost RCON connection, please retry command (%s)
 Lost RCON connection, please retry command.
-LppShutdown
 MATCHFRAMEWORK_001
 MAX_ALLOC_CHUNK is wrong, please fix
 META for '%s'
@@ -4585,7 +4579,6 @@ MobileClientVersion
 Mod doesn't support SourceTV. No director module found.
 ModelDocUtils001
 Modifies the LOD scale
-Module "%s" is not debug and will only grow/add loadaddress size for "%s". But will never reduce it
 Monday
 MountAddon: Failed to find ADDONS search path.
 MountAddonSearchPaths: Failed to find CONTENTADDONS search path.
@@ -4713,7 +4706,6 @@ OnNetLanConnectionlessPacket
 OnPostDataUpdate
 OnPreDataUpdate
 OnProfileStorageAvailable
-OnRequestFullUpdate
 OnServerAdvanceTick
 OnServerPollNetworking
 OnServerPostAdvanceTick
@@ -4890,7 +4882,6 @@ Plat_RegistryReadInt
 Plat_RegistryReadString
 Plat_RegistryWriteInt
 Plat_RegistryWriteString
-Plat_RelativeTickFrequency
 Plat_RelativeTicks
 Plat_RequireSDL
 Plat_RestartCurrentProcess
@@ -5316,7 +5307,6 @@ SV:  SendSnapshot(uncompressed)
 SV:  SendSnapshot(waiting for reliable ack)
 SV:  Sending full update to client %s (reason:  %s)
 SV:  Sending server info and initial spawn groups to %s
-SV:  Sending server info to client '%s' at %s, %.1fms
 SV:  Server shutting down: %s (%d)
 SV:  ServerSteamID=%s (%llu).
 SV:  Setting game load failed flag.
@@ -5328,7 +5318,6 @@ SV:  VAC secure mode is activated.
 SV:  WriteBaselines:  %20.20s wrote %6d bytes [%36.36s], headroom %6d bytes
 SV:  WriteBaselines:  %d tables required %d bytes
 SV:  WriteClassInfosBuffer overflow.
-SV:  WriteInitialSpawnGroups sending %d groups
 SV:  addon='%s'
 SV:  maxplayers set to %i
 SV: Canceling k_EAuthSessionResponseAuthTicketCanceled for %s because %s.
@@ -5434,6 +5423,8 @@ Server info: m_nServerCount:%d ishltv:%s m_nRetryNum:%d szRetryAddress:%s
 Server is a lan server ( no heartbeat, no authentication, no non-class C addresses )
 Server is awaiting players %s [%u] v%d t%u (%u, %d): %d player(s) pending
 Server is hibernating
+Server is hibernating, HLTV activation postponed until Activate
+Server is in background map, HLTV activation postponed until Activate
 Server logging data to file %s
 Server logging disabled.
 Server logging enabled.
@@ -5992,7 +5983,6 @@ Unable to load steam headless module, error %d
 Unable to open '%s' for writing.
 Unable to open logfiles at %s, logging disabled
 Unable to open netconsole on port %d
-Unable to query debug status of module "%s"
 Unable to read %s from %s!
 Unable to read default keybinding configuration (user_keys_default)!
 Unable to set SetActiveChannel to user in slot %d
@@ -6041,7 +6031,6 @@ Unsupported color conversion request
 Unsupported marker type 0x%02x
 Unsupported: type mismatch
 Update self-referencing, connection dropped.
-UpdateBinarySizes
 Uptime( %f )
 Usage %s classname
 Usage %s substring
@@ -6103,12 +6092,10 @@ VConComm001
 VENGINE_GAMEUIFUNCS_VERSION005
 VEngineCvar007
 VFileSystem017
-VGAME
 VM snapshot captured at %.2f
 VMaterialSystem2_001
 VMediaFoundation001
 VModEnable
-VNotify
 VP4003
 VPK overrides: 
 VPhysics2_Handle_Interface_001
@@ -6255,7 +6242,6 @@ WARNING: Unable to compile regex '%s', %s
 WARNING: You are trying to mount an addon (%s) in tools mode that is different from the addon tools mode was launched with (%s).
 WARNING: msg overflowed for %s
 WIN32
-WIN64
 WINDOWS
 WS2_32.dll
 WSAEACCES
@@ -6321,6 +6307,7 @@ Wednesday
 When > 0, sets the mode whereas players see delayed replay, and are segregated into a domain of chat and voice separate from the alive players
 When VConsole is in the foreground, don't trigger engine_no_focus_sleep behavior
 When VConsole is in the foreground, force all engine & tools to render
+When enabled, changes in tv_enable convars cause immediate startup or shutdown of hltv server
 When enabled, this allows for entity packing to use the property changes for building up the data. This is many times faster, but can be disabled for error checking.
 When enabled, this will collect all information for relay sending into a single datagram to ensure that the data stays together through a potentially large number of relays
 When enabled, this will use a uniquely generated server code to authenticate relay connections. This code is coordinated via the GC or some external means rather than by clients directly
@@ -6405,10 +6392,10 @@ Your current chat group is "%s"
 [c:%u:%u]
 [client]
 [g:%u:%u]
-[hltv]
 [i:%u:%u]
 [joy %d]%s is unbound.
 [libprotobuf %s %s:%d] %s
+[mirror]
 [player %d]: Key "%s" is not bound.
 [server]
 [unknown]
@@ -6546,7 +6533,6 @@ address family not supported
 address in use
 address not available
 alias
-alias_launcher
 allow_from_disk
 allow_from_disk+check_crc
 allowed in proto3.
@@ -7277,7 +7263,6 @@ listip
 lit data: dyn %ld, stat %ld
 lit tree: sent %ld
 load 
-loadaddress.txt
 loaded
 loaded spawngroup(%3d)  : %s
 loading
@@ -8148,6 +8133,7 @@ tv_dispatchmode
 tv_enable
 tv_enable1
 tv_enable_delta_frames
+tv_enable_dynamic
 tv_extended_logging
 tv_grouprelaydatareliable
 tv_grouprelaydataunreliable

@@ -429,7 +429,7 @@
   -Push Softbody Transforms: %6.3f [ms]
   -Simulate Frame: %6.3f [ms]
   -Solve (%d active bodies in %d islands): %6.3f [ms]
-  -SolveTOI (for %d active contacts): %6.3f [ms]
+  -SolveTOI (for %d TOI events): %6.3f [ms]
   -Step Softbodies: %6.3f [ms]
   -more : extra info
   0 : un-highlight.
@@ -941,11 +941,11 @@
 #Cstrike_game_join_spectators
 #Cstrike_game_join_terrorist
 #DeathPanel_KilledByAutoSentry
+#DeathPanel_KilledByC4
 #DeathPanel_KilledByDangerZone
 #DeathPanel_KilledByExplodingBarrel
 #DeathPanel_KilledByFire
 #DeathPanel_KilledByOwnBreachCharge
-#DeathPanel_KilledByOwnC4
 #DeathPanel_KilledByOwnGrenade
 #DeathPanel_KilledSelf
 #DeathPanel_NewNemesis1
@@ -1377,7 +1377,6 @@
 #Panorama_HUD_weaponid_holdtopickup
 #Panorama_HUD_weaponid_lookat
 #Panorama_HUD_weaponid_swap
-#Panorama_Notice_DM_BonusRespawn
 #Panorama_Notice_DM_BonusSwitchTo
 #Panorama_PauseMenu_ExitGameConfirmation_MessageQueuedSurvival
 #Panorama_PauseMenu_ExitGameConfirmation_TitleQueuedSurvival
@@ -3391,7 +3390,6 @@ $taser_charge
 .?AV?$CCallbackManual@VCCSGO_SteamImageMgr@@UPersonaStateChange_t@@$0A@@@
 .?AV?$CCallbackManual@VClientModeCSNormal@@UScreenshotRequested_t@@$0A@@@
 .?AV?$CClientMessagePB@$0BBK@VCClientMsg_ClientUIEvent@@$00@@
-.?AV?$CClientMessagePB@$0BBN@VCClientMsg_RotateAnchor@@$00@@
 .?AV?$CCoJobLambda@V<lambda_1>@?BC@??Steam_OnQueryItems@CUiComponent_Workshop@@AEAAXPEAUSteamUGCQueryCompleted_t@@_N@Z@@@
 .?AV?$CComponentPredictionCopyDataOps@VCBodyComponentBaseAnimGraph@@@@
 .?AV?$CComponentPredictionCopyDataOps@VCBodyComponentBaseModelEntity@@@@
@@ -3759,7 +3757,6 @@ $taser_charge
 .?AV?$CNetMessagePB@$0BAB@VCP2P_Voice@@$05$01$0A@@@
 .?AV?$CNetMessagePB@$0BAC@VCP2P_Ping@@$0A@$00$0A@@@
 .?AV?$CNetMessagePB@$0BBK@VCClientMsg_ClientUIEvent@@$0O@$00$00@@
-.?AV?$CNetMessagePB@$0BBN@VCClientMsg_RotateAnchor@@$0O@$00$00@@
 .?AV?$CNetMessagePB@$0BDO@VCCSUsrMsg_RawAudio@@$0N@$00$00@@
 .?AV?$CNetMessagePB@$0BEB@VCCSUsrMsg_Damage@@$0N@$00$00@@
 .?AV?$CNetMessagePB@$0BEC@VCCSUsrMsg_RadioText@@$0N@$00$00@@
@@ -4177,7 +4174,6 @@ $taser_charge
 .?AV?$CUIEvent@$00HPEAVCUtlBuffer@@II@panorama@@
 .?AV?$CUIEvent@$00HPEBD@panorama@@
 .?AV?$CUIEvent@$00HW4ScrollBehavior_t@panorama@@_N@panorama@@
-.?AV?$CUIEvent@$00I@panorama@@
 .?AV?$CUIEvent@$00M@panorama@@
 .?AV?$CUIEvent@$00MM@panorama@@
 .?AV?$CUIEvent@$00MMM@panorama@@
@@ -4215,6 +4211,7 @@ $taser_charge
 .?AV?$CUIEvent@$00W4EVideoPlayerPlaybackError@@@panorama@@
 .?AV?$CUIEvent@$00W4GenericPopupResult_t@@PEAVIUIEvent@panorama@@@panorama@@
 .?AV?$CUIEvent@$00W4GenericPopupResult_t@@PEBD@panorama@@
+.?AV?$CUIEvent@$00W4ModifierCode@panorama@@@panorama@@
 .?AV?$CUIEvent@$00W4ScrollBehavior_t@panorama@@_N@panorama@@
 .?AV?$CUIEvent@$00_K@panorama@@
 .?AV?$CUIEvent@$00_N@panorama@@
@@ -4955,6 +4952,9 @@ $taser_charge
 .?AVCCSGO_WeaponSelectionView@@
 .?AVCCSGO_iConvarPanoramaSetter@@
 .?AVCCSGameConfiguration@@
+.?AVCCSGameModeRules@@
+.?AVCCSGameModeRules_Deathmatch@@
+.?AVCCSGameModeRules_Noop@@
 .?AVCCSHitboxSystem@@
 .?AVCCSHudWeaponSelection@@
 .?AVCCSInventoryManager@@
@@ -4983,6 +4983,7 @@ $taser_charge
 .?AVCCSPlayer_WeaponServices@@
 .?AVCCSReplayObserverHandler@@
 .?AVCCSTraceFilterSimple@@
+.?AVCCSUsrMsgPreMatchSayText@@
 .?AVCCSUsrMsg_AchievementEvent@@
 .?AVCCSUsrMsg_AdjustMoney@@
 .?AVCCSUsrMsg_AmmoDenied@@
@@ -5136,7 +5137,6 @@ $taser_charge
 .?AVCClientMsg_CustomGameEventBounce@@
 .?AVCClientMsg_DevPaletteVisibilityChangedEvent@@
 .?AVCClientMsg_RotateAnchor@@
-.?AVCClientMsg_RotateAnchor_t@@
 .?AVCClientMsg_WorldUIControllerHasPanelChangedEvent@@
 .?AVCClientThinkList@@
 .?AVCClientUI@@
@@ -6130,7 +6130,6 @@ $taser_charge
 .?AVCProtobufBinding@?$CNetMessagePB@$0BBI@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEvent@@@@$0O@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BBJ@V?$CBaseCmdKeyValues@VCClientMsg_CustomGameEventBounce@@@@$0O@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BBK@VCClientMsg_ClientUIEvent@@$0O@$00$00@@
-.?AVCProtobufBinding@?$CNetMessagePB@$0BBN@VCClientMsg_RotateAnchor@@$0O@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BCN@VCCSUsrMsg_VGUIMenu@@$0N@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BDN@VCCSUsrMsg_SendAudio@@$0N@$00$00@@
 .?AVCProtobufBinding@?$CNetMessagePB@$0BDO@VCCSUsrMsg_RawAudio@@$0N@$00$00@@
@@ -7094,6 +7093,7 @@ $taser_charge
 .?AVC_PlayerPing@@
 .?AVC_PlayerSprayDecal@@
 .?AVC_PlayerSprayDecalManifestCompletionCallback@@
+.?AVC_PlayerVisibility@@
 .?AVC_PointCamera@@
 .?AVC_PointCameraVFOV@@
 .?AVC_PointClientUIDialog@@
@@ -7102,12 +7102,6 @@ $taser_charge
 .?AVC_PointClientUIWorldTextPanel@@
 .?AVC_PointCommentaryNode@@
 .?AVC_PointEntity@@
-.?AVC_PointHMDAnchor@@
-.?AVC_PointHMDAnchorOverride@@
-.?AVC_PointHintUIArrowHighlightModel@@
-.?AVC_PointHintUIButtonHighlightModel@@
-.?AVC_PointHintUIHighlightModel@@
-.?AVC_PointHintUi@@
 .?AVC_PointValueRemapper@@
 .?AVC_PointWorldText@@
 .?AVC_PostProcessingVolume@@
@@ -7421,8 +7415,6 @@ $taser_charge
 .?AVIPhysicsCollisionData@@
 .?AVIPhysicsWorldEventListener@@
 .?AVIPointCommentaryNodeAutoList@@
-.?AVIPointHintUIHighlightModelAutoList@@
-.?AVIPointHintUiAutoList@@
 .?AVIPolymorphicMetadataHelper@@
 .?AVIPoseAccessor@@
 .?AVIPrediction@@
@@ -7696,18 +7688,17 @@ $taser_charge
 .?AW4ELanguage@@
 .?AW4ELeaderboardType@@
 .?AW4EPriority@CCSGO_HudHintText@@
-.?AW4ESoundType@panorama@@
 .?AW4EVideoPlayerEvent@@
 .?AW4EVideoPlayerPlaybackError@@
 .?AW4GamePadCode@panorama@@
 .?AW4GamePhase@@
 .?AW4GenericPopupResult_t@@
+.?AW4ModifierCode@panorama@@
 .?AW4loadout_slot_t@@
 .P6AHPEBVIUIPanelClient@panorama@@0@Z
 .P6AXPEAVCCompositeMaterialOwner@@@Z
 .P6AXPEAVCSceneObject@@@Z
 .P6AXPEBVC_EconItemView@@AEAVCUtlBuffer@@HH_K@Z
-.PEAUInputMessage_t@panorama@@
 .PEAV?$Global@VFunction@v8@@@v8@@
 .PEAVCHTML@panorama@@
 .PEAVCImagePanel@panorama@@
@@ -7722,8 +7713,6 @@ $taser_charge
 .PEAVIUIPanel@panorama@@
 .PEAVIUIWindow@panorama@@
 .PEAVIVideoPlayer@@
-.PEAVKeyValues@@
-.PEAX
 .PEA_N
 .PEBVCCSUsrMsg_RoundEndReportData_t@@
 .PEBVCSteamProfileItems@@
@@ -7734,6 +7723,7 @@ $taser_charge
 .chunk
 .dummy
 .fatdem
+.filelist
 .foo = value".
 .placeholder.proto
 .vCompMat
@@ -7994,7 +7984,8 @@ $taser_charge
 ??0KeyValues@@QEAA@PEBD0000@Z
 ??0KeyValues@@QEAA@PEBD00@Z
 ??0KeyValues@@QEAA@PEBD0H@Z
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
+??0KeyValues@@QEAA@PEBDW4KV_DISPOSABLE_STRING_TABLE_STATE@0@@Z
 ??0TryCatch@v8@@QEAA@PEAVIsolate@1@@Z
 ??0Utf8Value@String@v8@@QEAA@PEAVIsolate@2@V?$Local@VValue@v8@@@2@@Z
 ??1CCharBufferFormatOutputStream@@UEAA@XZ
@@ -8087,7 +8078,7 @@ $taser_charge
 ?Exit@Context@v8@@QEAAXXZ
 ?Exit@Isolate@v8@@QEAAXXZ
 ?ExitScope@CVProfile@@QEAAXXZ
-?ExtractFileBase@CBufferString@@QEAAPEBDPEBD@Z
+?ExtractFileBase@CBufferString@@QEAAPEBDPEBD_N@Z
 ?ExtractFileExtension@CBufferString@@QEAAPEBDPEBD@Z
 ?ExtractFilePath@CBufferString@@QEAAPEBDPEBD_N@Z
 ?Final@CSHA1@@QEAAXXZ
@@ -8250,6 +8241,7 @@ $taser_charge
 ?RemoveAll@CUtlSymbolTable@@QEAAXXZ
 ?RemoveAt@CBufferString@@QEAAPEBDHH@Z
 ?RemoveDotSlashes@CBufferString@@QEAAPEBDD@Z
+?RemoveFilePath@CBufferString@@QEAAPEBDXZ
 ?RemoveFromStart@CUtlString@@QEBA?AV1@PEBD_N@Z
 ?RemoveSubKey@KeyValues@@QEAAXPEAV1@_N1@Z
 ?Replace@CUtlString@@QEBA?AV1@PEBD0_N@Z
@@ -8277,7 +8269,7 @@ $taser_charge
 ?SetColumnJustification@CGridStringPrinter@@QEAAXH_N@Z
 ?SetCopy@CStrAutoEncode@@QEAAXPEBDH@Z
 ?SetDirect@CUtlString@@QEAAXPEBDH@Z
-?SetExtension@CBufferString@@QEAAPEBDPEBD@Z
+?SetExtension@CBufferString@@QEAAPEBDPEBD_N@Z
 ?SetExternalBuffer@CUtlBuffer@@QEAAXPEAXHHH@Z
 ?SetFloat@KeyValues@@QEAAXPEBDM@Z
 ?SetFromString@netadr_t@@QEAA_NPEBD_N@Z
@@ -8309,7 +8301,7 @@ $taser_charge
 ?Start@CThread@@UEAA_NIW4ThreadPriorityEnum_t@@@Z
 ?Stop@CThread@@QEAAXH@Z
 ?String@CUtlSymbolTable@@QEBAPEBDVCUtlSymbol@@@Z
-?StripExtension@CBufferString@@QEAAPEBDXZ
+?StripExtension@CBufferString@@QEAAPEBD_N@Z
 ?StripExtension@CUtlString@@QEBA?AV1@XZ
 ?StripFilename@CUtlString@@QEBA?AV1@XZ
 ?StripTrailingSlash@CBufferString@@QEAAPEBDXZ
@@ -8479,10 +8471,6 @@ ATI1N
 ATI2N
 ATI_TC_CalculateBufferSize_Wrapper
 ATI_TC_ConvertTexture_Wrapper
-ATTACHED_ENTITY
-ATTACHED_ENTITY_LARGE
-ATTACHED_HAND_SPECIFIED_IN_EVENT
-ATTACHED_NONE
 AVATAR: Image load failed for panel %s.
 A_txt
 Abbey
@@ -8534,6 +8522,7 @@ ActionMatchmaking: all client settings match host
 ActionMatchmaking: client needs a new lobby (%s on client '%s' != host '%s')
 ActionMatchmaking: host switching lobby to new mission
 ActionPregameCastMyVote
+ActionPregameChat
 ActionReconnectToOngoingMatch
 ActionRedeemOperationGoods
 ActionRequestSeasonalOperationMissionCardID
@@ -8662,6 +8651,7 @@ AllPlayersDuringFreezePeriod
 AllocGroundLink: failed to allocate groundlink_t.!!!
 Allow Interrupt
 Allow a client to draw on the map overview
+Allow player speed to exceed maximum running speed
 AllowOversized
 Allows client to disable (=-1), defer to server (=0), or request a certain min-command queue size for games that support the command queue (IsUsingCommandQueue()) for CUserCmds.
 Allows flipping the model, regardless of whether it is built left or right handed
@@ -8835,8 +8825,6 @@ AsyncLoadingContainer
 AsyncLoadingState
 AsyncLocalPawnClientThink
 AsyncPanoramaQuitWithError
-AsyncPanoramaSurfaceLost
-AsyncPanoramaSurfaceReturned
 AsyncPlayerSprayDecal
 AsyncSave
 AsyncSuccessContainer
@@ -9725,6 +9713,10 @@ CCSGO_TeamPreviewCharacterPosition
 CCSGO_TeamSelectCharacterPosition
 CCSGO_TeamSelectCounterTerroristPosition
 CCSGO_TeamSelectTerroristPosition
+CCSGameModeRules
+CCSGameModeRules *
+CCSGameModeRules_Deathmatch
+CCSGameModeRules_Noop
 CCSGameRules
 CCSGameRules*
 CCSGameRulesProxy
@@ -9829,7 +9821,6 @@ CClientModeGameSystem
 CClientMsg_ClientUIEvent_t
 CClientMsg_CustomGameEventBounce_t
 CClientMsg_CustomGameEvent_t
-CClientMsg_RotateAnchor_t
 CClientSteamContext OnSteamServerConnectFailure logged on = %d
 CClientSteamContext OnSteamServersConnected logged on = %d
 CClientSteamContext OnSteamServersDisconnected logged on = %d
@@ -10502,7 +10493,7 @@ CPhysicsGameSystem::GameWorldInit
 CPhysicsGameSystem::OnSimulate
 CPhysicsGameSystem::PullKinematicTransformsWorker
 CPhysicsGameSystem::PullSoftbodyTransforms
-CPhysicsGameSystem::PushDynamicTransformsWorker(), C:\buildworker\csgo_rel_win64\build\src\game\shared\physicsgamesystem.cpp:1074
+CPhysicsGameSystem::PushDynamicTransformsWorker(), C:\buildworker\csgo_rel_win64\build\src\game\shared\physicsgamesystem.cpp:1076
 CPhysicsProp
 CPhysicsPropMultiplayer
 CPickledRadixTrie::CChildren
@@ -10519,6 +10510,7 @@ CPlayerPing
 CPlayerSlot
 CPlayerSprayDecal
 CPlayerSprayDecalRenderHelper
+CPlayerVisibility
 CPlayerVisibilityDataColorSceneObjectDesc
 CPlayerVisibilityStencilProxySceneObjectDesc
 CPlayer_AutoaimServices
@@ -10548,9 +10540,6 @@ CPointClientUIWorldPanel
 CPointClientUIWorldTextPanel
 CPointCommentaryNode
 CPointEntity
-CPointHMDAnchor
-CPointHMDAnchorOverride
-CPointHintUi
 CPointOffScreenIndicatorUi
 CPointTemplate
 CPointValueRemapper
@@ -10629,6 +10618,7 @@ CPulseCell_Val_TestDomainFindEntityByName
 CPulseCell_Val_TestDomainGetEntityName
 CPulseCell_Value_RandomInt
 CPulseCell_Value_TestValue50
+CPulseExecCursor
 CPulseGraphDef
 CPulseGraphInstance_TestDomain
 CPulseGraphInstance_TestDomain!Graph_GenerateInt
@@ -10636,8 +10626,10 @@ CPulseGraphInstance_TestDomain!Graph_GenerateIntWithResult
 CPulseGraphInstance_TestDomain!Graph_GenerateVector
 CPulseGraphInstance_TestDomain!Graph_HandleInt
 CPulseGraphInstance_TestDomain_Derived
+CPulseGraphInstance_TestDomain_Derived!GetInstanceValueX
 CPulseGraphInstance_TestDomain_Derived!Graph_GenerateIntWithResult
 CPulseGraphInstance_TestDomain_Derived!Graph_HandleIntDerived
+CPulseGraphInstance_TestDomain_Derived!SetInstanceValueX
 CPulseGraphInstance_TurtleGraphics
 CPulseGraphInstance_TurtleGraphics!Graph_Go
 CPulseMathlib
@@ -10656,12 +10648,12 @@ CPulseRuntimeMethodArg
 CPulseTestFuncs_DerivedDomain
 CPulseTestFuncs_DerivedDomain!GetCursorValueA
 CPulseTestFuncs_DerivedDomain!SetCursorValueA
-CPulseTurtleGraphicsLib
-CPulseTurtleGraphicsLib!Move
-CPulseTurtleGraphicsLib!PenDown
-CPulseTurtleGraphicsLib!PenUp
-CPulseTurtleGraphicsLib!SetColor
-CPulseTurtleGraphicsLib!Turn
+CPulseTurtleGraphicsCursor
+CPulseTurtleGraphicsCursor!Move
+CPulseTurtleGraphicsCursor!PenDown
+CPulseTurtleGraphicsCursor!PenUp
+CPulseTurtleGraphicsCursor!SetColor
+CPulseTurtleGraphicsCursor!Turn
 CPulseValueFullType
 CPulse_CallInfo
 CPulse_Chunk
@@ -11050,6 +11042,9 @@ CTakeDamageSummaryScopeGuard
 CTeam
 CTeamRoundTimer
 CTempEnts::PhysicsProp: model %s not found
+CTestDomainDerived_Cursor
+CTestDomainDerived_Cursor!GetCursorValueB
+CTestDomainDerived_Cursor!SetCursorValueB
 CTextureBasedAnimatable
 CThreadedJob
 CTimeline
@@ -11541,6 +11536,7 @@ C_PlantedC4
 C_PlantedC4Survival
 C_PlayerPing
 C_PlayerSprayDecal
+C_PlayerVisibility
 C_PointCamera
 C_PointCameraVFOV
 C_PointClientUIDialog
@@ -11550,12 +11546,6 @@ C_PointClientUIWorldTextPanel
 C_PointCommentaryNode
 C_PointCommentaryNode::OnDataChanged
 C_PointEntity
-C_PointHMDAnchor
-C_PointHMDAnchorOverride
-C_PointHintUIArrowHighlightModel
-C_PointHintUIButtonHighlightModel
-C_PointHintUIHighlightModel
-C_PointHintUi
 C_PointValueRemapper
 C_PointWorldText
 C_PostProcessingVolume
@@ -11563,7 +11553,6 @@ C_Precipitation
 C_PrecipitationBlocker
 C_PredictedViewModel
 C_PropCounter
-C_PropVRHand
 C_RagdollManager
 C_RagdollProp
 C_RagdollPropAttached
@@ -11811,7 +11800,6 @@ ChangeAccessorFieldPathIndex_t
 ChangeFOV
 ChangeGameUIState: %s -> %s
 ChangeTeammateColor
-ChangeUser
 Changing to a target further than this will cause the camera to face the direction of travel
 Channel: %s (%s, %u viewers) -- %s [[%s]]
 CharacterDecalSystem
@@ -12004,13 +11992,11 @@ CloseCaption_Normal
 CloseDebuggerWindow
 CloseEndOfMatch
 CloseHandle
-CloseModalDialog
 CloseOperationHub
 CloseScoreboard
 CloseSession
 CloseSubMenuContent
 CloseThreadpoolWork
-Closing
 Closing Lesson Named...
 Cloth
 Coast
@@ -12578,7 +12564,6 @@ D_MSAA_DEPTH_BUFFER
 D_MSAA_TEXTURE
 D_NEUTRAL
 D_NPC_INTERACTION_MAP_ENABLED
-D_OLD_TONEMAPPING_CURVE
 D_ON_SCREEN_SMOKE
 D_OUTPUT_PANO
 D_PANORAMA_PARTICLE
@@ -13189,7 +13174,6 @@ DropListJSO
 DropTimeRemaining
 DropdownMenuFocusChanged
 DroppedBomb
-DummyWizardOpen
 Dump all new particles, optional name substring.
 Dump all response_rules.txt and rules (requires restart)
 Dump all simulating particles, optional name substring.
@@ -13288,6 +13272,7 @@ EQ_STRING
 ERROR
 ERROR! Cannot load RenderingPipelineCsgoStartup resource manifest for the Csgo render pipeline!
 ERROR: Ammo (%s) found no CVar named (%s)
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR: Duplicate generic_data_type (%s) found in vdata files (%s) and (%s).
 ERROR: No subclass vdata file (%s) found.
 ERROR: Resource name "%s" has the incorrect extension "%s" for the specified resource type (expected "%s")!
@@ -13468,7 +13453,6 @@ Engine2
 Engine2/RenderingPipeline/AmbientOcclusionProxies
 Engine2/RenderingPipeline/HighPrecisionLighting
 Engine2/RenderingPipeline/OpaqueFade
-Engine2/RenderingPipeline/Tonemapping_MultipleSystems
 Engine2/RenderingPipeline/ToolsVisModes
 EngineCountdownTimer
 EngineLoopState_t
@@ -13568,6 +13552,8 @@ EquipmentInfo
 Equivalent to r_csgo_render_dither_scale, but purely to control bluenoise for R11G11B10 downsample dither (if r_csgo_r11g11b10_dither_mode = 2)
 Error
 Error (%d:%d)
+Error Generate Manifest Assetsystem or P4 not available
+Error Generate Manifest can't access %s
 Error Message
 Error Parsing PaintData in %s! 
 Error adding %s
@@ -13672,7 +13658,6 @@ Executing deferred playcast command: %s
 Executing deferred playdemo: %s
 Exhibition
 ExitProcess
-ExitSteam
 Expanded map entry type 
 Expect a decimal number, got: 
 Expected "
@@ -13728,6 +13713,7 @@ FAILED
 FAILURE
 FALSE
 FATAL
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: Failed to connect with local Steam Client process!
 FATAL ERROR: This game requires latest version of Steam to be running!
 FATAL ERROR: unable to register all schema data: %s
@@ -14176,6 +14162,7 @@ For subtick jumps, if this much time has elapsed since the last time the user ha
 Force Reload Cubemaps
 Force a specific lesson to be triggered
 Force all clients to disable their game instructors.
+Force all clients to enable their game instructors.
 Force all shots to have maximum inaccuracy
 Force closing all visible popups
 Force human players on to a team. 0 to disable.
@@ -14343,7 +14330,6 @@ GameAmmoTypeInfo_t
 GameAnimEventIndex_t
 GameClientExports001
 GameConfigClientV001
-GameControllerMappingChanged
 GameDebugEntityBrowser
 GameDebugVisualizer
 GameEventSystemClientV001
@@ -14397,8 +14383,6 @@ GameTypesAPI
 GameUIService_001
 GameUpdate
 GamepadInput
-GamepadInserted
-GamepadRemoved
 Gas Cylinder
 GasCylinder.Explode
 Gascan
@@ -14406,6 +14390,9 @@ Gaussian Bloom
 GaussianBloomBlurManifestClient
 GcLogonNotificationReceived
 General.BurningFlesh
+Generate Manifest ERROR writing %s
+Generate Manifest for %s
+Generate Manifest successfully wrote %s
 Generate Texture
 Generate a command
 Generate a random integer between min and max (inclusive)
@@ -14453,6 +14440,8 @@ Get mapname string from matchmaking ID used by deepstats.
 Get match stats between now and a given number of days in the past. Return value indicates if this data is incomplete.
 Get object with a snapshot of current server and player statistics for matchmaking.
 Get the 'ValueA' number off the cursor.
+Get the 'ValueB' number off the cursor.
+Get the 'ValueX' number off the graph instance.
 Get the current float time from the engine
 Get the current local time
 Get the current server time
@@ -14599,6 +14588,7 @@ GetCurrentXp
 GetCurrentXpCap
 GetCursorOffset
 GetCursorValueA
+GetCursorValueB
 GetCustomBotDifficulty
 GetCycleClassStrByIndex
 GetCycleCount
@@ -14753,6 +14743,7 @@ GetIngameTeamWinningCoinToss
 GetIngameTeamWithFirstChoice
 GetIngameWinningVotes
 GetIngameXuidsForVote
+GetInstanceValueX
 GetInt
 GetInt(name) : returns the convar as an int. May return null if no such convar.
 GetInt32
@@ -14953,6 +14944,7 @@ GetPlayerColor
 GetPlayerCommendsFriendly
 GetPlayerCommendsLeader
 GetPlayerCommendsTeacher
+GetPlayerCompetitiveRankType
 GetPlayerCompetitiveRanking
 GetPlayerCompetitiveWins
 GetPlayerCount
@@ -14998,6 +14990,7 @@ GetPossibleCraftResultsCount
 GetPreferredItemIdForItemDefIndex
 GetPregameMapIdState
 GetPregameMapIdsList
+GetPregameMyTeam
 GetPregameMyVoteInSlot
 GetPregamePhase
 GetPregamePhaseSecondsRemaining
@@ -15010,6 +15003,7 @@ GetPregameTeamWinningCoinToss
 GetPregameTeamWithFirstChoice
 GetPregameWinningVotes
 GetPregameXuidsForVote
+GetPreviewSceneStateAttribute
 GetPrivateQueuePartyXuidByIndex
 GetPrivateQueuesCount
 GetPrivateQueuesMoreParties
@@ -15310,8 +15304,6 @@ Glows: DownsampleToQuarter
 Glows: Render Objects Solid Color
 Glows: Render Objects into Stencil
 Glows: Stencil To Screen
-GoOffline
-GoOnline
 Goose
 Got a NaN origin on %s
 Got a NaN velocity on %s
@@ -15334,7 +15326,7 @@ Graffiti tint definition id out of range [1..%d]: #%d %s
 Graffiti tint definitions failed to parse
 Graffiti tint name duplicate: #%d %s
 Grant healthshots in arms race after n kills
-Grant healthshots in team deathmatch after n kills
+Grant healthshots in deathmatch after n kills
 Graph
 Graph1
 Graph2
@@ -15395,8 +15387,6 @@ Group Stage | Winners Match 3 of 3
 GroupConVarToggle
 Group_%s
 Guard
-GuideButton
-GuideButtonUp
 Guideline_%d
 GunGameExtraGrenadeIcon
 GunGameExtraWeaponIcon
@@ -15961,7 +15951,6 @@ If using cl_crosshairstyle 2, this is the ratio used to determine how long the i
 If using mp_randomspawn, determines whether to test Line of Sight when spawning.
 If using mp_randomspawn, determines whether to test distance when selecting this spot.
 If we have an session with matchmaking
-If we should show map vote at end of match
 If you intend for this space to be blank, open up '<font color='#72b4d0'>%s</font>', enter a single space and save the file.
 IfHasClassEvent
 IfHoverOtherEvent
@@ -16175,6 +16164,9 @@ InputSetOnAndTurnOthersOff
 InputSetPercentBrightPixels
 InputSetPercentTarget
 InputSetPlaybackRate
+InputSetPlayerFogDistanceMultiplier
+InputSetPlayerFogMaxDensityMultiplier
+InputSetPlayerVisibilityStrength
 InputSetRadius
 InputSetScale
 InputSetScattering
@@ -16348,7 +16340,6 @@ IsDeletable
 IsDemoOrHltv
 IsDraggable
 IsEnabled
-IsEndMatchMapVoteEnabled
 IsEngineThreaded=%d
 IsEquipped
 IsFading
@@ -16467,7 +16458,6 @@ ItemDropPanel_Item
 ItemDropPanel_ItemName
 ItemFlagTypes_t
 ItemHasScorecardValues
-ItemHint
 ItemIcon
 ItemImage
 ItemInspectConnectedDefault
@@ -16509,7 +16499,6 @@ JSConsoleOutput
 JSCreatePanelWithCurrentContext first param must be a panel to parent to
 JSCreatePanelWithCurrentContext takes 1 optional argument: panel to parent created panel to
 JSCreatePanelWithCurrentContext was not called within a context
-JSONWebAPIResponse
 JSValueFromKeyValue failed to package parameter %s (type %d)
 JUMP_COND
 January
@@ -16544,9 +16533,9 @@ JsNameContainer
 JsOnMapLoadFinished
 JsOnMapLoadStarted
 JsRegionLabel
+Jul 12 2023
 Jump to Instr I%d
 JumpOrLeap( C%d:I%d )
-Jun 29 2023
 Jungle
 Just ignore the calculations, you can zoom to this amount (will validate that this is <= maxscale)
 JustInTimeManifest
@@ -16723,7 +16712,6 @@ LangLegend
 Lang_txt
 Language
 Language_%s
-LargeItemHint
 Latam_Spanish
 Latch Report:
 LatchAndSaveLastSimulationValuesForInterpolationList
@@ -17014,6 +17002,7 @@ MNetworkIncludeByUserGroup
 MNetworkMaxValue
 MNetworkMinValue
 MNetworkOverride
+MNetworkPolymorphic
 MNetworkPriority
 MNetworkReplayCompatField
 MNetworkSendProxyRecipientsFilter
@@ -17078,6 +17067,7 @@ MPulseDomainOptInFeatureTag
 MPulseEditorHeaderIcon
 MPulseEditorHeaderText
 MPulseInstanceDomainInfo
+MPulseInternal_IsCursor
 MPulseLibraryBindings
 MPulseProvideFeatureTag
 MPulseRegisterTypeInfo
@@ -17134,6 +17124,7 @@ Manatee
 ManhackCut
 ManhackSparks
 ManhackSparks_global_client
+Manifest/GenerateVPKManifest
 ManuallyTriggerSpawnGroupCompletion
 Map "%s" must be recompiled! It is using the obsolete HoldAnimation key on a prop_dynamic
 Map group: %s
@@ -17291,18 +17282,13 @@ Maximum size in bytes of the WebAPIValues buffer pool
 Maximum speed any ballistically moving object is allowed to attain per axis.
 Maximum stamina penalty
 Maximum think time in milliseconds, warning is printed if this is exceeded.
+Maximum time a bonus time will start after the round start or after the last bonus (in seconds)
+Maximum time the bonus time will last (in seconds)
 Maximum updates per second that the server will allow
 Maximum velocity for a drag scroll flick
 Maximum visible distance
 MboitFinalPass
 MedalRank_t
-MediaNextTrack
-MediaPlayPause
-MediaPrevTrack
-MediaStop
-MediaVolumeDown
-MediaVolumeMute
-MediaVolumeUp
 Melee
 MemAlloc_AllocAlignedFunc
 MemAlloc_AllocFunc
@@ -17351,7 +17337,6 @@ MinFPS
 MinFloat
 MinHistogramGuideline
 MinInt
-MinimizeApp
 Minimum amount of time to pause between playing main menu music
 Minimum clamped size in pixels of a cable (if using F_CLAMP_MIN_RADIUS 1 in cable material)
 Minimum number of seconds that halftime lasts even if team intros are active
@@ -17359,8 +17344,10 @@ Minimum of two values (float)
 Minimum of two values (int)
 Minimum size of pushback objects
 Minimum stopping speed when on ground.
+Minimum time a bonus time will start after the round start or after the last bonus (in seconds)
 Minimum time before recognizing consecutive duck key
 Minimum time in seconds that must elapse before printing prediction error summary. 0 to disable.
+Minimum time the bonus time will last (in seconds)
 Minimum updates per second that the server will allow
 Minimum velocity that the mouse must be moving as mouse up time to qualify as a drag scroll flick
 Minutes
@@ -17574,6 +17561,7 @@ NavLinkSchema_global_client
 NavSystem001
 NavigateToTab
 NavigationCancel
+NavigationContainer
 NavigationReplay
 NavigationSnapshot
 NearFarScaleBias
@@ -17985,7 +17973,6 @@ OpenThread
 OpenURL
 OpenUrlInOverlayOrExternalBrowser
 OpenWatchMenu
-Opening
 Opens Perfect World funds replenishment page for account.
 Opens a radio menu
 Operation XP attribute %d is invalid.
@@ -18036,7 +18023,6 @@ OverMaxPips
 OverbrightAmount
 Overflow %d temporary ents!
 Overgrown
-OverlayGamepadInputMsg
 OverlaySmoke
 OverlaySmokeUpdate
 Overlays
@@ -18151,8 +18137,6 @@ Pack item "%s" included in more than one pack bundle - not allowed!
 Packed store %s with refcount > 0.
 PackedAABB_t
 Packet dump: raw size %u, header size %u, body size %u, var size %u
-PadBackButton
-PadBackButtonUp
 PageDown
 PageLeft
 PageManager
@@ -18622,7 +18606,6 @@ PlayerIcons__Grenade
 PlayerIcons__Hostage
 PlayerIcons__Player
 PlayerIcons__SurvivalCrate
-PlayerIndex
 PlayerIndicator
 PlayerInstanceFromIndex
 PlayerInvited
@@ -18679,6 +18662,8 @@ PlayerStats_PopupSingleMatch
 PlayerTeamChanged
 PlayerVisibility
 PlayerVisibilityDataColor
+PlayerVisibilityParams
+PlayerVisibilityStateChanged
 PlayerVisibilityStencil
 PlayerVisibilityStencilProxy
 PlayerWeapon
@@ -18708,7 +18693,6 @@ Points to award for picking up a dogtag in deathmatch.
 PointsAnim
 Pole vector (raw dir: {%.2f, %.2f, %.2f})
 Polish
-PollingForSteamClientUpdate
 Pop Input Variable Queue
 PopDebugOverlayScope
 Pops the identifier used to group overlays. Overlays marked with this identifier can be deleted in a big batch.
@@ -18791,6 +18775,7 @@ PredictionOwnerOnly
 PredictionsAPI
 Preferred teammate color
 PreferredItems
+PregameDraftChat
 Preliminary Stage | Decider Match
 Preliminary Stage | Decider Match 1 of 3
 Preliminary Stage | Decider Match 2 of 3
@@ -18870,8 +18855,6 @@ ProPlayer
 ProbablyUnlocalizedText
 Problem in lesson %s: Locator_GetTargetFromHandle returned null for handle %d.
 Profile
-ProfileOff
-ProfileOn
 ProfilingScopeBegin
 ProfilingScopeEnd
 Progress
@@ -19029,7 +19012,6 @@ Queued...
 Quick Radial Filename: "%s" not found. Falling back on default: "%s".
 QuickHide
 Quit the game
-QuitApp
 R%d->%s
 R11_EAC
 R16G16_UINT
@@ -19480,7 +19462,6 @@ Restart data gathering after a timeout
 Restart in insecure mode
 Restart in trusted mode
 Restart in untrusted mode
-RestartMachine
 Restore underflow!
 RestoreCVarDefault
 RestoreData:%32.32s [%4d]
@@ -19627,6 +19608,8 @@ SAVE\animgraph
 SAVE\faceposer
 SAVE\faceposer\%s.sav
 SAVE_HEADER
+SAY_BCST|%s
+SAY_TEAM|%s
 SCRIPT_CLEANUP
 SCRIPT_CUSTOM_MOVE_TO_MARK
 SCRIPT_PLAYING
@@ -20024,6 +20007,7 @@ Script_PrecacheEntityListFromTable
 Script_PrecacheModel
 Script_PrecacheResource
 Script_QSlerp
+Script_RandomFloat
 Script_RegisterSpawnGroupFilterProxy
 Script_Remove
 Script_RemoveImmediate
@@ -20132,7 +20116,6 @@ Seasonal operation definition %s: mission card id '%s' found quest #%d in '%s' w
 Seasonal operation definition %s: mission card id '%s' found quest #%d in '%s' which does not refer to a valid map group (%d)
 Seasonal operation definition %s: mission card id '%s' found quest #%d in '%s' which does not refer to a valid quest
 Seasonal operation definition %s: mission card id '%s' found quest #%d in '%s' which has a conflicting game mode ID (%d)
-Seasonal operation definition %s: mission card id '%s' found quest #%d in '%s' which has a conflicting game mode mapgroup (%d:x%08X)
 Seasonal operation definition %s: mission card id '%s' found quest #%d in '%s' which is already in use by another mission card (id=%d)
 Seasonal operation definition %s: mission card id '%s' found quest #%d in '%s' which is not a valid main mission
 Seasonal operation definition %s: mission card id '%s' has already been defined
@@ -20254,6 +20237,8 @@ Set how thick you want your crosshair outline to draw (0-3)
 Set non-zero to prevent buy wheel from purchasing via number keys
 Set rendering on/off for an ehandle
 Set the 'ValueA' number on the cursor.
+Set the 'ValueB' number on the cursor.
+Set the 'ValueX' number on the graph instance.
 Set the control point data for a control on a particle effect
 Set the current color
 Set the current quest name.
@@ -20309,6 +20294,7 @@ SetAudioVolume
 SetAutoRotateAmount
 SetAutoRotatePeriod
 SetAutoScrollEnabled
+SetBackgroundColor
 SetBodygroupPreset failed: CBaseModelEntity has no model!
 SetBool
 SetBool(name, val) : sets the value of the convar to the bool.
@@ -20338,6 +20324,7 @@ SetCurrentCycle
 SetCurrentPage
 SetCursorOffset
 SetCursorValueA
+SetCursorValueB
 SetCustomAppearance
 SetCustomBotDifficulty
 SetCycleClasses
@@ -20423,12 +20410,14 @@ SetGlowOverride
 SetGlowRange
 SetHasClass
 SetHealth
+SetHideStaticGeometry
 SetIgnoreCursor
 SetIgnoreFastMotion
 SetImage
 SetImageSource
 SetInputFocus
 SetInputNamespace
+SetInstanceValueX
 SetInt
 SetInt(name, val) : sets the value of the convar to the int.
 SetInt32
@@ -20493,7 +20482,10 @@ SetPlaybackRateMultiplier
 SetPlaybackVolume
 SetPlayerCharacterItemID
 SetPlayerCount
+SetPlayerFogDistanceMultiplier
+SetPlayerFogMaxDensityMultiplier
 SetPlayerModel
+SetPlayerVisibilityStrength
 SetPlayerVoiceVolume
 SetPopupBackgroundBlur
 SetPositionInPixels
@@ -20619,7 +20611,6 @@ Sets whether the given panel is enabled
 Settings
 SettingsMenu_NavigateToSetting
 SettingsMenu_NavigateToSettingPanel
-SettingsPanelShown
 SetupSequences
 Shader
 ShaderDetail
@@ -20816,7 +20807,6 @@ ShowHudRadio
 ShowHudRosettaSelector
 ShowLoadoutForItem
 ShowOdds
-ShowQuitDialog
 ShowReadyUpPanel
 ShowResetMusicVolumePopup
 ShowSelectItemForCapabilityPopup
@@ -20859,7 +20849,6 @@ Shrapnel
 Shrapnel.Explode
 ShuffleSlots
 Shut down existing lobby session.
-ShutdownMachine
 ShutdownPredictables due to convar change
 Shuts down all open lessons and reloads them from the script file.
 Shutting down...
@@ -20974,18 +20963,15 @@ SoundCommand_t CUtlMemoryPool
 SoundControllerImp
 SoundEmitterSystem
 SoundEvent Handle
-SoundFinished
 SoundHigh
 SoundLevel string appears to be a Volume level %f
 SoundLow
-SoundMuteChanged
 SoundOff
 SoundOpGameSystem
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
 SoundSystem001
-SoundVolumeChanged
 Soundmixer
 Sounds
 Soundscape %s:Unknown command %s
@@ -21152,8 +21138,6 @@ Start a sound event with reliable delivery
 Start: %3.0f
 StartAnimating
 StartAttachment
-StartButton
-StartButtonUp
 StartCamera
 StartChatWithUser
 StartDecodeableAnim
@@ -21215,6 +21199,7 @@ Steam overlay notification position
 Steam overlay notification position horizontal offset
 Steam overlay notification position vertical offset
 Steam text filtering dictionary changed: %d cache entries evicted in %.3f ms
+Steam text filtering initialized %s
 SteamAPI initialized
 SteamAPI_GetHSteamPipe
 SteamAPI_GetHSteamUser
@@ -21255,8 +21240,6 @@ SteamUnifiedMessages
 SteamUser023
 SteamUtils010
 SteamWorksGameStatsClient
-SteampadGuideButton
-SteampadGuideButtonUp
 Steamworks Stats: %s Ending %s session id: %llu
 Steamworks Stats: %s Ending CLIENT session id: %llu
 Steamworks Stats: %s Received %s session id: %llu
@@ -21294,8 +21277,6 @@ StopParticlesWithEndcaps
 StopPlayEndCap
 StopSoundEvent
 StopSoundOn
-StopStreaming
-StopStreamingAndSuspendClient
 Stopped lesson 
 Stops a sound event
 Stops a sound event with optional delivery
@@ -21383,7 +21364,6 @@ SurvivalSpawnSelectModeChange
 SurvivalSpawnSelectUpdate
 SurvivalSpawnSelectUpdateClockPrivate
 SurvivalZoneExplorationProgress
-SuspendMachine
 SuspendThread
 Swamp
 Swedish
@@ -21811,7 +21791,6 @@ ToggleDebugModeLabelInfo
 ToggleDebugModeLabelLights
 ToggleDebugModeLabelScene
 ToggleDebugger
-ToggleFullscreen
 ToggleLightsLabelAll
 ToggleLightsLabelSelected
 ToggleMute
@@ -22028,7 +22007,6 @@ Turn on/off deathcam's kill panel dynamic Y movement
 TurnLeft
 TurnLeftCount
 TurnOff
-TurnOffActiveController
 TurnOn
 TurnRight
 TurnRightCount
@@ -22383,7 +22361,6 @@ Usage:  %s <entindex>
 Usage:  %s minx miny miny maxx maxy maxz <lifetime = 10.0> <r g b a>
 Usage:  %s x y z pitch yaw rol <lifetime = 10.0> <r g b a>
 Usage:  cl_ent_setang index pitch yaw <optional roll>
-Usage: %s <angle in degrees>
 Usage: %s <command> [<command> ... ]
 Usage: %s x y z f a d
 Usage: cl_ent_setpos index x y <optional z>
@@ -22402,7 +22379,6 @@ UsedVoice
 User Messages
 UserExtraData
 UserIDToControllerHScript
-UserInputActive
 UserMessages
 Uses one player model for each team.  Set this value to -1 to allow unapproved / in progress player models to be used.
 Using '$' in commands will substitute the entity selection spec
@@ -23009,7 +22985,6 @@ Wednesday
 Welcome message contained %s twice
 Whale
 What type of penetration to use. 1 = CS:GO, 2 = CS2
-When attempting to get the bonus weapon in deathmatch, whether we should respawn you with it or just give it to you directly
 When enabled server will populate an additional random seed independent of the client
 When enabled will automatically pause the match at next freeze time if less than 5 players are connected on each team.
 When enabled will show knife reticle on clients. Used for game modes requiring target id display when holding a knife.
@@ -23036,6 +23011,7 @@ Whether c4 is droppable
 Whether embedded stream audio volume gets multiplied by master volume
 Whether or not hostages can be hurt.
 Whether or not players vote for the next map at the end of the match when the final scoreboard comes up
+Whether or not to disable holding secondary fire to auto-repeat
 Whether or not to do a warmup period at the start of a match in an offline (bot) match.
 Whether or not to do a warmup period at the start of an online match.
 Whether players can purchase grenades from the buy menu or not.
@@ -23125,7 +23101,6 @@ WorldRenderer/EnvironmentMapRenderSize
 WorldRenderer/EnvironmentMapUseCubeArray
 WorldRendererMgr001
 WorldText: %s %f
-WorldTextAttachmentType_t
 WorldTextPanelHorizontalAlign_t
 WorldTextPanelOrientation_t
 WorldTextPanelVerticalAlign_t
@@ -23601,6 +23576,7 @@ aliceblue
 align
 alive
 alive_loc
+all_chat
 all_class
 all_same_class
 all_same_slot
@@ -24152,6 +24128,7 @@ background-size: 50% 75%; // image fills 50% of the panel's width, and 75% of th
 background-texture-size
 backgroundMap
 background_clear_not_required
+background_color
 backpack_expander
 backpack_slots
 backwards
@@ -24380,6 +24357,7 @@ buildcubemaps
 buildcubemaps_renderdoc_capture
 bulgarian
 bulletPenetrationDamageModifier
+bulletspenetrate
 bumpmine
 bumpmine_projectile
 bundle
@@ -24787,6 +24765,7 @@ cl_deathcam_audio_mix_phase1_fade_time
 cl_deathcam_audio_mix_phase2_fade_amount
 cl_deathcam_audio_mix_phase2_fade_time
 cl_deathcampanel_position_dynamic
+cl_debounce_attack2
 cl_debug_client_gamestats
 cl_debug_duck
 cl_debug_overlay_fullposition
@@ -25808,12 +25787,6 @@ csgo_opaque
 csgo_player_previewmodel
 csgo_previewmodel
 csgo_previewplayer
-csgo_render_dither_scale
-csgo_render_post_bloom
-csgo_render_post_colorcorrection
-csgo_render_post_film_grain
-csgo_render_post_mirror_horizontal
-csgo_render_post_mirror_vertical
 csgo_team1
 csgo_team2
 csgo_use_fullsort_for_opaque
@@ -26880,6 +26853,7 @@ env_gradient_fog
 env_gunfire
 env_light_probe_volume
 env_particle_glow
+env_player_visibility
 env_sky
 env_sparks_directional
 env_sparks_directional.vpcf
@@ -27013,6 +26987,8 @@ extra_info
 extra_wearable
 extractlevelsfromsavegame
 extrazoomout
+eye_blink
+eye_target
 eyeball_l
 eyeball_r
 eyes_follow
@@ -27247,7 +27223,6 @@ file://{resources}/layout/tooltips/tooltip_base.xml
 file://{resources}/layout/tooltips/tooltip_text.xml
 file://{resources}/layout/tooltips/tooltip_title_image_text.xml
 file://{resources}/layout/tooltips/tooltip_title_text.xml
-file://{resources}/layout/world_hint.xml
 file_names
 filename too long
 filepos
@@ -28178,6 +28153,7 @@ hex_color
 hidden
 hide from drop list
 hide-graph
+hideStaticGeometry
 hide_bodygroups_deployed_only
 hide_deathpanel
 hide_freezepanel
@@ -28189,10 +28165,7 @@ high-res gloves
 high-res weapon
 highdamage
 highest_string
-hint_controller_use_hand_origin
 hint_name
-hint_panel_fadein
-hint_panel_fadeout
 hinttext_displaytime
 hip_dip_chng_dir
 hitSound
@@ -28220,7 +28193,6 @@ hltv_replay_fade
 hltv_status
 hltv_title
 hltv_versioninfo
-hmd_anchor_rotate
 holdevent
 holdpos
 holiday_restriction
@@ -29231,6 +29203,7 @@ layout-position
 layout_file
 layoutfailed
 layoutfile
+lb_barnlight_shadowmap_scale
 lb_csm_cascade_size_override
 lb_csm_draw_alpha_tested
 lb_csm_draw_translucent
@@ -29830,7 +29803,6 @@ m_arrProhibitedItemIndices
 m_arrTournamentActiveCasterAccounts
 m_arrTrajectoryTrailPointCreationTimes
 m_arrTrajectoryTrailPoints
-m_attachType
 m_attachmentPointBoneSpace
 m_attachmentPointRagdollSpace
 m_audio
@@ -29930,7 +29902,6 @@ m_bCreateAsChildSpawnGroup
 m_bCreateNonSolid
 m_bCrouch: %s
 m_bCustomCubemapTexture
-m_bDMBonusActive
 m_bDangerZoneControllerEnabled
 m_bDebugAbsOriginChanges
 m_bDefaultEnvMap
@@ -30010,6 +29981,7 @@ m_bFireFinished
 m_bFireIsBurning
 m_bFireOnEmpty
 m_bFiredStartEndOutput
+m_bFirstThink
 m_bFirstTick
 m_bFirstTime
 m_bFirstUpdate
@@ -30147,7 +30119,6 @@ m_bIsQuestEligible
 m_bIsQueuedMatchmaking
 m_bIsRenderingWithViewModels
 m_bIsRescuing
-m_bIsRespawningForDMBonus
 m_bIsRevolver
 m_bIsRunningUnitTests
 m_bIsScoped
@@ -30248,6 +30219,7 @@ m_bPaused
 m_bPawnHasDefuser
 m_bPawnHasHelmet
 m_bPawnIsAlive
+m_bPenUp
 m_bPhysicsInitted
 m_bPilotTakeoverAllowed
 m_bPinPulled
@@ -30314,6 +30286,7 @@ m_bShadowAlphaOverride
 m_bShouldAnimateDuringGameplayPause
 m_bShouldAutobuyDMWeapons
 m_bShouldAutobuyNow
+m_bShouldBleed
 m_bShouldCheckFoW
 m_bShouldExplode
 m_bShouldGlow
@@ -30322,6 +30295,7 @@ m_bShouldPerformCullCheck
 m_bShouldRemove
 m_bShouldSave
 m_bShouldSimulateDuringGamePaused
+m_bShouldSpark
 m_bShowC4LED
 m_bShowInHUD
 m_bShowLight
@@ -30692,7 +30666,6 @@ m_flEdgeFadeDist
 m_flEffectTime
 m_flElasticity
 m_flEmitSoundTime
-m_flEnableTime
 m_flEndDistance
 m_flEndTime
 m_flEndValue
@@ -30762,6 +30735,7 @@ m_flFlinchVelocityModifierSmall
 m_flFluidDensity
 m_flFoWDarkness
 m_flFogContributionStength
+m_flFogDistanceMultiplier
 m_flFogEnd
 m_flFogEndDistance
 m_flFogEndHeight
@@ -30771,6 +30745,7 @@ m_flFogHeightExponent
 m_flFogHeightStart
 m_flFogHeightWidth
 m_flFogMaxDensity
+m_flFogMaxDensityMultiplier
 m_flFogMaxEnd
 m_flFogMaxOpacity
 m_flFogMaxStart
@@ -30814,6 +30789,7 @@ m_flGustDuration
 m_flHDRColorScale
 m_flHazeScale
 m_flHeadDamageMultiplier
+m_flHeadingDeg
 m_flHeadshotMultiplier
 m_flHealthFadeAlpha
 m_flHealthFadeValue
@@ -31213,6 +31189,7 @@ m_flVelocityModifier
 m_flVertSize
 m_flVerticalFOV
 m_flViewFoV
+m_flVisibilityStrength
 m_flVisibleBBoxMinHeight
 m_flVolumetricIntensity
 m_flWarnAITime
@@ -31307,7 +31284,6 @@ m_hFogCubemapTexture
 m_hFogIndirectTexture
 m_hGradientFogTexture
 m_hGroundEntity
-m_hHighlightHand
 m_hHighlightOtherEntity
 m_hHolidayHatAddon
 m_hIconTarget
@@ -31660,12 +31636,9 @@ m_location
 m_lookAroundTimer
 m_lookAt
 m_lookupFilename
-m_mArrowLocalTransform
-m_mComponentTransform
 m_mEyeOcclusionRendererCameraToBoneTransform
 m_mPreferredCatchTransform
 m_matLocal
-m_matLocalHighlight
 m_matchStats
 m_materialGroup
 m_maxBounds
@@ -31749,6 +31722,7 @@ m_nCurrentPhase
 m_nCurrentTick
 m_nCurrentTickThisFrame
 m_nCursorValueA
+m_nCursorValueB
 m_nDamage
 m_nDamageFlags
 m_nDamageTaken
@@ -31854,6 +31828,7 @@ m_nIndirectTextureDimZ
 m_nInfernoType
 m_nInitialSeed
 m_nInputType
+m_nInstanceValueX
 m_nInstruction
 m_nInteractsAs
 m_nInteractsExclude
@@ -31888,7 +31863,6 @@ m_nLastMagDropAttachmentIndex
 m_nLastPredictableCommand
 m_nLastPurchaseIndex
 m_nLastReadByInstruction
-m_nLastSimulateFrame
 m_nLastThinkTick
 m_nLatchAbsOrigin
 m_nLightChoice
@@ -31983,7 +31957,6 @@ m_nPlatWindowWidth
 m_nPlayer
 m_nPlayerDominated
 m_nPlayerDominatingMe
-m_nPlayerIndex
 m_nPlayerSmokedFx
 m_nPoseParamPitch
 m_nPoseParamYaw
@@ -32113,7 +32086,6 @@ m_nTotalTicksThisFrame
 m_nTournamentPredictionsPct
 m_nTraceCount
 m_nTracerFrequency
-m_nTrackedDeviceIndex
 m_nTransitionDurationTicks
 m_nTransitionStartTick
 m_nTransmitStateOwnedCounter
@@ -32205,6 +32177,7 @@ m_pEnvMap
 m_pFireOverlay
 m_pFlashlightServices
 m_pFollowup
+m_pGameModeRules
 m_pGameRules
 m_pGameSceneNode
 m_pGlowServices
@@ -32274,13 +32247,7 @@ m_previousCycle
 m_previousElapsedDuration
 m_previousPlayerState
 m_programBuffer
-m_pszCaption
-m_pszCustomLayoutFile
-m_pszHighlightControllerAction
-m_pszHighlightControllerComponent
-m_pszHighlightOtherEntityName
 m_pszImpactEffect
-m_pszLessonName
 m_pszParticleEffect
 m_qDeathEyeAngles
 m_qObsInterp_OrientationStart
@@ -32448,7 +32415,6 @@ m_szSpeakerContext
 m_szStartSound
 m_szString1
 m_szString2
-m_szTargetAttachmentName
 m_szTeamFlagImage
 m_szTeamLogoImage
 m_szTeamMatchStat
@@ -32564,7 +32530,6 @@ m_vMinBounds
 m_vMinimapMaxs
 m_vMinimapMins
 m_vNormal
-m_vOffset
 m_vOldOrigin
 m_vOrigin
 m_vOutTangentLocal
@@ -32667,7 +32632,6 @@ m_vecLastRopeTargetPos
 m_vecLeft
 m_vecLocalHexFlags
 m_vecLocalHexFlagsClientCopy
-m_vecLocalHighlightPoint
 m_vecLocalTop
 m_vecLooseVariables
 m_vecMatchFilters
@@ -32710,7 +32674,6 @@ m_vecPreviouslyPredictedOrigin
 m_vecPropertyMutators
 m_vecRandomRollInputVars_InputVarsToRoll
 m_vecRenderAttributes
-m_vecRenderModelComponentTransforms
 m_vecReportedPosition
 m_vecSellbackPurchaseEntries
 m_vecSkyboxOrigin
@@ -32954,6 +32917,7 @@ mapload
 mapname
 mapoverview_allow_client_draw
 mapoverview_icon_scale
+maps/
 maps/%s.txt
 maps/%s/%s
 maps/%s/lightmaps/lightmap_query_data.kv3
@@ -33192,7 +33156,6 @@ mathlib_extended
 matrix3x4
 matrix3x4-world
 matrix3x4_t
-matrix3x4a_t
 max distance at which the overhead team id icons will show
 max distance at which the overhead team id icons will show when a spectator
 max number of rounds to play before server changes maps
@@ -33497,7 +33460,6 @@ models/props_survival/safe/safe_door.vmdl
 models/sprays/spray_plane.vmdl
 models/tools/bullet_hit_marker.vmdl
 models/tools/green_plane/green_plane.vmdl
-models/ui/arrow_2d.vmdl
 models/weapons/patch_inspect.vmdl
 models/weapons/uid.vmdl
 models/weapons/v_models/arms/ctm_heavy/v_sleeve_ctm_heavy.vmdl
@@ -33587,15 +33549,19 @@ mp_death_drop_taser
 mp_default_team_winner_no_objective
 mp_defuser_allocation
 mp_display_kill_assists
+mp_dm_bonus_length_max
+mp_dm_bonus_length_min
 mp_dm_bonus_percent
-mp_dm_bonus_respawn
 mp_dm_bonusweapon_dogtags
 mp_dm_dogtag_score
+mp_dm_healthshot_killcount
 mp_dm_kill_base_score
 mp_dm_teammode
 mp_dm_teammode_bonus_score
 mp_dm_teammode_dogtag_score
 mp_dm_teammode_kill_score
+mp_dm_time_between_bonus_max
+mp_dm_time_between_bonus_min
 mp_dogtag_pickup_rule
 mp_dronegun_stop
 mp_drop_grenade_enable
@@ -33701,7 +33667,6 @@ mp_t_default_melee
 mp_t_default_primary
 mp_t_default_secondary
 mp_taser_recharge_time
-mp_tdm_healthshot_killcount
 mp_team_timeout_max
 mp_team_timeout_time
 mp_teamcashawards
@@ -33887,7 +33852,6 @@ noreplay
 normal
 normal-health
 normalizedAdditiveBloomStrength
-normalizedScreenBloomStrength
 normals are all identical
 norwegian
 noscope
@@ -34138,6 +34102,7 @@ overflow: squish scroll; // scrolls contents in the Y direction</pre>
 overhead_follow
 overlay
 overlay_vars
+overpass
 overriddenColorBuffer
 overriddenDepthBuffer
 override of field %s::%s, flags changed from %s to %s in optimized map
@@ -34368,6 +34333,7 @@ particles/blood_impact/blob_impact.vpcf
 particles/blood_impact/blob_impact_frozen.vpcf
 particles/blood_impact/blood_impact_antlion_01.vpcf
 particles/blood_impact/blood_impact_basic.vpcf
+particles/blood_impact/blood_impact_friendly.vpcf
 particles/blood_impact/blood_impact_green_01.vpcf
 particles/blood_impact/blood_impact_heavy.vpcf
 particles/blood_impact/blood_impact_high.vpcf
@@ -34412,7 +34378,6 @@ particles/fire_01/env_fire_small_smoke.vpcf
 particles/fire_01/env_fire_tiny.vpcf
 particles/fire_01/env_fire_tiny_smoke.vpcf
 particles/fx/fx_tracer.vpcf
-particles/gameui/particle_line_ui.vpcf
 particles/generic_fx/bubble_trail.vpcf
 particles/generic_fx/bubbles.vpcf
 particles/generic_fx/fizz.vpcf
@@ -34453,7 +34418,6 @@ particles/water_fx/water_trail_directional.vpcf
 particles/water_fx/water_trail_directional_walk.vpcf
 particles/water_fx/water_trail_idle.vpcf
 particles/water_fx/water_wake_fast.vpcf
-particles/water_fx/water_wake_medium.vpcf
 particles/water_fx/water_wake_slow.vpcf
 particles/water_fx/water_wake_splash.vpcf
 particles/water_impact/water_splash_01.vpcf
@@ -34664,6 +34628,8 @@ player_wargames_list2_%d_%d_%X
 player_weapons_v1
 playerchatwheel %s "%s"
 playercontroller
+playerfogdistancemultiplier
+playerfogmaxdensitymultiplier
 playerid--team-ct
 playerid--team-survival
 playerid--team-t
@@ -34682,6 +34648,7 @@ players_alive_CT
 players_alive_TERRORIST
 playerslot
 playerstats-dropdown-entry
+playervisibilitystrength
 playevent
 playing
 playlooping
@@ -34703,21 +34670,10 @@ point_clientui_world_panel
 point_clientui_world_text_panel
 point_follow
 point_follow_substepped
-point_hint_ui
-point_hint_ui_arrow_highlight_model
-point_hint_ui_button_highlight_model
-point_hint_ui_dpi
-point_hint_ui_height
-point_hint_ui_highlight_model
-point_hint_ui_large_height
-point_hint_ui_large_width
-point_hint_ui_width
-point_hmd_anchor
 point_offscreen_indicator_ui
 point_prefab
 point_template
 point_value_remapper
-point_vr_anchor_override
 point_worldtext
 pointer
 pointer types differ (net %s - pred %s)
@@ -35010,13 +34966,19 @@ r_csgo_reflection_min_far_plane
 r_csgo_render_alpha_immunity
 r_csgo_render_decals
 r_csgo_render_decals_on_translucent
+r_csgo_render_dither_scale
 r_csgo_render_dynamic_objects
 r_csgo_render_inferno_decals
 r_csgo_render_opaque
 r_csgo_render_overlays
+r_csgo_render_post_bloom
 r_csgo_render_post_bloom_strength
+r_csgo_render_post_colorcorrection
+r_csgo_render_post_film_grain
 r_csgo_render_post_fxaa
 r_csgo_render_post_local_contrast
+r_csgo_render_post_mirror_horizontal
+r_csgo_render_post_mirror_vertical
 r_csgo_render_translucent
 r_csgo_resolve_dither_bluenoise_amount
 r_csgo_resolve_dither_noise_amount
@@ -35749,6 +35711,7 @@ setting.defaultresheight
 setting.fullscreen
 setting.fullscreen_min_on_focus_loss
 setting.gpu_level
+setting.lb_barnlight_shadowmap_scale
 setting.lb_csm_cascade_size_override
 setting.lb_csm_override_staticgeo_cascades
 setting.lb_csm_override_staticgeo_cascades_value
@@ -35970,6 +35933,7 @@ sm_footstepControllers
 sm_nonPrimaryGlobalLights
 sm_pGlobalLight
 sm_pGradientFog
+sm_pPlayerVisibility
 sm_pSkyboxSlots
 small
 smoke
@@ -36458,6 +36422,7 @@ subtype
 subtype mismatch
 success
 success_limit
+successfully
 suggested
 supply_crate
 support
@@ -36547,6 +36512,7 @@ sv_dz_team_count
 sv_dz_zone_bombdrop_money_reward
 sv_dz_zone_bombdrop_money_reward_bonus
 sv_dz_zone_hex_radius
+sv_enablebunnyhopping
 sv_endmatch_item_drop_interval
 sv_endmatch_item_drop_interval_ancient
 sv_endmatch_item_drop_interval_legendary
@@ -36568,6 +36534,7 @@ sv_force_reflections
 sv_friction
 sv_full_alltalk
 sv_gameinstructor_disable
+sv_gameinstructor_enable
 sv_grassburn
 sv_gravity
 sv_grenade_trajectory_prac_pipreview
@@ -36984,7 +36951,6 @@ tomato
 tonemapBlendDownsample
 tonemapMaskColor
 tonemapRenderer
-tonemapSystem
 too many files open
 too many files open in system
 too many length or distance symbols
@@ -37757,7 +37723,6 @@ voxel_size
 vphysics2
 vprof_scope_entity_clientthink
 vprof_scope_entity_thinks
-vr_palm
 vrnmd
 vscripts
 vscroll
@@ -38143,6 +38108,7 @@ winpanel-title
 winpanel-title-s1
 winstreak
 wireframeColor
+with error
 wm_bodygroup_override
 wm_bodygroup_state_override
 wont-afford

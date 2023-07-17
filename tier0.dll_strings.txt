@@ -197,6 +197,7 @@
 %s.exe
 %s/%d
 %s: Attempting to mail.
+%s: CDwarfVector count overflow
 %s: Invalid capacity %u
 %s: Invalid grow amount %d
 %s: Invalid lock state %d
@@ -404,6 +405,7 @@
 -allowmultiple
 -assert
 -assert_content
+-assert_dialog_hotkeys
 -assertbreak
 -attachtodebugger
 -break_on_crash
@@ -513,6 +515,7 @@
 .?AVCCvar@@
 .?AVCDefaultKeyValuesErrorSpew@@
 .?AVCDefaultLoggingResponsePolicy@@
+.?AVCDisposableKeyValuesSystem@@
 .?AVCDmSymbolTableLarge@@
 .?AVCExecMultiWorkerJob@@
 .?AVCFiberJobPool@@
@@ -523,6 +526,7 @@
 .?AVCKeyValuesDumpContextToBufferString@@
 .?AVCKeyValuesDumpContextToLoggingChannel@@
 .?AVCKeyValuesSystem@@
+.?AVCKeyValuesSystemBase@@
 .?AVCListOps@TSListTests@@
 .?AVCLoadKV3FromText@@
 .?AVCMiniDumpCommentBuilderBase@@
@@ -836,7 +840,8 @@
 ??0KeyValues@@QEAA@PEBD0PEB_W@Z
 ??0KeyValues@@QEAA@PEBD0_K@Z
 ??0KeyValues@@QEAA@PEBD0_N@Z
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
+??0KeyValues@@QEAA@PEBDW4KV_DISPOSABLE_STRING_TABLE_STATE@0@@Z
 ??0KeyValues@@QEAA@PEBV0@_N@Z
 ??0KeyValuesJSONParser@@QEAA@AEBVCUtlBuffer@@@Z
 ??0KeyValuesJSONParser@@QEAA@PEBDH@Z
@@ -1175,7 +1180,7 @@
 ?ExitScope@CVProfNode@@QEAA_NXZ
 ?ExitScope@CVProfile@@QEAAXXZ
 ?ExtendPath@CBufferString@@QEAAPEBDPEBDD_N@Z
-?ExtractFileBase@CBufferString@@QEAAPEBDPEBD@Z
+?ExtractFileBase@CBufferString@@QEAAPEBDPEBD_N@Z
 ?ExtractFileExtension@CBufferString@@QEAAPEBDPEBD@Z
 ?ExtractFilePath@CBufferString@@QEAAPEBDPEBD_N@Z
 ?ExtractFirstDir@CBufferString@@QEAAPEBDPEBD@Z
@@ -1560,6 +1565,7 @@
 ?IterateListeners_Start@CEventDispatcher_Base@@IEAA_NAEAUDelegateIterator_Base_t@1@_N@Z
 ?Join@CThread@@QEAA_NI@Z
 ?JsonEscape@@YA?AVCUtlString@@PEBD@Z
+?KVSystem@CKeyValues_Data@@IEBAPEAVIKeyValuesSystem@@XZ
 ?KvBeginKey@CKeyValuesDumpContextAsDevMsg@@UEAA_NPEAVKeyValues@@H@Z
 ?KvBeginKey@IKeyValuesDumpContextAsText@@UEAA_NPEAVKeyValues@@H@Z
 ?KvEndKey@IKeyValuesDumpContextAsText@@UEAA_NPEAVKeyValues@@H@Z
@@ -1754,7 +1760,7 @@
 ?RemovePartialUTF8Tail@CBufferString@@QEAA_N_N@Z
 ?RemoveSubKey@KeyValues@@QEAAXPEAV1@_N1@Z
 ?RemoveTailUTF8@CBufferString@@QEAAPEBDH@Z
-?RemoveToFileBase@CBufferString@@QEAAPEBDXZ
+?RemoveToFileBase@CBufferString@@QEAAPEBD_N@Z
 ?RemoveTrailingCharacters@CMiniDumpComment@@QEAA_ND@Z
 ?RemoveWhitespace@CBufferString@@QEAAHXZ
 ?Replace@CBufferString@@QEAAHDD@Z
@@ -1860,7 +1866,7 @@
 ?SetCurrentFiber@CFiber@@SAPEAV1@PEAV1@@Z
 ?SetDirToWatch@CDirWatcher@@QEAA_NPEBDI_NI_K@Z
 ?SetDirect@CUtlString@@QEAAXPEBDH@Z
-?SetExtension@CBufferString@@QEAAPEBDPEBD@Z
+?SetExtension@CBufferString@@QEAAPEBDPEBD_N@Z
 ?SetExternalBuffer@CUtlBuffer@@QEAAXPEAXHHH@Z
 ?SetFloat@KeyValues@@QEAAXPEBDM@Z
 ?SetFromSockadr@netadr_t@@QEAA_NPEBUsockaddr@@@Z
@@ -1944,7 +1950,7 @@
 ?String@CUtlFilenameSymbolTable@@QEAA_NAEBIPEADH@Z
 ?String@CUtlFilenameSymbolTable@@QEAA_NAEBIPEAVCBufferString@@@Z
 ?String@CUtlSymbolTable@@QEBAPEBDVCUtlSymbol@@@Z
-?StripExtension@CBufferString@@QEAAPEBDXZ
+?StripExtension@CBufferString@@QEAAPEBD_N@Z
 ?StripExtension@CUtlString@@QEBA?AV1@XZ
 ?StripFilename@CUtlString@@QEBA?AV1@XZ
 ?StripFirstDirectory@CUtlString@@QEBA?AV1@XZ
@@ -2251,7 +2257,6 @@ AppPolicyGetThreadInitializationType
 AppendMiniProfilerToList
 ApplyDiffs
 April
-Arange terminator not at the end of a set
 AreFileApisANSI
 Arenas
 Assert
@@ -2688,6 +2693,27 @@ CDirTreeWatchManager::AddWatch called on '%s' which is contained in existing wat
 CDirectPlaybackAnimNode
 CDirectionalBlendAnimNode
 CDistanceRemainingMetric
+CDwarfVector capacity overflow
+CDwarfVector<char *>::GetInsertPtr
+CDwarfVector<char>::GetInsertPtr
+CDwarfVector<enum EDwarfSymbolKind>::GetInsertPtr
+CDwarfVector<struct CDwarfFile::SSection>::GetInsertPtr
+CDwarfVector<struct CDwarfModule::SAddrToCompilationUnit>::GetInsertPtr
+CDwarfVector<struct CDwarfModule::SCompilationUnit>::GetInsertPtr
+CDwarfVector<struct CDwarfModule::SDebugInfoEntryRefs>::GetInsertPtr
+CDwarfVector<struct CDwarfModule::SInlineFrame>::GetInsertPtr
+CDwarfVector<struct CDwarfModule::SSourceLine>::GetInsertPtr
+CDwarfVector<struct CDwarfModule::SSymbol>::GetInsertPtr
+CDwarfVector<struct CDwarfUndecorateName::STextRange>::GetInsertPtr
+CDwarfVector<struct CieInfoRef_t>::GetInsertPtr
+CDwarfVector<struct SDieParent>::GetInsertPtr
+CDwarfVector<struct SDwarfAbbrevEntry>::GetInsertPtr
+CDwarfVector<struct SDwarfCieInfo>::GetInsertPtr
+CDwarfVector<struct SDwarfFdeInfo>::GetInsertPtr
+CDwarfVector<struct SDwarfIncompleteName>::GetInsertPtr
+CDwarfVector<struct SDwarfRelVirtRange>::GetInsertPtr
+CDwarfVector<unsigned char>::GetInsertPtr
+CDwarfVector<unsigned int>::GetInsertPtr
 CEmitTagAction
 CEnumAnimParameter
 CExpressionAction
@@ -2729,9 +2755,9 @@ CJiggleBoneAnimNode
 CJumpHelperAnimNode
 CKV3FormatManager::RegisterFormatConversion
 CKeyValues3Context::Root
-CKeyValuesSystem::GetSymbolForString
-CKeyValuesSystem::GetSymbolForStringCaseSensitive
 CKeyValuesSystem::m_Strings
+CKeyValuesSystemBase::GetSymbolForStringCaseSensitiveInternal
+CKeyValuesSystemBase::GetSymbolForStringInternal
 CLIENTCMD_CAN_EXECUTE
 CLIENTDLL
 CLeanMatrixAnimNode
@@ -3169,6 +3195,7 @@ ConnectInterfaceSingletons
 Connection_Inparam
 Connection_Outflow
 Console
+Console History (reversed)
 Constructor/destructor index ('%c%c') out of range
 Constructor/destructor name extraction failed
 Content Assertion Failed
@@ -3235,6 +3262,7 @@ CreateCommandLine
 CreateCompatibleDC
 CreateDIBSection
 CreateDirectoryW
+CreateDisposableKeyValuesSystem
 CreateEventA
 CreateEventW
 CreateFileMappingA
@@ -3266,6 +3294,7 @@ DEVELOPMENTONLY
 DISCARD
 DONTRECORD
 DWARF
+DWARF WARNING: arange terminator not at the end of a set
 DWARF deferred symbols
 DWARF: 
 DWARF:   %s build ID does not match %s, ignoring
@@ -3339,6 +3368,7 @@ ENGLISH
 ERROR
 ERROR: %s
 ERROR: Alloc exceeded allocation limit /+/ %llu > %llu
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR: EnsureChildProcessKillOnParentEnd() - Failed to assign child process to shared job object. OS error message:
 ERROR: EnsureChildProcessKillOnParentEnd() - Failed to create shared job object. OS error message:
 ERROR: EnsureChildProcessKillOnParentEnd() - Failed to set flags on shared job object. OS error message:
@@ -3446,6 +3476,7 @@ FAIL: Not all items popped
 FATAL
 FATAL ERROR
 FATAL ERROR: 
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: unable to create temp directory under '%s'
 FATAL ERROR: unable to create temp file under '%s'
 FATAL: %s called on a pool context (no root available)
@@ -4370,7 +4401,6 @@ PanoramaUIClient001
 PanoramaUIEngine001
 Parameter file '%s' not found, skipping...
 Parent and child ConVars with different default values! %s child: %s parent: %s (parent wins)
-ParseTokenFromCharString
 Particle Simulation
 Particle/Effect_Rendering
 ParticleSystemMgr003
@@ -5506,6 +5536,7 @@ UuidCreate
 UuidFromStringA
 UuidToStringA
 VALVE-MODULE-DEBUG-%08X
+VALVE_ASSERT_DIALOG_HOTKEYS
 VALVE_CLOCK_SPEED_CALCULATION
 VALVE_TESTMODE
 VALVE_TEST_MONITOR_PROCESS

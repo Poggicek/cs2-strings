@@ -183,7 +183,7 @@
 ??0CUtlBuffer@@QEAA@HHH@Z
 ??0CUtlSymbolTable@@QEAA@HH_N@Z
 ??0CVirtualMachineCallStackTranslationEncoder@@QEAA@PEBD@Z
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
 ??1CUtlSymbolTable@@QEAA@XZ
 ??1CVirtualMachineCallStackTranslationEncoder@@QEAA@XZ
 ??2KeyValues@@SAPEAX_K@Z
@@ -616,6 +616,7 @@ Quaternion
 QueryPerformanceCounter
 RaiseException
 RandomFloat
+RandomFloatWrapper
 RandomInt
 Read-only file system
 ReadConsoleW

@@ -2,12 +2,20 @@
 	You must construct it with ORDERED_CONSTRUCT macro in the dependency resolution function.
  %f elapsed w/o i/o
  - %u
+ Base Class Array'
+ Base Class Descriptor at (
  Chunks Failed Verification 
  Chunks verified %d Pending %d Failed %d Skipped %d 
+ Class Hierarchy Descriptor'
+ Complete Object Locator'
  Directory Hash bad 
  Hashes are missing 
  Master Chunk Hash bad 
+ Type Descriptor'
  Version %s %d Embedded Chunk %d : %d Hashes %d Chunks %d 
+ delete
+ delete[]
+ new[]
 !m_bNeedsSort
 %-20s "%s" %s%s
 %-20s %s
@@ -103,8 +111,11 @@
 .?AV_Ref_count_base@std@@
 .?AVbad_alloc@std@@
 .?AVbad_array_new_length@std@@
+.?AVbad_exception@std@@
 .?AVbad_weak_ptr@std@@
 .?AVexception@std@@
+.?AVlength_error@std@@
+.?AVlogic_error@std@@
 .?AVtype_info@@
 0 0 0
 0 0 0 0
@@ -127,7 +138,7 @@
 ??0CUtlMemoryBlockAllocator@@QEAA@HIW4RawAllocatorType_t@@@Z
 ??0CUtlString@@QEAA@AEBVCBufferString@@@Z
 ??0CUtlSymbolTable@@QEAA@HH_N@Z
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
 ??1CCountedStringPool@@UEAA@XZ
 ??1CDirIterator@@QEAA@XZ
 ??1CThread@@UEAA@XZ
@@ -165,7 +176,7 @@
 ?EnterScope@CVProfile@@QEAAXPEBDH0_NH@Z
 ?ExitScope@CVProfile@@QEAAXXZ
 ?ExtendPath@CBufferString@@QEAAPEBDPEBDD_N@Z
-?ExtractFileBase@CBufferString@@QEAAPEBDPEBD@Z
+?ExtractFileBase@CBufferString@@QEAAPEBDPEBD_N@Z
 ?ExtractFileExtension@CBufferString@@QEAAPEBDPEBD@Z
 ?ExtractFilePath@CBufferString@@QEAAPEBDPEBD_N@Z
 ?ExtractFirstDir@CBufferString@@QEAAPEBDPEBD@Z
@@ -225,7 +236,7 @@
 ?Start@CThread@@UEAA_NIW4ThreadPriorityEnum_t@@@Z
 ?String@CUtlFilenameSymbolTable@@QEAA_NAEBIPEAVCBufferString@@@Z
 ?String@CUtlSymbolTable@@QEBAPEBDVCUtlSymbol@@@Z
-?StripExtension@CBufferString@@QEAAPEBDXZ
+?StripExtension@CBufferString@@QEAAPEBD_N@Z
 ?StripTrailingSlash@CBufferString@@QEAAPEBDXZ
 ?StripTrailingSlash@CUtlString@@QEAAXXZ
 ?SwapFieldsToTargetEndian@CByteswap@@QEAAXPEAX0PEAUdatamap_t@@@Z
@@ -244,7 +255,6 @@
 ?WaitForCreateComplete@CThread@@MEAA_NPEAVCThreadEvent@@@Z
 APPSYSTEM: In ConnectInterfaces(), s_nRegistrationCount is %d!
 ASYNC Read: %s
-AcquireSRWLockExclusive
 Add N ms of delay to every low-level read operation, to simulate a slow disk
 Adding VPK file: %s
 Addreffing existing VPK file: %s
@@ -253,6 +263,9 @@ Alignment
 AnimGraphEditorUtils001
 AnimationSystemUtils_001
 AnimationSystem_001
+AppPolicyGetProcessTerminationMethod
+April
+AreFileApisANSI
 AssetBrowserSystem_001
 AssetPreviewSystem_001
 AssetRenameSystem_001
@@ -271,6 +284,7 @@ Attempting to read UGC %llu but Steam isn't available!
 Attempting to read UGC %llu but failed to get installation directory.
 Attempting to read UGC %llu but failed to open vpk file: %s
 Attempting to read UGC %llu that isn't installed! Need to finish downloading first...
+August
 Bad or missing zip file, failed to open '%s'
 BakedLODBuilderMgr001
 BenchmarkService001
@@ -342,16 +356,21 @@ Content file %s is corrupt. Verify integrity of game files.
 CopyAFile: Cannot copy into a VPK or UGC file '%s'
 CopyAFile: Failed to copy file %s.
 CopyAFile: dest '%s' must be absolute path.
+CorExitProcess
+CreateEventW
 CreateFileA
 CreateFileMappingA
+CreateFileW
 CreateInterface
 Current
 DEFAULT_WRITE_PATH
 DataOffset
+December
+DeleteCriticalSection
 DemoUpconverterVersion001
 Destroying Completion Queue with %zu pending results!
 DirectoryEntries
-DisableThreadLibraryCalls
+ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 ERROR_BADREQUEST: Code error - bad request
 ERROR_FILEOPEN: File not found
 ERROR_NOMEMORY: Out of memory
@@ -360,7 +379,11 @@ ERROR_READING: File exists but read failed
 EXECUTABLE_PATH
 EXPORTSYSTEM_INTERFACE_VERSION_001
 EconItemToolModel_001
+EncodePointer
 EngineServiceMgr001
+EnterCriticalSection
+ExitProcess
+FATAL ERROR: CUtlSymbolTableLarge element limit of %u exceeded
 FATAL ERROR: unable to register all schema data: %s
 FS:  Tried to Close NULL file handle!
 FS:  Tried to EndOfFile NULL file handle!
@@ -382,34 +405,64 @@ Failed
 Failed to load module %s
 Failed to read
 Failed to read %d bytes
+February
 File %s was never closed
 File Path:
 FileSystem
 Filesystem
+FindClose
+FindFirstFileExW
+FindNextFileW
 FlattenedSerializersVersion001
+FlsAlloc
+FlsFree
+FlsGetValue
+FlsSetValue
 FlushFileBuffers
 FontManager_001
+FreeEnvironmentStringsW
+FreeLibrary
+Friday
 From Steam: [%s]\%s
-GSFailure
 GameResourceServiceClientV001
 GameResourceServiceServerV001
 GameUIService_001
+GetACP
+GetCPInfo
 GetCPUInformation
+GetCommandLineA
+GetCommandLineW
+GetConsoleMode
+GetConsoleOutputCP
 GetCurrentProcess
 GetCurrentProcessId
 GetCurrentThreadId
 GetDefaultMiniDumpTypeFlags
+GetEnvironmentStringsW
+GetFileType
 GetLastError
 GetLocalTime
 GetLogicalDriveStringsA
+GetModuleFileNameW
+GetModuleHandleExW
+GetModuleHandleW
+GetOEMCP
+GetProcAddress
+GetProcessHeap
 GetResourceManifestCount
 GetResourceManifests
+GetStartupInfoW
+GetStdHandle
+GetStringTypeW
 GetSystemInfo
 GetSystemTimeAsFileTime
+HH:mm:ss
 HammerMapLoader001
 HelpSystem_001
 HostStateMgr001
 IPulseSystem_001
+InitializeCriticalSectionAndSpinCount
+InitializeCriticalSectionEx
 InitializeSListHead
 InputService_001
 InputStackSystemVersion001
@@ -418,12 +471,21 @@ InstallSchemaBindings
 Intentionally vague touch behavior for %p
 InterlockedFlushSList
 InvokeMiniDumpHandler
+IsDebuggerPresent
+IsProcessorFeaturePresent
+IsValidCodePage
+January
 K32GetModuleBaseNameA
 KERNEL32.dll
 KeyValueCache001
+LCMapStringEx
+LCMapStringW
 LOG_GENERAL
+LeaveCriticalSection
 Length
 LengthOfMatchingPaths
+LoadLibraryExW
+LocaleNameToLCID
 Localize_001
 LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
@@ -434,9 +496,11 @@ MD5Final
 MD5Init
 MD5Update
 MD5_ProcessSingleBuffer
+MM/dd/yy
 MODEL_PROCESSING_SERVICES_INTERFACE_001
 MapListService_001
 MapViewOfFile
+March
 MaterialUtils_001
 MemAlloc_AllocAlignedFunc
 MemAlloc_FreeAlignedFunc
@@ -444,6 +508,8 @@ MemAlloc_StrDupFunc
 MeshSystem001
 MeshUtils001
 ModelDocUtils001
+Monday
+MultiByteToWideChar
 NavSystem001
 NetworkClientService_001
 NetworkMessagesVersion001
@@ -451,7 +517,9 @@ NetworkP2PService_001
 NetworkServerService_001
 NetworkService_001
 NetworkSystemVersion001
+November
 Number of IO threads in async filesystem (-1 == auto)
+October
 Open( %llu microsecs, %s )
 Open( %s )
 Ordered constructor wrapped type has no default constructor.
@@ -501,7 +569,6 @@ Reading UGC %llu that still needs update. Continuing...
 RegisterConCommand: Unknown error registering con command "%s"!
 RegisterConVar: Unknown error registering convar "%s"!
 Release
-ReleaseSRWLockExclusive
 Removing VPK file: %s
 RenderDevice003
 RenderDeviceMgr001
@@ -509,30 +576,41 @@ RenderHardwareConfig002
 RenderService_001
 RenderUtils_001
 Requested non-existent write path %s!
+ResetEvent
 ResourceCompilerSystem001
 ResourceHandleUtils001
 ResourceManifestRegistry001
 ResourceSystem013
+RtlCaptureContext
+RtlLookupFunctionEntry
 RtlPcToFileHeader
 RtlUnwindEx
+RtlVirtualUnwind
 STATUS_ABORTED: Request canceled
 STATUS_PENDING: Request still pending
 STATUS_UNDEFINED: Internal filesystem error
 STEAMAPPS_INTERFACE_VERSION008
 STEAMUGC_INTERFACE_VERSION016
+Saturday
 SceneSystem_002
 SceneUtils_001
 SchemaSystem_001
 SchemaTestExternal_One_001
 SchemaTestExternal_Two_001
 Sending Steam API content notification
+September
 SerializedEntitiesVersion001
 ServerResourceCompilerInfo_001
 Set fs_report_long_reads 1 before loading to use this. Prints a list of files that were opened more than once and ~how long was spent reading from them.
+SetEvent
 SetFilePointer
+SetFilePointerEx
+SetLastError
+SetStdHandle
+SetUnhandledExceptionFilter
 Show the filesystem path.
 Size of per file buffers. 0 for none
-SleepConditionVariableSRW
+SleepConditionVariableCS
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -554,12 +632,19 @@ SteamAPI_GetHSteamUser
 SteamAudio001
 SteamInternal_ContextInit
 SteamInternal_FindOrCreateUserInterface
+Sunday
+TerminateProcess
 TestScriptMgr001
 TextLayout_001
 This convar is being accessed prior to ConVar_Register being called
 ThreadInMainThread
 ThreadSleep
+Thursday
 Times Opened: %3i		Accumulated Time: %10.5fms		Average Time per Open: %13.8fms		File: %s
+TlsAlloc
+TlsFree
+TlsGetValue
+TlsSetValue
 ToolFramework2_002
 ToolSceneNodeFactory_001
 ToolService_001
@@ -568,9 +653,11 @@ Tried to Seek NULL file handle!
 Tried to close unknown file pointer 0x%llX
 Tried to read %i bytes from unknown file pointer 0x%llX
 Tried to write %i bytes from unknown file pointer 0x%llX
+Tuesday
 UNKNOWN VALUE
 Unable to remove %s!
 Unable to rename "%s" to "%s"!
+UnhandledExceptionFilter
 Unknown exception
 Unknown read error %d
 Unknown version %d for vpk %s
@@ -602,7 +689,6 @@ VStringTokenSystem001
 V_FixDoubleSlashes
 V_GetErrno
 V_GetFileExtension
-V_GetRtSupportFunctions
 V_IsAbsolutePath
 V_IsFakePath
 V_MakeAbsolutePathBuffer
@@ -652,13 +738,17 @@ Vrad3_001
 WARNING: File might be corrupt or missing - '%s'
 WARNING: Local content might be corrupt or missing files
 WARNING: Local content might be corrupt or missing files. Not reporting to Steam due to disabled reporting.
+WaitForSingleObjectEx
 WakeAllConditionVariable
 Warning
+Wednesday
 Whitelist -       reload %s
 Whitelist -       reload (absolute path) %s
 Whitelist - don't reload %s
 Whitelist - don't reload (unheard-of-file) %s
+WideCharToMultiByte
 WorldRendererMgr001
+WriteConsoleW
 WriteFile
 XZP%c %d
 ZIP_EndOfCentralDirRecord
@@ -672,9 +762,61 @@ _V_StringAfterPrefix
 _V_strncmp
 _V_strncpy
 _V_strnicmp_fast
+__based(
+__cdecl
+__clrcall
+__eabi
+__fastcall
+__pascal
+__ptr64
+__restrict
+__stdcall
+__swift_1
+__swift_2
+__swift_3
+__thiscall
+__unaligned
+__vectorcall
 _dir.vpk
 _flt.vpk
+`RTTI
+`anonymous namespace'
+`copy constructor closure'
+`default constructor closure'
+`dynamic atexit destructor for '
+`dynamic initializer for '
+`eh vector constructor iterator'
+`eh vector copy constructor iterator'
+`eh vector destructor iterator'
+`eh vector vbase constructor iterator'
+`eh vector vbase copy constructor iterator'
+`local static guard'
+`local static thread guard'
+`local vftable constructor closure'
+`local vftable'
+`managed vector constructor iterator'
+`managed vector copy constructor iterator'
+`managed vector destructor iterator'
+`omni callsig'
+`placement delete closure'
+`placement delete[] closure'
+`scalar deleting destructor'
+`string'
+`typeof'
+`udt returning'
+`vbase destructor'
+`vbtable'
+`vcall'
+`vector constructor iterator'
+`vector copy constructor iterator'
+`vector deleting destructor'
+`vector destructor iterator'
+`vector vbase constructor iterator'
+`vector vbase copy constructor iterator'
+`vftable'
+`virtual displacement map'
 bad array new length
+bad exception
 bad_weak_ptr
 centralDirectorySize
 chmod
@@ -684,6 +826,7 @@ compressedSize
 compressionMethod
 console.log
 crc32
+dddd, MMMM dd, yyyy
 deque<T> too long
 directory
 diskNumberStart
@@ -724,7 +867,7 @@ internalFileAttribs
 invalid_parameter
 lastModifiedDate
 lastModifiedTime
-length_error
+log10
 materials\overviews\
 materials\vgui\hud\
 nCentralDirectoryEntries_ThisDisk
@@ -732,6 +875,10 @@ nCentralDirectoryEntries_Total
 numberOfTheDiskWithStartOfCentralDirectory
 numberOfThisDisk
 opened_files.txt
+operator
+operator "" 
+operator co_await
+operator<=>
 pak%02d.vpk
 pak*_dir.vpk
 purecall
@@ -740,6 +887,7 @@ relativeOffsetOfLocalHeader
 resource\cursor\
 resource\flash3\images\
 resource\flash3\videos\
+restrict(
 scripts\game_sounds_heroes\
 scripts\music\
 scripts\talker\

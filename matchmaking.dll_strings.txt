@@ -726,7 +726,8 @@ $0option $1;
 ??0CUtlSymbolTable@@QEAA@HH_N@Z
 ??0KeyValues@@QEAA@PEBD0000@Z
 ??0KeyValues@@QEAA@PEBD00@Z
-??0KeyValues@@QEAA@PEBD@Z
+??0KeyValues@@QEAA@PEBDPEAVIKeyValuesSystem@@_N@Z
+??0KeyValues@@QEAA@PEBDW4KV_DISPOSABLE_STRING_TABLE_STATE@0@@Z
 ??1CThread@@UEAA@XZ
 ??1CThreadMutex@@QEAA@XZ
 ??1CThreadSyncObject@@QEAA@XZ
@@ -2127,7 +2128,9 @@ clients
 close
 closed
 color
+comp2v2
 competitive
+competitive2v2
 confirmed
 connect
 connect %s
@@ -2696,6 +2699,7 @@ waiting for lock
 weaponprogression_ct
 weaponprogression_t
 white
+wingman
 work item
 workshop
 wrong protocol type
